@@ -1,0 +1,12 @@
+* SMAP
+XSLT_loadGetNext.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLT_loadGetNext.map
+/NCL_CruiseUserAuthentication_Module/xslt/XSLT_loadGetNext.map
+*L
+1:54,17
+2:82,3
+3:94,3
+*E

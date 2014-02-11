@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<io:smo xmlns:io="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:out5="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_user_lookupbg" xmlns:io7="http://www.w3.org/2005/08/addressing" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:out4="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0" xmlns:out3="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_user_lookup" xmlns:io6="http://NCL_CruiseUserAuthentication_Module" xmlns:io5="http://nclapi/schemas" xmlns:io4="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:io3="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:io2="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:out2="wsdl.http://NCL_CruiseUserAuthentication_Module/DB_Lookup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:out="http://NCL_CruiseUserAuthentication_Module/DB_Lookup">
+  <context>
+    <correlation>
+      <p1:NCL_CruiseUserAuthenticationRQ xmlns:p1="http://nclapi/schemas" xmlns:httpsca="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:mq="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:p="http://NCL_CruiseUserAuthentication_Module" xmlns:tns="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:tns1="http://www.w3.org/2005/08/addressing" xmlns:tns_1="wsdl.http://versonix.com/api/definitions" xmlns:vx="http://versonix.com/api/schemas" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" AltLangID="EN" EchoToken="" PrimaryLangID="EN" RetransmissionIndicator="true" SequenceNmbr="0" Target="Production" TimeStamp="2001-12-31T12:00:00" TransactionIdentifier="" TransactionStatusCode="Start" Version="0.0">
+        <p1:POS>
+          <p1:Source AgentDutyCode="" AgentSine="" AirlineVendorID="" AirportCode="" ERSP_UserID="" FirstDepartPoint="" ISOCountry="" ISOCurrency="" PseudoCityCode="" TerminalID="">
+            <p1:RequestorID ID="" ID_Context="" Instance="" MessagePassword="" Type="" URL="http://tempuri.org">
+              <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+            </p1:RequestorID>
+            <p1:Position Altitude="" AltitudeUnitOfMeasureCode="" Latitude="" Longitude=""/>
+            <p1:BookingChannel Primary="true" Type="">
+              <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+            </p1:BookingChannel>
+          </p1:Source>
+        </p1:POS>
+        <p1:UserLogin Password="" UserLoginName="" UserType=""/>
+        <p1:TPA_Extensions/>
+      </p1:NCL_CruiseUserAuthenticationRQ>
+      <LogID>LogID</LogID>
+    </correlation>
+  </context>
+  <body>
+    <out:executeNclseaNcl_Wesb_User_LookupBG>
+      <out:executeNclseaNcl_Wesb_User_LookupBGInput>
+        <NclseaNcl_Wesb_User_Lookup>
+          <p_type/>
+          <p_username/>
+          <p_password>vx:EncryptString</p_password>
+        </NclseaNcl_Wesb_User_Lookup>
+      </out:executeNclseaNcl_Wesb_User_LookupBGInput>
+    </out:executeNclseaNcl_Wesb_User_LookupBG>
+  </body>
+</io:smo>

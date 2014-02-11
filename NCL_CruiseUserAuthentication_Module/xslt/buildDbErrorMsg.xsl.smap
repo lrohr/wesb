@@ -1,0 +1,19 @@
+* SMAP
+buildDbErrorMsg.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 buildDbErrorMsg.map
+/NCL_CruiseUserAuthentication_Module/xslt/buildDbErrorMsg.map
+*L
+3:89,6
+9:143,3
+1:57,17
+8:139,4
+6:107,5
+5:101,6
+4:95,6
+10:121,6
+7:127,9
+2:85,4
+*E

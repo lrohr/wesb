@@ -1,0 +1,14 @@
+* SMAP
+buildSwResObj_timeout_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 buildSwResObj_timeout_req_1.map
+/NCL_CruiseUserAuthentication_Module/xslt/buildSwResObj_timeout_req_1.map
+*L
+5:105,3
+4:101,4
+2:78,3
+3:89,9
+1:54,17
+*E

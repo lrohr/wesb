@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseUserAuthentication_Module/xslt/XSLT_fromEncryptDecrypt_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseUserAuthentication_Module/xslt/XSLT_fromEncryptDecrypt_req_1">
+    <input correlationContext="{http://NCL_CruiseUserAuthentication_Module}App_context" message="{http://NCL_WESB_Shared_Library/Encrypt_Decrypt_Interface}processEncryptDecryptResponse" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseUserAuthentication_Module}App_context" message="{http://NCL_CruiseUserAuthentication_Module/DB_Lookup}executeNclseaNcl_Wesb_User_LookupBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <namespaces>
+        <namespace kind="extension" prefix="fn" uri="http://www.w3.org/2005/xpath-functions"/>
+    </namespaces>
+    <generation engine="xslt2"/>
+    <mappingDeclaration name="XSLT_fromEncryptDecrypt_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseUserAuthenticationRQ"/>
+            <output path="context/correlation/NCL_CruiseUserAuthenticationRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="context/correlation/InuptLength"/>
+            <output path="context/correlation/InuptLength"/>
+        </move>
+        <function lang="xpath" ref="string-length">
+            <input path="body/processEncryptDecryptResponse/Encrypt_Decrypt/EncryptString" var="EncryptString"/>
+            <output path="context/correlation/OutputLength"/>
+            <param name="string" value="$EncryptString"/>
+        </function>
+        <move>
+            <input path="body/processEncryptDecryptResponse/Encrypt_Decrypt/EncryptString"/>
+            <output path="body/executeNclseaNcl_Wesb_User_LookupBG/executeNclseaNcl_Wesb_User_LookupBGInput/NclseaNcl_Wesb_User_Lookup/p_password"/>
+        </move>
+        <function ref="fn:upper-case">
+            <input path="context/correlation/NCL_CruiseUserAuthenticationRQ/UserLogin/@UserLoginName" var="UserLoginName"/>
+            <output path="body/executeNclseaNcl_Wesb_User_LookupBG/executeNclseaNcl_Wesb_User_LookupBGInput/NclseaNcl_Wesb_User_Lookup/p_username"/>
+            <param name="string" value="$UserLoginName"/>
+        </function>
+        <move>
+            <input path="context/correlation/NCL_CruiseUserAuthenticationRQ/UserLogin/@UserType"/>
+            <output path="body/executeNclseaNcl_Wesb_User_LookupBG/executeNclseaNcl_Wesb_User_LookupBGInput/NclseaNcl_Wesb_User_Lookup/p_type"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

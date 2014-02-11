@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:smo xmlns:httpsca="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:mq="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:p="http://NCL_CruiseUserAuthentication_Module" xmlns:p1="http://nclapi/schemas" xmlns:tns="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:tns1="http://NCL_WESB_Shared_Library/NCL_CruiseUserAuthentication_Interface" xmlns:tns2="http://www.w3.org/2005/08/addressing" xmlns:tns_1="wsdl.http://NCL_WESB_Shared_Library/NCL_CruiseUserAuthentication_Interface" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="platform:/resource/NCL_WESB_Shared_Library/OTA_CommonPrefs.xsd" xsi:schemaLocation="http://www.ibm.com/websphere/sibx/smo/v6.0.1 foo.xsd http://NCL_CruiseUserAuthentication_Module platform:/resource/NCL_CruiseUserAuthentication_Module/App_context.xsd http://nclapi/schemas platform:/resource/NCL_WESB_Shared_Library/NCL_CruiseUserAuthenticationRQ.xsd wsdl.http://NCL_WESB_Shared_Library/NCL_CruiseUserAuthentication_Interface /name%3Dwsdl-body/correlationContext%3Dhttp%253A%252F%252FNCL_WESB_Shared_Library%252FNCL_CruiseUserAuthentication_Interface/message%3D%257Bhttp%253A%252F%252FNCL_WESB_Shared_Library%252FNCL_CruiseUserAuthentication_Interface%257DPerform_NCL_CruiseUserAuthenticationResponseMsg/smo.xsd http://NCL_WESB_Shared_Library/NCL_CruiseUserAuthentication_Interface platform:/resource/NCL_WESB_Shared_Library/NCL_CruiseUserAuthentication_Interface.wsdl http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0 platform:/plugin/com.ibm.ws.sibx.smo/smo-mq.xsd http://schemas.xmlsoap.org/ws/2004/08/addressing platform:/plugin/com.ibm.ws.sibx.smo/ws-addressing2004.xsd http://www.w3.org/2005/08/addressing platform:/plugin/com.ibm.ws.sibx.smo/ws-addr-10.xsd http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0 platform:/plugin/com.ibm.ws.sibx.smo/smo-http.xsd ">
+  <context>
+    <correlation>
+      <p1:NCL_CruiseUserAuthenticationRQ AltLangID="EN" EchoToken="" PrimaryLangID="EN" RetransmissionIndicator="true" SequenceNmbr="0" Target="Production" TimeStamp="2001-12-31T12:00:00" TransactionIdentifier="" TransactionStatusCode="Start" Version="0.0">
+        <p1:POS>
+          <p1:Source AgentDutyCode="" AgentSine="" AirlineVendorID="" AirportCode="" ERSP_UserID="" FirstDepartPoint="" ISOCountry="" ISOCurrency="" PseudoCityCode="" TerminalID="">
+            <p1:RequestorID ID="" ID_Context="" Instance="" MessagePassword="" Type="" URL="http://tempuri.org">
+              <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+            </p1:RequestorID>
+            <p1:Position Altitude="" AltitudeUnitOfMeasureCode="" Latitude="" Longitude=""/>
+            <p1:BookingChannel Primary="true" Type="">
+              <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+            </p1:BookingChannel>
+          </p1:Source>
+        </p1:POS>
+        <p1:UserLogin Password="" UserLoginName="" UserType=""/>
+        <p1:TPA_Extensions/>
+      </p1:NCL_CruiseUserAuthenticationRQ>
+      <LogID>LogID</LogID>
+      <ErrorCode>ErrorCode</ErrorCode>
+      <InuptLength>InuptLength</InuptLength>
+      <OutputLength>OutputLength</OutputLength>
+    </correlation>
+    <transient xsi:type="anyType"/>
+    <failInfo tns:lang="">
+      <failureString>failureString</failureString>
+      <origin>origin</origin>
+      <invocationPath>
+        <primitive inTerminal="" name="" outTerminal=""/>
+      </invocationPath>
+      <predecessor tns:lang=""/>
+    </failInfo>
+    <primitiveContext>
+      <EndpointLookupContext>
+        <endpointReference>
+          <wsa:Address>http://tempuri.org</wsa:Address>
+          <wsa:ReferenceProperties/>
+          <wsa:ReferenceParameters/>
+          <wsa:PortType>QName</wsa:PortType>
+          <wsa:ServiceName PortName="NCName">QName</wsa:ServiceName>
+        </endpointReference>
+        <registryAnnotations>
+          <property>
+            <name>name</name>
+            <value>value</value>
+          </property>
+          <classification>http://tempuri.org</classification>
+          <relationship>
+            <relationshipName>relationshipName</relationshipName>
+            <targetName>targetName</targetName>
+            <targetNamespace>http://tempuri.org</targetNamespace>
+            <targetVersion>targetVersion</targetVersion>
+          </relationship>
+        </registryAnnotations>
+      </EndpointLookupContext>
+      <FanOutContext>
+        <iteration>0</iteration>
+        <occurrence xsi:type="anyType"/>
+      </FanOutContext>
+    </primitiveContext>
+    <shared xsi:type="anyType"/>
+    <dynamicProperty isPropagated="true">
+      <propertySets>
+        <group>group</group>
+        <properties>
+          <name>name</name>
+          <value>value</value>
+          <type>type</type>
+        </properties>
+      </propertySets>
+    </dynamicProperty>
+    <userContext>
+      <entries>
+        <name>name</name>
+        <value xsi:type="anyType"/>
+        <type>type</type>
+      </entries>
+    </userContext>
+  </context>
+  <headers>
+    <SMOHeader>
+      <MessageUUID>MessageUUID</MessageUUID>
+      <Version>
+        <Version>0</Version>
+        <Release>0</Release>
+        <Modification>0</Modification>
+      </Version>
+      <MessageType>MessageType</MessageType>
+      <Operation>Operation</Operation>
+      <Action>Action</Action>
+      <Target bindingType="NotSet" import="">
+        <address>http://tempuri.org</address>
+      </Target>
+      <AlternateTarget bindingType="NotSet" import="">
+        <address>http://tempuri.org</address>
+      </AlternateTarget>
+      <SourceNode>SourceNode</SourceNode>
+      <SourceBindingType>NotSet</SourceBindingType>
+      <Interface>Interface</Interface>
+    </SMOHeader>
+    <JMSHeader>
+      <JMSDestination>http://tempuri.org</JMSDestination>
+      <JMSDeliveryMode>NonPersistent</JMSDeliveryMode>
+      <JMSMessageID>JMSMessageID</JMSMessageID>
+      <JMSTimestamp>0</JMSTimestamp>
+      <JMSCorrelationID>JMSCorrelationID</JMSCorrelationID>
+      <JMSReplyTo>http://tempuri.org</JMSReplyTo>
+      <JMSRedelivered>true</JMSRedelivered>
+      <JMSType>JMSType</JMSType>
+      <JMSExpiration>0</JMSExpiration>
+      <JMSPriority>0</JMSPriority>
+    </JMSHeader>
+    <SOAPHeader>
+      <nameSpace>http://tempuri.org</nameSpace>
+      <name>NCName</name>
+      <prefix>NCName</prefix>
+      <value xsi:type="anyType"/>
+    </SOAPHeader>
+    <SOAPFaultInfo>
+      <faultcode>QName</faultcode>
+      <faultstring>faultstring</faultstring>
+      <faultactor>http://tempuri.org</faultactor>
+    </SOAPFaultInfo>
+    <properties>
+      <name>name</name>
+      <value>value</value>
+      <type>type</type>
+    </properties>
+    <MQHeader>
+      <md>
+        <Report>0</Report>
+        <MsgType>0</MsgType>
+        <Expiry>0</Expiry>
+        <Feedback>0</Feedback>
+        <Priority>0</Priority>
+        <Persistence>0</Persistence>
+        <MsgId>0F00</MsgId>
+        <CorrelId>0F00</CorrelId>
+        <BackoutCount>0</BackoutCount>
+        <ReplyToQ>ReplyToQ</ReplyToQ>
+        <ReplyToQMgr>ReplyToQMgr</ReplyToQMgr>
+        <UserIdentifier>UserIdentifier</UserIdentifier>
+        <AccountingToken>0F00</AccountingToken>
+        <ApplIdentityData>ApplIdentityData</ApplIdentityData>
+        <PutApplType>0</PutApplType>
+        <PutApplName>PutApplName</PutApplName>
+        <PutDate>PutDate</PutDate>
+        <PutTime>PutTime</PutTime>
+        <ApplOriginData>ApplOriginData</ApplOriginData>
+        <GroupId>0F00</GroupId>
+        <MsgSeqNumber>0</MsgSeqNumber>
+        <Offset>0</Offset>
+        <MsgFlags>0</MsgFlags>
+        <OriginalLength>0</OriginalLength>
+      </md>
+      <control xsi:type="mq:MQControl">
+        <Encoding>0</Encoding>
+        <CodedCharSetId>0</CodedCharSetId>
+        <Format>Format</Format>
+      </control>
+      <header>
+        <Encoding>0</Encoding>
+        <CodedCharSetId>0</CodedCharSetId>
+        <Format>Format</Format>
+        <value xsi:type="anyType"/>
+      </header>
+    </MQHeader>
+    <HTTPHeader>
+      <control>
+        <httpsca:URL>http://tempuri.org</httpsca:URL>
+        <httpsca:Version>1.0</httpsca:Version>
+        <httpsca:Method>httpsca:Method</httpsca:Method>
+        <httpsca:DynamicOverrideURL>http://tempuri.org</httpsca:DynamicOverrideURL>
+        <httpsca:DynamicOverrideVersion>1.0</httpsca:DynamicOverrideVersion>
+        <httpsca:DynamicOverrideMethod>httpsca:DynamicOverrideMethod</httpsca:DynamicOverrideMethod>
+        <httpsca:MediaType>httpsca:MediaType</httpsca:MediaType>
+        <httpsca:Charset>httpsca:Charset</httpsca:Charset>
+        <httpsca:TransferEncoding>httpsca:TransferEncoding</httpsca:TransferEncoding>
+        <httpsca:ContentEncoding>httpsca:ContentEncoding</httpsca:ContentEncoding>
+        <httpsca:StatusCode>0</httpsca:StatusCode>
+        <httpsca:ReasonPhrase>httpsca:ReasonPhrase</httpsca:ReasonPhrase>
+        <httpsca:Authentication>
+          <httpsca:credentials>
+            <httpsca:userId>httpsca:userId</httpsca:userId>
+            <httpsca:password>httpsca:password</httpsca:password>
+          </httpsca:credentials>
+          <httpsca:authenticationType>Basic</httpsca:authenticationType>
+        </httpsca:Authentication>
+        <httpsca:SSLSettings>
+          <httpsca:SSLVersion>SSL</httpsca:SSLVersion>
+          <httpsca:SSLDebug>false</httpsca:SSLDebug>
+          <httpsca:KeyStoreType>JKS</httpsca:KeyStoreType>
+          <httpsca:TrustStoreType>JKS</httpsca:TrustStoreType>
+          <httpsca:KeyStore>httpsca:KeyStore</httpsca:KeyStore>
+          <httpsca:KeyStoreAlias>httpsca:KeyStoreAlias</httpsca:KeyStoreAlias>
+          <httpsca:KeyStorePassword>httpsca:KeyStorePassword</httpsca:KeyStorePassword>
+          <httpsca:TrustStore>httpsca:TrustStore</httpsca:TrustStore>
+          <httpsca:TrustStorePassword>httpsca:TrustStorePassword</httpsca:TrustStorePassword>
+          <httpsca:UseClientAuth>false</httpsca:UseClientAuth>
+        </httpsca:SSLSettings>
+        <httpsca:ProxySettings>
+          <httpsca:proxyHost>httpsca:proxyHost</httpsca:proxyHost>
+          <httpsca:proxyPort>0</httpsca:proxyPort>
+          <httpsca:proxyType>http</httpsca:proxyType>
+          <httpsca:proxyCredentials>
+            <httpsca:userId>httpsca:userId</httpsca:userId>
+            <httpsca:password>httpsca:password</httpsca:password>
+          </httpsca:proxyCredentials>
+          <httpsca:nonProxyHost>httpsca:nonProxyHost</httpsca:nonProxyHost>
+        </httpsca:ProxySettings>
+      </control>
+      <header>
+        <httpsca:name>httpsca:name</httpsca:name>
+        <httpsca:value>httpsca:value</httpsca:value>
+      </header>
+    </HTTPHeader>
+    <EISHeader>
+      <EISInteractionSpec xsi:type="anyType"/>
+      <EISConnectionSpec xsi:type="anyType"/>
+    </EISHeader>
+    <WSAHeader version="http://www.w3.org/2005/08/addressing">
+      <tns2:To>http://tempuri.org</tns2:To>
+      <ReferenceParameters/>
+      <tns2:From>
+        <tns2:Address>http://tempuri.org</tns2:Address>
+        <tns2:ReferenceParameters/>
+        <tns2:Metadata/>
+      </tns2:From>
+      <tns2:ReplyTo>
+        <tns2:Address>http://tempuri.org</tns2:Address>
+        <tns2:ReferenceParameters/>
+        <tns2:Metadata/>
+      </tns2:ReplyTo>
+      <tns2:FaultTo>
+        <tns2:Address>http://tempuri.org</tns2:Address>
+        <tns2:ReferenceParameters/>
+        <tns2:Metadata/>
+      </tns2:FaultTo>
+      <tns2:Action>http://tempuri.org</tns2:Action>
+      <tns2:MessageID>http://tempuri.org</tns2:MessageID>
+      <tns2:RelatesTo RelationshipType="http://www.w3.org/2005/08/addressing/reply">http://tempuri.org</tns2:RelatesTo>
+    </WSAHeader>
+  </headers>
+  <body>
+    <tns1:Perform_NCL_CruiseUserAuthenticationResponse>
+      <p1:NCL_CruiseUserAuthenticationRS AltLangID="EN" EchoToken="" PrimaryLangID="EN" RetransmissionIndicator="true" SequenceNmbr="0" Target="Production" TimeStamp="2001-12-31T12:00:00" TransactionIdentifier="" TransactionStatusCode="Start" Version="0.0">
+        <p1:Success/>
+        <p1:Warnings>
+          <p1:Warning Code="" DocURL="http://tempuri.org" Language="EN" RecordID="" ShortText="" Status="" Tag="" Type="">p1:Warning</p1:Warning>
+        </p1:Warnings>
+      </p1:NCL_CruiseUserAuthenticationRS>
+    </tns1:Perform_NCL_CruiseUserAuthenticationResponse>
+  </body>
+  <attachments>
+    <contentID>http://tempuri.org</contentID>
+    <contentType>token</contentType>
+    <data>0</data>
+  </attachments>
+</tns:smo>

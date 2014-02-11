@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseUserAuthentication_Module/xslt/XSLT_loadGetNext" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseUserAuthentication_Module/xslt/XSLT_loadGetNext">
+    <input correlationContext="{http://NCL_CruiseUserAuthentication_Module}App_context" message="{http://NCL_WESB_Shared_Library/NCL_CruiseUserAuthentication_Interface}Perform_NCL_CruiseUserAuthenticationRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseUserAuthentication_Module}App_context" message="{http://NCL_CruiseUserAuthentication_Module/JDBCImport}retrieveallgetNextRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLT_loadGetNext.xml"/>
+    </imports>
+    <mappingDeclaration name="XSLT_loadGetNext">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="body/Perform_NCL_CruiseUserAuthentication/NCL_CruiseUserAuthenticationRQ"/>
+            <output path="context/correlation/NCL_CruiseUserAuthenticationRQ"/>
+        </move>
+        <assign value="10">
+            <output path="body/retrieveallgetNext/retrieveallgetNextInput/parameter1"/>
+        </assign>
+    </mappingDeclaration>
+</mappingRoot>

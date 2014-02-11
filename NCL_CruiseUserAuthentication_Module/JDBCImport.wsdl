@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="JDBCImport.wsdl" targetNamespace="http://NCL_CruiseUserAuthentication_Module/JDBCImport" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/getnext" xmlns:bons2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/getnextcontainer" xmlns:bons3="http://com/ibm/j2ca/fault/afcfault" xmlns:tns="http://NCL_CruiseUserAuthentication_Module/JDBCImport" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://com/ibm/j2ca/fault/afcfault" xmlns:tns="http://com/ibm/j2ca/fault/afcfault">
+      <xsd:include schemaLocation="RecordNotFoundFault.xsd"/>
+      <xsd:include schemaLocation="MatchesExceededLimitFault.xsd"/>
+    </xsd:schema>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://NCL_CruiseUserAuthentication_Module/JDBCImport" xmlns:bons4="http://com/ibm/j2ca/fault/afcfault">
+      <xsd:import namespace="http://com/ibm/j2ca/fault/afcfault"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/getnext" schemaLocation="getNext.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/getnextcontainer" schemaLocation="getNextContainer.xsd"/>
+      <xsd:element name="retrieveallgetNext">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveallgetNextInput" type="bons1:getNext"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveallgetNextResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveallgetNextOutput" type="bons2:getNextContainer"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RecordNotFoundFault_element" nillable="true" type="bons4:RecordNotFoundFault"/>
+      <xsd:element name="MatchesExceededLimitFault_element" nillable="true" type="bons4:MatchesExceededLimitFault"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="retrieveallgetNextRequestMsg">
+    <wsdl:part element="tns:retrieveallgetNext" name="retrieveallgetNextParameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallgetNextResponseMsg">
+    <wsdl:part element="tns:retrieveallgetNextResponse" name="retrieveallgetNextResult"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallgetNextRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallgetNextMatchesExceededLimitFaultMsg">
+    <wsdl:part element="tns:MatchesExceededLimitFault_element" name="MatchesExceededLimitFault"/>
+  </wsdl:message>
+  <wsdl:portType name="JDBCImport">
+    <wsdl:operation name="retrieveallgetNext">
+      <wsdl:input message="tns:retrieveallgetNextRequestMsg" name="retrieveallgetNextRequest"/>
+      <wsdl:output message="tns:retrieveallgetNextResponseMsg" name="retrieveallgetNextResponse"/>
+      <wsdl:fault message="tns:retrieveallgetNextRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+      <wsdl:fault message="tns:retrieveallgetNextMatchesExceededLimitFaultMsg" name="MATCHES_EXCEEDED_LIMIT"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

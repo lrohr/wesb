@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:E-Mail_Interface="http://E-Mail_Generic/E-Mail_Interface" xmlns:Encrypt_Decrypt_Interface="http://NCL_WESB_Shared_Library/Encrypt_Decrypt_Interface" xmlns:NCL_CruiseUserAuthentication_Interface="http://NCL_WESB_Shared_Library/NCL_CruiseUserAuthentication_Interface" xmlns:TP_Interface="http://TP_Logger/TP_Interface" xmlns:definitions="http://versonix.com/api/definitions" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://NCL_CruiseUserAuthentication_Module/DB_Lookup" xmlns:ns1_1="http://NCL_WESB_Shared_Library/ErrorHandlerInterface" xmlns:ns8="http://NCL_CruiseUserAuthentication_Module/JDBCImport" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="NCL_CruiseUserAuthentication_Module" targetNamespace="http://NCL_CruiseUserAuthentication_Module/NCL_CruiseUserAuthentication_Module">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="NCL_CruiseUserAuthentication_Interface:NCL_CruiseUserAuthentication_Interface"/>
+  </interfaces>
+  <references>
+    <reference name="DB_LookupPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1:DB_Lookup"/>
+    </reference>
+    <reference name="TP_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="TP_Interface:TP_Interface"/>
+    </reference>
+    <reference name="E-Mail_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="E-Mail_Interface:E-Mail_Interface"/>
+    </reference>
+    <reference name="SwApiPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="definitions:SwApi"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="SwApiImport1"/>
+    </reference>
+    <reference name="JDBCImportPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns8:JDBCImport"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="JDBCImport"/>
+    </reference>
+    <reference name="Encrypt_Decrypt_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="Encrypt_Decrypt_Interface:Encrypt_Decrypt_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="encrypt_decrypt"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="Perform_NCL_CruiseUserAuthentication" target="TP_InsertUpdate" sourcePortType="NCL_CruiseUserAuthentication_Interface:NCL_CruiseUserAuthentication_Interface" targetReference="TP_InterfacePartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseUserAuthentication" target="executeNclseaNcl_Wesb_User_LookupBG" sourcePortType="NCL_CruiseUserAuthentication_Interface:NCL_CruiseUserAuthentication_Interface" targetReference="DB_LookupPartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseUserAuthentication" target="TP_InsertUpdate" sourcePortType="NCL_CruiseUserAuthentication_Interface:NCL_CruiseUserAuthentication_Interface" targetReference="TP_InterfacePartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseUserAuthentication" target="Send_Email1" sourcePortType="NCL_CruiseUserAuthentication_Interface:NCL_CruiseUserAuthentication_Interface" targetReference="E-Mail_InterfacePartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseUserAuthentication" target="Send_Email1" sourcePortType="NCL_CruiseUserAuthentication_Interface:NCL_CruiseUserAuthentication_Interface" targetReference="E-Mail_InterfacePartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseUserAuthentication" target="retrieveallgetNext" sourcePortType="NCL_CruiseUserAuthentication_Interface:NCL_CruiseUserAuthentication_Interface" targetReference="JDBCImportPartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseUserAuthentication" target="processEncryptDecrypt" sourcePortType="NCL_CruiseUserAuthentication_Interface:NCL_CruiseUserAuthentication_Interface" targetReference="Encrypt_Decrypt_InterfacePartner"/>
+  <operationFlow medflow="NCL_CruiseUserAuthentication_Module.medflow"/>
+</mfc:interfaceMediationFlow>

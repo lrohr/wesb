@@ -1,0 +1,19 @@
+* SMAP
+buildSwResObjErrorMsg.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 buildSwResObjErrorMsg.map
+/NCL_CruiseUserAuthentication_Module/xslt/buildSwResObjErrorMsg.map
+*L
+7:124,9
+9:140,3
+2:82,4
+8:136,4
+10:118,6
+3:86,6
+6:104,5
+1:54,17
+5:98,6
+4:92,6
+*E

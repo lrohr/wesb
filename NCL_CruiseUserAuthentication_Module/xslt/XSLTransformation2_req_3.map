@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseUserAuthentication_Module/xslt/XSLTransformation2_req_3" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseUserAuthentication_Module/xslt/XSLTransformation2_req_3">
+    <input correlationContext="{http://NCL_CruiseUserAuthentication_Module}App_context" message="{http://NCL_CruiseUserAuthentication_Module/JDBCImport}retrieveallgetNextResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseUserAuthentication_Module}App_context" message="{http://NCL_CruiseUserAuthentication_Module/DB_Lookup}executeNclseaNcl_Wesb_User_LookupBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLTransformation2_req_3.xml"/>
+    </imports>
+    <mappingDeclaration name="XSLTransformation2_req_3">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation"/>
+            <output path="context/correlation"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

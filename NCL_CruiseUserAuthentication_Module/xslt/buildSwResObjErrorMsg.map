@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseUserAuthentication_Module/xslt/buildSwResObjErrorMsg" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseUserAuthentication_Module/xslt/buildSwResObjErrorMsg">
+    <input correlationContext="{http://NCL_CruiseUserAuthentication_Module}App_context" message="{http://versonix.com/api/definitions}processEncryptDecryptRequest" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseUserAuthentication_Module}App_context" message="{http://NCL_WESB_Shared_Library/NCL_CruiseUserAuthentication_Interface}Perform_NCL_CruiseUserAuthenticationResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="buildSwResObjErrorMsg.xml"/>
+        <import kind="xslt" location="buildSwResObjErrorMsg_custom.xsl"/>
+    </imports>
+    <mappingDeclaration name="buildSwResObjErrorMsg">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseUserAuthenticationRQ"/>
+            <output path="context/correlation/NCL_CruiseUserAuthenticationRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="context/correlation/ErrorCode"/>
+            <output path="context/correlation/ErrorCode"/>
+        </move>
+        <move>
+            <input path="context/correlation/InuptLength"/>
+            <output path="context/correlation/InuptLength"/>
+        </move>
+        <move>
+            <input path="context/correlation/OutputLength"/>
+            <output path="context/correlation/OutputLength"/>
+        </move>
+        <customFunction lang="xslt" location="buildSwResObjErrorMsg_custom.xsl" ref="LogIDToSuccess">
+            <input path="context/correlation/LogID" var="LogID"/>
+            <output path="body/Perform_NCL_CruiseUserAuthenticationResponse/NCL_CruiseUserAuthenticationRS/Success"/>
+            <param name="LogID" value="$LogID"/>
+        </customFunction>
+        <assign value="9916">
+            <output path="body/Perform_NCL_CruiseUserAuthenticationResponse/NCL_CruiseUserAuthenticationRS/Warnings/Warning/@Code"/>
+        </assign>
+        <assign value="Please try Later - Seaware is not available">
+            <output path="body/Perform_NCL_CruiseUserAuthenticationResponse/NCL_CruiseUserAuthenticationRS/Warnings/Warning[1]/@ShortText"/>
+        </assign>
+        <move>
+            <input path="context/correlation/NCL_CruiseUserAuthenticationRQ/@TransactionIdentifier"/>
+            <output path="body/Perform_NCL_CruiseUserAuthenticationResponse/NCL_CruiseUserAuthenticationRS/@TransactionIdentifier"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

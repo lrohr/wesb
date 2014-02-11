@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="DB_Lookup.wsdl" targetNamespace="http://NCL_CruiseUserAuthentication_Module/DB_Lookup" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_user_lookupbg" xmlns:tns="http://NCL_CruiseUserAuthentication_Module/DB_Lookup" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://NCL_CruiseUserAuthentication_Module/DB_Lookup">
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_user_lookupbg" schemaLocation="NclseaNcl_Wesb_User_LookupBG.xsd"/>
+      <xsd:element name="executeNclseaNcl_Wesb_User_LookupBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_User_LookupBGInput" type="bons1:NclseaNcl_Wesb_User_LookupBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_User_LookupBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_User_LookupBGOutput" type="bons1:NclseaNcl_Wesb_User_LookupBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeNclseaNcl_Wesb_User_LookupBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_User_LookupBG" name="executeNclseaNcl_Wesb_User_LookupBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_User_LookupBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_User_LookupBGResponse" name="executeNclseaNcl_Wesb_User_LookupBGResult"/>
+  </wsdl:message>
+  <wsdl:portType name="DB_Lookup">
+    <wsdl:operation name="executeNclseaNcl_Wesb_User_LookupBG">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_User_LookupBGRequestMsg" name="executeNclseaNcl_Wesb_User_LookupBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_User_LookupBGResponseMsg" name="executeNclseaNcl_Wesb_User_LookupBGResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
