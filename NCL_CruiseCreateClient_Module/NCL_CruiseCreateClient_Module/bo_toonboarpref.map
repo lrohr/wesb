@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:ServiceMessageObject="smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FNCL_CruiseCreateClient_Module%257DApp_context/message%3D%257Bhttp%253A%252F%252FNCL_CruiseCreateClient_Module%252FDB_Lookup%257DexecuteNclseaNcl_Wesb_Create_Onboard_PrefBGRequestMsg/xpath%3D%252F/namespace%3DBOMap/smo.xsd" xmlns:ServiceMessageObject_1="smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FNCL_CruiseCreateClient_Module%257DApp_context/message%3D%257Bhttp%253A%252F%252FNCL_CruiseCreateClient_Module%252FDB_Lookup%257DexecuteNclseaNcl_Wesb_Create_Companion_XrefBGRequestMsg/xpath%3D%252F/namespace%3DBOMap/smo.xsd" xmlns:bo_toonboarpref="http://NCL_CruiseCreateClient_Module" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" targetNamespace="http://NCL_CruiseCreateClient_Module">
+  <map:name>bo_toonboarpref</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="ServiceMessageObject_1:ServiceMessageObject" name="ServiceMessageObject"/>
+  <map:outputBusinessObjectVariable businessObjectRef="ServiceMessageObject:ServiceMessageObject" name="ServiceMessageObject_1"/>
+  <map:propertyMap executionOrder="1">
+    <map:submap submapName="bo_toonboarpref:sub_to_onboarfprefs">
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation" variableName="App_context"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/executeNclseaNcl_Wesb_Create_Onboard_PrefBG/executeNclseaNcl_Wesb_Create_Onboard_PrefBGInput" variableName="NclseaNcl_Wesb_Create_Onboard_PrefBG"/>
+    </map:submap>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/ClientID"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/ClientID"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

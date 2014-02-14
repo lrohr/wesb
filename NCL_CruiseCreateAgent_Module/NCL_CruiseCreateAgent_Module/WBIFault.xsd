@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://com/ibm/j2ca/fault"
+    xmlns:primkey="http://com/ibm/j2ca/fault" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="PrimaryKeyPairType.xsd"/>
+    <xsd:annotation xml:space="preserve">
+<xsd:appinfo
+                source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter
+                version="7.5.0.1" xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability"/>
+</xsd:appinfo>
+</xsd:annotation>
+    <xsd:annotation xml:space="preserve">
+<xsd:appinfo
+                source="commonj.connector.asi">
+<asi:annotationSet
+                asiNSURI="" xmlns:asi="commonj.connector.asi"/>
+</xsd:appinfo>
+</xsd:annotation>
+    <xsd:complexType name="WBIFault">
+        <xsd:annotation xml:space="preserve">
+
+
+</xsd:annotation>
+        <xsd:sequence maxOccurs="1" minOccurs="1">
+            <xsd:element maxOccurs="1" minOccurs="0" name="message"
+                nillable="true" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="0" name="errorCode"
+                nillable="true" type="xsd:string"/>
+            <xsd:element maxOccurs="unbounded" minOccurs="0"
+                name="primaryKeySet" nillable="true" type="primkey:PrimaryKeyPairType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

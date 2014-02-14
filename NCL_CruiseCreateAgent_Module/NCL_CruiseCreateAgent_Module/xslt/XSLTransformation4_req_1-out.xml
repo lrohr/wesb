@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<io2:smo xmlns:io2="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:out2="http://E-Mail_Generic/E-Mail_Interface" xmlns:io7="http://www.w3.org/2005/08/addressing" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:out="wsdl.http://E-Mail_Generic/E-Mail_Interface" xmlns:io5="http://nclapi/schemas" xmlns:io6="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:io4="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:io3="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:io="http://Agent_Create_Update">
+  <body>
+    <out2:Send_Email1>
+      <To>esbteam@ncl.com</To>
+      <Subject>Database issue</Subject>
+      <Content>Please verify the Database</Content>
+      <Severity>LOW</Severity>
+    </out2:Send_Email1>
+  </body>
+</io2:smo>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:ServiceMessageObject="smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FNCL_CruiseCreateAgency_Module%257DApp_context/message%3D%257Bhttp%253A%252F%252FNCL_WESB_Shared_Library%252FNCL_CruiseCreateAgency_Interface%257DPerform_NCL_CruiseCreateAgencyResponseMsg/xpath%3D%252F/namespace%3DBOMap/smo.xsd" xmlns:ServiceMessageObject_1="smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FNCL_CruiseCreateAgency_Module%257DApp_context/message%3D%257Bhttp%253A%252F%252FNCL_CruiseCreateAgency_Module%252FDB_Lookup%257DexecuteNclseaNcl_Wesb_Create_AgencyBGResponseMsg/xpath%3D%252F/namespace%3DBOMap/smo.xsd" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:to_resp="http://NCL_CruiseCreateAgency_Module" targetNamespace="http://NCL_CruiseCreateAgency_Module">
+  <map:name>to_resp</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="ServiceMessageObject_1:ServiceMessageObject" name="ServiceMessageObject"/>
+  <map:outputBusinessObjectVariable businessObjectRef="ServiceMessageObject:ServiceMessageObject" name="ServiceMessageObject_1"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseCreateAgencyRQ"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/NCL_CruiseCreateAgencyRQ"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/LogID"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/LogID"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:submap submapName="to_resp:sub_toresp">
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="body/executeNclseaNcl_Wesb_Create_AgencyBGResponse/executeNclseaNcl_Wesb_Create_AgencyBGOutput" variableName="NclseaNcl_Wesb_Create_AgencyBG"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/Perform_NCL_CruiseCreateAgencyResponse/NCL_CruiseCreateAgencyRS" variableName="NCL_CruiseCreateAgencyRS"/>
+    </map:submap>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:submap submapName="to_resp:sub_to_logininforesp">
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseCreateAgencyRQ" variableName="NCL_CruiseCreateAgencyRQ"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/Perform_NCL_CruiseCreateAgencyResponse/NCL_CruiseCreateAgencyRS" variableName="NCL_CruiseCreateAgencyRS"/>
+    </map:submap>
+  </map:propertyMap>
+</map:businessObjectMap>

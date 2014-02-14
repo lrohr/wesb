@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema
+    targetNamespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agc_conpref_infobg"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:bo="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0" xmlns:nclseancl_wesb_upd_agc_conpref_info="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agc_conpref_info">
+    <import
+        namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agc_conpref_info" schemaLocation="NclseaNcl_Wesb_Upd_Agc_Conpref_Info.xsd"/>
+    <import namespace="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0" schemaLocation="BusinessGraph.xsd"/>
+    <annotation xml:space="preserve">
+<appinfo
+                source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter
+                version="7.5.0.1" xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability"/>
+</appinfo>
+</annotation>
+    <complexType name="NclseaNcl_Wesb_Upd_Agc_Conpref_InfoBG">
+        <complexContent>
+            <extension base="bo:BusinessGraph">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="0" name="verb">
+                        <simpleType>
+                            <restriction base="string">
+                                <enumeration value="Create"/>
+                                <enumeration value="Update"/>
+                                <enumeration value="Delete"/>
+                            </restriction>
+                        </simpleType>
+                    </element>
+                    <element name="NclseaNcl_Wesb_Upd_Agc_Conpref_Info" type="nclseancl_wesb_upd_agc_conpref_info:NclseaNcl_Wesb_Upd_Agc_Conpref_Info"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+</schema>

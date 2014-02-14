@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="DB_AGent_createupdate.wsdl"
+    targetNamespace="http://Agent_Create_Update/DB_AGent_createupdate"
+    xmlns:ExistsResult="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/existsresult"
+    xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_agentbg"
+    xmlns:tns="http://Agent_Create_Update/DB_AGent_createupdate"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://com/ibm/j2ca/fault/afcfault"
+            xmlns:tns="http://com/ibm/j2ca/fault/afcfault" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+        <xsd:schema elementFormDefault="qualified"
+            targetNamespace="http://Agent_Create_Update/DB_AGent_createupdate"
+            xmlns:ExistsResult="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/existsresult" xmlns:adapterfault="http://com/ibm/j2ca/fault/afcfault">
+            <xsd:import namespace="http://com/ibm/j2ca/fault/afcfault"/>
+            <xsd:import
+                namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_agentbg" schemaLocation="NclseaNcl_Wesb_Create_AgentBG.xsd"/>
+            <xsd:import
+                namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/existsresult" schemaLocation="ExistsResult.xsd"/>
+            <xsd:element name="executeNclseaNcl_Wesb_Create_AgentBG">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element
+                            name="executeNclseaNcl_Wesb_Create_AgentBGInput" type="bons1:NclseaNcl_Wesb_Create_AgentBG"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="executeNclseaNcl_Wesb_Create_AgentBGResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element
+                            name="executeNclseaNcl_Wesb_Create_AgentBGOutput" type="bons1:NclseaNcl_Wesb_Create_AgentBG"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="executeNclseaNcl_Wesb_Create_AgentBGRequestMsg">
+        <wsdl:part element="tns:executeNclseaNcl_Wesb_Create_AgentBG" name="executeNclseaNcl_Wesb_Create_AgentBGParameters"/>
+    </wsdl:message>
+    <wsdl:message name="executeNclseaNcl_Wesb_Create_AgentBGResponseMsg">
+        <wsdl:part
+            element="tns:executeNclseaNcl_Wesb_Create_AgentBGResponse" name="executeNclseaNcl_Wesb_Create_AgentBGResult"/>
+    </wsdl:message>
+    <wsdl:portType name="DB_AGent_createupdate">
+        <wsdl:operation name="executeNclseaNcl_Wesb_Create_AgentBG">
+            <wsdl:input
+                message="tns:executeNclseaNcl_Wesb_Create_AgentBGRequestMsg" name="executeNclseaNcl_Wesb_Create_AgentBGRequest"/>
+            <wsdl:output
+                message="tns:executeNclseaNcl_Wesb_Create_AgentBGResponseMsg" name="executeNclseaNcl_Wesb_Create_AgentBGResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

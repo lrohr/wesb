@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Binding="http://NCL_WESB_Shared_Library/NCL_CruiseBookingPayment_Interface/Binding" xmlns:ns1="http://NCL_WESB_Shared_Library/NCL_CruiseBookingPayment_Interface" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:webservice="http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="NCL_CruiseBookingPayment_InterfaceExport1" name="NCL_CruiseBookingPayment_InterfaceExport1" target="NCL_CruiseBookingPayment">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:NCL_CruiseBookingPayment_Interface"/>
+  </interfaces>
+  <esbBinding xsi:type="webservice:WebServiceExportBinding" port="Binding:NCL_CruiseBookingPayment_InterfaceExport1_NCL_CruiseBookingPayment_InterfaceHttpPort" service="Binding:NCL_CruiseBookingPayment_InterfaceExport1_NCL_CruiseBookingPayment_InterfaceHttpService"/>
+</scdl:export>

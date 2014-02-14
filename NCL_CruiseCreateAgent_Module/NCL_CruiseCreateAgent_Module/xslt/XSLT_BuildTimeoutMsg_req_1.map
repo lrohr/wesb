@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseCreateAgent_Module/xslt/XSLT_BuildTimeoutMsg_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseCreateAgent_Module/xslt/XSLT_BuildTimeoutMsg_req_1">
+    <input correlationContext="{http://Agent_Create_Update}app_context" message="{http://NCL_WESB_Shared_Library/Encrypt_Decrypt_Interface}processEncryptDecryptRequest" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://Agent_Create_Update}app_context" message="{http://NCL_WESB_Shared_Library/NCL_CruiseCreateAgent_Interface}Perform_NCL_CruiseCreateAgentResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xslt" location="XSLT_BuildTimeoutMsg_req_1_custom.xsl"/>
+    </imports>
+    <mappingDeclaration name="XSLT_BuildTimeoutMsg_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgentRQ"/>
+            <output path="context/correlation/NCL_CruiseCreateAgentRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgentRQ/@TransactionIdentifier"/>
+            <output path="body/Perform_NCL_CruiseCreateAgentResponse/NCL_CruiseCreateAgentRS/@TransactionIdentifier"/>
+        </move>
+        <assign value="9919">
+            <output path="body/Perform_NCL_CruiseCreateAgentResponse/NCL_CruiseCreateAgentRS/Warnings/Warning/@Code"/>
+        </assign>
+        <assign value="swResObj timeout">
+            <output path="body/Perform_NCL_CruiseCreateAgentResponse/NCL_CruiseCreateAgentRS/Warnings/Warning/@ShortText"/>
+        </assign>
+        <customFunction lang="xslt" location="XSLT_BuildTimeoutMsg_req_1_custom.xsl" ref="ToSuccess">
+            <output path="body/Perform_NCL_CruiseCreateAgentResponse/NCL_CruiseCreateAgentRS/Success"/>
+        </customFunction>
+    </mappingDeclaration>
+</mappingRoot>

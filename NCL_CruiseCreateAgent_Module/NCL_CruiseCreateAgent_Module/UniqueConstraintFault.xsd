@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://com/ibm/j2ca/fault/afcfault"
+    xmlns:basefault="http://com/ibm/j2ca/fault" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:import namespace="http://com/ibm/j2ca/fault" schemaLocation="WBIFault.xsd"/>
+    <xsd:annotation xml:space="preserve">
+<xsd:appinfo
+                source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter
+                version="7.5.0.1" xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability"/>
+</xsd:appinfo>
+</xsd:annotation>
+    <xsd:annotation xml:space="preserve">
+<xsd:appinfo
+                source="commonj.connector.asi">
+<asi:annotationSet
+                asiNSURI="" xmlns:asi="commonj.connector.asi"/>
+</xsd:appinfo>
+</xsd:annotation>
+    <xsd:complexType name="UniqueConstraintFault">
+        <xsd:annotation xml:space="preserve">
+
+
+</xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="basefault:WBIFault">
+                <xsd:sequence maxOccurs="1" minOccurs="1"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+</xsd:schema>

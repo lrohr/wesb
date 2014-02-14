@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:NclseaNcl_Wesb_Create_Client_ParmBG="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_client_parmbg" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:sub_toclientparam="http://NCL_CruiseCreateClient_Module" targetNamespace="http://NCL_CruiseCreateClient_Module">
+  <map:name>sub_toclientparam</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="sub_toclientparam:App_context" name="App_context"/>
+  <map:outputBusinessObjectVariable businessObjectRef="NclseaNcl_Wesb_Create_Client_ParmBG:NclseaNcl_Wesb_Create_Client_ParmBG" name="NclseaNcl_Wesb_Create_Client_ParmBG"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="App_context" property="ClientID"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ParmBG" property="NclseaNcl_Wesb_Create_Client_Parm/p_clientid"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:set value="DESIRED_DESTINATION">
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ParmBG" property="NclseaNcl_Wesb_Create_Client_Parm/p_param_name"/>
+    </map:set>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:move>
+      <map:input businessObjectVariableRef="App_context" property="NCL_CruiseCreateClientRQ/VacationPreference/DesiredDestination[2]"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ParmBG" property="NclseaNcl_Wesb_Create_Client_Parm/p_param_value"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Agent_Create_Update.medflow="Agent_Create_Update.medflow" xmlns:BOMapper.mednode="mednode://mednodes/BOMapper.mednode/BOMapper" xmlns:CustomMediation.mednode="mednode://mednodes/CustomMediation.mednode/CustomMediation" xmlns:Fail.mednode="mednode://mednodes/Fail.mednode/Fail" xmlns:Input.mednode="mednode://mednodes/Input.mednode/Input" xmlns:InputResponse.mednode="mednode://mednodes/InputResponse.mednode/InputResponse" xmlns:ServiceInvoke.mednode="mednode://mednodes/ServiceInvoke.mednode/ServiceInvoke" xmlns:Stop.mednode="mednode://mednodes/Stop.mednode/Stop" xmlns:XSLTransformation.mednode="mednode://mednodes/XSLTransformation.mednode/XSLTransformation" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow2="http://www.ibm.com/2006/eflow" xmlns:type="http://www.ibm.com/2006/eflow/type" xmlns:utility="http://www.ibm.com/2006/eflow/utility" name="Agent_Create_Update" nsURI="Agent_Create_Update.medflow" nsPrefix="Agent_Create_Update.medflow">
+  <eClassifiers xmi:type="eflow2:FCMComposite" name="Agent_Create_Update_I_2">
+    <eSuperTypes href="http://www.ibm.com/2006/eflow#//FCMBlock"/>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.name" name="name" lowerBound="1" defaultValueLiteral="">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <composition>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_1">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://NCL_WESB_Shared_Library/NCL_CruiseCreateAgent_Interface}Perform_NCL_CruiseCreateAgentRequestMsg"/>
+        </elements>
+        <elements id="correlationContext">
+          <type xmi:type="type:XSDType" xsiType="{http://Agent_Create_Update}app_context"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_2">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://NCL_WESB_Shared_Library/NCL_CruiseCreateAgent_Interface}Perform_NCL_CruiseCreateAgentResponseMsg"/>
+        </elements>
+        <elements id="correlationContext">
+          <type xmi:type="type:XSDType" xsiType="{http://Agent_Create_Update}app_context"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_3">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://TP_Logger/TP_Interface}TP_InsertUpdateRequestMsg"/>
+        </elements>
+        <elements id="correlationContext">
+          <type xmi:type="type:XSDType" xsiType="{http://Agent_Create_Update}app_context"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_4">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://Agent_Create_Update/DB_AGent_createupdate}executeNclseaNcl_Wesb_Create_AgentBGRequestMsg"/>
+        </elements>
+        <elements id="correlationContext">
+          <type xmi:type="type:XSDType" xsiType="{http://Agent_Create_Update}app_context"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_5">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://TP_Logger/TP_Interface}TP_InsertUpdateResponseMsg"/>
+        </elements>
+        <elements id="correlationContext">
+          <type xmi:type="type:XSDType" xsiType="{http://Agent_Create_Update}app_context"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_6">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://TP_Logger/TP_Interface}TP_InsertUpdate_DB_ErrorsMsg"/>
+        </elements>
+        <elements id="correlationContext">
+          <type xmi:type="type:XSDType" xsiType="{http://Agent_Create_Update}app_context"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_7">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://Agent_Create_Update/DB_AGent_createupdate}executeNclseaNcl_Wesb_Create_AgentBGResponseMsg"/>
+        </elements>
+        <elements id="correlationContext">
+          <type xmi:type="type:XSDType" xsiType="{http://Agent_Create_Update}app_context"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_8">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://versonix.com/api/definitions}processEncryptDecryptRequest"/>
+        </elements>
+        <elements id="correlationContext">
+          <type xmi:type="type:XSDType" xsiType="{http://Agent_Create_Update}app_context"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_9">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://versonix.com/api/definitions}processEncryptDecryptResponse"/>
+        </elements>
+        <elements id="correlationContext">
+          <type xmi:type="type:XSDType" xsiType="{http://Agent_Create_Update}app_context"/>
+        </elements>
+      </type>
+      <type xmi:type="type:AnyType" xmi:id="AnyType_1"/>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_10">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://www.w3.org/2001/XMLSchema}anyType"/>
+        </elements>
+        <elements id="correlationContext">
+          <type xmi:type="type:XSDType" xsiType="{http://Agent_Create_Update}app_context"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_11">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://NCL_WESB_Shared_Library/Encrypt_Decrypt_Interface}processEncryptDecryptRequest"/>
+        </elements>
+        <elements id="correlationContext">
+          <type xmi:type="type:XSDType" xsiType="{http://Agent_Create_Update}app_context"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_12">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://NCL_WESB_Shared_Library/Encrypt_Decrypt_Interface}processEncryptDecryptResponse"/>
+        </elements>
+        <elements id="correlationContext">
+          <type xmi:type="type:XSDType" xsiType="{http://Agent_Create_Update}app_context"/>
+        </elements>
+      </type>
+      <nodes xmi:type="Input.mednode:Input" xmi:id="Input_1" name="NCL_CruiseCreateAgent_Interface_Perform_NCL_CruiseCreateAgent_Input" correlationContext="{http://Agent_Create_Update}app_context">
+        <location x="10" y="116"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_1"/>
+        <translation xmi:type="utility:ConstantString" string="Perform_NCL_CruiseCreateAgent : NCL_CruiseCreateAgent_Interface"/>
+      </nodes>
+      <nodes xmi:type="InputResponse.mednode:InputResponse" xmi:id="InputResponse_1" name="NCL_CruiseCreateAgent_Interface_Perform_NCL_CruiseCreateAgent_InputResponse">
+        <location x="1453" y="20"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_2"/>
+        <translation xmi:type="utility:ConstantString" string="Perform_NCL_CruiseCreateAgent : NCL_CruiseCreateAgent_Interface"/>
+      </nodes>
+      <nodes xmi:type="BOMapper.mednode:BOMapper" xmi:id="BOMapper_1" name="BOMapper2" root="/" mappingFile="bo_to_createagent.map">
+        <location x="416" y="20"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_4"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_3"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_3"/>
+        <translation xmi:type="utility:ConstantString" string="BOMapper2"/>
+      </nodes>
+      <nodes xmi:type="BOMapper.mednode:BOMapper" xmi:id="BOMapper_2" name="BOMapper1" root="/" mappingFile="req_to_log.map">
+        <location x="330" y="116"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_3"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_1"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_1"/>
+        <translation xmi:type="utility:ConstantString" string="BOMapper1"/>
+      </nodes>
+      <nodes xmi:type="ServiceInvoke.mednode:ServiceInvoke" xmi:id="ServiceInvoke_1" name="ReqLogger" referenceName="TP_InterfacePartner" operationName="TP_InsertUpdate">
+        <location x="418" y="164"/>
+        <outTerminals terminalNodeID="OutTerminal.timeout" explicitType="true" type="CompositeType_3"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_3"/>
+        <outTerminals terminalNodeID="OutTerminal.dynamic:out:out" dynamic="true" explicitType="true" label="out" longDescription="" type="CompositeType_5"/>
+        <outTerminals terminalNodeID="OutTerminal.dynamic:out:TP_InsertUpdate_DB_ErrorsMsg" dynamic="true" explicitType="true" label="TP_InsertUpdate_DB_ErrorsMsg" longDescription="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." type="CompositeType_6"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_3"/>
+        <translation xmi:type="utility:ConstantString" string="ReqLogger"/>
+      </nodes>
+      <nodes xmi:type="ServiceInvoke.mednode:ServiceInvoke" xmi:id="ServiceInvoke_2" name="db_create_updaetagt" referenceName="DB_AGent_createupdatePartner" operationName="executeNclseaNcl_Wesb_Create_AgentBG">
+        <location x="847" y="20"/>
+        <outTerminals terminalNodeID="OutTerminal.timeout" explicitType="true" type="CompositeType_4"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_4"/>
+        <outTerminals terminalNodeID="OutTerminal.dynamic:out:out" dynamic="true" explicitType="true" label="out" longDescription="" type="CompositeType_7"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_4"/>
+        <translation xmi:type="utility:ConstantString" string="db_create_updaetagt"/>
+      </nodes>
+      <nodes xmi:type="ServiceInvoke.mednode:ServiceInvoke" xmi:id="ServiceInvoke_3" name="EncryptString" referenceName="SwApiPartner" operationName="processEncryptDecrypt">
+        <location x="603" y="347"/>
+        <outTerminals terminalNodeID="OutTerminal.timeout" explicitType="true" type="CompositeType_8"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_8"/>
+        <outTerminals terminalNodeID="OutTerminal.dynamic:out:out" dynamic="true" explicitType="true" label="out" longDescription="" type="CompositeType_9"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_8"/>
+        <translation xmi:type="utility:ConstantString" string="EncryptString"/>
+      </nodes>
+      <nodes xmi:type="XSLTransformation.mednode:XSLTransformation" xmi:id="XSLTransformation_1" name="XSLTransformation1" root="/" XSLTransform="xslt/XSL_LoadEncrypt.xsl" XMXMap="xslt/XSL_LoadEncrypt.map" SMOVersion="SMO61">
+        <location x="469" y="347"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_8"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="AnyType_1"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="AnyType_1"/>
+        <translation xmi:type="utility:ConstantString" string="XSLTransformation1"/>
+      </nodes>
+      <nodes xmi:type="XSLTransformation.mednode:XSLTransformation" xmi:id="XSLTransformation_2" name="XSLTransformation2" root="/" XSLTransform="xslt/XSL_to_db.xsl" XMXMap="xslt/XSL_to_db.map" SMOVersion="SMO61">
+        <location x="675" y="322"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_4"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="AnyType_1"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="AnyType_1"/>
+        <translation xmi:type="utility:ConstantString" string="XSLTransformation2"/>
+      </nodes>
+      <nodes xmi:type="ServiceInvoke.mednode:ServiceInvoke" xmi:id="ServiceInvoke_4" name="Resp_Logger" referenceName="TP_InterfacePartner" operationName="TP_InsertUpdate">
+        <location x="1288" y="97"/>
+        <outTerminals terminalNodeID="OutTerminal.timeout" explicitType="true" type="CompositeType_3"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_3"/>
+        <outTerminals terminalNodeID="OutTerminal.dynamic:out:out" dynamic="true" explicitType="true" label="out" longDescription="" type="CompositeType_5"/>
+        <outTerminals terminalNodeID="OutTerminal.dynamic:out:TP_InsertUpdate_DB_ErrorsMsg" dynamic="true" explicitType="true" label="TP_InsertUpdate_DB_ErrorsMsg" longDescription="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." type="CompositeType_6"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_3"/>
+        <translation xmi:type="utility:ConstantString" string="Resp_Logger"/>
+      </nodes>
+      <nodes xmi:type="BOMapper.mednode:BOMapper" xmi:id="BOMapper_3" name="BOMapper3" root="/" mappingFile="to_Response.map">
+        <location x="583" y="450"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_2"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="AnyType_1"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="AnyType_1"/>
+        <translation xmi:type="utility:ConstantString" string="BOMapper3"/>
+      </nodes>
+      <nodes xmi:type="BOMapper.mednode:BOMapper" xmi:id="BOMapper_4" name="BOMapper4" root="/" mappingFile="to_rsp_logger.map">
+        <location x="1207" y="46"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_3"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_2"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_2"/>
+        <translation xmi:type="utility:ConstantString" string="BOMapper4"/>
+      </nodes>
+      <nodes xmi:type="Stop.mednode:Stop" xmi:id="Stop_1" name="Stop1">
+        <location x="521" y="260"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_10"/>
+        <translation xmi:type="utility:ConstantString" string="Stop1"/>
+      </nodes>
+      <nodes xmi:type="Stop.mednode:Stop" xmi:id="Stop_2" name="Stop2">
+        <location x="1376" y="178"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_10"/>
+        <translation xmi:type="utility:ConstantString" string="Stop2"/>
+      </nodes>
+      <nodes xmi:type="CustomMediation.mednode:CustomMediation" xmi:id="CustomMediation_1" name="removeEmptyWarnings" javaCode="commonj.sdo.DataObject __smo = (commonj.sdo.DataObject)smo;&#xD;&#xA;commonj.sdo.DataObject __result__3 = __smo.getDataObject(&quot;body&quot;).getDataObject(&quot;Perform_NCL_CruiseCreateAgentResponse&quot;).getDataObject(&quot;NCL_CruiseCreateAgentRS&quot;);&#xD;&#xA;com.ncl.wesb.NCLDataObjectUtils.removeEmptyWarnings(__result__3);&#xD;&#xA;out.fire(__smo);&#xD;&#xA;&#xA;//@generated:com.ibm.wbit.activity.ui&#xA;//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>&#xA;//  &lt;parameters name=&quot;inputTerminal&quot;>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;com.ibm.wsspi.sibx.mediation.InputTerminal&quot;/>&#xA;//  &lt;/parameters>&#xA;//  &lt;parameters name=&quot;smo&quot; objectType=&quot;true&quot;>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;ServiceMessageObject&quot; namespace=&quot;http://www.ibm.com/websphere/sibx/smo/v6.0.1&quot;/>&#xA;//  &lt;/parameters>&#xA;//  &lt;exceptions>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;com.ibm.wsspi.sibx.mediation.MediationBusinessException&quot;/>&#xA;//  &lt;/exceptions>&#xA;//  &lt;exceptions>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;com.ibm.wsspi.sibx.mediation.MediationConfigurationException&quot;/>&#xA;//  &lt;/exceptions>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;out&quot; variable=&quot;true&quot;>&#xA;//    &lt;dataOutputs target=&quot;//@executableElements.4/@parameters.0&quot;/>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;com.ibm.wsspi.sibx.mediation.OutputTerminal&quot;/>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;smo&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>&#xA;//    &lt;dataOutputs target=&quot;//@executableElements.4/@parameters.1&quot;/>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;ServiceMessageObject&quot; namespace=&quot;http://www.ibm.com/websphere/sibx/smo/v6.0.1&quot; nillable=&quot;false&quot;/>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;smo.body.Perform_NCL_CruiseCreateAgentResponse.NCL_CruiseCreateAgentRS&quot; field=&quot;true&quot;>&#xA;//    &lt;dataOutputs target=&quot;//@executableElements.3/@parameters.0&quot;/>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;NCL_CruiseCreateAgentRS;/NCL_CruiseCreateAgentRS&quot; namespace=&quot;http://nclapi/schemas&quot;/>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;removeEmptyWarnings&quot; category=&quot;com.ncl.wesb.NCLDataObjectUtils&quot; className=&quot;com.ncl.wesb.NCLDataObjectUtils&quot; static=&quot;true&quot; memberName=&quot;removeEmptyWarnings&quot;>&#xA;//    &lt;parameters name=&quot;dataObject&quot; dataInputs=&quot;//@executableElements.2/@dataOutputs.0&quot;>&#xA;//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;commonj.sdo.DataObject&quot;/>&#xA;//    &lt;/parameters>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;fire&quot; category=&quot;com.ibm.wsspi.sibx.mediation.OutputTerminal&quot; className=&quot;com.ibm.wsspi.sibx.mediation.OutputTerminal&quot; memberName=&quot;fire&quot;>&#xA;//    &lt;parameters name=&quot;OutputTerminal&quot; dataInputs=&quot;//@executableElements.0/@dataOutputs.0&quot;>&#xA;//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;com.ibm.wsspi.sibx.mediation.OutputTerminal&quot;/>&#xA;//    &lt;/parameters>&#xA;//    &lt;parameters name=&quot;smo&quot; dataInputs=&quot;//@executableElements.1/@dataOutputs.0&quot;>&#xA;//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;ServiceMessageObject&quot; namespace=&quot;http://www.ibm.com/websphere/sibx/smo/v6.0.1&quot; nillable=&quot;false&quot;/>&#xA;//    &lt;/parameters>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableGroups executableElements=&quot;//@executableElements.2 //@executableElements.3&quot;/>&#xA;//  &lt;executableGroups executableElements=&quot;//@executableElements.0 //@executableElements.1 //@executableElements.4&quot;/>&#xA;//&lt;/com.ibm.wbit.activity:CompositeActivity>&#xA;//@generated:end&#xA;//!SMAP!*S WBIACTDBG&#xD;&#xA;//!SMAP!*L&#xD;&#xA;//!SMAP!3:2,1&#xD;&#xA;//!SMAP!4:3,1&#xD;&#xA;//!SMAP!5:4,1&#xD;&#xA;//!SMAP!1000000:56,1" javaClass="sca.component.mediation.java.Custom1257335594429" version="6.1.0">
+        <location x="1070" y="20"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_2"/>
+        <outTerminals terminalNodeID="OutTerminal.dynamic:out:out" dynamic="true" label="out" longDescription="" type="CompositeType_2"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_2"/>
+        <translation xmi:type="utility:ConstantString" string="removeEmptyWarnings"/>
+      </nodes>
+      <nodes xmi:type="ServiceInvoke.mednode:ServiceInvoke" xmi:id="ServiceInvoke_5" name="EncryptDecrypt" referenceName="Encrypt_Decrypt_InterfacePartner" operationName="processEncryptDecrypt">
+        <location x="635" y="24"/>
+        <outTerminals terminalNodeID="OutTerminal.timeout" explicitType="true" type="CompositeType_11"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_11"/>
+        <outTerminals terminalNodeID="OutTerminal.dynamic:out:out" dynamic="true" explicitType="true" label="out" longDescription="" type="CompositeType_12"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_11"/>
+        <translation xmi:type="utility:ConstantString" string="EncryptDecrypt"/>
+      </nodes>
+      <nodes xmi:type="XSLTransformation.mednode:XSLTransformation" xmi:id="XSLTransformation_3" name="XSLT_loadEncryptDecrypt" root="/" XSLTransform="xslt/XSLTransformation5_req_1.xsl" XMXMap="xslt/XSLTransformation5_req_1.map" SMOVersion="SMO61">
+        <location x="504" y="24"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_11"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_4"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_4"/>
+        <translation xmi:type="utility:ConstantString" string="XSLT_loadEncryptDecrypt"/>
+      </nodes>
+      <nodes xmi:type="XSLTransformation.mednode:XSLTransformation" xmi:id="XSLTransformation_4" name="XSLT_storeEncryptDecrypt" root="/" XSLTransform="xslt/XSLTransformation6_req_1.xsl" XMXMap="xslt/XSLTransformation6_req_1.map" SMOVersion="SMO61">
+        <location x="727" y="20"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_4"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_12"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_12"/>
+        <translation xmi:type="utility:ConstantString" string="XSLT_storeEncryptDecrypt"/>
+      </nodes>
+      <nodes xmi:type="XSLTransformation.mednode:XSLTransformation" xmi:id="XSLTransformation_5" name="XSLT_buildFailMsg" root="/" XSLTransform="xslt/XSLTransformation3_req_1.xsl" XMXMap="xslt/XSLTransformation3_req_1.map" SMOVersion="SMO61">
+        <location x="768" y="232"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_2"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_11"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_11"/>
+        <translation xmi:type="utility:ConstantString" string="XSLT_buildFailMsg"/>
+      </nodes>
+      <nodes xmi:type="XSLTransformation.mednode:XSLTransformation" xmi:id="XSLTransformation_6" name="XSLT_BuildTimeoutMsg" root="/" XSLTransform="xslt/XSLT_BuildTimeoutMsg_req_1.xsl" XMXMap="xslt/XSLT_BuildTimeoutMsg_req_1.map" SMOVersion="SMO61">
+        <location x="729" y="134"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_2"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_11"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_11"/>
+        <translation xmi:type="utility:ConstantString" string="XSLT_BuildTimeoutMsg"/>
+      </nodes>
+      <nodes xmi:type="Fail.mednode:Fail" xmi:id="Fail_1" name="Fail1" errorMessage="fail term from BOMKapper2">
+        <location x="510" y="116"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_3"/>
+        <translation xmi:type="utility:ConstantString" string="Fail1"/>
+      </nodes>
+      <nodes xmi:type="Fail.mednode:Fail" xmi:id="Fail_2" name="Fail2" errorMessage="fail term xslt_loadEncryptDecrypt">
+        <location x="630" y="119"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_4"/>
+        <translation xmi:type="utility:ConstantString" string="Fail2"/>
+      </nodes>
+      <nodes xmi:type="XSLTransformation.mednode:XSLTransformation" xmi:id="XSLTransformation_7" name="XSLT_storeDbData" root="/" XSLTransform="xslt/XSLT_storeDbData_req_1.xsl" XMXMap="xslt/XSLT_storeDbData_req_1.map" SMOVersion="SMO61">
+        <location x="961" y="23"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_2"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_7"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_7"/>
+        <translation xmi:type="utility:ConstantString" string="XSLT_storeDbData"/>
+      </nodes>
+      <nodes xmi:type="Fail.mednode:Fail" xmi:id="Fail_3" name="Fail3" errorMessage="fail term from xslt_storeEncryptDecrypt">
+        <location x="840" y="119"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_12"/>
+        <translation xmi:type="utility:ConstantString" string="Fail3"/>
+      </nodes>
+      <nodes xmi:type="XSLTransformation.mednode:XSLTransformation" xmi:id="XSLTransformation_8" name="XSLT_buildDbTimeout" root="/" XSLTransform="xslt/XSLTransformation3_req_2.xsl" XMXMap="xslt/XSLTransformation3_req_2.map" SMOVersion="SMO61">
+        <location x="940" y="155"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_2"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_4"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_4"/>
+        <translation xmi:type="utility:ConstantString" string="XSLT_buildDbTimeout"/>
+      </nodes>
+      <nodes xmi:type="XSLTransformation.mednode:XSLTransformation" xmi:id="XSLTransformation_9" name="XSLT_buildDbException" root="/" XSLTransform="xslt/XSLT_buildDbException_req_1.xsl" XMXMap="xslt/XSLT_buildDbException_req_1.map" SMOVersion="SMO61">
+        <location x="933" y="292"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_2"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_4"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_4"/>
+        <translation xmi:type="utility:ConstantString" string="XSLT_buildDbException"/>
+      </nodes>
+      <nodes xmi:type="Fail.mednode:Fail" xmi:id="Fail_4" name="Fail4" errorMessage="fail term from xslt_buildTimeout msg">
+        <location x="863" y="199"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_11"/>
+        <translation xmi:type="utility:ConstantString" string="Fail4"/>
+      </nodes>
+      <nodes xmi:type="Fail.mednode:Fail" xmi:id="Fail_5" name="Fail5" errorMessage="fail tem f rom xslt_buildFailMsg">
+        <location x="885" y="314"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_11"/>
+        <translation xmi:type="utility:ConstantString" string="Fail5"/>
+      </nodes>
+      <nodes xmi:type="Fail.mednode:Fail" xmi:id="Fail_6" name="Fail6" errorMessage="fail term from xslt_storeDbData">
+        <location x="1073" y="113"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_7"/>
+        <translation xmi:type="utility:ConstantString" string="Fail6"/>
+      </nodes>
+      <nodes xmi:type="Fail.mednode:Fail" xmi:id="Fail_7" name="Fail7" errorMessage="fail term from xslt_buildDbTimeout">
+        <location x="1088" y="211"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_4"/>
+        <translation xmi:type="utility:ConstantString" string="Fail7"/>
+      </nodes>
+      <nodes xmi:type="Fail.mednode:Fail" xmi:id="Fail_8" name="Fail8" errorMessage="fail term from xsltbuildDbException">
+        <location x="1106" y="333"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_4"/>
+        <translation xmi:type="utility:ConstantString" string="Fail8"/>
+      </nodes>
+      <nodes xmi:type="Fail.mednode:Fail" xmi:id="Fail_9" name="Fail9" errorMessage="fail term from revoveEmptyWarnings">
+        <location x="1189" y="183"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_2"/>
+        <translation xmi:type="utility:ConstantString" string="Fail9"/>
+      </nodes>
+      <nodes xmi:type="Fail.mednode:Fail" xmi:id="Fail_10" name="Fail10" errorMessage="fail term from BoMapper4">
+        <location x="1295" y="215"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_2"/>
+        <translation xmi:type="utility:ConstantString" string="Fail10"/>
+      </nodes>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_1" targetNode="BOMapper_2" sourceNode="Input_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_2" targetNode="XSLTransformation_3" sourceNode="BOMapper_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_3" targetNode="Fail_1" sourceNode="BOMapper_1" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_4" targetNode="ServiceInvoke_1" sourceNode="BOMapper_2" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_5" targetNode="BOMapper_1" sourceNode="BOMapper_2" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_6" targetNode="Stop_1" sourceNode="ServiceInvoke_1" sourceTerminalName="OutTerminal.dynamic:out:out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_7" targetNode="Stop_1" sourceNode="ServiceInvoke_1" sourceTerminalName="OutTerminal.timeout" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_8" targetNode="Stop_1" sourceNode="ServiceInvoke_1" sourceTerminalName="OutTerminal.dynamic:out:TP_InsertUpdate_DB_ErrorsMsg" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_9" targetNode="Stop_1" sourceNode="ServiceInvoke_1" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_10" targetNode="XSLTransformation_7" sourceNode="ServiceInvoke_2" sourceTerminalName="OutTerminal.dynamic:out:out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_11" targetNode="XSLTransformation_8" sourceNode="ServiceInvoke_2" sourceTerminalName="OutTerminal.timeout" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_12" targetNode="XSLTransformation_9" sourceNode="ServiceInvoke_2" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_13" targetNode="Stop_2" sourceNode="ServiceInvoke_4" sourceTerminalName="OutTerminal.dynamic:out:out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_14" targetNode="Stop_2" sourceNode="ServiceInvoke_4" sourceTerminalName="OutTerminal.timeout" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_15" targetNode="Stop_2" sourceNode="ServiceInvoke_4" sourceTerminalName="OutTerminal.dynamic:out:TP_InsertUpdate_DB_ErrorsMsg" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_16" targetNode="Stop_2" sourceNode="ServiceInvoke_4" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_17" targetNode="ServiceInvoke_4" sourceNode="BOMapper_4" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_18" targetNode="Fail_10" sourceNode="BOMapper_4" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_19" targetNode="BOMapper_4" sourceNode="CustomMediation_1" sourceTerminalName="OutTerminal.dynamic:out:out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_20" targetNode="InputResponse_1" sourceNode="CustomMediation_1" sourceTerminalName="OutTerminal.dynamic:out:out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_21" targetNode="Fail_9" sourceNode="CustomMediation_1" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_22" targetNode="XSLTransformation_4" sourceNode="ServiceInvoke_5" sourceTerminalName="OutTerminal.dynamic:out:out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_23" targetNode="XSLTransformation_6" sourceNode="ServiceInvoke_5" sourceTerminalName="OutTerminal.timeout" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_24" targetNode="XSLTransformation_5" sourceNode="ServiceInvoke_5" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_25" targetNode="ServiceInvoke_5" sourceNode="XSLTransformation_3" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_26" targetNode="Fail_2" sourceNode="XSLTransformation_3" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_27" targetNode="ServiceInvoke_2" sourceNode="XSLTransformation_4" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_28" targetNode="Fail_3" sourceNode="XSLTransformation_4" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_29" targetNode="CustomMediation_1" sourceNode="XSLTransformation_5" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_30" targetNode="Fail_5" sourceNode="XSLTransformation_5" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_31" targetNode="CustomMediation_1" sourceNode="XSLTransformation_6" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_32" targetNode="Fail_4" sourceNode="XSLTransformation_6" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_33" targetNode="CustomMediation_1" sourceNode="XSLTransformation_7" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_34" targetNode="Fail_6" sourceNode="XSLTransformation_7" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_35" targetNode="CustomMediation_1" sourceNode="XSLTransformation_8" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_36" targetNode="Fail_7" sourceNode="XSLTransformation_8" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_37" targetNode="CustomMediation_1" sourceNode="XSLTransformation_9" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_38" targetNode="Fail_8" sourceNode="XSLTransformation_9" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+    </composition>
+    <propertyOrganizer>
+      <propertyDescriptor groupName="basic" describedAttribute="Property.name"/>
+    </propertyOrganizer>
+  </eClassifiers>
+  <eClassifiers xmi:type="eflow2:FCMComposite" name="Agent_Create_Update">
+    <eSuperTypes href="http://www.ibm.com/2006/eflow#//FCMBlock"/>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.EncryptDecrypt.asyncTimeout" name="EncryptDecrypt.asyncTimeout" defaultValueLiteral="2">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eStructuralFeatures>
+    <composition>
+      <nodes xmi:type="Agent_Create_Update.medflow:Agent_Create_Update_I_2" xmi:id="Agent_Create_Update_I_2_1" name="{http://NCL_WESB_Shared_Library/NCL_CruiseCreateAgent_Interface}NCL_CruiseCreateAgent_Interface:Perform_NCL_CruiseCreateAgent::request"/>
+    </composition>
+    <propertyOrganizer>
+      <propertyDescriptor groupName="NCL_CruiseCreateAgent_Module.Agent_Create_Update" describedAttribute="Property.EncryptDecrypt.asyncTimeout">
+        <description xmi:type="utility:ConstantString" string=""/>
+      </propertyDescriptor>
+    </propertyOrganizer>
+    <attributeLinks promotedAttribute="Property.EncryptDecrypt.asyncTimeout" overriddenNodes="ServiceInvoke_5">
+      <overriddenAttribute href="mednode://mednodes/ServiceInvoke.mednode/ServiceInvoke#Property.asyncTimeout"/>
+    </attributeLinks>
+  </eClassifiers>
+</ecore:EPackage>

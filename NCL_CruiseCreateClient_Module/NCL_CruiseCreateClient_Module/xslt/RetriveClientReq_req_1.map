@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseCreateClient_Module/xslt/RetriveClientReq_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseCreateClient_Module/xslt/RetriveClientReq_req_1">
+    <input correlationContext="{http://NCL_CruiseCreateClient_Module}App_context" message="{http://NCL_CruiseCreateClient_Module/DB_Lookup}executeNclseaNcl_Wesb_Create_Client_ProfileBGResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseCreateClient_Module}App_context" message="{http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveClient_Interface}Perform_NCL_CruiseRetrieveClientRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <mappingDeclaration name="RetriveClientReq_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ"/>
+            <output path="context/correlation/NCL_CruiseCreateClientRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="context/correlation/Password"/>
+            <output path="context/correlation/Password"/>
+        </move>
+        <move>
+            <input path="context/correlation/ClientID"/>
+            <output path="context/correlation/ClientID"/>
+        </move>
+        <move automap="true">
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/@AltLangID"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClient/NCL_CruiseRetrieveClientRQ/@AltLangID"/>
+        </move>
+        <move automap="true">
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/@EchoToken"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClient/NCL_CruiseRetrieveClientRQ/@EchoToken"/>
+        </move>
+        <move automap="true">
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/@PrimaryLangID"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClient/NCL_CruiseRetrieveClientRQ/@PrimaryLangID"/>
+        </move>
+        <move automap="true">
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/@RetransmissionIndicator"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClient/NCL_CruiseRetrieveClientRQ/@RetransmissionIndicator"/>
+        </move>
+        <move automap="true">
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/@SequenceNmbr"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClient/NCL_CruiseRetrieveClientRQ/@SequenceNmbr"/>
+        </move>
+        <move automap="true">
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/@Target"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClient/NCL_CruiseRetrieveClientRQ/@Target"/>
+        </move>
+        <move automap="true">
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/@TimeStamp"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClient/NCL_CruiseRetrieveClientRQ/@TimeStamp"/>
+        </move>
+        <move automap="true">
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/@TransactionIdentifier"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClient/NCL_CruiseRetrieveClientRQ/@TransactionIdentifier"/>
+        </move>
+        <move automap="true">
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/@TransactionStatusCode"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClient/NCL_CruiseRetrieveClientRQ/@TransactionStatusCode"/>
+        </move>
+        <move automap="true">
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/@Version"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClient/NCL_CruiseRetrieveClientRQ/@Version"/>
+        </move>
+        <move automap="true">
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/POS"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClient/NCL_CruiseRetrieveClientRQ/POS"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBGResponse/executeNclseaNcl_Wesb_Create_Client_ProfileBGOutput/NclseaNcl_Wesb_Create_Client_Profile/p_clientid"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClient/NCL_CruiseRetrieveClientRQ/ClientInfo/@LoyaltyMembershipID"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBGResponse/executeNclseaNcl_Wesb_Create_Client_ProfileBGOutput/NclseaNcl_Wesb_Create_Client_Profile/p_username"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClient/NCL_CruiseRetrieveClientRQ/UserLogin/@UserLoginName"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

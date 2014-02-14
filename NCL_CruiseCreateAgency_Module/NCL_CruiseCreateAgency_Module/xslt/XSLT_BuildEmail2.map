@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseCreateAgency_Module/xslt/XSLT_BuildEmail2" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseCreateAgency_Module/xslt/XSLT_BuildEmail2">
+    <input correlationContext="{http://NCL_CruiseCreateAgency_Module}App_context" message="{http://NCL_CruiseCreateAgency_Module/DB_Lookup}executeNclseaNcl_Wesb_Upd_Agency_Email_InfoBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseCreateAgency_Module}App_context" message="{http://NCL_CruiseCreateAgency_Module/DB_Lookup}executeNclseaNcl_Wesb_Upd_Agency_Email_InfoBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLT_BuildEmail2.xml"/>
+        <import kind="xslt" location="XSLT_BuildEmail2_SharedSync.xsl"/>
+        <import kind="xslt" location="XSLT_BuildEmail2_Market.xsl"/>
+    </imports>
+    <mappingDeclaration name="XSLT_BuildEmail2">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgencyRQ"/>
+            <output path="context/correlation/NCL_CruiseCreateAgencyRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgencyRQ/AgencyInfo/RequestorID/@ID"/>
+            <output path="body/executeNclseaNcl_Wesb_Upd_Agency_Email_InfoBG/executeNclseaNcl_Wesb_Upd_Agency_Email_InfoBGInput/NclseaNcl_Wesb_Upd_Agency_Email_Info/p_agencyid"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgencyRQ/AgencyInfo/Email[2]/text()"/>
+            <output path="body/executeNclseaNcl_Wesb_Upd_Agency_Email_InfoBG/executeNclseaNcl_Wesb_Upd_Agency_Email_InfoBGInput/NclseaNcl_Wesb_Upd_Agency_Email_Info/p_address_line1"/>
+        </move>
+        <customFunction lang="xslt" location="XSLT_BuildEmail2_SharedSync.xsl" ref="ShareSynchIndToP_is_address_mailing">
+            <input path="context/correlation/NCL_CruiseCreateAgencyRQ/AgencyInfo/Email[2]/@ShareSynchInd" var="ShareSynchInd"/>
+            <output path="body/executeNclseaNcl_Wesb_Upd_Agency_Email_InfoBG/executeNclseaNcl_Wesb_Upd_Agency_Email_InfoBGInput/NclseaNcl_Wesb_Upd_Agency_Email_Info/p_is_address_mailing"/>
+            <param name="ShareSynchInd" value="$ShareSynchInd"/>
+        </customFunction>
+        <customFunction lang="xslt" location="XSLT_BuildEmail2_Market.xsl" ref="ShareMarketIndToP_is_address_shipping">
+            <input path="context/correlation/NCL_CruiseCreateAgencyRQ/AgencyInfo/Email[2]/@ShareMarketInd" var="ShareMarketInd"/>
+            <output path="body/executeNclseaNcl_Wesb_Upd_Agency_Email_InfoBG/executeNclseaNcl_Wesb_Upd_Agency_Email_InfoBGInput/NclseaNcl_Wesb_Upd_Agency_Email_Info/p_is_address_shipping"/>
+            <param name="ShareMarketInd" value="$ShareMarketInd"/>
+        </customFunction>
+    </mappingDeclaration>
+</mappingRoot>

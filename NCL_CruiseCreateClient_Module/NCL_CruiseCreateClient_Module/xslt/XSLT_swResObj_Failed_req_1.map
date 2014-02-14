@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseCreateClient_Module/xslt/XSLT_swResObj_Failed_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseCreateClient_Module/xslt/XSLT_swResObj_Failed_req_1">
+    <input correlationContext="{http://NCL_CruiseCreateClient_Module}App_context" message="{http://TP_Logger/TP_Interface}TP_InsertUpdateRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseCreateClient_Module}App_context" message="{http://NCL_WESB_Shared_Library/NCL_CruiseCreateClient_Interface}Perform_NCL_CruiseCreateClientResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xslt" location="XSLT_swResObj_Failed_req_1_custom.xsl"/>
+    </imports>
+    <mappingDeclaration name="XSLT_swResObj_Failed_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="context/correlation/Password"/>
+            <output path="context/correlation/Password"/>
+        </move>
+        <move>
+            <input path="context/correlation/ClientID"/>
+            <output path="context/correlation/ClientID"/>
+        </move>
+        <move>
+            <input path="context/correlation/inputPasswordLength"/>
+            <output path="context/correlation/inputPasswordLength"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ"/>
+            <output path="context/correlation/NCL_CruiseCreateClientRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/@TransactionIdentifier"/>
+            <output path="body/Perform_NCL_CruiseCreateClientResponse/NCL_CruiseCreateClientRS/@TransactionIdentifier"/>
+        </move>
+        <customFunction lang="xslt" location="XSLT_swResObj_Failed_req_1_custom.xsl" ref="ToSuccess">
+            <output path="body/Perform_NCL_CruiseCreateClientResponse/NCL_CruiseCreateClientRS/Success"/>
+        </customFunction>
+        <assign value="9917">
+            <output path="body/Perform_NCL_CruiseCreateClientResponse/NCL_CruiseCreateClientRS/Warnings/Warning/@Code"/>
+        </assign>
+        <assign value="Seaware is not available.  Please try later.  swResObj failed.">
+            <output path="body/Perform_NCL_CruiseCreateClientResponse/NCL_CruiseCreateClientRS/Warnings/Warning/@ShortText"/>
+        </assign>
+        <move>
+            <input path="context/failInfo/failureString"/>
+            <output path="body/Perform_NCL_CruiseCreateClientResponse/NCL_CruiseCreateClientRS/Warnings/Warning/text()"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

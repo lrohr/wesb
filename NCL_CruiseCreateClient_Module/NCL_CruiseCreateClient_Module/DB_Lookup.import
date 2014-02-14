@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import displayName="DB_Lookup" name="DB_Lookup"
+    xmlns:EIS="http://www.ibm.com/xmlns/prod/websphere/scdl/eis/6.0.0"
+    xmlns:ns1="http://NCL_CruiseCreateClient_Module/DB_Lookup"
+    xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0"
+    xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interfaces>
+        <interface portType="ns1:DB_Lookup"
+            preferredInteractionStyle="sync" xsi:type="wsdl:WSDLPortType">
+            <scdl:interfaceQualifier value="false" xsi:type="scdl:JoinTransaction"/>
+        </interface>
+    </interfaces>
+    <esbBinding
+        dataBindingType="com.ibm.j2ca.jdbc.emd.databinding.JDBCDataBindingGenerator" xsi:type="EIS:EISImportBinding">
+        <resourceAdapter
+            name="NCL_CruiseCreateClient_ModuleApp.IBM WebSphere Adapter for JDBC"
+            type="com.ibm.j2ca.jdbc.JDBCResourceAdapter" version="7.5.0.1">
+            <properties>
+                <adapterID>001</adapterID>
+            </properties>
+        </resourceAdapter>
+        <connection
+            interactionType="com.ibm.j2ca.jdbc.JDBCInteractionSpec" type="com.ibm.j2ca.jdbc.JDBCManagedConnectionFactory">
+            <properties>
+                <adapterID>001</adapterID>
+                <dataSourceJNDIName>SEAWARE_JNDI</dataSourceJNDIName>
+                <databaseVendor>ORACLE</databaseVendor>
+                <returnDummyBOForSP>false</returnDummyBOForSP>
+                <XADataSourceJNDIName>SEAWARE_JNDI</XADataSourceJNDIName>
+                <connectionType>XADataSourceJNDI</connectionType>
+            </properties>
+        </connection>
+        <methodBinding
+            inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_create_client_profilebg.NclseaNcl_Wesb_Create_Client_ProfileBGDataBinding"
+            method="executeNclseaNcl_Wesb_Create_Client_ProfileBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_create_client_profilebg.NclseaNcl_Wesb_Create_Client_ProfileBGDataBinding">
+            <interaction>
+                <properties>
+                    <functionName>Execute</functionName>
+                </properties>
+            </interaction>
+        </methodBinding>
+        <methodBinding
+            inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_create_companion_xrefbg.NclseaNcl_Wesb_Create_Companion_XrefBGDataBinding"
+            method="executeNclseaNcl_Wesb_Create_Companion_XrefBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_create_companion_xrefbg.NclseaNcl_Wesb_Create_Companion_XrefBGDataBinding">
+            <interaction>
+                <properties>
+                    <functionName>Execute</functionName>
+                </properties>
+            </interaction>
+        </methodBinding>
+        <methodBinding
+            inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_create_onboard_prefbg.NclseaNcl_Wesb_Create_Onboard_PrefBGDataBinding"
+            method="executeNclseaNcl_Wesb_Create_Onboard_PrefBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_create_onboard_prefbg.NclseaNcl_Wesb_Create_Onboard_PrefBGDataBinding">
+            <interaction>
+                <properties>
+                    <functionName>Execute</functionName>
+                </properties>
+            </interaction>
+        </methodBinding>
+        <methodBinding
+            inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_create_client_parmbg.NclseaNcl_Wesb_Create_Client_ParmBGDataBinding"
+            method="executeNclseaNcl_Wesb_Create_Client_ParmBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_create_client_parmbg.NclseaNcl_Wesb_Create_Client_ParmBGDataBinding">
+            <interaction>
+                <properties>
+                    <functionName>Execute</functionName>
+                </properties>
+            </interaction>
+        </methodBinding>
+    </esbBinding>
+</scdl:import>

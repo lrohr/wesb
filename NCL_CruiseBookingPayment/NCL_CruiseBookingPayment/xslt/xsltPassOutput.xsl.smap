@@ -1,0 +1,18 @@
+* SMAP
+xsltPassOutput.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 xsltPassOutput.map
+/NCL_CruiseBookingPayment/xslt/xsltPassOutput.map
+*L
+1:56,17
+6:104,6
+5:98,6
+3:88,4
+4:92,6
+7:110,6
+2:84,4
+9:122,5
+8:116,6
+*E

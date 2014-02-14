@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseCreateClient_Module/xslt/BuildResponse_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseCreateClient_Module/xslt/BuildResponse_req_1">
+    <input correlationContext="{http://NCL_CruiseCreateClient_Module}App_context" message="{http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveClient_Interface}Perform_NCL_CruiseRetrieveClientResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseCreateClient_Module}App_context" message="{http://NCL_WESB_Shared_Library/NCL_CruiseCreateClient_Interface}Perform_NCL_CruiseCreateClientResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <mappingDeclaration name="BuildResponse_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move automap="true">
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/@AltLangID"/>
+            <output path="body/Perform_NCL_CruiseCreateClientResponse/NCL_CruiseCreateClientRS/@AltLangID"/>
+        </move>
+        <move automap="true">
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/@EchoToken"/>
+            <output path="body/Perform_NCL_CruiseCreateClientResponse/NCL_CruiseCreateClientRS/@EchoToken"/>
+        </move>
+        <move automap="true">
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/@PrimaryLangID"/>
+            <output path="body/Perform_NCL_CruiseCreateClientResponse/NCL_CruiseCreateClientRS/@PrimaryLangID"/>
+        </move>
+        <move automap="true">
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/@RetransmissionIndicator"/>
+            <output path="body/Perform_NCL_CruiseCreateClientResponse/NCL_CruiseCreateClientRS/@RetransmissionIndicator"/>
+        </move>
+        <move automap="true">
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/@SequenceNmbr"/>
+            <output path="body/Perform_NCL_CruiseCreateClientResponse/NCL_CruiseCreateClientRS/@SequenceNmbr"/>
+        </move>
+        <move automap="true">
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/@Target"/>
+            <output path="body/Perform_NCL_CruiseCreateClientResponse/NCL_CruiseCreateClientRS/@Target"/>
+        </move>
+        <move automap="true">
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/@TimeStamp"/>
+            <output path="body/Perform_NCL_CruiseCreateClientResponse/NCL_CruiseCreateClientRS/@TimeStamp"/>
+        </move>
+        <move automap="true">
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/@TransactionIdentifier"/>
+            <output path="body/Perform_NCL_CruiseCreateClientResponse/NCL_CruiseCreateClientRS/@TransactionIdentifier"/>
+        </move>
+        <move automap="true">
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/@TransactionStatusCode"/>
+            <output path="body/Perform_NCL_CruiseCreateClientResponse/NCL_CruiseCreateClientRS/@TransactionStatusCode"/>
+        </move>
+        <move automap="true">
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/@Version"/>
+            <output path="body/Perform_NCL_CruiseCreateClientResponse/NCL_CruiseCreateClientRS/@Version"/>
+        </move>
+        <move automap="true">
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/Errors"/>
+            <output path="body/Perform_NCL_CruiseCreateClientResponse/NCL_CruiseCreateClientRS/Errors"/>
+        </move>
+        <local>
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/ClientInfo"/>
+            <output path="body/Perform_NCL_CruiseCreateClientResponse/NCL_CruiseCreateClientRS/ClientInfo"/>
+            <move automap="true">
+                <input path="@Age"/>
+                <output path="@Age"/>
+            </move>
+            <move automap="true">
+                <input path="@BirthDate"/>
+                <output path="@BirthDate"/>
+            </move>
+            <move automap="true">
+                <input path="@ContactType"/>
+                <output path="@ContactType"/>
+            </move>
+            <move automap="true">
+                <input path="@DefaultInd"/>
+                <output path="@DefaultInd"/>
+            </move>
+            <move automap="true">
+                <input path="@EmergencyFlag"/>
+                <output path="@EmergencyFlag"/>
+            </move>
+            <move automap="true">
+                <input path="@Gender"/>
+                <output path="@Gender"/>
+            </move>
+            <move automap="true">
+                <input path="@GuestOccupation"/>
+                <output path="@GuestOccupation"/>
+            </move>
+            <move automap="true">
+                <input path="@GuestRefNumber"/>
+                <output path="@GuestRefNumber"/>
+            </move>
+            <move automap="true">
+                <input path="@LoyalLevel"/>
+                <output path="@LoyalLevel"/>
+            </move>
+            <move automap="true">
+                <input path="@LoyaltyMembershipID"/>
+                <output path="@LoyaltyMembershipID"/>
+            </move>
+            <move automap="true">
+                <input path="@Nationality"/>
+                <output path="@Nationality"/>
+            </move>
+            <move automap="true">
+                <input path="@Relation"/>
+                <output path="@Relation"/>
+            </move>
+            <move automap="true">
+                <input path="@RPH"/>
+                <output path="@RPH"/>
+            </move>
+            <move automap="true">
+                <input path="@ShareMarketInd"/>
+                <output path="@ShareMarketInd"/>
+            </move>
+            <move automap="true">
+                <input path="@ShareSynchInd"/>
+                <output path="@ShareSynchInd"/>
+            </move>
+            <move automap="true">
+                <input path="PersonName"/>
+                <output path="PersonName"/>
+            </move>
+            <move automap="true">
+                <input path="Telephone"/>
+                <output path="Telephone"/>
+            </move>
+            <move automap="true">
+                <input path="Address"/>
+                <output path="Address"/>
+            </move>
+            <move automap="true">
+                <input path="Email"/>
+                <output path="Email"/>
+            </move>
+            <move automap="true">
+                <input path="URL"/>
+                <output path="URL"/>
+            </move>
+            <move automap="true">
+                <input path="CompanyName"/>
+                <output path="CompanyName"/>
+            </move>
+            <move automap="true">
+                <input path="EmployeeInfo"/>
+                <output path="EmployeeInfo"/>
+            </move>
+        </local>
+        <if>
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/Success" var="Success"/>
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/Warnings/Warning/@ShortText" var="ShortText"/>
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/Errors/Error/@ShortText" var="ShortText1"/>
+            <output path="body/Perform_NCL_CruiseCreateClientResponse/NCL_CruiseCreateClientRS/Success"/>
+            <test lang="XPath">not( $ShortText) and not($ShortText1)</test>
+            <create empty="true">
+                <output path="."/>
+            </create>
+        </if>
+        <move>
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/Warnings/Warning/@Code"/>
+            <output path="body/Perform_NCL_CruiseCreateClientResponse/NCL_CruiseCreateClientRS/Warnings/Warning/@Code"/>
+        </move>
+        <move>
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/Warnings/Warning/@ShortText"/>
+            <output path="body/Perform_NCL_CruiseCreateClientResponse/NCL_CruiseCreateClientRS/Warnings/Warning/@ShortText"/>
+        </move>
+        <move>
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/Warnings/Warning/text()"/>
+            <output path="body/Perform_NCL_CruiseCreateClientResponse/NCL_CruiseCreateClientRS/Warnings/Warning/text()"/>
+        </move>
+        <move>
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/Warnings/Warning/@Type"/>
+            <output path="body/Perform_NCL_CruiseCreateClientResponse/NCL_CruiseCreateClientRS/Warnings/Warning/@Type"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:NCL_CruiseCreateAgencyRQ="http://nclapi/schemas" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:sub_to_logininforesp="http://NCL_CruiseCreateAgency_Module" targetNamespace="http://NCL_CruiseCreateAgency_Module">
+  <map:name>sub_to_logininforesp</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="NCL_CruiseCreateAgencyRQ:NCL_CruiseCreateAgencyRQ" name="NCL_CruiseCreateAgencyRQ"/>
+  <map:outputBusinessObjectVariable businessObjectRef="NCL_CruiseCreateAgencyRQ:NCL_CruiseCreateAgencyRS" name="NCL_CruiseCreateAgencyRS"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="@Version"/>
+      <map:output businessObjectVariableRef="NCL_CruiseCreateAgencyRS" property="@Version"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="@TransactionIdentifier"/>
+      <map:output businessObjectVariableRef="NCL_CruiseCreateAgencyRS" property="@TransactionIdentifier"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="UserLogin/@UserLoginName"/>
+      <map:output businessObjectVariableRef="NCL_CruiseCreateAgencyRS" property="UserLogin/@UserLoginName"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="UserLogin/@Password"/>
+      <map:output businessObjectVariableRef="NCL_CruiseCreateAgencyRS" property="UserLogin/@Password"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

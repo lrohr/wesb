@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mediationFlow xmlns="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlow" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://NCL_WESB_Shared_Library/NCL_CruiseCreateClient_Interface" xmlns:ns1_1="http://TP_Logger/TP_Interface" xmlns:ns1_2="http://versonix.com/api/definitions" xmlns:ns1_3="http://NCL_WESB_Shared_Library/Encrypt_Decrypt_Interface" xmlns:ns2="http://NCL_CruiseCreateClient_Module/DB_Lookup" xmlns:ns6="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveClient_Interface" name="NCL_CruiseCreateClient_Module" targetNamespace="http://NCL_CruiseCreateClient_Module/NCL_CruiseCreateClient_Module">
+  <import location="NCL_CruiseCreateClient_Interface.wsdl" namespace="http://NCL_WESB_Shared_Library/NCL_CruiseCreateClient_Interface"/>
+  <import location="DB_Lookup.wsdl" namespace="http://NCL_CruiseCreateClient_Module/DB_Lookup"/>
+  <import location="TP_Interface.wsdl" namespace="http://TP_Logger/TP_Interface"/>
+  <import location="swApiWsdl.wsdl" namespace="http://versonix.com/api/definitions"/>
+  <import location="Encrypt_Decrypt_Interface.wsdl" namespace="http://NCL_WESB_Shared_Library/Encrypt_Decrypt_Interface"/>
+  <import location="NCL_CruiseRetrieveClient_Interface.wsdl" namespace="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveClient_Interface"/>
+  <reference name="DB_LookupPartner" portType="ns2:DB_Lookup"/>
+  <reference name="TP_InterfacePartner" portType="ns1_1:TP_Interface"/>
+  <reference name="SwApiPartner" portType="ns1_2:SwApi"/>
+  <reference name="Encrypt_Decrypt_InterfacePartner" portType="ns1_3:Encrypt_Decrypt_Interface"/>
+  <reference name="NCL_CruiseRetrieveClient_InterfacePartner" portType="ns6:NCL_CruiseRetrieveClient_Interface"/>
+  <interface portType="ns1:NCL_CruiseCreateClient_Interface">
+    <operation name="Perform_NCL_CruiseCreateClient">
+      <requestFlow>
+        <node displayName="Perform_NCL_CruiseCreateClient : NCL_CruiseCreateClient_Interface" name="NCL_CruiseCreateClient_Interface_Perform_NCL_CruiseCreateClient_Input" type="Input">
+          <property name="correlationContext" value="{http://NCL_CruiseCreateClient_Module}App_context"/>
+          <outputTerminal type="ns1:Perform_NCL_CruiseCreateClientRequestMsg">
+            <wire targetNode="BOMapper1"/>
+          </outputTerminal>
+        </node>
+        <node displayName="Perform_NCL_CruiseCreateClient : NCL_CruiseCreateClient_Interface" name="NCL_CruiseCreateClient_Interface_Perform_NCL_CruiseCreateClient_InputResponse" type="InputResponse">
+          <inputTerminal type="ns1:Perform_NCL_CruiseCreateClientResponseMsg"/>
+        </node>
+        <node name="ReqLogger" type="ServiceInvoke">
+          <property name="referenceName" value="TP_InterfacePartner"/>
+          <property name="operationName" value="TP_InsertUpdate"/>
+          <inputTerminal type="ns1_1:TP_InsertUpdateRequestMsg"/>
+          <outputTerminal type="ns1_1:TP_InsertUpdateResponseMsg">
+            <wire targetNode="Stop6"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns1_1:TP_InsertUpdateRequestMsg">
+            <wire targetNode="Stop6"/>
+          </outputTerminal>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="TP_InsertUpdate_DB_ErrorsMsg" type="ns1_1:TP_InsertUpdate_DB_ErrorsMsg">
+            <wire targetNode="Stop6"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Stop6"/>
+          </failTerminal>
+        </node>
+        <node name="BOMapper1" type="BOMapper">
+          <property name="root" value="/"/>
+          <property name="mappingFile" value="Req_toContext.map"/>
+          <inputTerminal/>
+          <outputTerminal type="ns1_1:TP_InsertUpdateRequestMsg">
+            <wire targetNode="ReqLogger"/>
+            <wire targetNode="XSLT_loadEncrypt"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="BOMapper2" type="BOMapper">
+          <property name="root" value="/"/>
+          <property name="mappingFile" value="to_encryptstring.map"/>
+          <inputTerminal/>
+          <outputTerminal type="ns1_2:processEncryptDecryptRequest">
+            <wire targetNode="Encryptstring"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="Encryptstring" type="ServiceInvoke">
+          <property name="referenceName" value="SwApiPartner"/>
+          <property name="operationName" value="processEncryptDecrypt"/>
+          <inputTerminal type="ns1_2:processEncryptDecryptRequest"/>
+          <outputTerminal type="ns1_2:processEncryptDecryptResponse">
+            <wire targetNode="MessageElementSetter1"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns1_2:processEncryptDecryptRequest"/>
+          <failTerminal/>
+        </node>
+        <node name="MessageElementSetter1" type="MessageElementSetter">
+          <table name="messageElements">
+            <row>
+              <property name="target" value="/context/correlation/NCL_CruiseCreateClientRQ/UserLogin/@Password"/>
+              <property name="type" value="copy"/>
+              <property name="value" value="/body/processEncryptDecryptResponse/Encrypt_Decrypt/EncryptString"/>
+            </row>
+          </table>
+          <inputTerminal/>
+          <outputTerminal/>
+          <failTerminal/>
+        </node>
+        <node name="BOMapper3" type="BOMapper">
+          <property name="root" value="/"/>
+          <property name="mappingFile" value="bo_toclient_profile.map"/>
+          <inputTerminal/>
+          <outputTerminal type="ns2:executeNclseaNcl_Wesb_Create_Client_ProfileBGRequestMsg"/>
+          <failTerminal/>
+        </node>
+        <node name="Createclientprofile" type="ServiceInvoke">
+          <property name="referenceName" value="DB_LookupPartner"/>
+          <property name="operationName" value="executeNclseaNcl_Wesb_Create_Client_ProfileBG"/>
+          <inputTerminal type="ns2:executeNclseaNcl_Wesb_Create_Client_ProfileBGRequestMsg"/>
+          <outputTerminal type="ns2:executeNclseaNcl_Wesb_Create_Client_ProfileBGResponseMsg">
+            <wire targetNode="MessageFilter1"/>
+            <wire targetNode="ChkError"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns2:executeNclseaNcl_Wesb_Create_Client_ProfileBGRequestMsg"/>
+          <failTerminal>
+            <wire targetNode="XSLT_build_error"/>
+          </failTerminal>
+        </node>
+        <node name="BOMapper4" type="BOMapper">
+          <property name="root" value="/"/>
+          <property name="mappingFile" value="bo_to_companionclient.map"/>
+          <inputTerminal/>
+          <outputTerminal type="ns2:executeNclseaNcl_Wesb_Create_Companion_XrefBGRequestMsg">
+            <wire targetNode="companionclient"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="companionclient" type="ServiceInvoke">
+          <property name="referenceName" value="DB_LookupPartner"/>
+          <property name="operationName" value="executeNclseaNcl_Wesb_Create_Companion_XrefBG"/>
+          <inputTerminal type="ns2:executeNclseaNcl_Wesb_Create_Companion_XrefBGRequestMsg"/>
+          <outputTerminal type="ns2:executeNclseaNcl_Wesb_Create_Companion_XrefBGResponseMsg">
+            <wire targetNode="Stop2"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns2:executeNclseaNcl_Wesb_Create_Companion_XrefBGRequestMsg">
+            <wire targetNode="Stop2"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Stop2"/>
+          </failTerminal>
+        </node>
+        <node name="OnboardPref" type="ServiceInvoke">
+          <property name="referenceName" value="DB_LookupPartner"/>
+          <property name="operationName" value="executeNclseaNcl_Wesb_Create_Onboard_PrefBG"/>
+          <inputTerminal type="ns2:executeNclseaNcl_Wesb_Create_Onboard_PrefBGRequestMsg"/>
+          <outputTerminal type="ns2:executeNclseaNcl_Wesb_Create_Onboard_PrefBGResponseMsg">
+            <wire targetNode="Stop1"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns2:executeNclseaNcl_Wesb_Create_Onboard_PrefBGRequestMsg">
+            <wire targetNode="Stop1"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Stop1"/>
+          </failTerminal>
+        </node>
+        <node name="BOMapper5" type="BOMapper">
+          <property name="root" value="/"/>
+          <property name="mappingFile" value="bo_toonboarpref.map"/>
+          <inputTerminal/>
+          <outputTerminal type="ns2:executeNclseaNcl_Wesb_Create_Onboard_PrefBGRequestMsg">
+            <wire targetNode="OnboardPref"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="ClinetParam" type="ServiceInvoke">
+          <property name="referenceName" value="DB_LookupPartner"/>
+          <property name="operationName" value="executeNclseaNcl_Wesb_Create_Client_ParmBG"/>
+          <inputTerminal type="ns2:executeNclseaNcl_Wesb_Create_Client_ParmBGRequestMsg"/>
+          <outputTerminal type="ns2:executeNclseaNcl_Wesb_Create_Client_ParmBGResponseMsg">
+            <wire targetNode="Stop3"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns2:executeNclseaNcl_Wesb_Create_Client_ParmBGRequestMsg">
+            <wire targetNode="Stop3"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Stop3"/>
+          </failTerminal>
+        </node>
+        <node name="MessageFilter1" type="MessageFilter">
+          <table name="filters">
+            <row>
+              <property name="pattern" value="/body/executeNclseaNcl_Wesb_Create_Client_ProfileBGResponse/executeNclseaNcl_Wesb_Create_Client_ProfileBGOutput/NclseaNcl_Wesb_Create_Client_Profile/p_additional_info = 'Y'"/>
+              <property name="terminalName" value="match1"/>
+            </row>
+          </table>
+          <inputTerminal/>
+          <outputTerminal name="default"/>
+          <outputTerminal name="match1">
+            <wire targetNode="MessageFilter2"/>
+            <wire targetNode="MessageFilter3"/>
+            <wire targetNode="MessageFilter4"/>
+            <wire targetNode="MessageFilter41"/>
+            <wire targetNode="MessageFilter42"/>
+            <wire targetNode="MessageFilter5"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="BOMapper7" type="BOMapper">
+          <property name="root" value="/"/>
+          <property name="mappingFile" value="bo_toclientparam1.map"/>
+          <inputTerminal/>
+          <outputTerminal type="ns2:executeNclseaNcl_Wesb_Create_Client_ParmBGRequestMsg">
+            <wire targetNode="CLientparam1"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="CLientparam1" type="ServiceInvoke">
+          <property name="referenceName" value="DB_LookupPartner"/>
+          <property name="operationName" value="executeNclseaNcl_Wesb_Create_Client_ParmBG"/>
+          <inputTerminal type="ns2:executeNclseaNcl_Wesb_Create_Client_ParmBGRequestMsg"/>
+          <outputTerminal type="ns2:executeNclseaNcl_Wesb_Create_Client_ParmBGResponseMsg">
+            <wire targetNode="Stop4"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns2:executeNclseaNcl_Wesb_Create_Client_ParmBGRequestMsg">
+            <wire targetNode="Stop4"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Stop4"/>
+          </failTerminal>
+        </node>
+        <node name="BOMapper8" type="BOMapper">
+          <property name="root" value="/"/>
+          <property name="mappingFile" value="bo_to_resp.map"/>
+          <inputTerminal/>
+          <outputTerminal type="ns1:Perform_NCL_CruiseCreateClientResponseMsg"/>
+          <failTerminal/>
+        </node>
+        <node name="BOMapper9" type="BOMapper">
+          <property name="root" value="/"/>
+          <property name="mappingFile" value="bo_toresplogger.map"/>
+          <inputTerminal/>
+          <outputTerminal type="ns1_1:TP_InsertUpdateRequestMsg">
+            <wire targetNode="RespLogger"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="RespLogger" type="ServiceInvoke">
+          <property name="referenceName" value="TP_InterfacePartner"/>
+          <property name="operationName" value="TP_InsertUpdate"/>
+          <inputTerminal type="ns1_1:TP_InsertUpdateRequestMsg"/>
+          <outputTerminal type="ns1_1:TP_InsertUpdateResponseMsg">
+            <wire targetNode="Stop5"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns1_1:TP_InsertUpdateRequestMsg">
+            <wire targetNode="Stop5"/>
+          </outputTerminal>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="TP_InsertUpdate_DB_ErrorsMsg" type="ns1_1:TP_InsertUpdate_DB_ErrorsMsg">
+            <wire targetNode="Stop5"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Stop5"/>
+          </failTerminal>
+        </node>
+        <node name="Stop1" type="Stop">
+          <inputTerminal type="XMLSchema:anyType"/>
+        </node>
+        <node name="Stop2" type="Stop">
+          <inputTerminal type="XMLSchema:anyType"/>
+        </node>
+        <node name="Stop3" type="Stop">
+          <inputTerminal type="XMLSchema:anyType"/>
+        </node>
+        <node name="Stop4" type="Stop">
+          <inputTerminal type="XMLSchema:anyType"/>
+        </node>
+        <node name="Stop5" type="Stop">
+          <inputTerminal type="XMLSchema:anyType"/>
+        </node>
+        <node name="Stop6" type="Stop">
+          <inputTerminal type="XMLSchema:anyType"/>
+        </node>
+        <node name="CustomMediation1" type="CustomMediation">
+          <property name="javaCode"><![CDATA[
+commonj.sdo.DataObject __smo = (commonj.sdo.DataObject)smo;
+
+commonj.sdo.DataObject __result__1 = __smo.getDataObject("body").getDataObject("Perform_NCL_CruiseCreateClientResponse").getDataObject("NCL_CruiseCreateClientRS");
+
+com.ncl.wesb.NCLDataObjectUtils.removeEmptyWarnings(__result__1);
+
+out.fire(__smo);
+
+
+//@generated:com.ibm.wbit.activity.ui
+//<?xml version="1.0" encoding="UTF-8"?>
+//<com.ibm.wbit.activity:CompositeActivity xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.wbit.activity="http:///com/ibm/wbit/activity.ecore" name="ActivityMethod">
+//  <parameters name="inputTerminal">
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.InputTerminal"/>
+//  </parameters>
+//  <parameters name="smo" objectType="true">
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="ServiceMessageObject" namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1"/>
+//  </parameters>
+//  <exceptions>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.MediationBusinessException"/>
+//  </exceptions>
+//  <exceptions>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.MediationConfigurationException"/>
+//  </exceptions>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="smo.body.Perform_NCL_CruiseCreateClientResponse.NCL_CruiseCreateClientRS" field="true">
+//    <dataOutputs target="//@executableElements.1/@parameters.0"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="NCL_CruiseCreateClientRS;/NCL_CruiseCreateClientRS" namespace="http://nclapi/schemas"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:JavaActivity" name="removeEmptyWarnings" category="com.ncl.wesb.NCLDataObjectUtils" className="com.ncl.wesb.NCLDataObjectUtils" static="true" memberName="removeEmptyWarnings">
+//    <parameters name="dataObject" dataInputs="//@executableElements.0/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="commonj.sdo.DataObject"/>
+//    </parameters>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="out" variable="true">
+//    <dataOutputs target="//@executableElements.4/@parameters.0"/>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.OutputTerminal"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="smo" variable="true" assignable="false" input="true">
+//    <dataOutputs target="//@executableElements.4/@parameters.1"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="ServiceMessageObject" namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" nillable="false"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:JavaActivity" name="fire" category="com.ibm.wsspi.sibx.mediation.OutputTerminal" className="com.ibm.wsspi.sibx.mediation.OutputTerminal" memberName="fire">
+//    <parameters name="OutputTerminal" dataInputs="//@executableElements.2/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.OutputTerminal"/>
+//    </parameters>
+//    <parameters name="smo" dataInputs="//@executableElements.3/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="ServiceMessageObject" namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" nillable="false"/>
+//    </parameters>
+//  </executableElements>
+//  <executableGroups executableElements="//@executableElements.0 //@executableElements.1"/>
+//  <executableGroups executableElements="//@executableElements.2 //@executableElements.3 //@executableElements.4"/>
+//</com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG
+
+//!SMAP!*L
+
+//!SMAP!1:2,1
+
+//!SMAP!2:3,1
+
+//!SMAP!5:4,1
+
+//!SMAP!1000000:56,1]]></property>
+          <property name="javaClass" value="sca.component.mediation.java.Custom1257372190993"/>
+          <property name="version" value="6.1.0"/>
+          <inputTerminal/>
+          <outputTerminal explicitType="false" type="ns1:Perform_NCL_CruiseCreateClientResponseMsg">
+            <wire targetNode="NCL_CruiseCreateClient_Interface_Perform_NCL_CruiseCreateClient_InputResponse"/>
+            <wire targetNode="BOMapper9"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="EncryptDecrypt" type="ServiceInvoke">
+          <property name="referenceName" value="Encrypt_Decrypt_InterfacePartner"/>
+          <property name="operationName" value="processEncryptDecrypt"/>
+          <inputTerminal type="ns1_3:processEncryptDecryptRequest"/>
+          <outputTerminal type="ns1_3:processEncryptDecryptResponse">
+            <wire targetNode="InsertPassword"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns1_3:processEncryptDecryptRequest">
+            <wire targetNode="xslt_swResObj_Timeout"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="XSLT_swResObj_Failed"/>
+          </failTerminal>
+        </node>
+        <node name="XSLT_loadEncrypt" type="XSLTransformation">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLT_loadEncrypt_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLT_loadEncrypt_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1_1:TP_InsertUpdateRequestMsg"/>
+          <outputTerminal type="ns1_3:processEncryptDecryptRequest">
+            <wire targetNode="EncryptDecrypt"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="InsertPassword" type="MessageElementSetter">
+          <table name="messageElements">
+            <row>
+              <property name="target" value="/context/correlation/NCL_CruiseCreateClientRQ/UserLogin/@Password"/>
+              <property name="type" value="copy"/>
+              <property name="value" value="/body/processEncryptDecryptResponse/Encrypt_Decrypt/EncryptString"/>
+            </row>
+          </table>
+          <inputTerminal/>
+          <outputTerminal>
+            <wire targetNode="XSLTransformation1"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="xslt_swResObj_Timeout" type="XSLTransformation">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/xslt_swResObj_Timeout_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/xslt_swResObj_Timeout_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1_3:processEncryptDecryptRequest"/>
+          <outputTerminal type="ns1:Perform_NCL_CruiseCreateClientResponseMsg">
+            <wire targetNode="CustomMediation1"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLT_swResObj_Failed" type="XSLTransformation">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLT_swResObj_Failed_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLT_swResObj_Failed_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns1:Perform_NCL_CruiseCreateClientResponseMsg">
+            <wire targetNode="CustomMediation1"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLTransformation1" type="XSLTransformation">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation1_req_2.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation1_req_2.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1_3:processEncryptDecryptResponse"/>
+          <outputTerminal type="ns2:executeNclseaNcl_Wesb_Create_Client_ProfileBGRequestMsg">
+            <wire targetNode="Createclientprofile"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLT_build_error" type="XSLTransformation">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLT_build_error_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLT_build_error_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns1:Perform_NCL_CruiseCreateClientResponseMsg">
+            <wire targetNode="CustomMediation1"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLT_buildResponse" type="XSLTransformation">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLT_buildResponse_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLT_buildResponse_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns2:executeNclseaNcl_Wesb_Create_Client_ProfileBGResponseMsg"/>
+          <outputTerminal type="ns1:Perform_NCL_CruiseCreateClientResponseMsg">
+            <wire targetNode="CustomMediation1"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="MessageFilter2" type="MessageFilter">
+          <table name="filters">
+            <row>
+              <property name="pattern" value="string-length ( /context/correlation/NCL_CruiseCreateClientRQ/TravelCompanions/TravelCompanion/@LoyaltyMembershipID) > 1"/>
+              <property name="terminalName" value="match1"/>
+            </row>
+          </table>
+          <inputTerminal/>
+          <outputTerminal name="default"/>
+          <outputTerminal name="match1">
+            <wire targetNode="BOMapper4"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="MessageFilter3" type="MessageFilter">
+          <table name="filters">
+            <row>
+              <property name="pattern" value="string-length(/context/correlation/NCL_CruiseCreateClientRQ/OnBoardPreferences/OnBoardPreference/Comment/Text/value) > 0 or string-length(/context/correlation/NCL_CruiseCreateClientRQ/OnBoardPreferences/OnBoardPreference/@Code) > 0 or string-length(/context/correlation/NCL_CruiseCreateClientRQ/OnBoardPreferences/OnBoardPreference/@Type) > 0"/>
+              <property name="terminalName" value="match1"/>
+            </row>
+          </table>
+          <inputTerminal/>
+          <outputTerminal name="default"/>
+          <outputTerminal name="match1">
+            <wire targetNode="BOMapper5"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="MessageFilter4" type="MessageFilter">
+          <table name="filters">
+            <row>
+              <property name="pattern" value="string-length (/context/correlation/NCL_CruiseCreateClientRQ/VacationPreference/DesiredDestination[1]) > 0"/>
+              <property name="terminalName" value="match1"/>
+            </row>
+          </table>
+          <inputTerminal/>
+          <outputTerminal name="default"/>
+          <outputTerminal name="match1">
+            <wire targetNode="XSLTransformation2"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="MessageFilter41" type="MessageFilter">
+          <table name="filters">
+            <row>
+              <property name="pattern" value="string-length (/context/correlation/NCL_CruiseCreateClientRQ/VacationPreference/DesiredDestination[2]) > 0"/>
+              <property name="terminalName" value="match1"/>
+            </row>
+          </table>
+          <inputTerminal/>
+          <outputTerminal name="default"/>
+          <outputTerminal name="match1">
+            <wire targetNode="XSLTransformation3"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="MessageFilter42" type="MessageFilter">
+          <table name="filters">
+            <row>
+              <property name="pattern" value="string-length (/context/correlation/NCL_CruiseCreateClientRQ/VacationPreference/DesiredDestination[3]) > 0"/>
+              <property name="terminalName" value="match1"/>
+            </row>
+          </table>
+          <inputTerminal/>
+          <outputTerminal name="default"/>
+          <outputTerminal name="match1">
+            <wire targetNode="XSLTransformation4"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLTransformation2" type="XSLTransformation">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation2_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation2_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns2:executeNclseaNcl_Wesb_Create_Client_ProfileBGResponseMsg"/>
+          <outputTerminal type="ns2:executeNclseaNcl_Wesb_Create_Client_ParmBGRequestMsg">
+            <wire targetNode="ClinetParam"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLTransformation3" type="XSLTransformation">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation3_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation3_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns2:executeNclseaNcl_Wesb_Create_Client_ProfileBGResponseMsg"/>
+          <outputTerminal type="ns2:executeNclseaNcl_Wesb_Create_Client_ParmBGRequestMsg">
+            <wire targetNode="ClinetParam"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLTransformation4" type="XSLTransformation">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation4_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation4_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns2:executeNclseaNcl_Wesb_Create_Client_ProfileBGResponseMsg"/>
+          <outputTerminal type="ns2:executeNclseaNcl_Wesb_Create_Client_ParmBGRequestMsg">
+            <wire targetNode="ClinetParam"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="MessageFilter5" type="MessageFilter">
+          <table name="filters">
+            <row>
+              <property name="pattern" value="string-length(/context/correlation/NCL_CruiseCreateClientRQ/VacationPreference/PreviousCruiseLines[1]) > 0"/>
+              <property name="terminalName" value="match1"/>
+            </row>
+          </table>
+          <inputTerminal/>
+          <outputTerminal name="default"/>
+          <outputTerminal name="match1">
+            <wire targetNode="BOMapper7"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="RetrieveClient" type="ServiceInvoke">
+          <property name="referenceName" value="NCL_CruiseRetrieveClient_InterfacePartner"/>
+          <property name="operationName" value="Perform_NCL_CruiseRetrieveClient"/>
+          <inputTerminal type="ns6:Perform_NCL_CruiseRetrieveClientRequestMsg"/>
+          <outputTerminal type="ns6:Perform_NCL_CruiseRetrieveClientResponseMsg">
+            <wire targetNode="BuildResponse"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns6:Perform_NCL_CruiseRetrieveClientRequestMsg"/>
+          <failTerminal>
+            <wire targetNode="XSLT_build_error"/>
+          </failTerminal>
+        </node>
+        <node name="RetriveClientReq" type="XSLTransformation">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/RetriveClientReq_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/RetriveClientReq_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns2:executeNclseaNcl_Wesb_Create_Client_ProfileBGResponseMsg"/>
+          <outputTerminal type="ns6:Perform_NCL_CruiseRetrieveClientRequestMsg">
+            <wire targetNode="RetrieveClient"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="BuildResponse" type="XSLTransformation">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/BuildResponse_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/BuildResponse_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns6:Perform_NCL_CruiseRetrieveClientResponseMsg"/>
+          <outputTerminal type="ns1:Perform_NCL_CruiseCreateClientResponseMsg">
+            <wire targetNode="CustomMediation1"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="ChkError" type="MessageFilter">
+          <table name="filters">
+            <row>
+              <property name="pattern" value="/body/executeNclseaNcl_Wesb_Create_Client_ProfileBGResponse/executeNclseaNcl_Wesb_Create_Client_ProfileBGOutput/NclseaNcl_Wesb_Create_Client_Profile/p_errorcode > '0'"/>
+              <property name="terminalName" value="match1"/>
+            </row>
+          </table>
+          <inputTerminal/>
+          <outputTerminal name="default">
+            <wire targetNode="RetriveClientReq"/>
+          </outputTerminal>
+          <outputTerminal displayName="error" name="match1">
+            <wire targetNode="XSLT_buildResponse"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </requestFlow>
+      <errorFlow>
+        <node displayName="Perform_NCL_CruiseCreateClient : NCL_CruiseCreateClient_Interface" name="NCL_CruiseCreateClient_Interface_Perform_NCL_CruiseCreateClient_ErrorInput" type="ErrorInput">
+          <outputTerminal name="catchAll" type="XMLSchema:anyType"/>
+        </node>
+        <node displayName="Perform_NCL_CruiseCreateClient : NCL_CruiseCreateClient_Interface" name="NCL_CruiseCreateClient_Interface_Perform_NCL_CruiseCreateClient_InputResponse" type="InputResponse">
+          <inputTerminal type="ns1:Perform_NCL_CruiseCreateClientResponseMsg"/>
+        </node>
+      </errorFlow>
+    </operation>
+  </interface>
+</mediationFlow>

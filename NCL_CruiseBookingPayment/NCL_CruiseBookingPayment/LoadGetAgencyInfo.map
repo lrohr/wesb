@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:LoadGetAgencyInfo="http://NCL_CruiseBookingPayment" xmlns:ServiceMessageObject="smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FNCL_CruiseBookingPayment%257DappContext/message%3D%257Bhttp%253A%252F%252FNCL_CruiseBookingPayment%252FJDBCOutboundInterface%257DexecuteNclseaNcl_Wesb_Get_Agency_InfoRequestMsg/xpath%3D%252F/namespace%3DBOMap/smo.xsd" xmlns:ServiceMessageObject_1="smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FNCL_CruiseBookingPayment%257DappContext/message%3D%257Bhttp%253A%252F%252FTP_Logger%252FTP_Interface%257DTP_InsertUpdateRequestMsg/xpath%3D%252F/namespace%3DBOMap/smo.xsd" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" targetNamespace="http://NCL_CruiseBookingPayment">
+  <map:name>LoadGetAgencyInfo</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="ServiceMessageObject_1:ServiceMessageObject" name="ServiceMessageObject"/>
+  <map:outputBusinessObjectVariable businessObjectRef="ServiceMessageObject:ServiceMessageObject" name="ServiceMessageObject_1"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseBookingPaymentRQ"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/NCL_CruiseBookingPaymentRQ"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/LogId"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/LogId"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseBookingPaymentRQ/POS/Source[1]/BookingChannel/CompanyName/@Code"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/executeNclseaNcl_Wesb_Get_Agency_Info/executeNclseaNcl_Wesb_Get_Agency_InfoInput/p_gds"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseBookingPaymentRQ/POS/Source[1]/RequestorID/@ID"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/executeNclseaNcl_Wesb_Get_Agency_Info/executeNclseaNcl_Wesb_Get_Agency_InfoInput/p_pseudo_city"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

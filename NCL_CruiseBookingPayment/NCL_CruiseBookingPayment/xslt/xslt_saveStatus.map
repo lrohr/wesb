@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseBookingPayment/xslt/xslt_saveStatus" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseBookingPayment/xslt/xslt_saveStatus">
+    <input correlationContext="{http://NCL_CruiseBookingPayment}appContext" message="{http://NCL_CruiseBookingPayment/JDBCOutboundInterface}executeNclseaNcl_Wesb_Get_Cc_StatusResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseBookingPayment}appContext" message="{http://NCL_WESB_Shared_Library/NCL_CruiseBookingPayment_Interface}Perform_NCL_CruiseBookingPaymentResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="xslt_saveStatus.xml"/>
+        <import kind="xslt" location="xslt_fix_Status.xsl"/>
+        <import kind="xslt" location="xslt_saveStatus_Success.xsl"/>
+    </imports>
+    <mappingDeclaration name="xslt_saveStatus">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseBookingPaymentRQ"/>
+            <output path="context/correlation/NCL_CruiseBookingPaymentRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseBookingPaymentRQ/@TransactionIdentifier"/>
+            <output path="context/correlation/NCL_CruiseBookingPaymentRS/@TransactionIdentifier"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseBookingPaymentRQ/ReservationInfo/PaymentOptions/PaymentOption[1]/PaymentCard/@CardNumber"/>
+            <output path="context/correlation/NCL_CruiseBookingPaymentRS/PaymentOptions/PaymentOption[1]/PaymentCard/@CardNumber"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseBookingPaymentRQ/ReservationInfo/PaymentOptions/PaymentOption[1]/PaymentCard/@CardType"/>
+            <output path="context/correlation/NCL_CruiseBookingPaymentRS/PaymentOptions/PaymentOption[1]/PaymentCard/@CardType"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogId"/>
+            <output path="context/correlation/LogId"/>
+        </move>
+        <customFunction lang="xslt" location="xslt_fix_Status.xsl" ref="P_statusToPaymentStatus">
+            <input path="body/executeNclseaNcl_Wesb_Get_Cc_StatusResponse/executeNclseaNcl_Wesb_Get_Cc_StatusOutput/p_status" var="p_status"/>
+            <output path="context/correlation/NCL_CruiseBookingPaymentRS/PaymentOptions/PaymentOption[1]/@PaymentStatus"/>
+            <param name="p_status" value="$p_status"/>
+        </customFunction>
+        <customFunction lang="xslt" location="xslt_saveStatus_Success.xsl" ref="TransactionIdentifierToSuccess">
+            <input path="context/correlation/NCL_CruiseBookingPaymentRQ/@TransactionIdentifier" var="TransactionIdentifier"/>
+            <output path="context/correlation/NCL_CruiseBookingPaymentRS/Success"/>
+            <param name="TransactionIdentifier" value="$TransactionIdentifier"/>
+        </customFunction>
+    </mappingDeclaration>
+</mappingRoot>

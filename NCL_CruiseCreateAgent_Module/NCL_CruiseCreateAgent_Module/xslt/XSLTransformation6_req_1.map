@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseCreateAgent_Module/xslt/XSLTransformation6_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseCreateAgent_Module/xslt/XSLTransformation6_req_1">
+    <input correlationContext="{http://Agent_Create_Update}app_context" message="{http://NCL_WESB_Shared_Library/Encrypt_Decrypt_Interface}processEncryptDecryptResponse" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://Agent_Create_Update}app_context" message="{http://Agent_Create_Update/DB_AGent_createupdate}executeNclseaNcl_Wesb_Create_AgentBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <namespaces>
+        <namespace kind="extension" prefix="fn" uri="http://www.w3.org/2005/xpath-functions"/>
+    </namespaces>
+    <generation engine="xslt2"/>
+    <mappingDeclaration name="XSLTransformation6_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgentRQ"/>
+            <output path="context/correlation/NCL_CruiseCreateAgentRQ"/>
+        </move>
+        <move>
+            <input path="body/processEncryptDecryptResponse/Encrypt_Decrypt/EncryptString"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_AgentBG/executeNclseaNcl_Wesb_Create_AgentBGInput/NclseaNcl_Wesb_Create_Agent/p_password"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgentRQ/AgentInfo/@Action"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_AgentBG/executeNclseaNcl_Wesb_Create_AgentBGInput/NclseaNcl_Wesb_Create_Agent/p_action"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgentRQ/POS/Source[1]/RequestorID/@ID"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_AgentBG/executeNclseaNcl_Wesb_Create_AgentBGInput/NclseaNcl_Wesb_Create_Agent/p_agencyid"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgentRQ/AgentInfo/EmployeeInfo[1]/@EmployeeId"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_AgentBG/executeNclseaNcl_Wesb_Create_AgentBGInput/NclseaNcl_Wesb_Create_Agent/p_agentid"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgentRQ/AgentInfo/PersonName/GivenName[1]"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_AgentBG/executeNclseaNcl_Wesb_Create_AgentBGInput/NclseaNcl_Wesb_Create_Agent/p_agent_first"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgentRQ/AgentInfo/PersonName/Surname"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_AgentBG/executeNclseaNcl_Wesb_Create_AgentBGInput/NclseaNcl_Wesb_Create_Agent/p_agent_last"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgentRQ/AgentInfo/@Gender"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_AgentBG/executeNclseaNcl_Wesb_Create_AgentBGInput/NclseaNcl_Wesb_Create_Agent/p_sex"/>
+        </move>
+        <function ref="fn:upper-case">
+            <input path="context/correlation/NCL_CruiseCreateAgentRQ/UserLogin/@UserLoginName" var="UserLoginName"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_AgentBG/executeNclseaNcl_Wesb_Create_AgentBGInput/NclseaNcl_Wesb_Create_Agent/p_username"/>
+            <param name="string" value="$UserLoginName"/>
+        </function>
+        <function ref="fn:upper-case">
+            <input path="context/correlation/NCL_CruiseCreateAgentRQ/AgentInfo/@SecurityLevel" var="SecurityLevel"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_AgentBG/executeNclseaNcl_Wesb_Create_AgentBGInput/NclseaNcl_Wesb_Create_Agent/p_role"/>
+            <param name="string" value="$SecurityLevel"/>
+        </function>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgentRQ/AgentInfo/Email[1]/text()"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_AgentBG/executeNclseaNcl_Wesb_Create_AgentBGInput/NclseaNcl_Wesb_Create_Agent/p_email"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgentRQ/AgentInfo/Telephone[1]/@PhoneNumber"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_AgentBG/executeNclseaNcl_Wesb_Create_AgentBGInput/NclseaNcl_Wesb_Create_Agent/p_phone"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgentRQ/AgentInfo/ContactPreferences[1]/@ContactPreference"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_AgentBG/executeNclseaNcl_Wesb_Create_AgentBGInput/NclseaNcl_Wesb_Create_Agent/p_contact_pref"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgentRQ/AgentInfo/@AgentLocation"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_AgentBG/executeNclseaNcl_Wesb_Create_AgentBGInput/NclseaNcl_Wesb_Create_Agent/p_agent_loc"/>
+        </move>
+        <assign value="Y">
+            <output path="body/executeNclseaNcl_Wesb_Create_AgentBG/executeNclseaNcl_Wesb_Create_AgentBGInput/NclseaNcl_Wesb_Create_Agent/p_can_access"/>
+        </assign>
+    </mappingDeclaration>
+</mappingRoot>

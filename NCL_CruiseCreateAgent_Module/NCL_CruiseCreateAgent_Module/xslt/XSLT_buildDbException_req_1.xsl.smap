@@ -1,0 +1,16 @@
+* SMAP
+XSLT_buildDbException_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLT_buildDbException_req_1.map
+/NCL_CruiseCreateAgent_Module/xslt/XSLT_buildDbException_req_1.map
+*L
+4:103,6
+3:85,4
+7:119,3
+6:115,4
+1:57,17
+2:89,5
+5:109,3
+*E

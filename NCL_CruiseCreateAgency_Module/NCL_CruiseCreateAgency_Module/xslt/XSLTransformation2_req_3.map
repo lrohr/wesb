@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseCreateAgency_Module/xslt/XSLTransformation2_req_3" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseCreateAgency_Module/xslt/XSLTransformation2_req_3">
+    <input correlationContext="{http://NCL_CruiseCreateAgency_Module}App_context" message="{http://NCL_CruiseCreateAgency_Module/DB_Lookup}executeNclseaNcl_Wesb_Create_AgencyBGResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseCreateAgency_Module}App_context" message="{http://NCL_WESB_Shared_Library/NCL_CruiseCreateAgency_Interface}Perform_NCL_CruiseCreateAgencyResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xslt" location="XSLTransformation2_req_3_custom.xsl"/>
+        <import kind="xslt" location="XSLTransformation2_req_3_code.xsl"/>
+    </imports>
+    <mappingDeclaration name="XSLTransformation2_req_3">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgencyRQ"/>
+            <output path="context/correlation/NCL_CruiseCreateAgencyRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgencyRQ/@TransactionIdentifier"/>
+            <output path="body/Perform_NCL_CruiseCreateAgencyResponse/NCL_CruiseCreateAgencyRS/@TransactionIdentifier"/>
+        </move>
+        <customFunction lang="xslt" location="XSLTransformation2_req_3_custom.xsl" ref="ToSuccess">
+            <output path="body/Perform_NCL_CruiseCreateAgencyResponse/NCL_CruiseCreateAgencyRS/Success"/>
+        </customFunction>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Create_AgencyBGResponse/executeNclseaNcl_Wesb_Create_AgencyBGOutput/NclseaNcl_Wesb_Create_Agency/p_errormsg"/>
+            <output path="body/Perform_NCL_CruiseCreateAgencyResponse/NCL_CruiseCreateAgencyRS/Warnings/Warning[1]/@ShortText"/>
+        </move>
+        <customFunction lang="xslt" location="XSLTransformation2_req_3_code.xsl" ref="P_errorcodeToCode">
+            <input path="body/executeNclseaNcl_Wesb_Create_AgencyBGResponse/executeNclseaNcl_Wesb_Create_AgencyBGOutput/NclseaNcl_Wesb_Create_Agency/p_errorcode" var="p_errorcode"/>
+            <output path="body/Perform_NCL_CruiseCreateAgencyResponse/NCL_CruiseCreateAgencyRS/Warnings/Warning[1]/@Code"/>
+            <param name="p_errorcode" value="$p_errorcode"/>
+        </customFunction>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgencyRQ/UserLogin/@Password"/>
+            <output path="body/Perform_NCL_CruiseCreateAgencyResponse/NCL_CruiseCreateAgencyRS/UserLogin/@Password"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgencyRQ/UserLogin/@UserLoginName"/>
+            <output path="body/Perform_NCL_CruiseCreateAgencyResponse/NCL_CruiseCreateAgencyRS/UserLogin/@UserLoginName"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

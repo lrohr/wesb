@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:NCL_CruiseCreateAgentRS="http://nclapi/schemas" xmlns:NclseaNcl_Wesb_Create_AgentBG="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_agentbg" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:sub_resp="http://Agent_Create_Update" targetNamespace="http://Agent_Create_Update">
+  <map:name>sub_resp</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="NclseaNcl_Wesb_Create_AgentBG:NclseaNcl_Wesb_Create_AgentBG" name="NclseaNcl_Wesb_Create_AgentBG"/>
+  <map:outputBusinessObjectVariable businessObjectRef="NCL_CruiseCreateAgentRS:NCL_CruiseCreateAgentRS" name="NCL_CruiseCreateAgentRS"/>
+  <map:propertyMap executionOrder="1">
+    <map:customAssignment>
+      <map:output businessObjectVariableRef="NCL_CruiseCreateAgentRS" property="Success"/>
+      <map:javaCode>commonj.sdo.DataObject __NCL_CruiseCreateAgentRS_Success = (commonj.sdo.DataObject)NCL_CruiseCreateAgentRS_Success;&#xD;
+commonj.sdo.DataObject __result__1;&#xD;
+{// create SuccessType&#xD;
+	com.ibm.websphere.bo.BOFactory factory = 
+	   (com.ibm.websphere.bo.BOFactory) new com.ibm.websphere.sca.ServiceManager().locateService(&quot;com/ibm/websphere/bo/BOFactory&quot;);
+	 __result__1 = factory.create(null,&quot;SuccessType&quot;);&#xD;
+}&#xD;
+__NCL_CruiseCreateAgentRS_Success = __result__1;&#xD;
+NCL_CruiseCreateAgentRS_Success = __NCL_CruiseCreateAgentRS_Success;&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;create SuccessType&quot; description=&quot;create a new SuccessType {[null]}&quot; category=&quot;SCA and BO services&quot; template=&quot;com.ibm.websphere.bo.BOFactory factory = &amp;#xA;   (com.ibm.websphere.bo.BOFactory) new com.ibm.websphere.sca.ServiceManager().locateService(&amp;quot;com/ibm/websphere/bo/BOFactory&amp;quot;);&amp;#xA; &amp;lt;%return%> factory.create(null,&amp;quot;SuccessType&amp;quot;);&quot;>
+//    &lt;result>
+//      &lt;dataOutputs target=&quot;//@executableElements.1&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;SuccessType&quot; namespace=&quot;[null]&quot; nillable=&quot;false&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.0/@result/@dataOutputs.0&quot; value=&quot;NCL_CruiseCreateAgentRS_Success&quot; variable=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;SuccessType&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0 //@executableElements.1&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!1:2,6&#xD;
+//!SMAP!2:8,2&#xD;
+//!SMAP!1000000:34,1</map:javaCode>
+    </map:customAssignment>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:custom>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Create_AgentBG" property="NclseaNcl_Wesb_Create_Agent/p_errorcode"/>
+      <map:output businessObjectVariableRef="NCL_CruiseCreateAgentRS" property="Warnings/Warning[1]/@Code"/>
+      <map:javaCode>java.lang.String __NclseaNcl_Wesb_Create_AgentBG_NclseaNcl_Wesb_Create_Agent_p_errorcode = (java.lang.String)NclseaNcl_Wesb_Create_AgentBG_NclseaNcl_Wesb_Create_Agent_p_errorcode;&#xD;
+java.lang.String __NCL_CruiseCreateAgentRS_Warnings_Warning1_$aCode = (java.lang.String)NCL_CruiseCreateAgentRS_Warnings_Warning1_$aCode;&#xD;
+// Variable NCL_CruiseCreateAgentRS_Warnings_Warning[1]_@Code is represented as NCL_CruiseCreateAgentRS_Warnings_Warning1_$aCode&#xD;
+// Variable NCL_CruiseCreateAgentRS_Warnings_Warning_@Code is represented as NCL_CruiseCreateAgentRS_xsd$cchoice0_xsd$csequence0_Warnings_Warning1_$aCode&#xD;
+java.lang.String __result__4 = &quot;Inside custom mediation&quot;;&#xD;
+{// print to log&#xD;
+	System.out.println(__result__4);&#xD;
+}&#xD;
+boolean __result__3 = __NclseaNcl_Wesb_Create_AgentBG_NclseaNcl_Wesb_Create_Agent_p_errorcode != null;&#xD;
+if (__result__3){&#xD;
+	byte __result__10 = 1;&#xD;
+	int __result__9 = __NclseaNcl_Wesb_Create_AgentBG_NclseaNcl_Wesb_Create_Agent_p_errorcode.length();&#xD;
+	boolean __result__11;&#xD;
+	{// greater than&#xD;
+		__result__11 = __result__9 > __result__10;&#xD;
+	}&#xD;
+	if (__result__11){&#xD;
+		java.lang.String __result__15 = &quot;Inside if true&quot;;&#xD;
+		{// print to log&#xD;
+			System.out.println(__result__15);&#xD;
+		}&#xD;
+		java.lang.String __result__17 = new java.lang.String(__NclseaNcl_Wesb_Create_AgentBG_NclseaNcl_Wesb_Create_Agent_p_errorcode);&#xD;
+		__NCL_CruiseCreateAgentRS_Warnings_Warning1_$aCode = __result__17;&#xD;
+		NCL_CruiseCreateAgentRS_Warnings_Warning1_$aCode = __NCL_CruiseCreateAgentRS_Warnings_Warning1_$aCode;&#xD;
+	}&#xD;
+	else{&#xD;
+	}&#xD;
+}&#xD;
+else{&#xD;
+}&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;NclseaNcl_Wesb_Create_AgentBG_NclseaNcl_Wesb_Create_Agent_p_errorcode&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Variable NCL_CruiseCreateAgentRS_Warnings_Warning[1]_@Code is represented as NCL_CruiseCreateAgentRS_Warnings_Warning1_$aCode&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Variable NCL_CruiseCreateAgentRS_Warnings_Warning_@Code is represented as NCL_CruiseCreateAgentRS_xsd$cchoice0_xsd$csequence0_Warnings_Warning1_$aCode&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NclseaNcl_Wesb_Create_AgentBG_NclseaNcl_Wesb_Create_Agent_p_errorcode!=null&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.5&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;boolean&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;Inside custom mediation&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.4/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;print to log&quot; description=&quot;Print a text representation of the input to System.out&quot; category=&quot;utility&quot; template=&quot;System.out.println(&amp;lt;%object%>);&quot;>
+//    &lt;parameters name=&quot;object&quot; dataInputs=&quot;//@executableElements.3/@dataOutputs.0&quot; displayName=&quot;object&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Object&quot;/>
+//    &lt;/parameters>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:BranchElement&quot; dataInputs=&quot;//@executableElements.2/@dataOutputs.0&quot;>
+//    &lt;conditionalActivities>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NclseaNcl_Wesb_Create_AgentBG_NclseaNcl_Wesb_Create_Agent_p_errorcode&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.1/@parameters.0&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;length&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;length&quot;>
+//        &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.0/@dataOutputs.0&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//        &lt;/parameters>
+//        &lt;result>
+//          &lt;dataOutputs target=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.3/@parameters.0&quot;/>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//        &lt;/result>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;1&quot; assignable=&quot;false&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.3/@parameters.1&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;byte&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;greater than&quot; description=&quot;True if the value of the first input is greater than the value of the second input&quot; category=&quot;math&quot; template=&quot;&amp;lt;%return%> &amp;lt;%input1%> > &amp;lt;%input2%>;&quot;>
+//        &lt;parameters name=&quot;input1&quot; dataInputs=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.1/@result/@dataOutputs.0&quot; displayName=&quot;input 1&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//        &lt;/parameters>
+//        &lt;parameters name=&quot;input2&quot; dataInputs=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.2/@dataOutputs.0&quot; displayName=&quot;input 2&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//        &lt;/parameters>
+//        &lt;result name=&quot;result&quot; displayName=&quot;result&quot;>
+//          &lt;dataOutputs target=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.4&quot;/>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;boolean&quot;/>
+//        &lt;/result>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:BranchElement&quot; dataInputs=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.3/@result/@dataOutputs.0&quot;>
+//        &lt;conditionalActivities>
+//          &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NclseaNcl_Wesb_Create_AgentBG_NclseaNcl_Wesb_Create_Agent_p_errorcode&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//            &lt;dataOutputs target=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.4/@conditionalActivities.0/@executableElements.3/@parameters.0&quot;/>
+//            &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//          &lt;/executableElements>
+//          &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;Inside if true&amp;quot;&quot; assignable=&quot;false&quot;>
+//            &lt;dataOutputs target=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.4/@conditionalActivities.0/@executableElements.2/@parameters.0&quot;/>
+//            &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//          &lt;/executableElements>
+//          &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;print to log&quot; description=&quot;Print a text representation of the input to System.out&quot; category=&quot;utility&quot; template=&quot;System.out.println(&amp;lt;%object%>);&quot;>
+//            &lt;parameters name=&quot;object&quot; dataInputs=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.4/@conditionalActivities.0/@executableElements.1/@dataOutputs.0&quot; displayName=&quot;object&quot;>
+//              &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Object&quot;/>
+//            &lt;/parameters>
+//          &lt;/executableElements>
+//          &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;new String&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; constructor=&quot;true&quot; memberName=&quot;String&quot;>
+//            &lt;parameters name=&quot;string&quot; dataInputs=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.4/@conditionalActivities.0/@executableElements.0/@dataOutputs.0&quot;>
+//              &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//            &lt;/parameters>
+//            &lt;result>
+//              &lt;dataOutputs target=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.4/@conditionalActivities.0/@executableElements.4&quot;/>
+//              &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//            &lt;/result>
+//          &lt;/executableElements>
+//          &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.4/@conditionalActivities.0/@executableElements.3/@result/@dataOutputs.0&quot; value=&quot;NCL_CruiseCreateAgentRS_Warnings_Warning1_$aCode&quot; variable=&quot;true&quot;>
+//            &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;OTA_CodeType&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//          &lt;/executableElements>
+//          &lt;executableGroups executableElements=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.4/@conditionalActivities.0/@executableElements.1 //@executableElements.5/@conditionalActivities.0/@executableElements.4/@conditionalActivities.0/@executableElements.2&quot;/>
+//          &lt;executableGroups executableElements=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.4/@conditionalActivities.0/@executableElements.0 //@executableElements.5/@conditionalActivities.0/@executableElements.4/@conditionalActivities.0/@executableElements.3 //@executableElements.5/@conditionalActivities.0/@executableElements.4/@conditionalActivities.0/@executableElements.4&quot;/>
+//          &lt;condition value=&quot;true&quot;/>
+//        &lt;/conditionalActivities>
+//        &lt;conditionalActivities>
+//          &lt;condition value=&quot;&quot;/>
+//        &lt;/conditionalActivities>
+//      &lt;/executableElements>
+//      &lt;executableGroups executableElements=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.0 //@executableElements.5/@conditionalActivities.0/@executableElements.1 //@executableElements.5/@conditionalActivities.0/@executableElements.2 //@executableElements.5/@conditionalActivities.0/@executableElements.3 //@executableElements.5/@conditionalActivities.0/@executableElements.4&quot;/>
+//      &lt;condition value=&quot;true&quot;/>
+//    &lt;/conditionalActivities>
+//    &lt;conditionalActivities>
+//      &lt;condition value=&quot;&quot;/>
+//    &lt;/conditionalActivities>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.1&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.3 //@executableElements.4&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.2 //@executableElements.5&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!3:9,1&#xD;
+//!SMAP!4:5,1&#xD;
+//!SMAP!5:6,3&#xD;
+//!SMAP!6:10,1&#xD;
+//!SMAP!9:12,1&#xD;
+//!SMAP!10:11,1&#xD;
+//!SMAP!11:13,4&#xD;
+//!SMAP!12:17,1&#xD;
+//!SMAP!15:18,1&#xD;
+//!SMAP!16:19,3&#xD;
+//!SMAP!17:22,1&#xD;
+//!SMAP!18:23,2&#xD;
+//!SMAP!1000000:154,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:custom>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Create_AgentBG" property="NclseaNcl_Wesb_Create_Agent/p_errormsg"/>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Create_AgentBG" property="NclseaNcl_Wesb_Create_Agent/p_errorcode"/>
+      <map:output businessObjectVariableRef="NCL_CruiseCreateAgentRS" property="Warnings/Warning[1]/@ShortText"/>
+      <map:javaCode>java.lang.String __NclseaNcl_Wesb_Create_AgentBG_NclseaNcl_Wesb_Create_Agent_p_errormsg = (java.lang.String)NclseaNcl_Wesb_Create_AgentBG_NclseaNcl_Wesb_Create_Agent_p_errormsg;&#xD;
+java.lang.String __NclseaNcl_Wesb_Create_AgentBG_NclseaNcl_Wesb_Create_Agent_p_errorcode = (java.lang.String)NclseaNcl_Wesb_Create_AgentBG_NclseaNcl_Wesb_Create_Agent_p_errorcode;&#xD;
+java.lang.String __NCL_CruiseCreateAgentRS_Warnings_Warning1_$aShortText = (java.lang.String)NCL_CruiseCreateAgentRS_Warnings_Warning1_$aShortText;&#xD;
+// Variable NCL_CruiseCreateAgentRS_Warnings_Warning[1]_@ShortText is represented as NCL_CruiseCreateAgentRS_Warnings_Warning1_$aShortText&#xD;
+// Variable NCL_CruiseCreateAgentRS_Warnings_Warning[1]_@ShortText is represented as NCL_CruiseCreateAgentRS_Warnings_Warning1_$aShortText&#xD;
+// Variable NCL_CruiseCreateAgentRS_Warnings_Warning_@ShortText is represented as NCL_CruiseCreateAgentRS_xsd$cchoice0_xsd$csequence0_Warnings_Warning1_$aShortText&#xD;
+boolean __result__4 = __NclseaNcl_Wesb_Create_AgentBG_NclseaNcl_Wesb_Create_Agent_p_errorcode != null;&#xD;
+if (__result__4){&#xD;
+	byte __result__9 = 1;&#xD;
+	int __result__8 = __NclseaNcl_Wesb_Create_AgentBG_NclseaNcl_Wesb_Create_Agent_p_errorcode.length();&#xD;
+	boolean __result__10;&#xD;
+	{// greater than&#xD;
+		__result__10 = __result__8 > __result__9;&#xD;
+	}&#xD;
+	if (__result__10){&#xD;
+		__NCL_CruiseCreateAgentRS_Warnings_Warning1_$aShortText = __NclseaNcl_Wesb_Create_AgentBG_NclseaNcl_Wesb_Create_Agent_p_errormsg;&#xD;
+		NCL_CruiseCreateAgentRS_Warnings_Warning1_$aShortText = __NCL_CruiseCreateAgentRS_Warnings_Warning1_$aShortText;&#xD;
+	}&#xD;
+	else{&#xD;
+	}&#xD;
+}&#xD;
+else{&#xD;
+}&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;NclseaNcl_Wesb_Create_AgentBG_NclseaNcl_Wesb_Create_Agent_p_errormsg&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/parameters>
+//  &lt;parameters name=&quot;NclseaNcl_Wesb_Create_AgentBG_NclseaNcl_Wesb_Create_Agent_p_errorcode&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Variable NCL_CruiseCreateAgentRS_Warnings_Warning[1]_@ShortText is represented as NCL_CruiseCreateAgentRS_Warnings_Warning1_$aShortText&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Variable NCL_CruiseCreateAgentRS_Warnings_Warning[1]_@ShortText is represented as NCL_CruiseCreateAgentRS_Warnings_Warning1_$aShortText&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Variable NCL_CruiseCreateAgentRS_Warnings_Warning_@ShortText is represented as NCL_CruiseCreateAgentRS_xsd$cchoice0_xsd$csequence0_Warnings_Warning1_$aShortText&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NclseaNcl_Wesb_Create_AgentBG_NclseaNcl_Wesb_Create_Agent_p_errorcode!=null&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.4&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;boolean&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:BranchElement&quot; dataInputs=&quot;//@executableElements.3/@dataOutputs.0&quot;>
+//    &lt;conditionalActivities>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NclseaNcl_Wesb_Create_AgentBG_NclseaNcl_Wesb_Create_Agent_p_errorcode&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.4/@conditionalActivities.0/@executableElements.1/@parameters.0&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;length&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;length&quot;>
+//        &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.4/@conditionalActivities.0/@executableElements.0/@dataOutputs.0&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//        &lt;/parameters>
+//        &lt;result>
+//          &lt;dataOutputs target=&quot;//@executableElements.4/@conditionalActivities.0/@executableElements.3/@parameters.0&quot;/>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//        &lt;/result>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;1&quot; assignable=&quot;false&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.4/@conditionalActivities.0/@executableElements.3/@parameters.1&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;byte&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;greater than&quot; description=&quot;True if the value of the first input is greater than the value of the second input&quot; category=&quot;math&quot; template=&quot;&amp;lt;%return%> &amp;lt;%input1%> > &amp;lt;%input2%>;&quot;>
+//        &lt;parameters name=&quot;input1&quot; dataInputs=&quot;//@executableElements.4/@conditionalActivities.0/@executableElements.1/@result/@dataOutputs.0&quot; displayName=&quot;input 1&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//        &lt;/parameters>
+//        &lt;parameters name=&quot;input2&quot; dataInputs=&quot;//@executableElements.4/@conditionalActivities.0/@executableElements.2/@dataOutputs.0&quot; displayName=&quot;input 2&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//        &lt;/parameters>
+//        &lt;result name=&quot;result&quot; displayName=&quot;result&quot;>
+//          &lt;dataOutputs target=&quot;//@executableElements.4/@conditionalActivities.0/@executableElements.4&quot;/>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;boolean&quot;/>
+//        &lt;/result>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:BranchElement&quot; dataInputs=&quot;//@executableElements.4/@conditionalActivities.0/@executableElements.3/@result/@dataOutputs.0&quot;>
+//        &lt;conditionalActivities>
+//          &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NclseaNcl_Wesb_Create_AgentBG_NclseaNcl_Wesb_Create_Agent_p_errormsg&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//            &lt;dataOutputs target=&quot;//@executableElements.4/@conditionalActivities.0/@executableElements.4/@conditionalActivities.0/@executableElements.1&quot;/>
+//            &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//          &lt;/executableElements>
+//          &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.4/@conditionalActivities.0/@executableElements.4/@conditionalActivities.0/@executableElements.0/@dataOutputs.0&quot; value=&quot;NCL_CruiseCreateAgentRS_Warnings_Warning1_$aShortText&quot; variable=&quot;true&quot;>
+//            &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength1to64&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//          &lt;/executableElements>
+//          &lt;executableGroups executableElements=&quot;//@executableElements.4/@conditionalActivities.0/@executableElements.4/@conditionalActivities.0/@executableElements.0 //@executableElements.4/@conditionalActivities.0/@executableElements.4/@conditionalActivities.0/@executableElements.1&quot;/>
+//          &lt;condition value=&quot;true&quot;/>
+//        &lt;/conditionalActivities>
+//        &lt;conditionalActivities>
+//          &lt;condition value=&quot;&quot;/>
+//        &lt;/conditionalActivities>
+//      &lt;/executableElements>
+//      &lt;executableGroups executableElements=&quot;//@executableElements.4/@conditionalActivities.0/@executableElements.0 //@executableElements.4/@conditionalActivities.0/@executableElements.1 //@executableElements.4/@conditionalActivities.0/@executableElements.2 //@executableElements.4/@conditionalActivities.0/@executableElements.3 //@executableElements.4/@conditionalActivities.0/@executableElements.4&quot;/>
+//      &lt;condition value=&quot;true&quot;/>
+//    &lt;/conditionalActivities>
+//    &lt;conditionalActivities>
+//      &lt;condition value=&quot;&quot;/>
+//    &lt;/conditionalActivities>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.1&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.2&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.3 //@executableElements.4&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!4:7,1&#xD;
+//!SMAP!5:8,1&#xD;
+//!SMAP!8:10,1&#xD;
+//!SMAP!9:9,1&#xD;
+//!SMAP!10:11,4&#xD;
+//!SMAP!11:15,1&#xD;
+//!SMAP!14:16,2&#xD;
+//!SMAP!1000000:120,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+</map:businessObjectMap>

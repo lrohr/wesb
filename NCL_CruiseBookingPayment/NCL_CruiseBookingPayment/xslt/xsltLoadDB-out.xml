@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<io:smo xmlns:io="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:out8="http://com/ibm/j2ca/fault/afcfault" xmlns:io7="http://www.w3.org/2005/08/addressing" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:io6="http://NCL_CruiseBookingPayment" xmlns:out7="http://NCL_CruiseBookingPayment/JDBCOutboundInterface" xmlns:io4="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:io5="http://nclapi/schemas" xmlns:io3="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:out6="http://com/ibm/j2ca/fault" xmlns:io2="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:out5="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_cc_status" xmlns:out4="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/get_ext_days_and_db_date" xmlns:out3="wsdl.http://NCL_CruiseBookingPayment/JDBCOutboundInterface" xmlns:out2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/get_ext_days_and_db_datecontainer" xmlns:out="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_agency_info" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <context>
+    <correlation>
+      <p1:NCL_CruiseBookingPaymentRQ xmlns:p1="http://nclapi/schemas" xmlns:httpsca="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:mq="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:p="http://NCL_CruiseBookingPayment" xmlns:tns="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:tns1="http://www.w3.org/2005/08/addressing" xmlns:tns_1="wsdl.http://versonix.com/api/definitions" xmlns:vx="http://versonix.com/api/schemas" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" AltLangID="EN" EchoToken="" PrimaryLangID="EN" RetransmissionIndicator="true" SequenceNmbr="0" Target="Production" TimeStamp="2001-12-31T12:00:00" TransactionActionCode="Book" TransactionIdentifier="" TransactionStatusCode="Start" Version="0.0">
+        <p1:POS>
+          <p1:Source AgentDutyCode="" AgentSine="" AirlineVendorID="" AirportCode="" ERSP_UserID="" FirstDepartPoint="" ISOCountry="" ISOCurrency="" PseudoCityCode="" TerminalID="">
+            <p1:RequestorID ID="" ID_Context="" Instance="" MessagePassword="" Type="" URL="http://tempuri.org">
+              <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+            </p1:RequestorID>
+            <p1:Position Altitude="" AltitudeUnitOfMeasureCode="" Latitude="" Longitude=""/>
+            <p1:BookingChannel Primary="true" Type="">
+              <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+            </p1:BookingChannel>
+          </p1:Source>
+        </p1:POS>
+        <p1:AgentInfo Contact="" ContactID=""/>
+        <p1:ReservationInfo>
+          <p1:ReservationID ID="" ID_Context="" Instance="" StatusCode="" SyncDateTime="2001-12-31T12:00:00" Type="" URL="http://tempuri.org">
+            <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+          </p1:ReservationID>
+          <p1:GuestDetails>
+            <p1:GuestDetail GuestExistsIndicator="">
+              <p1:SelectedFareCode FareCode="" GroupCode=""/>
+              <p1:ContactInfo Age="" BirthDate="" ContactType="" DefaultInd="false" EmergencyFlag="false" Gender="Male" GuestOccupation="" GuestRefNumber="" LoyalLevel="" LoyaltyMembershipID="" Nationality="" RPH="" Relation="" ShareMarketInd="Yes" ShareSynchInd="Yes">
+                <p1:PersonName NameType="" ShareMarketInd="Yes" ShareSynchInd="Yes">
+                  <p1:NamePrefix>p1:NamePrefix</p1:NamePrefix>
+                  <p1:GivenName>p1:GivenName</p1:GivenName>
+                  <p1:MiddleName>p1:MiddleName</p1:MiddleName>
+                  <p1:SurnamePrefix>p1:SurnamePrefix</p1:SurnamePrefix>
+                  <p1:Surname>p1:Surname</p1:Surname>
+                  <p1:NameSuffix>p1:NameSuffix</p1:NameSuffix>
+                  <p1:NameTitle>p1:NameTitle</p1:NameTitle>
+                </p1:PersonName>
+                <p1:Telephone AreaCityCode="" CountryAccessCode="" DefaultInd="false" Extension="" FormattedInd="false" PIN="" PhoneLocationType="" PhoneNumber="" PhoneTechType="" PhoneUseType="" RPH="" ShareMarketInd="Yes" ShareSynchInd="Yes"/>
+                <p1:Address DefaultInd="false" FormattedInd="false" RPH="" ShareMarketInd="Yes" ShareSynchInd="Yes" Type="" UseType="">
+                  <p1:StreetNmbr PO_Box="" RuralRouteNmbr="" StreetDirection="" StreetNmbrSuffix="">p1:StreetNmbr</p1:StreetNmbr>
+                  <p1:BldgRoom>p1:BldgRoom</p1:BldgRoom>
+                  <p1:AddressLine>p1:AddressLine</p1:AddressLine>
+                  <p1:CityName>p1:CityName</p1:CityName>
+                  <p1:PostalCode>p1:PostalCode</p1:PostalCode>
+                  <p1:County>p1:County</p1:County>
+                  <p1:StateProv StateCode="">p1:StateProv</p1:StateProv>
+                  <p1:CountryName Code="">p1:CountryName</p1:CountryName>
+                </p1:Address>
+                <p1:Email DefaultInd="false" EmailType="" RPH="" ShareMarketInd="Yes" ShareSynchInd="Yes">p1:Email</p1:Email>
+                <p1:URL DefaultInd="false" ShareMarketInd="Yes" ShareSynchInd="Yes" Type="">http://tempuri.org</p1:URL>
+                <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+                <p1:EmployeeInfo EmployeeId="" EmployeeLevel="" EmployeeStatus="" EmployeeTitle="">p1:EmployeeInfo</p1:EmployeeInfo>
+              </p1:ContactInfo>
+              <p1:GuestTransportation Mode="" Status="">
+                <p1:GuestCity CodeContext="IATA" LocationCode="">p1:GuestCity</p1:GuestCity>
+                <p1:GatewayCity CodeContext="IATA" LocationCode="">p1:GatewayCity</p1:GatewayCity>
+              </p1:GuestTransportation>
+              <p1:LoyaltyInfo EffectiveDate="2001-01-01" ExpireDate="2001-01-01" LoyalLevel="" MembershipID="" ProgramID="" RPH="" ShareMarketInd="Yes" ShareSynchInd="Yes" SignupDate="2001-01-01" SingleVendorInd="SingleVndr" TravelSector="" VendorCode=""/>
+              <p1:LinkedTraveler LinkTypeCode="" Relation="" ShareMarketInd="Yes" ShareSynchInd="Yes">
+                <p1:UniqueID ID="" ID_Context="" Instance="" Type="" URL="http://tempuri.org">
+                  <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+                </p1:UniqueID>
+                <p1:PersonName NameType="" ShareMarketInd="Yes" ShareSynchInd="Yes">
+                  <p1:NamePrefix>p1:NamePrefix</p1:NamePrefix>
+                  <p1:GivenName>p1:GivenName</p1:GivenName>
+                  <p1:MiddleName>p1:MiddleName</p1:MiddleName>
+                  <p1:SurnamePrefix>p1:SurnamePrefix</p1:SurnamePrefix>
+                  <p1:Surname>p1:Surname</p1:Surname>
+                  <p1:NameSuffix>p1:NameSuffix</p1:NameSuffix>
+                  <p1:NameTitle>p1:NameTitle</p1:NameTitle>
+                </p1:PersonName>
+              </p1:LinkedTraveler>
+              <p1:TravelDocument BirthCountry="" BirthDate="2001-01-01" DocHolderNationality="" DocID="" DocIssueAuthority="" DocIssueCountry="" DocIssueLocation="" DocIssueStateProv="" DocType="" EffectiveDate="2001-01-01" ExpireDate="2001-01-01" Gender="Male" ShareMarketInd="Yes" ShareSynchInd="Yes">
+                <p1:DocHolderName>p1:DocHolderName</p1:DocHolderName>
+                <p1:DocLimitations>p1:DocLimitations</p1:DocLimitations>
+                <p1:AdditionalPersonNames>
+                  <p1:AdditionalPersonName>p1:AdditionalPersonName</p1:AdditionalPersonName>
+                </p1:AdditionalPersonNames>
+              </p1:TravelDocument>
+              <p1:SelectedDining AgeCode="" DiningRoom="" Language="EN" Preference="Only" Sitting="" SmokingCode="" Status="" TableSize=""/>
+              <p1:SelectedInsurance DefaultIndicator="true" InsuranceCode="" SelectedOptionIndicator="true" Status=""/>
+              <p1:SelectedOptions DeliveryDate="" DeliveryLocation="diningroom" OptionCode="" Quantity="0">
+                <p1:Originator NameType="" ShareMarketInd="Yes" ShareSynchInd="Yes">
+                  <p1:NamePrefix>p1:NamePrefix</p1:NamePrefix>
+                  <p1:GivenName>p1:GivenName</p1:GivenName>
+                  <p1:MiddleName>p1:MiddleName</p1:MiddleName>
+                  <p1:SurnamePrefix>p1:SurnamePrefix</p1:SurnamePrefix>
+                  <p1:Surname>p1:Surname</p1:Surname>
+                  <p1:NameSuffix>p1:NameSuffix</p1:NameSuffix>
+                  <p1:NameTitle>p1:NameTitle</p1:NameTitle>
+                </p1:Originator>
+                <p1:Message CreateDateTime="2001-12-31T12:00:00" CreatorID="" Language="EN" LastModifierID="" LastModifyDateTime="2001-12-31T12:00:00" Name="" ParagraphNumber="0" xsi:type="p1:ParagraphType">
+                  <p1:Text Formatted="true" Language="EN">p1:Text</p1:Text>
+                </p1:Message>
+              </p1:SelectedOptions>
+              <p1:SelectedPackages>
+                <p1:SelectedPackage CruisePackageCode="" Duration="" End="" InclusiveIndicator="true" PackageTypeCode="" Start="" Status="">
+                  <p1:Location CodeContext="IATA" Duration="" End="" LocationCode="" LocationName="" Start="">
+                    <p1:CityName>p1:CityName</p1:CityName>
+                    <p1:StateProv>p1:StateProv</p1:StateProv>
+                    <p1:CountryName Code="">p1:CountryName</p1:CountryName>
+                  </p1:Location>
+                  <p1:Information CreateDateTime="2001-12-31T12:00:00" CreatorID="" Language="EN" LastModifierID="" LastModifyDateTime="2001-12-31T12:00:00" Name="" ParagraphNumber="0" xsi:type="p1:ParagraphType">
+                    <p1:Text Formatted="true" Language="EN">p1:Text</p1:Text>
+                  </p1:Information>
+                  <p1:AirInfo AirlineCabinClass="First" ArrivalDateTime="" DepartureDateTime="">
+                    <p1:DepartureCity CodeContext="IATA" LocationCode="">p1:DepartureCity</p1:DepartureCity>
+                    <p1:ArrivalCity CodeContext="IATA" LocationCode="">p1:ArrivalCity</p1:ArrivalCity>
+                    <p1:Airline Code="" CodeContext="" CompanyShortName="" FlightNumber="OPEN" TravelSector="">p1:Airline</p1:Airline>
+                  </p1:AirInfo>
+                </p1:SelectedPackage>
+              </p1:SelectedPackages>
+              <p1:SelectedSpecialServices>
+                <p1:SelectedSpecialService AssociationType="Cabin" Code="" CodeDetail="" CodeName="" Date="" Type="">
+                  <p1:Comment CreateDateTime="2001-12-31T12:00:00" CreatorID="" Language="EN" LastModifierID="" LastModifyDateTime="2001-12-31T12:00:00" Name="" ParagraphNumber="0" xsi:type="p1:ParagraphType">
+                    <p1:Text Formatted="true" Language="EN">p1:Text</p1:Text>
+                  </p1:Comment>
+                </p1:SelectedSpecialService>
+              </p1:SelectedSpecialServices>
+              <p1:AirAccomodations>
+                <p1:AirAccomodation AirAccomodationType="" AirlineCabinClass="First" ArrivalDateTime="" Comment="" DepartureDateTime="">
+                  <p1:DepartureCity CodeContext="IATA" LocationCode="">p1:DepartureCity</p1:DepartureCity>
+                  <p1:ArrivalCity CodeContext="IATA" LocationCode="">p1:ArrivalCity</p1:ArrivalCity>
+                  <p1:Airline Code="" CodeContext="" CompanyShortName="" FlightNumber="OPEN" TravelSector="">p1:Airline</p1:Airline>
+                </p1:AirAccomodation>
+              </p1:AirAccomodations>
+              <p1:CruiseDocument AddressRPH="" AddressRequiredIndicator="true" DefaultIndicator="true" DeliveryMethodCode="" DocumentDestination="" DocumentTypeCode="" EmailRPH="" SelectedOptionIndicator="true" TelephoneRPH="">
+                <p1:VendorOption Amount="0.0" CurrencyCode="" DecimalPlaces="0" VendorName=""/>
+              </p1:CruiseDocument>
+              <p1:Profiles ProfileTypeIdentifier="NotModifiable">
+                <p1:CruiseProfile Code="" MaxQuantity=""/>
+              </p1:Profiles>
+            </p1:GuestDetail>
+          </p1:GuestDetails>
+          <p1:LinkedBookings>
+            <p1:LinkedBooking LinkTypeCode="" Relation="" ShareMarketInd="Yes" ShareSynchInd="Yes">
+              <p1:UniqueID ID="" ID_Context="" Instance="" Type="" URL="http://tempuri.org">
+                <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+              </p1:UniqueID>
+              <p1:PersonName NameType="" ShareMarketInd="Yes" ShareSynchInd="Yes">
+                <p1:NamePrefix>p1:NamePrefix</p1:NamePrefix>
+                <p1:GivenName>p1:GivenName</p1:GivenName>
+                <p1:MiddleName>p1:MiddleName</p1:MiddleName>
+                <p1:SurnamePrefix>p1:SurnamePrefix</p1:SurnamePrefix>
+                <p1:Surname>p1:Surname</p1:Surname>
+                <p1:NameSuffix>p1:NameSuffix</p1:NameSuffix>
+                <p1:NameTitle>p1:NameTitle</p1:NameTitle>
+              </p1:PersonName>
+            </p1:LinkedBooking>
+          </p1:LinkedBookings>
+          <p1:PaymentOptions>
+            <p1:PaymentOption CostCenterID="" ExtendedDepositDate="" ExtendedIndicator="true" PaymentPurpose="GiftOrder" PaymentTransactionTypeCode="charge" RPH="" ReferenceNumber="" ShareMarketInd="Yes" ShareSynchInd="Yes">
+              <p1:PaymentCard CardCode="AX" CardHolderRPH="" CardNumber="" CardType="" EffectiveDate="" ExpireDate="" MaskedCardNumber="" SeriesCode="" ShareMarketInd="Yes" ShareSynchInd="Yes">
+                <p1:CardHolderName>p1:CardHolderName</p1:CardHolderName>
+                <p1:CardIssuerName BankID=""/>
+                <p1:Address FormattedInd="false" ShareMarketInd="Yes" ShareSynchInd="Yes" Type="" xsi:type="p1:AddressType">
+                  <p1:StreetNmbr PO_Box="" RuralRouteNmbr="" StreetDirection="" StreetNmbrSuffix="">p1:StreetNmbr</p1:StreetNmbr>
+                  <p1:BldgRoom>p1:BldgRoom</p1:BldgRoom>
+                  <p1:AddressLine>p1:AddressLine</p1:AddressLine>
+                  <p1:CityName>p1:CityName</p1:CityName>
+                  <p1:PostalCode>p1:PostalCode</p1:PostalCode>
+                  <p1:County>p1:County</p1:County>
+                  <p1:StateProv StateCode="">p1:StateProv</p1:StateProv>
+                  <p1:CountryName Code="">p1:CountryName</p1:CountryName>
+                </p1:Address>
+              </p1:PaymentCard>
+              <p1:PaymentAmount Amount="0.0" ApprovalCode="" CurrencyCode="" DecimalPlaces="0"/>
+            </p1:PaymentOption>
+          </p1:PaymentOptions>
+        </p1:ReservationInfo>
+      </p1:NCL_CruiseBookingPaymentRQ>
+      <p1:NCL_CruiseBookingPaymentRS xmlns:p1="http://nclapi/schemas" xmlns:httpsca="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:mq="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:p="http://NCL_CruiseBookingPayment" xmlns:tns="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:tns1="http://www.w3.org/2005/08/addressing" xmlns:tns_1="wsdl.http://versonix.com/api/definitions" xmlns:vx="http://versonix.com/api/schemas" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" AltLangID="EN" EchoToken="" PrimaryLangID="EN" RetransmissionIndicator="true" SequenceNmbr="0" Target="Production" TimeStamp="2001-12-31T12:00:00" TransactionIdentifier="" TransactionStatusCode="Start" Version="0.0">
+        <p1:Success/>
+        <p1:Warnings>
+          <p1:Warning Code="" DocURL="http://tempuri.org" Language="EN" RecordID="" ShortText="" Status="" Tag="" Type="">p1:Warning</p1:Warning>
+        </p1:Warnings>
+        <p1:PaymentOptions>
+          <p1:PaymentOption CostCenterID="" PaymentStatus="" PaymentTransactionTypeCode="charge" RPH="" ShareMarketInd="Yes" ShareSynchInd="Yes">
+            <p1:PaymentCard CardCode="AX" CardHolderRPH="" CardNumber="" CardType="" EffectiveDate="" ExpireDate="" MaskedCardNumber="" SeriesCode="" ShareMarketInd="Yes" ShareSynchInd="Yes">
+              <p1:CardHolderName>p1:CardHolderName</p1:CardHolderName>
+              <p1:CardIssuerName BankID=""/>
+              <p1:Address FormattedInd="false" ShareMarketInd="Yes" ShareSynchInd="Yes" Type="" xsi:type="p1:AddressType">
+                <p1:StreetNmbr PO_Box="" RuralRouteNmbr="" StreetDirection="" StreetNmbrSuffix="">p1:StreetNmbr</p1:StreetNmbr>
+                <p1:BldgRoom>p1:BldgRoom</p1:BldgRoom>
+                <p1:AddressLine>p1:AddressLine</p1:AddressLine>
+                <p1:CityName>p1:CityName</p1:CityName>
+                <p1:PostalCode>p1:PostalCode</p1:PostalCode>
+                <p1:County>p1:County</p1:County>
+                <p1:StateProv StateCode="">p1:StateProv</p1:StateProv>
+                <p1:CountryName Code="">p1:CountryName</p1:CountryName>
+              </p1:Address>
+            </p1:PaymentCard>
+            <p1:PaymentAmount Amount="0.0" ApprovalCode="" CurrencyCode="" DecimalPlaces="0"/>
+          </p1:PaymentOption>
+        </p1:PaymentOptions>
+      </p1:NCL_CruiseBookingPaymentRS>
+      <LogId>LogId</LogId>
+      <ExtDays>ExtDays</ExtDays>
+      <DbDate>DbDate</DbDate>
+      <AgencyId>AgencyId</AgencyId>
+      <errorCode>errorCode</errorCode>
+      <errorText>errorText</errorText>
+    </correlation>
+  </context>
+  <body>
+    <out7:executeNclseaNcl_Wesb_Get_Cc_Status>
+      <out7:executeNclseaNcl_Wesb_Get_Cc_StatusInput>
+        <p_resid/>
+        <p_cc/>
+        <p_datetime>DbDate</p_datetime>
+        <p_loopcnt>10</p_loopcnt>
+      </out7:executeNclseaNcl_Wesb_Get_Cc_StatusInput>
+    </out7:executeNclseaNcl_Wesb_Get_Cc_Status>
+  </body>
+</io:smo>

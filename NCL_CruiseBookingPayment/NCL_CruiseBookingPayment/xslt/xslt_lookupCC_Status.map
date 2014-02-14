@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseBookingPayment/xslt/xslt_lookupCC_Status" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseBookingPayment/xslt/xslt_lookupCC_Status">
+    <input correlationContext="{http://NCL_CruiseBookingPayment}appContext" message="{http://versonix.com/api/definitions}processPaymentResponse" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/body"/>
+    <output correlationContext="{http://NCL_CruiseBookingPayment}appContext" message="{http://NCL_CruiseBookingPayment/JDBCOutboundInterface}executeNclseaNcl_Wesb_Get_Cc_StatusRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/body"/>
+    <imports>
+        <import kind="xml" location="xslt_lookupCC_Status.xml"/>
+    </imports>
+    <mappingDeclaration name="xslt_lookupCC_Status">
+        <input path="body"/>
+        <output path="body"/>
+    </mappingDeclaration>
+</mappingRoot>

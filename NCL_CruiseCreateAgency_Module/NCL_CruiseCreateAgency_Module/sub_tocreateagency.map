@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:NCL_CruiseCreateAgencyRQ="http://nclapi/schemas" xmlns:NclseaNcl_Wesb_Create_AgencyBG="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_agencybg" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:sub_tocreateagency="http://NCL_CruiseCreateAgency_Module" targetNamespace="http://NCL_CruiseCreateAgency_Module">
+  <map:name>sub_tocreateagency</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="NCL_CruiseCreateAgencyRQ:NCL_CruiseCreateAgencyRQ" name="NCL_CruiseCreateAgencyRQ"/>
+  <map:outputBusinessObjectVariable businessObjectRef="NclseaNcl_Wesb_Create_AgencyBG:NclseaNcl_Wesb_Create_AgencyBG" name="NclseaNcl_Wesb_Create_AgencyBG"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/@Action"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_action"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/RequestorID/@ID"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_agencyid"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgentInfo/PersonName/GivenName[1]"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_agent_first"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgentInfo/PersonName/Surname"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_agent_last"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="5">
+    <map:custom>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="UserLogin/@UserLoginName"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_username"/>
+      <map:javaCode>java.lang.String __NCL_CruiseCreateAgencyRQ_UserLogin_$aUserLoginName = (java.lang.String)NCL_CruiseCreateAgencyRQ_UserLogin_$aUserLoginName;&#xD;
+java.lang.String __NclseaNcl_Wesb_Create_AgencyBG_NclseaNcl_Wesb_Create_Agency_p_username = (java.lang.String)NclseaNcl_Wesb_Create_AgencyBG_NclseaNcl_Wesb_Create_Agency_p_username;&#xD;
+// Input NCL_CruiseCreateAgencyRQ_UserLogin_@UserLoginName is represented as NCL_CruiseCreateAgencyRQ_UserLogin_$aUserLoginName&#xD;
+java.lang.String __result__3 = __NCL_CruiseCreateAgencyRQ_UserLogin_$aUserLoginName.toUpperCase();&#xD;
+__NclseaNcl_Wesb_Create_AgencyBG_NclseaNcl_Wesb_Create_Agency_p_username = __result__3;&#xD;
+NclseaNcl_Wesb_Create_AgencyBG_NclseaNcl_Wesb_Create_Agency_p_username = __NclseaNcl_Wesb_Create_AgencyBG_NclseaNcl_Wesb_Create_Agency_p_username;&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;NCL_CruiseCreateAgencyRQ_UserLogin_$aUserLoginName&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength1to64&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Input NCL_CruiseCreateAgencyRQ_UserLogin_@UserLoginName is represented as NCL_CruiseCreateAgencyRQ_UserLogin_$aUserLoginName&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NCL_CruiseCreateAgencyRQ_UserLogin_$aUserLoginName&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.2/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength1to64&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;toUpperCase&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;toUpperCase&quot;>
+//    &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.1/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result>
+//      &lt;dataOutputs target=&quot;//@executableElements.3&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.2/@result/@dataOutputs.0&quot; value=&quot;NclseaNcl_Wesb_Create_AgencyBG_NclseaNcl_Wesb_Create_Agency_p_username&quot; variable=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.1 //@executableElements.2 //@executableElements.3&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!3:4,1&#xD;
+//!SMAP!4:5,2&#xD;
+//!SMAP!1000000:45,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="6">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="UserLogin/@Password"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_password"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="7">
+    <map:set value="Y">
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_can_access"/>
+    </map:set>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="8">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/RequestorID/CompanyName/value()"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_agencyname"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="9">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/Address/AddressLine[1]"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_address1"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="10">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/Address/AddressLine[2]"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_address2"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="11">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/Address/CityName"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_city"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="12">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/Address/StateProv/@StateCode"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_state"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="13">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/Address/PostalCode"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_zip"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="14">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/Address/CountryName/@Code"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_country"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="15">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/@ISOCurrency"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_currency"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="16">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/@Website"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_website"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="17">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/Email[1]/value()"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_agency_email"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="18">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgentInfo/Email[1]/value()"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_email"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="19">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgentInfo/Telephone[1]/@PhoneNumber"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_phone"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="20">
+    <map:custom>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/Telephone[1]/@PhoneNumber"/>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/Telephone[1]/@PhoneTechType"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_agency_phone"/>
+      <map:javaCode>java.lang.String __NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone1_$aPhoneNumber = (java.lang.String)NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone1_$aPhoneNumber;&#xD;
+java.lang.String __NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone1_$aPhoneTechType = (java.lang.String)NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone1_$aPhoneTechType;&#xD;
+java.lang.String __NclseaNcl_Wesb_Create_AgencyBG_NclseaNcl_Wesb_Create_Agency_p_agency_phone = (java.lang.String)NclseaNcl_Wesb_Create_AgencyBG_NclseaNcl_Wesb_Create_Agency_p_agency_phone;&#xD;
+// Input NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone[1]_@PhoneNumber is represented as NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone1_$aPhoneNumber&#xD;
+// Input NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone[1]_@PhoneTechType is represented as NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone1_$aPhoneTechType&#xD;
+java.lang.String __result__3 = &quot;1&quot;;&#xD;
+boolean __result__4 = __NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone1_$aPhoneTechType.equals(__result__3);&#xD;
+if (__result__4){&#xD;
+	__NclseaNcl_Wesb_Create_AgencyBG_NclseaNcl_Wesb_Create_Agency_p_agency_phone = __NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone1_$aPhoneNumber;&#xD;
+	NclseaNcl_Wesb_Create_AgencyBG_NclseaNcl_Wesb_Create_Agency_p_agency_phone = __NclseaNcl_Wesb_Create_AgencyBG_NclseaNcl_Wesb_Create_Agency_p_agency_phone;&#xD;
+}&#xD;
+else{&#xD;
+}&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone1_$aPhoneNumber&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength1to32&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//  &lt;/parameters>
+//  &lt;parameters name=&quot;NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone1_$aPhoneTechType&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;OTA_CodeType&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Input NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone[1]_@PhoneNumber is represented as NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone1_$aPhoneNumber&amp;#xD;&amp;#xA;Input NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone[1]_@PhoneTechType is represented as NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone1_$aPhoneTechType&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone1_$aPhoneTechType&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.3/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;OTA_CodeType&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;1&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.3/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;equals&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;equals&quot;>
+//    &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.1/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;object&quot; dataInputs=&quot;//@executableElements.2/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Object&quot;/>
+//    &lt;/parameters>
+//    &lt;result>
+//      &lt;dataOutputs target=&quot;//@executableElements.4&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;boolean&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:BranchElement&quot; dataInputs=&quot;//@executableElements.3/@result/@dataOutputs.0&quot;>
+//    &lt;conditionalActivities>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone1_$aPhoneNumber&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.4/@conditionalActivities.0/@executableElements.1&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength1to32&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.4/@conditionalActivities.0/@executableElements.0/@dataOutputs.0&quot; value=&quot;NclseaNcl_Wesb_Create_AgencyBG_NclseaNcl_Wesb_Create_Agency_p_agency_phone&quot; variable=&quot;true&quot;>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableGroups executableElements=&quot;//@executableElements.4/@conditionalActivities.0/@executableElements.0 //@executableElements.4/@conditionalActivities.0/@executableElements.1&quot;/>
+//      &lt;condition value=&quot;true&quot;/>
+//    &lt;/conditionalActivities>
+//    &lt;conditionalActivities>
+//      &lt;condition value=&quot;&quot;/>
+//    &lt;/conditionalActivities>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.1 //@executableElements.2 //@executableElements.3 //@executableElements.4&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!3:6,1&#xD;
+//!SMAP!4:7,1&#xD;
+//!SMAP!5:8,1&#xD;
+//!SMAP!8:9,2&#xD;
+//!SMAP!1000000:77,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="21">
+    <map:custom>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/Telephone[2]/@PhoneNumber"/>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/Telephone[2]/@PhoneTechType"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_agency_fax"/>
+      <map:javaCode>java.lang.String __NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone2_$aPhoneNumber = (java.lang.String)NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone2_$aPhoneNumber;&#xD;
+java.lang.String __NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone2_$aPhoneTechType = (java.lang.String)NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone2_$aPhoneTechType;&#xD;
+java.lang.String __NclseaNcl_Wesb_Create_AgencyBG_NclseaNcl_Wesb_Create_Agency_p_agency_fax = (java.lang.String)NclseaNcl_Wesb_Create_AgencyBG_NclseaNcl_Wesb_Create_Agency_p_agency_fax;&#xD;
+// Input NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone[1]_@PhoneNumber is represented as NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone2_$aPhoneNumber&#xD;
+// Input NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone[1]_@PhoneTechType is represented as NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone2_$aPhoneTechType&#xD;
+java.lang.String __result__3 = &quot;3&quot;;&#xD;
+boolean __result__4 = __NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone2_$aPhoneTechType.equals(__result__3);&#xD;
+if (__result__4){&#xD;
+	__NclseaNcl_Wesb_Create_AgencyBG_NclseaNcl_Wesb_Create_Agency_p_agency_fax = __NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone2_$aPhoneNumber;&#xD;
+	NclseaNcl_Wesb_Create_AgencyBG_NclseaNcl_Wesb_Create_Agency_p_agency_fax = __NclseaNcl_Wesb_Create_AgencyBG_NclseaNcl_Wesb_Create_Agency_p_agency_fax;&#xD;
+}&#xD;
+else{&#xD;
+}&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone2_$aPhoneNumber&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength1to32&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//  &lt;/parameters>
+//  &lt;parameters name=&quot;NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone2_$aPhoneTechType&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;OTA_CodeType&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Input NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone[1]_@PhoneNumber is represented as NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone2_$aPhoneNumber&amp;#xD;&amp;#xA;Input NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone[1]_@PhoneTechType is represented as NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone2_$aPhoneTechType&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone2_$aPhoneTechType&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.3/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;OTA_CodeType&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;3&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.3/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;equals&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;equals&quot;>
+//    &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.1/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;object&quot; dataInputs=&quot;//@executableElements.2/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Object&quot;/>
+//    &lt;/parameters>
+//    &lt;result>
+//      &lt;dataOutputs target=&quot;//@executableElements.4&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;boolean&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:BranchElement&quot; dataInputs=&quot;//@executableElements.3/@result/@dataOutputs.0&quot;>
+//    &lt;conditionalActivities>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NCL_CruiseCreateAgencyRQ_AgencyInfo_Telephone2_$aPhoneNumber&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.4/@conditionalActivities.0/@executableElements.1&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength1to32&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.4/@conditionalActivities.0/@executableElements.0/@dataOutputs.0&quot; value=&quot;NclseaNcl_Wesb_Create_AgencyBG_NclseaNcl_Wesb_Create_Agency_p_agency_fax&quot; variable=&quot;true&quot;>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableGroups executableElements=&quot;//@executableElements.4/@conditionalActivities.0/@executableElements.0 //@executableElements.4/@conditionalActivities.0/@executableElements.1&quot;/>
+//      &lt;condition value=&quot;true&quot;/>
+//    &lt;/conditionalActivities>
+//    &lt;conditionalActivities>
+//      &lt;condition value=&quot;&quot;/>
+//    &lt;/conditionalActivities>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.1 //@executableElements.2 //@executableElements.3 //@executableElements.4&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!3:6,1&#xD;
+//!SMAP!4:7,1&#xD;
+//!SMAP!5:8,1&#xD;
+//!SMAP!8:9,2&#xD;
+//!SMAP!1000000:77,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="22">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/ContactPreferences[1]/@ContactPreference"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_agency_contact_pref"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="23">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/@CompanyType"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_companytype"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="24">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/@IdentificationNumber"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_idnumber"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="25">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/@ARCNumber"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_arcnumber"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="26">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/@IATANumber"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_iatanumber"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="27">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/@CLIANumber"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_clianumber"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="28">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/@OfficeCode"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_officecode"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="29">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/@BusinessType"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_businesstype"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="30">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/@AgencyType"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_agencytype"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="31">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/@LegalName"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_legalname"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="32">
+    <map:set value="AGEN">
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_AgencyBG" property="NclseaNcl_Wesb_Create_Agency/p_entitytype"/>
+    </map:set>
+  </map:propertyMap>
+</map:businessObjectMap>

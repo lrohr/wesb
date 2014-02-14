@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema
+    targetNamespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/get_ext_days_and_db_datecontainer"
+    xmlns="http://www.w3.org/2001/XMLSchema" xmlns:get_ext_days_and_db_date="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/get_ext_days_and_db_date">
+    <import
+        namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/get_ext_days_and_db_date" schemaLocation="GET_EXT_DAYS_and_DB_DATE.xsd"/>
+    <annotation xml:space="preserve">
+<appinfo
+                source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter
+                version="7.5.0.1" xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability"/>
+</appinfo>
+</annotation>
+    <complexType name="GET_EXT_DAYS_and_DB_DATEContainer">
+        <sequence>
+            <element maxOccurs="unbounded" minOccurs="1"
+                name="GET_EXT_DAYS_and_DB_DATE" type="get_ext_days_and_db_date:GET_EXT_DAYS_and_DB_DATE"/>
+        </sequence>
+    </complexType>
+</schema>

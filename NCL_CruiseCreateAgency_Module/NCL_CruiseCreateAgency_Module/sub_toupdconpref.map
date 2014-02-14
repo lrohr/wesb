@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:NCL_CruiseCreateAgencyRQ="http://nclapi/schemas" xmlns:NclseaNcl_Wesb_Upd_Agc_Conpref_InfoBG="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agc_conpref_infobg" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:sub_toupdconpref="http://NCL_CruiseCreateAgency_Module1" targetNamespace="http://NCL_CruiseCreateAgency_Module1">
+  <map:name>sub_toupdconpref</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="NCL_CruiseCreateAgencyRQ:NCL_CruiseCreateAgencyRQ" name="NCL_CruiseCreateAgencyRQ"/>
+  <map:outputBusinessObjectVariable businessObjectRef="NclseaNcl_Wesb_Upd_Agc_Conpref_InfoBG:NclseaNcl_Wesb_Upd_Agc_Conpref_InfoBG" name="NclseaNcl_Wesb_Upd_Agc_Conpref_InfoBG"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/ContactPreferences[1]/@ContactPreference"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Upd_Agc_Conpref_InfoBG" property="NclseaNcl_Wesb_Upd_Agc_Conpref_Info/p_agency_contact_pref"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/RequestorID/@ID"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Upd_Agc_Conpref_InfoBG" property="NclseaNcl_Wesb_Upd_Agc_Conpref_Info/p_agencyid"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

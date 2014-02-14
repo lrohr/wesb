@@ -1,0 +1,16 @@
+* SMAP
+xslt_swResObj_Error.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 xslt_swResObj_Error.map
+/NCL_CruiseBookingPayment/xslt/xslt_swResObj_Error.map
+*L
+7:113,5
+5:89,6
+1:56,17
+6:104,5
+2:84,3
+3:100,4
+4:95,2
+*E

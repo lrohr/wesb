@@ -1,0 +1,11 @@
+* SMAP
+XSLTransformation1_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLTransformation1_req_1.map
+/NCL_CruiseCreateClient_Module/xslt/XSLTransformation1_req_1.map
+*L
+1:59,17
+2:87,5
+*E

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:E-Mail_Interface="http://E-Mail_Generic/E-Mail_Interface" xmlns:Encrypt_Decrypt_Interface="http://NCL_WESB_Shared_Library/Encrypt_Decrypt_Interface" xmlns:NCL_CruiseCreateAgent_Interface="http://NCL_WESB_Shared_Library/NCL_CruiseCreateAgent_Interface" xmlns:TP_Interface="http://TP_Logger/TP_Interface" xmlns:definitions="http://versonix.com/api/definitions" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://Agent_Create_Update/DB_AGent_createupdate" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="Agent_Create_Update" targetNamespace="http://Agent_Create_Update/Agent_Create_Update">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="NCL_CruiseCreateAgent_Interface:NCL_CruiseCreateAgent_Interface"/>
+  </interfaces>
+  <references>
+    <reference name="DB_AGent_createupdatePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1:DB_AGent_createupdate"/>
+    </reference>
+    <reference name="E-Mail_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="E-Mail_Interface:E-Mail_Interface"/>
+    </reference>
+    <reference name="TP_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="TP_Interface:TP_Interface"/>
+    </reference>
+    <reference name="SwApiPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="definitions:SwApi"/>
+    </reference>
+    <reference name="Encrypt_Decrypt_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="Encrypt_Decrypt_Interface:Encrypt_Decrypt_Interface"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="Perform_NCL_CruiseCreateAgent" target="TP_InsertUpdate" sourcePortType="NCL_CruiseCreateAgent_Interface:NCL_CruiseCreateAgent_Interface" targetReference="TP_InterfacePartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseCreateAgent" target="executeNclseaNcl_Wesb_Create_AgentBG" sourcePortType="NCL_CruiseCreateAgent_Interface:NCL_CruiseCreateAgent_Interface" targetReference="DB_AGent_createupdatePartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseCreateAgent" target="processEncryptDecrypt" sourcePortType="NCL_CruiseCreateAgent_Interface:NCL_CruiseCreateAgent_Interface" targetReference="SwApiPartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseCreateAgent" target="TP_InsertUpdate" sourcePortType="NCL_CruiseCreateAgent_Interface:NCL_CruiseCreateAgent_Interface" targetReference="TP_InterfacePartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseCreateAgent" target="Send_Email1" sourcePortType="NCL_CruiseCreateAgent_Interface:NCL_CruiseCreateAgent_Interface" targetReference="E-Mail_InterfacePartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseCreateAgent" target="processEncryptDecrypt" sourcePortType="NCL_CruiseCreateAgent_Interface:NCL_CruiseCreateAgent_Interface" targetReference="Encrypt_Decrypt_InterfacePartner"/>
+  <operationFlow medflow="Agent_Create_Update.medflow"/>
+</mfc:interfaceMediationFlow>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<io:smo xmlns:io="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:io7="http://www.w3.org/2005/08/addressing" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:out2="wsdl.http://NCL_WESB_Shared_Library/NCL_CruiseCreateClient_Interface" xmlns:io5="http://nclapi/schemas" xmlns:io6="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:io4="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:io3="http://NCL_CruiseCreateClient_Module" xmlns:out="http://NCL_WESB_Shared_Library/NCL_CruiseCreateClient_Interface" xmlns:io2="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0">
+  <context>
+    <correlation>
+      <LogID>LogID</LogID>
+    </correlation>
+  </context>
+</io:smo>

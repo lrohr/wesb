@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import displayName="JDBCOutboundInterface"
+    name="JDBCOutboundInterface"
+    xmlns:EIS="http://www.ibm.com/xmlns/prod/websphere/scdl/eis/6.0.0"
+    xmlns:ns1="http://NCL_CruiseBookingPayment/JDBCOutboundInterface"
+    xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0"
+    xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interfaces>
+        <interface portType="ns1:JDBCOutboundInterface"
+            preferredInteractionStyle="sync" xsi:type="wsdl:WSDLPortType">
+            <scdl:interfaceQualifier value="false" xsi:type="scdl:JoinTransaction"/>
+        </interface>
+    </interfaces>
+    <esbBinding
+        dataBindingType="com.ibm.j2ca.jdbc.emd.databinding.JDBCDataBindingGenerator"
+        faultSelector="com.ibm.j2ca.extension.emd.runtime.WBIFaultSelectorImpl" xsi:type="EIS:EISImportBinding">
+        <resourceAdapter
+            name="NCL_CruiseBookingPaymentApp.IBM WebSphere Adapter for JDBC"
+            type="com.ibm.j2ca.jdbc.JDBCResourceAdapter" version="7.5.0.1">
+            <properties>
+                <adapterID>001</adapterID>
+            </properties>
+        </resourceAdapter>
+        <connection
+            interactionType="com.ibm.j2ca.jdbc.JDBCInteractionSpec" type="com.ibm.j2ca.jdbc.JDBCManagedConnectionFactory">
+            <properties>
+                <adapterID>001</adapterID>
+                <dataSourceJNDIName>SEAWARE_JNDI</dataSourceJNDIName>
+                <databaseVendor>ORACLE</databaseVendor>
+                <returnDummyBOForSP>false</returnDummyBOForSP>
+                <XADataSourceJNDIName>SEAWARE_JNDI</XADataSourceJNDIName>
+                <connectionType>XADataSourceJNDI</connectionType>
+            </properties>
+        </connection>
+        <methodBinding
+            inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_get_agency_info.NclseaNcl_Wesb_Get_Agency_InfoDataBinding"
+            method="executeNclseaNcl_Wesb_Get_Agency_Info" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_get_agency_info.NclseaNcl_Wesb_Get_Agency_InfoDataBinding">
+            <interaction>
+                <properties>
+                    <functionName>Execute</functionName>
+                </properties>
+            </interaction>
+        </methodBinding>
+        <methodBinding
+            inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_get_cc_status.NclseaNcl_Wesb_Get_Cc_StatusDataBinding"
+            method="executeNclseaNcl_Wesb_Get_Cc_Status" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_get_cc_status.NclseaNcl_Wesb_Get_Cc_StatusDataBinding">
+            <interaction>
+                <properties>
+                    <functionName>Execute</functionName>
+                </properties>
+            </interaction>
+        </methodBinding>
+        <methodBinding
+            inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.get_ext_days_and_db_date.GET_EXT_DAYS_and_DB_DATEDataBinding"
+            method="retrieveallGET_EXT_DAYS_and_DB_DATE" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.get_ext_days_and_db_datecontainer.GET_EXT_DAYS_and_DB_DATEContainerDataBinding">
+            <faultBinding fault="MATCHES_EXCEEDED_LIMIT" faultBindingType="com.ibm.j2ca.extension.emd.runtime.MatchingFaultDataBinding"/>
+            <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+            <interaction>
+                <properties>
+                    <functionName>RetrieveAll</functionName>
+                </properties>
+            </interaction>
+        </methodBinding>
+    </esbBinding>
+</scdl:import>

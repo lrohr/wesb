@@ -1,0 +1,16 @@
+* SMAP
+XSLT_BuildTimeoutMsg_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLT_BuildTimeoutMsg_req_1.map
+/NCL_CruiseCreateAgent_Module/xslt/XSLT_BuildTimeoutMsg_req_1.map
+*L
+1:54,17
+7:106,3
+6:116,3
+5:112,4
+2:86,5
+4:100,6
+3:82,4
+*E

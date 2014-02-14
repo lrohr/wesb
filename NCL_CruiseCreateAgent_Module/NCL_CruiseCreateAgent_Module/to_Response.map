@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:ServiceMessageObject="smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FAgent_Create_Update%257Dapp_context/message%3D%257Bhttp%253A%252F%252FNCL_WESB_Shared_Library%252FNCL_CruiseCreateAgent_Interface%257DPerform_NCL_CruiseCreateAgentResponseMsg/xpath%3D%252F/namespace%3DBOMap/smo.xsd" xmlns:ServiceMessageObject_1="smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FAgent_Create_Update%257Dapp_context/message%3D%257Bhttp%253A%252F%252FAgent_Create_Update%252FDB_AGent_createupdate%257DexecuteNclseaNcl_Wesb_Create_AgentBGResponseMsg/xpath%3D%252F/namespace%3DBOMap/smo.xsd" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:to_Response="http://Agent_Create_Update" targetNamespace="http://Agent_Create_Update">
+  <map:name>to_Response</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="ServiceMessageObject_1:ServiceMessageObject" name="ServiceMessageObject"/>
+  <map:outputBusinessObjectVariable businessObjectRef="ServiceMessageObject:ServiceMessageObject" name="ServiceMessageObject_1"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseCreateAgentRQ/@Version"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/Perform_NCL_CruiseCreateAgentResponse/NCL_CruiseCreateAgentRS/@Version"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseCreateAgentRQ/@TransactionIdentifier"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/Perform_NCL_CruiseCreateAgentResponse/NCL_CruiseCreateAgentRS/@TransactionIdentifier"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:submap submapName="to_Response:sub_resp">
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="body/executeNclseaNcl_Wesb_Create_AgentBGResponse/executeNclseaNcl_Wesb_Create_AgentBGOutput" variableName="NclseaNcl_Wesb_Create_AgentBG"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/Perform_NCL_CruiseCreateAgentResponse/NCL_CruiseCreateAgentRS" variableName="NCL_CruiseCreateAgentRS"/>
+    </map:submap>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/LogID"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/LogID"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="5">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseCreateAgentRQ"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/NCL_CruiseCreateAgentRQ"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<io12:smo xmlns:io12="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:io22="http://www.w3.org/2005/08/addressing" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:io10="http://NCL_CruiseCreateAgency_Module" xmlns:io20="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0" xmlns:io21="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agc_conpref_infobg" xmlns:io9="http://nclapi/schemas" xmlns:io18="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:io19="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_agencybg" xmlns:io8="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:io17="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agc_conpref_info" xmlns:io7="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agency_phone_infobg" xmlns:io6="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:io16="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_agency" xmlns:io15="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agency_addr_infobg" xmlns:io5="wsdl.http://NCL_CruiseCreateAgency_Module/DB_Lookup" xmlns:io4="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agency_phone_info" xmlns:io14="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agency_addr_info" xmlns:io3="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_update_agency_infobg" xmlns:io2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_update_agency_info" xmlns:io="http://NCL_CruiseCreateAgency_Module/DB_Lookup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:io13="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agency_email_infobg" xmlns:io11="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agency_email_info">
+  <context>
+    <correlation>
+      <p1:NCL_CruiseCreateAgencyRQ xmlns:p1="http://nclapi/schemas" xmlns:httpsca="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:mq="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:nclseancl_wesb_create_agency="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_agency" xmlns:nclseancl_wesb_upd_agc_conpref_info="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agc_conpref_info" xmlns:nclseancl_wesb_upd_agency_addr_info="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agency_addr_info" xmlns:nclseancl_wesb_upd_agency_email_info="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agency_email_info" xmlns:nclseancl_wesb_upd_agency_phone_info="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agency_phone_info" xmlns:nclseancl_wesb_update_agency_info="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_update_agency_info" xmlns:p="http://NCL_CruiseCreateAgency_Module" xmlns:p2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_update_agency_infobg" xmlns:p3="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0" xmlns:p4="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agc_conpref_infobg" xmlns:p5="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_agencybg" xmlns:p6="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agency_email_infobg" xmlns:p7="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agency_phone_infobg" xmlns:p8="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agency_addr_infobg" xmlns:tns="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:tns1="http://NCL_CruiseCreateAgency_Module/DB_Lookup" xmlns:tns2="http://www.w3.org/2005/08/addressing" xmlns:tns_1="wsdl.http://NCL_CruiseCreateAgency_Module/DB_Lookup" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" AltLangID="EN" EchoToken="" PrimaryLangID="EN" RetransmissionIndicator="true" SequenceNmbr="0" Target="Production" TimeStamp="2001-12-31T12:00:00" TransactionIdentifier="" TransactionStatusCode="Start" Version="0.0">
+        <p1:POS>
+          <p1:Source AgentDutyCode="" AgentSine="" AirlineVendorID="" AirportCode="" ERSP_UserID="" FirstDepartPoint="" ISOCountry="" ISOCurrency="" PseudoCityCode="" TerminalID="">
+            <p1:RequestorID ID="" ID_Context="" Instance="" MessagePassword="" Type="" URL="http://tempuri.org">
+              <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+            </p1:RequestorID>
+            <p1:Position Altitude="" AltitudeUnitOfMeasureCode="" Latitude="" Longitude=""/>
+            <p1:BookingChannel Primary="true" Type="">
+              <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+            </p1:BookingChannel>
+          </p1:Source>
+        </p1:POS>
+        <p1:AgencyInfo ARCNumber="" Action="" AgencyClassificationCode="" AgencyClassificationName="" AgencyType="" AgentDutyCode="" AgentSine="" AirlineVendorID="" AirportCode="" BusinessType="" CLIANumber="" CompanyType="" ERSP_UserID="" FinalDocsDeliveryPref="" FirstDepartPoint="" IATANumber="" ISOCountry="" ISOCurrency="" IdentificationNumber="" LegalName="" OfficeCode="" PrekitDocsDeliveryPref="" PseudoCityCode="" TerminalID="" Website="">
+          <p1:RequestorID ID="" ID_Context="" Instance="" MessagePassword="" Type="" URL="http://tempuri.org">
+            <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+          </p1:RequestorID>
+          <p1:Position Altitude="" AltitudeUnitOfMeasureCode="" Latitude="" Longitude=""/>
+          <p1:BookingChannel Primary="true" Type="">
+            <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+          </p1:BookingChannel>
+          <p1:Telephone AreaCityCode="" CountryAccessCode="" DefaultInd="false" Extension="" FormattedInd="false" PIN="" PhoneLocationType="" PhoneNumber="" PhoneTechType="" PhoneUseType="" RPH="" ShareMarketInd="Yes" ShareSynchInd="Yes"/>
+          <p1:Address DefaultInd="false" FormattedInd="false" RPH="" ShareMarketInd="Yes" ShareSynchInd="Yes" Type="" UseType="">
+            <p1:StreetNmbr PO_Box="" RuralRouteNmbr="" StreetDirection="" StreetNmbrSuffix="">p1:StreetNmbr</p1:StreetNmbr>
+            <p1:BldgRoom>p1:BldgRoom</p1:BldgRoom>
+            <p1:AddressLine>p1:AddressLine</p1:AddressLine>
+            <p1:CityName>p1:CityName</p1:CityName>
+            <p1:PostalCode>p1:PostalCode</p1:PostalCode>
+            <p1:County>p1:County</p1:County>
+            <p1:StateProv StateCode="">p1:StateProv</p1:StateProv>
+            <p1:CountryName Code="">p1:CountryName</p1:CountryName>
+          </p1:Address>
+          <p1:Email DefaultInd="false" EmailType="" RPH="" ShareMarketInd="Yes" ShareSynchInd="Yes">p1:Email</p1:Email>
+          <p1:ContactPreferences ContactPreference=""/>
+        </p1:AgencyInfo>
+        <p1:AgentInfo AgentLocation="" ContactType="" DefaultInd="false" EmergencyFlag="false" Gender="NMTOKEN" RPH="" Relation="" SecurityLevel="" ShareMarketInd="Yes" ShareSynchInd="Yes">
+          <p1:PersonName NameType="" ShareMarketInd="Yes" ShareSynchInd="Yes">
+            <p1:NamePrefix>p1:NamePrefix</p1:NamePrefix>
+            <p1:GivenName>p1:GivenName</p1:GivenName>
+            <p1:MiddleName>p1:MiddleName</p1:MiddleName>
+            <p1:SurnamePrefix>p1:SurnamePrefix</p1:SurnamePrefix>
+            <p1:Surname>p1:Surname</p1:Surname>
+            <p1:NameSuffix>p1:NameSuffix</p1:NameSuffix>
+            <p1:NameTitle>p1:NameTitle</p1:NameTitle>
+          </p1:PersonName>
+          <p1:Telephone AreaCityCode="" CountryAccessCode="" DefaultInd="false" Extension="" FormattedInd="false" PIN="" PhoneLocationType="" PhoneNumber="" PhoneTechType="" PhoneUseType="" RPH="" ShareMarketInd="Yes" ShareSynchInd="Yes"/>
+          <p1:Address DefaultInd="false" FormattedInd="false" RPH="" ShareMarketInd="Yes" ShareSynchInd="Yes" Type="" UseType="">
+            <p1:StreetNmbr PO_Box="" RuralRouteNmbr="" StreetDirection="" StreetNmbrSuffix="">p1:StreetNmbr</p1:StreetNmbr>
+            <p1:BldgRoom>p1:BldgRoom</p1:BldgRoom>
+            <p1:AddressLine>p1:AddressLine</p1:AddressLine>
+            <p1:CityName>p1:CityName</p1:CityName>
+            <p1:PostalCode>p1:PostalCode</p1:PostalCode>
+            <p1:County>p1:County</p1:County>
+            <p1:StateProv StateCode="">p1:StateProv</p1:StateProv>
+            <p1:CountryName Code="">p1:CountryName</p1:CountryName>
+          </p1:Address>
+          <p1:Email DefaultInd="false" EmailType="" RPH="" ShareMarketInd="Yes" ShareSynchInd="Yes">p1:Email</p1:Email>
+          <p1:URL DefaultInd="false" ShareMarketInd="Yes" ShareSynchInd="Yes" Type="">http://tempuri.org</p1:URL>
+          <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+          <p1:EmployeeInfo EmployeeId="" EmployeeLevel="" EmployeeStatus="" EmployeeTitle="">p1:EmployeeInfo</p1:EmployeeInfo>
+          <p1:ContactPreferences ContactPreference=""/>
+        </p1:AgentInfo>
+        <p1:UserLogin Password="" UserLoginName="" UserType=""/>
+        <p1:TPA_Extensions/>
+      </p1:NCL_CruiseCreateAgencyRQ>
+      <LogID>LogID</LogID>
+      <ErrorCode>p_errorcode</ErrorCode>
+      <Errormessage>p_errormsg</Errormessage>
+    </correlation>
+  </context>
+</io12:smo>

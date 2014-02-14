@@ -1,0 +1,20 @@
+* SMAP
+XSLT_swResObj_Failed_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLT_swResObj_Failed_req_1.map
+/NCL_CruiseCreateClient_Module/xslt/XSLT_swResObj_Failed_req_1.map
+*L
+8:124,3
+11:138,1
+5:104,5
+7:118,6
+3:92,6
+6:82,4
+10:134,4
+4:98,6
+9:130,4
+1:54,17
+2:86,6
+*E

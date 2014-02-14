@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseCreateAgency_Module1/xslt/XSLTransformation2_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseCreateAgency_Module1/xslt/XSLTransformation2_req_1">
+    <input correlationContext="{http://NCL_CruiseCreateAgency_Module}App_context" message="{http://NCL_CruiseCreateAgency_Module/DB_Lookup}executeNclseaNcl_Wesb_Upd_Agency_Phone_InfoBGResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseCreateAgency_Module}App_context" message="{http://NCL_CruiseCreateAgency_Module/DB_Lookup}executeNclseaNcl_Wesb_Update_Agency_InfoBGResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLTransformation2_req_1.xml"/>
+    </imports>
+    <mappingDeclaration name="XSLTransformation2_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+    </mappingDeclaration>
+</mappingRoot>

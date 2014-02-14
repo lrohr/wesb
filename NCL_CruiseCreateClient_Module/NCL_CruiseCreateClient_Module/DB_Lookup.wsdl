@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="DB_Lookup.wsdl" targetNamespace="http://NCL_CruiseCreateClient_Module/DB_Lookup" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_client_profilebg" xmlns:bons2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_companion_xrefbg" xmlns:bons3="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_onboard_prefbg" xmlns:bons4="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_client_parmbg" xmlns:tns="http://NCL_CruiseCreateClient_Module/DB_Lookup" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://NCL_CruiseCreateClient_Module/DB_Lookup">
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_onboard_prefbg" schemaLocation="NclseaNcl_Wesb_Create_Onboard_PrefBG.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_client_profilebg" schemaLocation="NclseaNcl_Wesb_Create_Client_ProfileBG.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_client_parmbg" schemaLocation="NclseaNcl_Wesb_Create_Client_ParmBG.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_companion_xrefbg" schemaLocation="NclseaNcl_Wesb_Create_Companion_XrefBG.xsd"/>
+      <xsd:element name="executeNclseaNcl_Wesb_Create_Client_ProfileBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Create_Client_ProfileBGInput" type="bons1:NclseaNcl_Wesb_Create_Client_ProfileBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Create_Client_ProfileBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Create_Client_ProfileBGOutput" type="bons1:NclseaNcl_Wesb_Create_Client_ProfileBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Create_Companion_XrefBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Create_Companion_XrefBGInput" type="bons2:NclseaNcl_Wesb_Create_Companion_XrefBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Create_Companion_XrefBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Create_Companion_XrefBGOutput" type="bons2:NclseaNcl_Wesb_Create_Companion_XrefBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Create_Onboard_PrefBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Create_Onboard_PrefBGInput" type="bons3:NclseaNcl_Wesb_Create_Onboard_PrefBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Create_Onboard_PrefBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Create_Onboard_PrefBGOutput" type="bons3:NclseaNcl_Wesb_Create_Onboard_PrefBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Create_Client_ParmBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Create_Client_ParmBGInput" type="bons4:NclseaNcl_Wesb_Create_Client_ParmBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Create_Client_ParmBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Create_Client_ParmBGOutput" type="bons4:NclseaNcl_Wesb_Create_Client_ParmBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeNclseaNcl_Wesb_Create_Client_ProfileBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Create_Client_ProfileBG" name="executeNclseaNcl_Wesb_Create_Client_ProfileBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Create_Client_ProfileBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Create_Client_ProfileBGResponse" name="executeNclseaNcl_Wesb_Create_Client_ProfileBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Create_Companion_XrefBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Create_Companion_XrefBG" name="executeNclseaNcl_Wesb_Create_Companion_XrefBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Create_Companion_XrefBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Create_Companion_XrefBGResponse" name="executeNclseaNcl_Wesb_Create_Companion_XrefBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Create_Onboard_PrefBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Create_Onboard_PrefBG" name="executeNclseaNcl_Wesb_Create_Onboard_PrefBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Create_Onboard_PrefBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Create_Onboard_PrefBGResponse" name="executeNclseaNcl_Wesb_Create_Onboard_PrefBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Create_Client_ParmBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Create_Client_ParmBG" name="executeNclseaNcl_Wesb_Create_Client_ParmBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Create_Client_ParmBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Create_Client_ParmBGResponse" name="executeNclseaNcl_Wesb_Create_Client_ParmBGResult"/>
+  </wsdl:message>
+  <wsdl:portType name="DB_Lookup">
+    <wsdl:operation name="executeNclseaNcl_Wesb_Create_Client_ProfileBG">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Create_Client_ProfileBGRequestMsg" name="executeNclseaNcl_Wesb_Create_Client_ProfileBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Create_Client_ProfileBGResponseMsg" name="executeNclseaNcl_Wesb_Create_Client_ProfileBGResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="executeNclseaNcl_Wesb_Create_Companion_XrefBG">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Create_Companion_XrefBGRequestMsg" name="executeNclseaNcl_Wesb_Create_Companion_XrefBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Create_Companion_XrefBGResponseMsg" name="executeNclseaNcl_Wesb_Create_Companion_XrefBGResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="executeNclseaNcl_Wesb_Create_Onboard_PrefBG">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Create_Onboard_PrefBGRequestMsg" name="executeNclseaNcl_Wesb_Create_Onboard_PrefBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Create_Onboard_PrefBGResponseMsg" name="executeNclseaNcl_Wesb_Create_Onboard_PrefBGResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="executeNclseaNcl_Wesb_Create_Client_ParmBG">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Create_Client_ParmBGRequestMsg" name="executeNclseaNcl_Wesb_Create_Client_ParmBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Create_Client_ParmBGResponseMsg" name="executeNclseaNcl_Wesb_Create_Client_ParmBGResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="JDBCOutboundInterface.wsdl" targetNamespace="http://NCL_CruiseBookingPayment/JDBCOutboundInterface" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_agency_info" xmlns:bons2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_cc_status" xmlns:bons3="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/get_ext_days_and_db_date" xmlns:bons4="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/get_ext_days_and_db_datecontainer" xmlns:bons5="http://com/ibm/j2ca/fault/afcfault" xmlns:tns="http://NCL_CruiseBookingPayment/JDBCOutboundInterface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://com/ibm/j2ca/fault/afcfault" xmlns:tns="http://com/ibm/j2ca/fault/afcfault">
+      <xsd:include schemaLocation="RecordNotFoundFault.xsd"/>
+      <xsd:include schemaLocation="MatchesExceededLimitFault.xsd"/>
+    </xsd:schema>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://NCL_CruiseBookingPayment/JDBCOutboundInterface" xmlns:bons6="http://com/ibm/j2ca/fault/afcfault">
+      <xsd:import namespace="http://com/ibm/j2ca/fault/afcfault"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/get_ext_days_and_db_datecontainer" schemaLocation="GET_EXT_DAYS_and_DB_DATEContainer.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_agency_info" schemaLocation="NclseaNcl_Wesb_Get_Agency_Info.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_cc_status" schemaLocation="NclseaNcl_Wesb_Get_Cc_Status.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/get_ext_days_and_db_date" schemaLocation="GET_EXT_DAYS_and_DB_DATE.xsd"/>
+      <xsd:element name="executeNclseaNcl_Wesb_Get_Agency_Info">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Get_Agency_InfoInput" type="bons1:NclseaNcl_Wesb_Get_Agency_Info"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Get_Agency_InfoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Get_Agency_InfoOutput" type="bons1:NclseaNcl_Wesb_Get_Agency_Info"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Get_Cc_Status">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Get_Cc_StatusInput" type="bons2:NclseaNcl_Wesb_Get_Cc_Status"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Get_Cc_StatusResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Get_Cc_StatusOutput" type="bons2:NclseaNcl_Wesb_Get_Cc_Status"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveallGET_EXT_DAYS_and_DB_DATE">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveallGET_EXT_DAYS_and_DB_DATEInput" type="bons3:GET_EXT_DAYS_and_DB_DATE"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveallGET_EXT_DAYS_and_DB_DATEResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveallGET_EXT_DAYS_and_DB_DATEOutput" type="bons4:GET_EXT_DAYS_and_DB_DATEContainer"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RecordNotFoundFault_element" nillable="true" type="bons6:RecordNotFoundFault"/>
+      <xsd:element name="MatchesExceededLimitFault_element" nillable="true" type="bons6:MatchesExceededLimitFault"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeNclseaNcl_Wesb_Get_Agency_InfoRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Get_Agency_Info" name="executeNclseaNcl_Wesb_Get_Agency_InfoParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Get_Agency_InfoResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Get_Agency_InfoResponse" name="executeNclseaNcl_Wesb_Get_Agency_InfoResult"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Get_Cc_StatusRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Get_Cc_Status" name="executeNclseaNcl_Wesb_Get_Cc_StatusParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Get_Cc_StatusResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Get_Cc_StatusResponse" name="executeNclseaNcl_Wesb_Get_Cc_StatusResult"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallGET_EXT_DAYS_and_DB_DATERequestMsg">
+    <wsdl:part element="tns:retrieveallGET_EXT_DAYS_and_DB_DATE" name="retrieveallGET_EXT_DAYS_and_DB_DATEParameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallGET_EXT_DAYS_and_DB_DATEResponseMsg">
+    <wsdl:part element="tns:retrieveallGET_EXT_DAYS_and_DB_DATEResponse" name="retrieveallGET_EXT_DAYS_and_DB_DATEResult"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallGET_EXT_DAYS_and_DB_DATERecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallGET_EXT_DAYS_and_DB_DATEMatchesExceededLimitFaultMsg">
+    <wsdl:part element="tns:MatchesExceededLimitFault_element" name="MatchesExceededLimitFault"/>
+  </wsdl:message>
+  <wsdl:portType name="JDBCOutboundInterface">
+    <wsdl:operation name="executeNclseaNcl_Wesb_Get_Agency_Info">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Get_Agency_InfoRequestMsg" name="executeNclseaNcl_Wesb_Get_Agency_InfoRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Get_Agency_InfoResponseMsg" name="executeNclseaNcl_Wesb_Get_Agency_InfoResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="executeNclseaNcl_Wesb_Get_Cc_Status">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Get_Cc_StatusRequestMsg" name="executeNclseaNcl_Wesb_Get_Cc_StatusRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Get_Cc_StatusResponseMsg" name="executeNclseaNcl_Wesb_Get_Cc_StatusResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveallGET_EXT_DAYS_and_DB_DATE">
+      <wsdl:input message="tns:retrieveallGET_EXT_DAYS_and_DB_DATERequestMsg" name="retrieveallGET_EXT_DAYS_and_DB_DATERequest"/>
+      <wsdl:output message="tns:retrieveallGET_EXT_DAYS_and_DB_DATEResponseMsg" name="retrieveallGET_EXT_DAYS_and_DB_DATEResponse"/>
+      <wsdl:fault message="tns:retrieveallGET_EXT_DAYS_and_DB_DATERecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+      <wsdl:fault message="tns:retrieveallGET_EXT_DAYS_and_DB_DATEMatchesExceededLimitFaultMsg" name="MATCHES_EXCEEDED_LIMIT"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

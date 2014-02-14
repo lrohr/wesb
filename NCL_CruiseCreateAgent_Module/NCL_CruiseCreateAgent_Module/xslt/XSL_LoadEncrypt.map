@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://Agent_Create_Update/xslt/XSL_LoadEncrypt" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://Agent_Create_Update/xslt/XSL_LoadEncrypt">
+    <input correlationContext="{http://Agent_Create_Update}app_context" message="{http://Agent_Create_Update/DB_AGent_createupdate}executeNclseaNcl_Wesb_Create_AgentBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://Agent_Create_Update}app_context" message="{http://versonix.com/api/definitions}processEncryptDecryptRequest" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSL_LoadEncrypt.xml"/>
+    </imports>
+    <mappingDeclaration name="XSL_LoadEncrypt">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <assign value="ENCRYPT">
+            <output path="body/processEncryptDecryptRequest/Encrypt_Decrypt/Action"/>
+        </assign>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgentRQ"/>
+            <output path="context/correlation/NCL_CruiseCreateAgentRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgentRQ/UserLogin/@Password"/>
+            <output path="body/processEncryptDecryptRequest/Encrypt_Decrypt/DecryptString"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

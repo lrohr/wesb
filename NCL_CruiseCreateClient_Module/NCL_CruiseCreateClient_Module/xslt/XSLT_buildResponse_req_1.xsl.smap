@@ -1,0 +1,17 @@
+* SMAP
+XSLT_buildResponse_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLT_buildResponse_req_1.map
+/NCL_CruiseCreateClient_Module/xslt/XSLT_buildResponse_req_1.map
+*L
+8:134,9
+5:116,4
+7:127,7
+1:64,17
+2:96,5
+6:120,3
+4:110,6
+3:92,4
+*E

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import displayName="DB_Lookup" name="DB_Lookup"
+    xmlns:EIS="http://www.ibm.com/xmlns/prod/websphere/scdl/eis/6.0.0"
+    xmlns:ns1="http://NCL_CruiseCreateAgency_Module/DB_Lookup"
+    xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0"
+    xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interfaces>
+        <interface portType="ns1:DB_Lookup"
+            preferredInteractionStyle="sync" xsi:type="wsdl:WSDLPortType">
+            <scdl:interfaceQualifier value="false" xsi:type="scdl:JoinTransaction"/>
+        </interface>
+    </interfaces>
+    <esbBinding
+        dataBindingType="com.ibm.j2ca.jdbc.emd.databinding.JDBCDataBindingGenerator" xsi:type="EIS:EISImportBinding">
+        <resourceAdapter
+            name="NCL_CruiseCreateAgency_ModuleApp.IBM WebSphere Adapter for JDBC"
+            type="com.ibm.j2ca.jdbc.JDBCResourceAdapter" version="7.5.0.1">
+            <properties>
+                <adapterID>001</adapterID>
+            </properties>
+        </resourceAdapter>
+        <connection
+            interactionType="com.ibm.j2ca.jdbc.JDBCInteractionSpec" type="com.ibm.j2ca.jdbc.JDBCManagedConnectionFactory">
+            <properties>
+                <adapterID>001</adapterID>
+                <dataSourceJNDIName>SEAWARE_JNDI</dataSourceJNDIName>
+                <databaseVendor>ORACLE</databaseVendor>
+                <returnDummyBOForSP>false</returnDummyBOForSP>
+                <XADataSourceJNDIName>SEAWARE_JNDI</XADataSourceJNDIName>
+                <connectionType>XADataSourceJNDI</connectionType>
+            </properties>
+        </connection>
+        <methodBinding
+            inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_create_agencybg.NclseaNcl_Wesb_Create_AgencyBGDataBinding"
+            method="executeNclseaNcl_Wesb_Create_AgencyBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_create_agencybg.NclseaNcl_Wesb_Create_AgencyBGDataBinding">
+            <interaction>
+                <properties>
+                    <functionName>Execute</functionName>
+                </properties>
+            </interaction>
+        </methodBinding>
+        <methodBinding
+            inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_update_agency_infobg.NclseaNcl_Wesb_Update_Agency_InfoBGDataBinding"
+            method="executeNclseaNcl_Wesb_Update_Agency_InfoBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_update_agency_infobg.NclseaNcl_Wesb_Update_Agency_InfoBGDataBinding">
+            <interaction>
+                <properties>
+                    <functionName>Execute</functionName>
+                </properties>
+            </interaction>
+        </methodBinding>
+        <methodBinding
+            inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_upd_agency_phone_infobg.NclseaNcl_Wesb_Upd_Agency_Phone_InfoBGDataBinding"
+            method="executeNclseaNcl_Wesb_Upd_Agency_Phone_InfoBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_upd_agency_phone_infobg.NclseaNcl_Wesb_Upd_Agency_Phone_InfoBGDataBinding">
+            <interaction>
+                <properties>
+                    <functionName>Execute</functionName>
+                </properties>
+            </interaction>
+        </methodBinding>
+        <methodBinding
+            inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_upd_agency_addr_infobg.NclseaNcl_Wesb_Upd_Agency_Addr_InfoBGDataBinding"
+            method="executeNclseaNcl_Wesb_Upd_Agency_Addr_InfoBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_upd_agency_addr_infobg.NclseaNcl_Wesb_Upd_Agency_Addr_InfoBGDataBinding">
+            <interaction>
+                <properties>
+                    <functionName>Execute</functionName>
+                </properties>
+            </interaction>
+        </methodBinding>
+        <methodBinding
+            inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_upd_agency_email_infobg.NclseaNcl_Wesb_Upd_Agency_Email_InfoBGDataBinding"
+            method="executeNclseaNcl_Wesb_Upd_Agency_Email_InfoBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_upd_agency_email_infobg.NclseaNcl_Wesb_Upd_Agency_Email_InfoBGDataBinding">
+            <interaction>
+                <properties>
+                    <functionName>Execute</functionName>
+                </properties>
+            </interaction>
+        </methodBinding>
+        <methodBinding
+            inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_upd_agc_conpref_infobg.NclseaNcl_Wesb_Upd_Agc_Conpref_InfoBGDataBinding"
+            method="executeNclseaNcl_Wesb_Upd_Agc_Conpref_InfoBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_upd_agc_conpref_infobg.NclseaNcl_Wesb_Upd_Agc_Conpref_InfoBGDataBinding">
+            <interaction>
+                <properties>
+                    <functionName>Execute</functionName>
+                </properties>
+            </interaction>
+        </methodBinding>
+    </esbBinding>
+</scdl:import>

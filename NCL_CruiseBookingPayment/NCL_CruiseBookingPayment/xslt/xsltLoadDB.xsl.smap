@@ -1,0 +1,22 @@
+* SMAP
+xsltLoadDB.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 xsltLoadDB.map
+/NCL_CruiseBookingPayment/xslt/xsltLoadDB.map
+*L
+2:84,4
+5:104,6
+4:98,6
+7:116,6
+12:154,3
+10:136,6
+8:122,5
+9:148,6
+1:56,17
+13:88,4
+3:92,6
+11:142,6
+6:110,6
+*E

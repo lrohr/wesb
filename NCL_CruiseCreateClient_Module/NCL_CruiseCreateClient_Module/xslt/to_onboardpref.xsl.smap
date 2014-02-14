@@ -1,0 +1,10 @@
+* SMAP
+to_onboardpref.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 to_onboardpref.map
+/NCL_CruiseCreateClient_Module/xslt/to_onboardpref.map
+*L
+1:57,17
+*E

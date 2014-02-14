@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:E-Mail_Interface="http://E-Mail_Generic/E-Mail_Interface" xmlns:NCL_CruiseCheckBookingStatus_Interface="http://NCL_WESB_Shared_Library/NCL_CruiseCheckBookingStatus_Interface" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://TP_Logger/TP_Interface" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="NCL_CruiseCheckBookingStatus_Module" targetNamespace="http://NCL_CruiseCheckBookingStatus_Module/NCL_CruiseCheckBookingStatus_Module">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="NCL_CruiseCheckBookingStatus_Interface:NCL_CruiseCheckBookingStatus_Interface"/>
+  </interfaces>
+  <references>
+    <reference name="TP_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1:TP_Interface"/>
+    </reference>
+    <reference name="E-Mail_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="E-Mail_Interface:E-Mail_Interface"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="Perform_NCL_CruiseCheckBookingStatus" target="TP_InsertUpdate" sourcePortType="NCL_CruiseCheckBookingStatus_Interface:NCL_CruiseCheckBookingStatus_Interface" targetReference="TP_InterfacePartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseCheckBookingStatus" target="TP_InsertUpdate" sourcePortType="NCL_CruiseCheckBookingStatus_Interface:NCL_CruiseCheckBookingStatus_Interface" targetReference="TP_InterfacePartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseCheckBookingStatus" target="Send_Email1" sourcePortType="NCL_CruiseCheckBookingStatus_Interface:NCL_CruiseCheckBookingStatus_Interface" targetReference="E-Mail_InterfacePartner"/>
+  <operationFlow medflow="NCL_CruiseCheckBookingStatus_Module.medflow"/>
+</mfc:interfaceMediationFlow>

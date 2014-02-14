@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseBookingPayment/xslt/xsltLoadDB" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseBookingPayment/xslt/xsltLoadDB">
+    <input correlationContext="{http://NCL_CruiseBookingPayment}appContext" message="{http://versonix.com/api/definitions}processPaymentResponse" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseBookingPayment}appContext" message="{http://NCL_CruiseBookingPayment/JDBCOutboundInterface}executeNclseaNcl_Wesb_Get_Cc_StatusRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="xsltLoadDB.xml"/>
+    </imports>
+    <mappingDeclaration name="xsltLoadDB">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseBookingPaymentRQ"/>
+            <output path="context/correlation/NCL_CruiseBookingPaymentRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogId"/>
+            <output path="context/correlation/LogId"/>
+        </move>
+        <move>
+            <input path="context/correlation/ExtDays"/>
+            <output path="context/correlation/ExtDays"/>
+        </move>
+        <move>
+            <input path="context/correlation/DbDate"/>
+            <output path="context/correlation/DbDate"/>
+        </move>
+        <move>
+            <input path="context/correlation/AgencyId"/>
+            <output path="context/correlation/AgencyId"/>
+        </move>
+        <move>
+            <input path="context/correlation/errorCode"/>
+            <output path="context/correlation/errorCode"/>
+        </move>
+        <move>
+            <input path="context/correlation/errorText"/>
+            <output path="context/correlation/errorText"/>
+        </move>
+        <move>
+            <input path="context/correlation/DbDate"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Cc_Status/executeNclseaNcl_Wesb_Get_Cc_StatusInput/p_datetime"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseBookingPaymentRQ/ReservationInfo/ReservationID/@ID"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Cc_Status/executeNclseaNcl_Wesb_Get_Cc_StatusInput/p_resid"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseBookingPaymentRQ/ReservationInfo/PaymentOptions/PaymentOption/PaymentCard/@CardNumber"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Cc_Status/executeNclseaNcl_Wesb_Get_Cc_StatusInput/p_cc"/>
+        </move>
+        <assign value="10">
+            <output path="body/executeNclseaNcl_Wesb_Get_Cc_Status/executeNclseaNcl_Wesb_Get_Cc_StatusInput/p_loopcnt"/>
+        </assign>
+        <move>
+            <input path="context/correlation/NCL_CruiseBookingPaymentRS"/>
+            <output path="context/correlation/NCL_CruiseBookingPaymentRS"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

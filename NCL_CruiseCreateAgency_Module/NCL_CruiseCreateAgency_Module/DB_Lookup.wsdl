@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="DB_Lookup.wsdl" targetNamespace="http://NCL_CruiseCreateAgency_Module/DB_Lookup" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_agencybg" xmlns:bons2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_update_agency_infobg" xmlns:bons3="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agency_phone_infobg" xmlns:bons4="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agency_addr_infobg" xmlns:bons5="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agency_email_infobg" xmlns:bons6="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agc_conpref_infobg" xmlns:tns="http://NCL_CruiseCreateAgency_Module/DB_Lookup" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://NCL_CruiseCreateAgency_Module/DB_Lookup">
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_update_agency_infobg" schemaLocation="NclseaNcl_Wesb_Update_Agency_InfoBG.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agc_conpref_infobg" schemaLocation="NclseaNcl_Wesb_Upd_Agc_Conpref_InfoBG.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_agencybg" schemaLocation="NclseaNcl_Wesb_Create_AgencyBG.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agency_email_infobg" schemaLocation="NclseaNcl_Wesb_Upd_Agency_Email_InfoBG.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agency_phone_infobg" schemaLocation="NclseaNcl_Wesb_Upd_Agency_Phone_InfoBG.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_upd_agency_addr_infobg" schemaLocation="NclseaNcl_Wesb_Upd_Agency_Addr_InfoBG.xsd"/>
+      <xsd:element name="executeNclseaNcl_Wesb_Create_AgencyBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Create_AgencyBGInput" type="bons1:NclseaNcl_Wesb_Create_AgencyBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Create_AgencyBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Create_AgencyBGOutput" type="bons1:NclseaNcl_Wesb_Create_AgencyBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Update_Agency_InfoBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Update_Agency_InfoBGInput" type="bons2:NclseaNcl_Wesb_Update_Agency_InfoBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Update_Agency_InfoBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Update_Agency_InfoBGOutput" type="bons2:NclseaNcl_Wesb_Update_Agency_InfoBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Upd_Agency_Phone_InfoBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Upd_Agency_Phone_InfoBGInput" type="bons3:NclseaNcl_Wesb_Upd_Agency_Phone_InfoBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Upd_Agency_Phone_InfoBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Upd_Agency_Phone_InfoBGOutput" type="bons3:NclseaNcl_Wesb_Upd_Agency_Phone_InfoBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Upd_Agency_Addr_InfoBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Upd_Agency_Addr_InfoBGInput" type="bons4:NclseaNcl_Wesb_Upd_Agency_Addr_InfoBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Upd_Agency_Addr_InfoBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Upd_Agency_Addr_InfoBGOutput" type="bons4:NclseaNcl_Wesb_Upd_Agency_Addr_InfoBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Upd_Agency_Email_InfoBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Upd_Agency_Email_InfoBGInput" type="bons5:NclseaNcl_Wesb_Upd_Agency_Email_InfoBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Upd_Agency_Email_InfoBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Upd_Agency_Email_InfoBGOutput" type="bons5:NclseaNcl_Wesb_Upd_Agency_Email_InfoBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Upd_Agc_Conpref_InfoBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Upd_Agc_Conpref_InfoBGInput" type="bons6:NclseaNcl_Wesb_Upd_Agc_Conpref_InfoBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Upd_Agc_Conpref_InfoBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Upd_Agc_Conpref_InfoBGOutput" type="bons6:NclseaNcl_Wesb_Upd_Agc_Conpref_InfoBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeNclseaNcl_Wesb_Create_AgencyBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Create_AgencyBG" name="executeNclseaNcl_Wesb_Create_AgencyBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Create_AgencyBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Create_AgencyBGResponse" name="executeNclseaNcl_Wesb_Create_AgencyBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Update_Agency_InfoBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Update_Agency_InfoBG" name="executeNclseaNcl_Wesb_Update_Agency_InfoBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Update_Agency_InfoBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Update_Agency_InfoBGResponse" name="executeNclseaNcl_Wesb_Update_Agency_InfoBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Upd_Agency_Phone_InfoBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Upd_Agency_Phone_InfoBG" name="executeNclseaNcl_Wesb_Upd_Agency_Phone_InfoBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Upd_Agency_Phone_InfoBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Upd_Agency_Phone_InfoBGResponse" name="executeNclseaNcl_Wesb_Upd_Agency_Phone_InfoBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Upd_Agency_Addr_InfoBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Upd_Agency_Addr_InfoBG" name="executeNclseaNcl_Wesb_Upd_Agency_Addr_InfoBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Upd_Agency_Addr_InfoBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Upd_Agency_Addr_InfoBGResponse" name="executeNclseaNcl_Wesb_Upd_Agency_Addr_InfoBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Upd_Agency_Email_InfoBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Upd_Agency_Email_InfoBG" name="executeNclseaNcl_Wesb_Upd_Agency_Email_InfoBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Upd_Agency_Email_InfoBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Upd_Agency_Email_InfoBGResponse" name="executeNclseaNcl_Wesb_Upd_Agency_Email_InfoBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Upd_Agc_Conpref_InfoBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Upd_Agc_Conpref_InfoBG" name="executeNclseaNcl_Wesb_Upd_Agc_Conpref_InfoBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Upd_Agc_Conpref_InfoBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Upd_Agc_Conpref_InfoBGResponse" name="executeNclseaNcl_Wesb_Upd_Agc_Conpref_InfoBGResult"/>
+  </wsdl:message>
+  <wsdl:portType name="DB_Lookup">
+    <wsdl:operation name="executeNclseaNcl_Wesb_Create_AgencyBG">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Create_AgencyBGRequestMsg" name="executeNclseaNcl_Wesb_Create_AgencyBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Create_AgencyBGResponseMsg" name="executeNclseaNcl_Wesb_Create_AgencyBGResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="executeNclseaNcl_Wesb_Update_Agency_InfoBG">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Update_Agency_InfoBGRequestMsg" name="executeNclseaNcl_Wesb_Update_Agency_InfoBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Update_Agency_InfoBGResponseMsg" name="executeNclseaNcl_Wesb_Update_Agency_InfoBGResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="executeNclseaNcl_Wesb_Upd_Agency_Phone_InfoBG">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Upd_Agency_Phone_InfoBGRequestMsg" name="executeNclseaNcl_Wesb_Upd_Agency_Phone_InfoBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Upd_Agency_Phone_InfoBGResponseMsg" name="executeNclseaNcl_Wesb_Upd_Agency_Phone_InfoBGResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="executeNclseaNcl_Wesb_Upd_Agency_Addr_InfoBG">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Upd_Agency_Addr_InfoBGRequestMsg" name="executeNclseaNcl_Wesb_Upd_Agency_Addr_InfoBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Upd_Agency_Addr_InfoBGResponseMsg" name="executeNclseaNcl_Wesb_Upd_Agency_Addr_InfoBGResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="executeNclseaNcl_Wesb_Upd_Agency_Email_InfoBG">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Upd_Agency_Email_InfoBGRequestMsg" name="executeNclseaNcl_Wesb_Upd_Agency_Email_InfoBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Upd_Agency_Email_InfoBGResponseMsg" name="executeNclseaNcl_Wesb_Upd_Agency_Email_InfoBGResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="executeNclseaNcl_Wesb_Upd_Agc_Conpref_InfoBG">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Upd_Agc_Conpref_InfoBGRequestMsg" name="executeNclseaNcl_Wesb_Upd_Agc_Conpref_InfoBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Upd_Agc_Conpref_InfoBGResponseMsg" name="executeNclseaNcl_Wesb_Upd_Agc_Conpref_InfoBGResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

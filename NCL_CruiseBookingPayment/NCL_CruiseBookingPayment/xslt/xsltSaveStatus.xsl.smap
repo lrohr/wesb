@@ -1,0 +1,14 @@
+* SMAP
+xsltSaveStatus.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 xsltSaveStatus.map
+/NCL_CruiseBookingPayment/xslt/xsltSaveStatus.map
+*L
+5:105,5
+4:96,5
+1:56,17
+3:91,2
+2:85,6
+*E

@@ -1,0 +1,14 @@
+* SMAP
+to_encrypt.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 to_encrypt.map
+/NCL_CruiseCreateAgency_Module/xslt/to_encrypt.map
+*L
+1:51,17
+4:97,4
+3:83,5
+2:79,4
+5:101,3
+*E

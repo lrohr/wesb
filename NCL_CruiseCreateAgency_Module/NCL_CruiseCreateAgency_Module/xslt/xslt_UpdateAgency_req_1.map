@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseCreateAgency_Module/xslt/xslt_UpdateAgency_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseCreateAgency_Module/xslt/xslt_UpdateAgency_req_1">
+    <input correlationContext="{http://NCL_CruiseCreateAgency_Module}App_context" message="{http://TP_Logger/TP_Interface}TP_InsertUpdateRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseCreateAgency_Module}App_context" message="{http://NCL_CruiseCreateAgency_Module/DB_Lookup}executeNclseaNcl_Wesb_Update_Agency_InfoBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="xslt_UpdateAgency_req_1.xml"/>
+    </imports>
+    <mappingDeclaration name="xslt_UpdateAgency_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgencyRQ"/>
+            <output path="context/correlation/NCL_CruiseCreateAgencyRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="context/correlation/ErrorCode"/>
+            <output path="context/correlation/ErrorCode"/>
+        </move>
+        <move>
+            <input path="context/correlation/Password"/>
+            <output path="context/correlation/Password"/>
+        </move>
+        <move>
+            <input path="context/correlation/Errormessage"/>
+            <output path="context/transient"/>
+        </move>
+        <assign value="U">
+            <output path="body/executeNclseaNcl_Wesb_Update_Agency_InfoBG/executeNclseaNcl_Wesb_Update_Agency_InfoBGInput/NclseaNcl_Wesb_Update_Agency_Info/p_action"/>
+        </assign>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgencyRQ/POS/Source[1]/RequestorID/CompanyName/text()"/>
+            <output path="body/executeNclseaNcl_Wesb_Update_Agency_InfoBG/executeNclseaNcl_Wesb_Update_Agency_InfoBGInput/NclseaNcl_Wesb_Update_Agency_Info/p_agencyname"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgencyRQ/POS/Source[1]/@ISOCountry"/>
+            <output path="body/executeNclseaNcl_Wesb_Update_Agency_InfoBG/executeNclseaNcl_Wesb_Update_Agency_InfoBGInput/NclseaNcl_Wesb_Update_Agency_Info/p_currency"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgencyRQ/AgencyInfo/@Website"/>
+            <output path="body/executeNclseaNcl_Wesb_Update_Agency_InfoBG/executeNclseaNcl_Wesb_Update_Agency_InfoBGInput/NclseaNcl_Wesb_Update_Agency_Info/p_website"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgencyRQ/AgencyInfo/@AgencyType"/>
+            <output path="body/executeNclseaNcl_Wesb_Update_Agency_InfoBG/executeNclseaNcl_Wesb_Update_Agency_InfoBGInput/NclseaNcl_Wesb_Update_Agency_Info/p_agency_type"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgencyRQ/AgencyInfo/@IdentificationNumber"/>
+            <output path="body/executeNclseaNcl_Wesb_Update_Agency_InfoBG/executeNclseaNcl_Wesb_Update_Agency_InfoBGInput/NclseaNcl_Wesb_Update_Agency_Info/p_taxpayer_number"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgencyRQ/AgencyInfo/@ARCNumber"/>
+            <output path="body/executeNclseaNcl_Wesb_Update_Agency_InfoBG/executeNclseaNcl_Wesb_Update_Agency_InfoBGInput/NclseaNcl_Wesb_Update_Agency_Info/p_arcnumber"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgencyRQ/AgencyInfo/@IATANumber"/>
+            <output path="body/executeNclseaNcl_Wesb_Update_Agency_InfoBG/executeNclseaNcl_Wesb_Update_Agency_InfoBGInput/NclseaNcl_Wesb_Update_Agency_Info/p_iatanumber"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgencyRQ/AgencyInfo/@CLIANumber"/>
+            <output path="body/executeNclseaNcl_Wesb_Update_Agency_InfoBG/executeNclseaNcl_Wesb_Update_Agency_InfoBGInput/NclseaNcl_Wesb_Update_Agency_Info/p_clianumber"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgencyRQ/AgencyInfo/@OfficeCode"/>
+            <output path="body/executeNclseaNcl_Wesb_Update_Agency_InfoBG/executeNclseaNcl_Wesb_Update_Agency_InfoBGInput/NclseaNcl_Wesb_Update_Agency_Info/p_officecode"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgencyRQ/AgencyInfo/@LegalName"/>
+            <output path="body/executeNclseaNcl_Wesb_Update_Agency_InfoBG/executeNclseaNcl_Wesb_Update_Agency_InfoBGInput/NclseaNcl_Wesb_Update_Agency_Info/p_legalname"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgencyRQ/AgencyInfo/@AgencyClassificationCode"/>
+            <output path="body/executeNclseaNcl_Wesb_Update_Agency_InfoBG/executeNclseaNcl_Wesb_Update_Agency_InfoBGInput/NclseaNcl_Wesb_Update_Agency_Info/p_agency_classification_code"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgencyRQ/AgencyInfo/@AgencyClassificationName"/>
+            <output path="body/executeNclseaNcl_Wesb_Update_Agency_InfoBG/executeNclseaNcl_Wesb_Update_Agency_InfoBGInput/NclseaNcl_Wesb_Update_Agency_Info/p_agency_classification_name"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgencyRQ/AgencyInfo/@PrekitDocsDeliveryPref"/>
+            <output path="body/executeNclseaNcl_Wesb_Update_Agency_InfoBG/executeNclseaNcl_Wesb_Update_Agency_InfoBGInput/NclseaNcl_Wesb_Update_Agency_Info/p_drs_delivery_pref_prekit"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgencyRQ/AgencyInfo/@FinalDocsDeliveryPref"/>
+            <output path="body/executeNclseaNcl_Wesb_Update_Agency_InfoBG/executeNclseaNcl_Wesb_Update_Agency_InfoBGInput/NclseaNcl_Wesb_Update_Agency_Info/p_drs_delivery_pref_final"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateAgencyRQ/AgencyInfo/RequestorID/@ID"/>
+            <output path="body/executeNclseaNcl_Wesb_Update_Agency_InfoBG/executeNclseaNcl_Wesb_Update_Agency_InfoBGInput/NclseaNcl_Wesb_Update_Agency_Info/p_agencyid"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

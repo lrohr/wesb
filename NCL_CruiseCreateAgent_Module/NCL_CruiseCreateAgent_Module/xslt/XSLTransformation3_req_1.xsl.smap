@@ -1,0 +1,16 @@
+* SMAP
+XSLTransformation3_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLTransformation3_req_1.map
+/NCL_CruiseCreateAgent_Module/xslt/XSLTransformation3_req_1.map
+*L
+6:106,3
+7:100,6
+4:112,4
+2:86,5
+1:54,17
+5:116,3
+3:82,4
+*E

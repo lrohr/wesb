@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseCreateClient_Module/xslt/XSLTransformation2_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseCreateClient_Module/xslt/XSLTransformation2_req_1">
+    <input correlationContext="{http://NCL_CruiseCreateClient_Module}App_context" message="{http://NCL_CruiseCreateClient_Module/DB_Lookup}executeNclseaNcl_Wesb_Create_Client_ProfileBGResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseCreateClient_Module}App_context" message="{http://NCL_CruiseCreateClient_Module/DB_Lookup}executeNclseaNcl_Wesb_Create_Client_ParmBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <mappingDeclaration name="XSLTransformation2_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ"/>
+            <output path="context/correlation/NCL_CruiseCreateClientRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <assign value="DESIRED_DESTINATION">
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ParmBG/executeNclseaNcl_Wesb_Create_Client_ParmBGInput/NclseaNcl_Wesb_Create_Client_Parm/p_param_name"/>
+        </assign>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/VacationPreference/DesiredDestination[1]"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ParmBG/executeNclseaNcl_Wesb_Create_Client_ParmBGInput/NclseaNcl_Wesb_Create_Client_Parm/p_param_value"/>
+        </move>
+        <move>
+            <input path="context/correlation/ClientID"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ParmBG/executeNclseaNcl_Wesb_Create_Client_ParmBGInput/NclseaNcl_Wesb_Create_Client_Parm/p_clientid"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

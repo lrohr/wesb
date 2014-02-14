@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:NCL_CruiseCreateClientRQ="http://nclapi/schemas" xmlns:NclseaNcl_Wesb_Create_Client_ProfileBG="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_client_profilebg" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:sub_toclientprofile="http://NCL_CruiseCreateClient_Module" targetNamespace="http://NCL_CruiseCreateClient_Module">
+  <map:name>sub_toclientprofile</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="NCL_CruiseCreateClientRQ:NCL_CruiseCreateClientRQ" name="NCL_CruiseCreateClientRQ"/>
+  <map:outputBusinessObjectVariable businessObjectRef="NclseaNcl_Wesb_Create_Client_ProfileBG:NclseaNcl_Wesb_Create_Client_ProfileBG" name="NclseaNcl_Wesb_Create_Client_ProfileBG"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="ClientInfo/@Action"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_action"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="ClientInfo/PersonName/NameTitle[1]"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_title"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="ClientInfo/PersonName/GivenName[1]"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_first"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="ClientInfo/PersonName/Surname"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_last"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="5">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="ClientInfo/PersonName/MiddleName[1]"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_middle"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="6">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="ClientInfo/@GuestOccupation"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_occupation"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="7">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="UserLogin/@UserLoginName"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_username"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="8">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="UserLogin/@Password"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_password"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="9">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="ClientInfo/Email[1]/value()"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_email"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="10">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="ClientInfo/@Nationality"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_citizenship"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="11">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="ClientInfo/Address[1]/AddressLine[1]"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_add1"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="12">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="ClientInfo/Address[1]/AddressLine[2]"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_add2"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="13">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="ClientInfo/Address[1]/CityName"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_add_city"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="14">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="ClientInfo/Address[1]/PostalCode"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_zip"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="15">
+    <map:set value="HOME ADDRESS">
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_address_type"/>
+    </map:set>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="16">
+    <map:set value="HOME">
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_phone_type"/>
+    </map:set>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="17">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="ClientInfo/Telephone[1]/@PhoneNumber"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_phone"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="18">
+    <map:set value="Y">
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_mainclient"/>
+    </map:set>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="19">
+    <map:custom>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="VacationPreference/@FutureCruisePlan"/>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="VacationPreference/@PreferredBookingMode"/>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="VacationPreference/@PreferredCruiseLength"/>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="VacationPreference/@PreferredCruiseTime"/>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="VacationPreference/@PreviouslyCruised"/>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="VacationPreference/@PreviouslyCruisedNumber"/>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="VacationPreference/DesiredDestination[1]"/>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="VacationPreference/PreviousCruiseLines[1]"/>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="ClientInfo/@MaritalStatus"/>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="AgentInfo/PersonName/Surname"/>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="ClientInfo/ContactPreferences[1]/@ContactPreference"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_additional_info"/>
+      <map:javaCode>// The specific type of variable NCL_CruiseCreateClientRQ_VacationPreference_$aFutureCruisePlan is java.lang.String&#xD;
+// The specific type of variable NCL_CruiseCreateClientRQ_VacationPreference_$aPreferredBookingMode is java.lang.String&#xD;
+// The specific type of variable NCL_CruiseCreateClientRQ_VacationPreference_$aPreferredCruiseLength is java.lang.String&#xD;
+// The specific type of variable NCL_CruiseCreateClientRQ_VacationPreference_$aPreferredCruiseTime is java.lang.String&#xD;
+// The specific type of variable NCL_CruiseCreateClientRQ_VacationPreference_$aPreviouslyCruised is java.lang.String&#xD;
+// The specific type of variable NCL_CruiseCreateClientRQ_VacationPreference_$aPreviouslyCruisedNumber is java.lang.String&#xD;
+// The specific type of variable NCL_CruiseCreateClientRQ_VacationPreference_DesiredDestination1 is java.lang.String&#xD;
+// The specific type of variable NCL_CruiseCreateClientRQ_VacationPreference_PreviousCruiseLines1 is java.lang.String&#xD;
+// The specific type of variable NCL_CruiseCreateClientRQ_ClientInfo_$aMaritalStatus is java.lang.String&#xD;
+// The specific type of variable NCL_CruiseCreateClientRQ_AgentInfo_PersonName_Surname is java.lang.String&#xD;
+// The specific type of variable NCL_CruiseCreateClientRQ_ClientInfo_ContactPreferences1_$aContactPreference is java.lang.String&#xD;
+// The specific type of variable NclseaNcl_Wesb_Create_Client_ProfileBG_NclseaNcl_Wesb_Create_Client_Profile_p_additional_info is java.lang.String&#xD;
+// Input NCL_CruiseCreateClientRQ_VacationPreference_@FutureCruisePlan is represented as NCL_CruiseCreateClientRQ_VacationPreference_$aFutureCruisePlan&#xD;
+// Input NCL_CruiseCreateClientRQ_VacationPreference_@PreferredBookingMode is represented as NCL_CruiseCreateClientRQ_VacationPreference_$aPreferredBookingMode&#xD;
+// Input NCL_CruiseCreateClientRQ_VacationPreference_@PreferredCruiseLength is represented as NCL_CruiseCreateClientRQ_VacationPreference_$aPreferredCruiseLength&#xD;
+// Input NCL_CruiseCreateClientRQ_VacationPreference_@PreferredCruiseTime is represented as NCL_CruiseCreateClientRQ_VacationPreference_$aPreferredCruiseTime&#xD;
+// Input NCL_CruiseCreateClientRQ_VacationPreference_@PreviouslyCruised is represented as NCL_CruiseCreateClientRQ_VacationPreference_$aPreviouslyCruised&#xD;
+// Input NCL_CruiseCreateClientRQ_VacationPreference_@PreviouslyCruisedNumber is represented as NCL_CruiseCreateClientRQ_VacationPreference_$aPreviouslyCruisedNumber&#xD;
+// Input NCL_CruiseCreateClientRQ_VacationPreference_DesiredDestination[1] is represented as NCL_CruiseCreateClientRQ_VacationPreference_DesiredDestination1&#xD;
+// Input NCL_CruiseCreateClientRQ_VacationPreference_PreviousCruiseLines[1] is represented as NCL_CruiseCreateClientRQ_VacationPreference_PreviousCruiseLines1&#xD;
+// Input NCL_CruiseCreateClientRQ_ClientInfo_@MaritalStatus is represented as NCL_CruiseCreateClientRQ_ClientInfo_$aMaritalStatus&#xD;
+// Input NCL_CruiseCreateClientRQ_ClientInfo_ContactPreferences[1]_@ContactPreference is represented as NCL_CruiseCreateClientRQ_ClientInfo_ContactPreferences1_$aContactPreference&#xD;
+ java.lang.String FutureCruisePlan = (java.lang.String) NCL_CruiseCreateClientRQ_VacationPreference_$aFutureCruisePlan;&#xD;
+ java.lang.String PreferredBookingMode = (java.lang.String)NCL_CruiseCreateClientRQ_VacationPreference_$aPreferredBookingMode;&#xD;
+ java.lang.String PreferredCruiseLength = (java.lang.String) NCL_CruiseCreateClientRQ_VacationPreference_$aPreferredCruiseLength;&#xD;
+ java.lang.String PreferredCruiseTime = (java.lang.String)NCL_CruiseCreateClientRQ_VacationPreference_$aPreferredCruiseTime;&#xD;
+ java.lang.String PreviouslyCruised = (java.lang.String)NCL_CruiseCreateClientRQ_VacationPreference_$aPreviouslyCruised;&#xD;
+ java.lang.String PreviouslyCruisedNumber = (java.lang.String)NCL_CruiseCreateClientRQ_VacationPreference_$aPreviouslyCruisedNumber;&#xD;
+ //java.lang.String AgentSurname = (java.lang.String)NCL_CruiseCreateClientRQ_AgentInfo_$aPersonName_Surname;&#xD;
+ //java.lang.String MaritalStatus = (java.lang.String)NCL_CruiseCreateClientRQ_ClientInfo_$aMaritalStatus;&#xD;
+ //java.util.List DesiredDestination = (java.util.List)NCL_CruiseCreateClientRQ_VacationPreference_DesiredDestination1;&#xD;
+ //java.util.List PreviousCruiseLines = (java.util.List)NCL_CruiseCreateClientRQ_VacationPreference_PreviousCruiseLines1;&#xD;
+&#xD;
+ NclseaNcl_Wesb_Create_Client_ProfileBG_NclseaNcl_Wesb_Create_Client_Profile_p_additional_info = &quot;N&quot;;&#xD;
+ if(FutureCruisePlan.length() > 0 || PreferredBookingMode.length() > 0 || PreferredCruiseLength.length() > 0 || PreferredCruiseTime.length() > 0 || PreviouslyCruised.length() > 0 )&#xD;
+ //|| PreferredBookingMode.length() > 0 || PreferredCruiseLength.length() > 0 || PreferredCruiseTime.length() > 0 || PreviouslyCruised.length() > 0 || PreviouslyCruisedNumber.length() > 0 || MaritalStatus.length() > 0 )&#xD;
+ //  || !DesiredDestination.isEmpty() || !PreviousCruiseLines.isEmpty() ) &#xD;
+     {&#xD;
+    NclseaNcl_Wesb_Create_Client_ProfileBG_NclseaNcl_Wesb_Create_Client_Profile_p_additional_info = &quot;Y&quot;;&#xD;
+     }&#xD;
+   
+</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="20">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="ClientInfo/@MaritalStatus"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_marital_status"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="21">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="ClientInfo/@NumberOfChildren"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_no_of_children"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="22">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="VacationPreference/@FutureCruisePlan"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_future_cruise_plan"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="23">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="VacationPreference/@PreferredBookingMode"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_pref_booking_mode"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="24">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="VacationPreference/@PreferredCruiseLength"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_pref_cruise_length"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="25">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="VacationPreference/@PreferredCruiseTime"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_pref_cruise_time"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="26">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="VacationPreference/@PreviouslyCruised"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_previously_cruised"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="27">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="VacationPreference/@PreviouslyCruisedNumber"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_previous_cruise_number"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="28">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="ClientInfo/@LoyaltyMembershipID"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_clientid"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="29">
+    <map:custom>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="ClientInfo/@BirthDate"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_dob"/>
+      <map:javaCode>java.lang.String __NCL_CruiseCreateClientRQ_ClientInfo_$aBirthDate = (java.lang.String)NCL_CruiseCreateClientRQ_ClientInfo_$aBirthDate;&#xD;
+java.lang.String __NclseaNcl_Wesb_Create_Client_ProfileBG_NclseaNcl_Wesb_Create_Client_Profile_p_dob = (java.lang.String)NclseaNcl_Wesb_Create_Client_ProfileBG_NclseaNcl_Wesb_Create_Client_Profile_p_dob;&#xD;
+// Input NCL_CruiseCreateClientRQ_ClientInfo_@BirthDate is represented as NCL_CruiseCreateClientRQ_ClientInfo_$aBirthDate&#xD;
+boolean __result__2 = __NCL_CruiseCreateClientRQ_ClientInfo_$aBirthDate != null;&#xD;
+if (__result__2){&#xD;
+	java.lang.String __result__7 = &quot;MMddyyyy&quot;;&#xD;
+	java.lang.String __result__6 = &quot;yyyy-MM-dd&quot;;&#xD;
+	java.lang.String __result__8 = com.ncl.wesb.NCLDataObjectUtils.formatDateString(__NCL_CruiseCreateClientRQ_ClientInfo_$aBirthDate, __result__6, __result__7);&#xD;
+	__NclseaNcl_Wesb_Create_Client_ProfileBG_NclseaNcl_Wesb_Create_Client_Profile_p_dob = __result__8;&#xD;
+	NclseaNcl_Wesb_Create_Client_ProfileBG_NclseaNcl_Wesb_Create_Client_Profile_p_dob = __NclseaNcl_Wesb_Create_Client_ProfileBG_NclseaNcl_Wesb_Create_Client_Profile_p_dob;&#xD;
+}&#xD;
+else{&#xD;
+}&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;NCL_CruiseCreateClientRQ_ClientInfo_$aBirthDate&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength1to16&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Input NCL_CruiseCreateClientRQ_ClientInfo_@BirthDate is represented as NCL_CruiseCreateClientRQ_ClientInfo_$aBirthDate&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NCL_CruiseCreateClientRQ_ClientInfo_$aBirthDate!=null&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.2&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;boolean&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:BranchElement&quot; dataInputs=&quot;//@executableElements.1/@dataOutputs.0&quot;>
+//    &lt;conditionalActivities>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NCL_CruiseCreateClientRQ_ClientInfo_$aBirthDate&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.2/@conditionalActivities.0/@executableElements.3/@parameters.0&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength1to16&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;yyyy-MM-dd&amp;quot;&quot; assignable=&quot;false&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.2/@conditionalActivities.0/@executableElements.3/@parameters.1&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;MMddyyyy&amp;quot;&quot; assignable=&quot;false&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.2/@conditionalActivities.0/@executableElements.3/@parameters.2&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;formatDateString&quot; category=&quot;com.ncl.wesb.NCLDataObjectUtils&quot; className=&quot;com.ncl.wesb.NCLDataObjectUtils&quot; static=&quot;true&quot; memberName=&quot;formatDateString&quot;>
+//        &lt;parameters name=&quot;date&quot; dataInputs=&quot;//@executableElements.2/@conditionalActivities.0/@executableElements.0/@dataOutputs.0&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//        &lt;/parameters>
+//        &lt;parameters name=&quot;formatIn&quot; dataInputs=&quot;//@executableElements.2/@conditionalActivities.0/@executableElements.1/@dataOutputs.0&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//        &lt;/parameters>
+//        &lt;parameters name=&quot;formatOut&quot; dataInputs=&quot;//@executableElements.2/@conditionalActivities.0/@executableElements.2/@dataOutputs.0&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//        &lt;/parameters>
+//        &lt;result>
+//          &lt;dataOutputs target=&quot;//@executableElements.2/@conditionalActivities.0/@executableElements.4&quot;/>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//        &lt;/result>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.2/@conditionalActivities.0/@executableElements.3/@result/@dataOutputs.0&quot; value=&quot;NclseaNcl_Wesb_Create_Client_ProfileBG_NclseaNcl_Wesb_Create_Client_Profile_p_dob&quot; variable=&quot;true&quot;>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableGroups executableElements=&quot;//@executableElements.2/@conditionalActivities.0/@executableElements.0 //@executableElements.2/@conditionalActivities.0/@executableElements.1 //@executableElements.2/@conditionalActivities.0/@executableElements.2 //@executableElements.2/@conditionalActivities.0/@executableElements.3 //@executableElements.2/@conditionalActivities.0/@executableElements.4&quot;/>
+//      &lt;condition value=&quot;true&quot;/>
+//    &lt;/conditionalActivities>
+//    &lt;conditionalActivities>
+//      &lt;condition value=&quot;&quot;/>
+//    &lt;/conditionalActivities>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.1 //@executableElements.2&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!2:4,1&#xD;
+//!SMAP!3:5,1&#xD;
+//!SMAP!6:7,1&#xD;
+//!SMAP!7:6,1&#xD;
+//!SMAP!8:8,1&#xD;
+//!SMAP!9:9,2&#xD;
+//!SMAP!1000000:83,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="30">
+    <map:custom>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="ClientInfo/@Gender"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_gender"/>
+      <map:javaCode>java.lang.String __NCL_CruiseCreateClientRQ_ClientInfo_$aGender = (java.lang.String)NCL_CruiseCreateClientRQ_ClientInfo_$aGender;&#xD;
+java.lang.String __NclseaNcl_Wesb_Create_Client_ProfileBG_NclseaNcl_Wesb_Create_Client_Profile_p_gender = (java.lang.String)NclseaNcl_Wesb_Create_Client_ProfileBG_NclseaNcl_Wesb_Create_Client_Profile_p_gender;&#xD;
+// Input NCL_CruiseCreateClientRQ_ClientInfo_@Gender is represented as NCL_CruiseCreateClientRQ_ClientInfo_$aGender&#xD;
+// Input NCL_CruiseCreateClientRQ_ClientInfo_@Gender is represented as NCL_CruiseCreateClientRQ_ClientInfo_$aGender&#xD;
+// Input NCL_CruiseCreateClientRQ_ClientInfo_@Gender is represented as NCL_CruiseCreateClientRQ_ClientInfo_$aGender&#xD;
+// Input NCL_CruiseCreateClientRQ_ClientInfo_@Gender is represented as NCL_CruiseCreateClientRQ_ClientInfo_$aGender&#xD;
+// Input NCL_CruiseCreateClientRQ_ClientInfo_@Gender is represented as NCL_CruiseCreateClientRQ_ClientInfo_$aGender&#xD;
+boolean __result__6 = __NCL_CruiseCreateClientRQ_ClientInfo_$aGender != null;&#xD;
+if (__result__6){&#xD;
+	byte __result__12 = 1;&#xD;
+	byte __result__11 = 0;&#xD;
+	java.lang.String __result__10 = __NCL_CruiseCreateClientRQ_ClientInfo_$aGender.toUpperCase();&#xD;
+	java.lang.String __result__13 = __result__10.substring(__result__11, __result__12);&#xD;
+	__NclseaNcl_Wesb_Create_Client_ProfileBG_NclseaNcl_Wesb_Create_Client_Profile_p_gender = __result__13;&#xD;
+	NclseaNcl_Wesb_Create_Client_ProfileBG_NclseaNcl_Wesb_Create_Client_Profile_p_gender = __NclseaNcl_Wesb_Create_Client_ProfileBG_NclseaNcl_Wesb_Create_Client_Profile_p_gender;&#xD;
+}&#xD;
+else{&#xD;
+}&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;NCL_CruiseCreateClientRQ_ClientInfo_$aGender&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;NMTOKEN&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Input NCL_CruiseCreateClientRQ_ClientInfo_@Gender is represented as NCL_CruiseCreateClientRQ_ClientInfo_$aGender&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Input NCL_CruiseCreateClientRQ_ClientInfo_@Gender is represented as NCL_CruiseCreateClientRQ_ClientInfo_$aGender&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Input NCL_CruiseCreateClientRQ_ClientInfo_@Gender is represented as NCL_CruiseCreateClientRQ_ClientInfo_$aGender&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Input NCL_CruiseCreateClientRQ_ClientInfo_@Gender is represented as NCL_CruiseCreateClientRQ_ClientInfo_$aGender&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Input NCL_CruiseCreateClientRQ_ClientInfo_@Gender is represented as NCL_CruiseCreateClientRQ_ClientInfo_$aGender&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NCL_CruiseCreateClientRQ_ClientInfo_$aGender!=null&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.6&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;boolean&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:BranchElement&quot; dataInputs=&quot;//@executableElements.5/@dataOutputs.0&quot;>
+//    &lt;conditionalActivities>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NCL_CruiseCreateClientRQ_ClientInfo_$aGender&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.6/@conditionalActivities.0/@executableElements.1/@parameters.0&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;NMTOKEN&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;toUpperCase&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;toUpperCase&quot;>
+//        &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.6/@conditionalActivities.0/@executableElements.0/@dataOutputs.0&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//        &lt;/parameters>
+//        &lt;result>
+//          &lt;dataOutputs target=&quot;//@executableElements.6/@conditionalActivities.0/@executableElements.4/@parameters.0&quot;/>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//        &lt;/result>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;0&quot; assignable=&quot;false&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.6/@conditionalActivities.0/@executableElements.4/@parameters.1&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;byte&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;1&quot; assignable=&quot;false&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.6/@conditionalActivities.0/@executableElements.4/@parameters.2&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;byte&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;substring&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;substring&quot;>
+//        &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.6/@conditionalActivities.0/@executableElements.1/@result/@dataOutputs.0&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//        &lt;/parameters>
+//        &lt;parameters name=&quot;start&quot; dataInputs=&quot;//@executableElements.6/@conditionalActivities.0/@executableElements.2/@dataOutputs.0&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//        &lt;/parameters>
+//        &lt;parameters name=&quot;end&quot; dataInputs=&quot;//@executableElements.6/@conditionalActivities.0/@executableElements.3/@dataOutputs.0&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//        &lt;/parameters>
+//        &lt;result>
+//          &lt;dataOutputs target=&quot;//@executableElements.6/@conditionalActivities.0/@executableElements.5&quot;/>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//        &lt;/result>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.6/@conditionalActivities.0/@executableElements.4/@result/@dataOutputs.0&quot; value=&quot;NclseaNcl_Wesb_Create_Client_ProfileBG_NclseaNcl_Wesb_Create_Client_Profile_p_gender&quot; variable=&quot;true&quot;>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableGroups executableElements=&quot;//@executableElements.6/@conditionalActivities.0/@executableElements.0 //@executableElements.6/@conditionalActivities.0/@executableElements.1 //@executableElements.6/@conditionalActivities.0/@executableElements.2 //@executableElements.6/@conditionalActivities.0/@executableElements.3 //@executableElements.6/@conditionalActivities.0/@executableElements.4 //@executableElements.6/@conditionalActivities.0/@executableElements.5&quot;/>
+//      &lt;condition value=&quot;true&quot;/>
+//    &lt;/conditionalActivities>
+//    &lt;conditionalActivities>
+//      &lt;condition value=&quot;&quot;/>
+//    &lt;/conditionalActivities>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.1&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.2&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.3&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.4&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.5 //@executableElements.6&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!6:8,1&#xD;
+//!SMAP!7:9,1&#xD;
+//!SMAP!10:12,1&#xD;
+//!SMAP!11:11,1&#xD;
+//!SMAP!12:10,1&#xD;
+//!SMAP!13:13,1&#xD;
+//!SMAP!14:14,2&#xD;
+//!SMAP!1000000:114,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="31">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="ClientInfo/Address[1]/StateProv/@StateCode"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_state"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="32">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="ClientInfo/Address[1]/CountryName/@Code"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_ProfileBG" property="NclseaNcl_Wesb_Create_Client_Profile/p_country"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

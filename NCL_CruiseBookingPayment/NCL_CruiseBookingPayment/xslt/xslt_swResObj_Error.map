@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseBookingPayment/xslt/xslt_swResObj_Error" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseBookingPayment/xslt/xslt_swResObj_Error">
+    <input correlationContext="{http://NCL_CruiseBookingPayment}appContext" message="{http://versonix.com/api/definitions}processPaymentRequest" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseBookingPayment}appContext" message="{http://NCL_CruiseBookingPayment/JDBCOutboundInterface}executeNclseaNcl_Wesb_Get_Cc_StatusResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="xslt_swResObj_Error.xml"/>
+    </imports>
+    <mappingDeclaration name="xslt_swResObj_Error">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseBookingPaymentRQ"/>
+            <output path="context/correlation/NCL_CruiseBookingPaymentRQ"/>
+        </move>
+        <assign value="12025">
+            <output path="context/correlation/NCL_CruiseBookingPaymentRS/Warnings/Warning/@Code"/>
+        </assign>
+        <local>
+            <output path="context/correlation/NCL_CruiseBookingPaymentRS/Success"/>
+        </local>
+        <move>
+            <input path="context/correlation/NCL_CruiseBookingPaymentRQ/@TransactionIdentifier"/>
+            <output path="context/correlation/NCL_CruiseBookingPaymentRS/@TransactionIdentifier"/>
+        </move>
+        <move>
+            <input path="context/failInfo/failureString"/>
+            <output path="context/correlation/NCL_CruiseBookingPaymentRS/Warnings/Warning[1]/@ShortText"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogId"/>
+            <output path="context/correlation/LogId"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

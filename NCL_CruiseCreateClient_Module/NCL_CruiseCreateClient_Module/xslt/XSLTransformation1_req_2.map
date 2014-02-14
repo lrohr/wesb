@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseCreateClient_Module/xslt/XSLTransformation1_req_2" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseCreateClient_Module/xslt/XSLTransformation1_req_2">
+    <input correlationContext="{http://NCL_CruiseCreateClient_Module}App_context" message="{http://NCL_WESB_Shared_Library/Encrypt_Decrypt_Interface}processEncryptDecryptResponse" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseCreateClient_Module}App_context" message="{http://NCL_CruiseCreateClient_Module/DB_Lookup}executeNclseaNcl_Wesb_Create_Client_ProfileBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xslt" location="XSLTransformation1_req_2_custom.xsl"/>
+        <import kind="xslt" location="XSLTransformation1_req_2_dob.xsl"/>
+        <import kind="xslt" location="XSLTransformation1_additionalInfo.xsl"/>
+    </imports>
+    <mappingDeclaration name="XSLTransformation1_req_2">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ"/>
+            <output path="context/correlation/NCL_CruiseCreateClientRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/ClientInfo/@Action"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_action"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/ClientInfo/PersonName/Surname"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_last"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/ClientInfo/PersonName/MiddleName[1]"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_middle"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/ClientInfo/PersonName/GivenName[1]"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_first"/>
+        </move>
+        <customFunction lang="xslt" location="XSLTransformation1_req_2_custom.xsl" ref="GenderToP_gender">
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/ClientInfo/@Gender" var="Gender"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_gender"/>
+            <param name="Gender" value="$Gender"/>
+        </customFunction>
+        <customFunction lang="xslt" location="XSLTransformation1_req_2_dob.xsl" ref="BirthDateToP_dob">
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/ClientInfo/@BirthDate" var="BirthDate"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_dob"/>
+            <param name="BirthDate" value="$BirthDate"/>
+        </customFunction>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/ClientInfo/@GuestOccupation"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_occupation"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/UserLogin/@UserLoginName"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_username"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/UserLogin/@Password"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_password"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/ClientInfo/Email[1]/text()"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_email"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/ClientInfo/@Nationality"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_citizenship"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/ClientInfo/Address[1]/AddressLine[1]"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_add1"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/ClientInfo/Address[1]/AddressLine[2]"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_add2"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/ClientInfo/Address[1]/CityName"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_add_city"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/ClientInfo/Address[1]/StateProv/@StateCode"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_state"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/ClientInfo/Address[1]/PostalCode"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_zip"/>
+        </move>
+        <assign value="HOME ADDRESS">
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_address_type"/>
+        </assign>
+        <assign value="HOME">
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_phone_type"/>
+        </assign>
+        <customFunction lang="xslt" location="XSLTransformation1_additionalInfo.xsl" ref="FutureCruisePlanToP_additional_info">
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/VacationPreference/@FutureCruisePlan" var="FutureCruisePlan"/>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/VacationPreference/@PreferredBookingMode" var="PreferredBookingMode"/>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/VacationPreference/@PreferredCruiseLength" var="PreferredCruiseLength"/>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/VacationPreference/@PreferredCruiseTime" var="PreferredCruiseTime"/>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/VacationPreference/@PreviouslyCruised" var="PreviouslyCruised"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_additional_info"/>
+            <param name="FutureCruisePlan" value="$FutureCruisePlan"/>
+            <param name="PreferredBookingMode" value="$PreferredBookingMode"/>
+            <param name="PreferredCruiseLength" value="$PreferredCruiseLength"/>
+            <param name="PreferredCruiseTime" value="$PreferredCruiseTime"/>
+            <param name="PreviouslyCruised" value="$PreviouslyCruised"/>
+        </customFunction>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/ClientInfo/@RPH"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_marital_status"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/ClientInfo/@NumberOfChildren"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_no_of_children"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/VacationPreference/@PreferredCruiseLength"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_pref_cruise_length"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/VacationPreference/@FutureCruisePlan"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_future_cruise_plan"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/VacationPreference/@PreferredCruiseTime"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_pref_cruise_time"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/VacationPreference/@PreviouslyCruised"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_previously_cruised"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/VacationPreference/@PreviouslyCruisedNumber"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_previous_cruise_number"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/VacationPreference/@PreferredBookingMode"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_pref_booking_mode"/>
+        </move>
+        <assign value="Y">
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_mainclient"/>
+        </assign>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/ClientInfo/@LoyaltyMembershipID"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_clientid"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/ClientInfo/Telephone[1]/@PhoneNumber"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_phone"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/ClientInfo/Address[1]/CountryName/@Code"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_country"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseCreateClientRQ/ClientInfo/PersonName/NamePrefix[1]"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_ProfileBG/executeNclseaNcl_Wesb_Create_Client_ProfileBGInput/NclseaNcl_Wesb_Create_Client_Profile/p_title"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

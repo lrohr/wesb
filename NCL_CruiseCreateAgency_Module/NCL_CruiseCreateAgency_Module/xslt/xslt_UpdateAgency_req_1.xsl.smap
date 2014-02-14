@@ -1,0 +1,31 @@
+* SMAP
+xslt_UpdateAgency_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 xslt_UpdateAgency_req_1.map
+/NCL_CruiseCreateAgency_Module/xslt/xslt_UpdateAgency_req_1.map
+*L
+4:101,6
+5:107,5
+18:204,6
+1:63,17
+8:144,6
+17:198,6
+21:222,5
+16:192,6
+2:91,4
+19:210,6
+15:186,6
+7:134,4
+14:180,6
+13:174,6
+20:216,6
+9:150,6
+11:162,6
+3:95,6
+10:156,6
+22:138,6
+12:168,6
+6:114,11
+*E

@@ -1,0 +1,16 @@
+* SMAP
+xsltGotExtDays.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 xsltGotExtDays.map
+/NCL_CruiseBookingPayment/xslt/xsltGotExtDays.map
+*L
+2:84,3
+5:99,6
+1:56,17
+6:93,6
+4:105,6
+3:89,2
+7:111,5
+*E

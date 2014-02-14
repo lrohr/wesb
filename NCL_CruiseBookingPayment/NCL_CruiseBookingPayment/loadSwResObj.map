@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:ServiceMessageObject="smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FNCL_CruiseBookingPayment%257DappContext/message%3D%257Bhttp%253A%252F%252Fversonix.com%252Fapi%252Fdefinitions%257DprocessPaymentRequest/xpath%3D%252F/namespace%3DBOMap/smo.xsd" xmlns:ServiceMessageObject_1="smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FNCL_CruiseBookingPayment%257DappContext/message%3D%257Bhttp%253A%252F%252FNCL_CruiseBookingPayment%252FJDBCOutboundInterface%257DretrieveallGET_EXT_DAYS_and_DB_DATEResponseMsg/xpath%3D%252F/namespace%3DBOMap/smo.xsd" xmlns:loadSwResObj="http://NCL_CruiseBookingPayment" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" targetNamespace="http://NCL_CruiseBookingPayment">
+  <map:name>loadSwResObj</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="ServiceMessageObject_1:ServiceMessageObject" name="ServiceMessageObject"/>
+  <map:outputBusinessObjectVariable businessObjectRef="ServiceMessageObject:ServiceMessageObject" name="ServiceMessageObject_1"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseBookingPaymentRQ"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/NCL_CruiseBookingPaymentRQ"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/LogId"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/LogId"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/AgencyId"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/AgencyId"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="body/retrieveallGET_EXT_DAYS_and_DB_DATEResponse/retrieveallGET_EXT_DAYS_and_DB_DATEOutput/GET_EXT_DAYS_and_DB_DATE[1]/param_value"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/ExtDays"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="5">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="body/retrieveallGET_EXT_DAYS_and_DB_DATEResponse/retrieveallGET_EXT_DAYS_and_DB_DATEOutput/GET_EXT_DAYS_and_DB_DATE[1]/dbdate"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/DbDate"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="6">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/AgencyId"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/processPaymentRequest/Payment_IN/bookingInfo/agencyId"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="7">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseBookingPaymentRQ/ReservationInfo/ReservationID[1]/@ID"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/processPaymentRequest/Payment_IN/bookingInfo/resId"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="8">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseBookingPaymentRQ/ReservationInfo/GuestDetails/GuestDetail[1]/ContactInfo[1]/@LoyaltyMembershipID"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/processPaymentRequest/Payment_IN/bookingInfo/clientID"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="9">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseBookingPaymentRQ/ReservationInfo/PaymentOptions/PaymentOption[1]/@PaymentTransactionTypeCode"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/processPaymentRequest/Payment_IN/paymentGroup/paymentInfo/paymentDetails/formOfPaymentCode"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="10">
+    <map:custom>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseBookingPaymentRQ/ReservationInfo/PaymentOptions/PaymentOption[1]/PaymentCard/@CardType"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/processPaymentRequest/Payment_IN/paymentGroup/paymentInfo/paymentDetails/paymentType"/>
+      <map:javaCode>java.lang.String __ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption1_PaymentCard_$aCardType = (java.lang.String)ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption1_PaymentCard_$aCardType;&#xD;
+java.lang.String __ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_paymentDetails_paymentType = (java.lang.String)ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_paymentDetails_paymentType;&#xD;
+// Input ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption[1]_PaymentCard_@CardType is represented as ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption1_PaymentCard_$aCardType&#xD;
+// Input ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption[1]_PaymentCard_@CardType is represented as ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption1_PaymentCard_$aCardType&#xD;
+// Input ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption[1]_PaymentCard_@CardType is represented as ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption1_PaymentCard_$aCardType&#xD;
+// Input ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption[1]_PaymentCard_@CardType is represented as ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption1_PaymentCard_$aCardType&#xD;
+try {
+	//java.lang.String __ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_paymentDetails_paymentType = (java.lang.String)ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_paymentDetails_paymentType;
+	java.lang.String input = __ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption1_PaymentCard_$aCardType;
+	byte __result__11 = 0;
+	int __result__10 = input.length();
+	boolean __result__12;
+	{// greater than
+		__result__12 = __result__10 > __result__11;
+	}
+	if (__result__12){
+		java.lang.String __result__15 = &quot;CCD&quot;;
+		__ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_paymentDetails_paymentType = __result__15;
+		ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_paymentDetails_paymentType = __ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_paymentDetails_paymentType;
+	}
+	else{
+		java.lang.String __result__18 = &quot;CHK&quot;;
+		__ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_paymentDetails_paymentType = __result__18;
+		ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_paymentDetails_paymentType = __ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_paymentDetails_paymentType;
+	}&#xD;
+}&#xD;
+catch(Exception e){
+	ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_paymentDetails_paymentType = &quot;CHK&quot;;&#xD;
+}&#xD;
+finally {&#xD;
+// The specific type of variable ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_paymentDetails_paymentType is java.lang.String&#xD;
+}&#xD;
+</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="11">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseBookingPaymentRQ/ReservationInfo/PaymentOptions/PaymentOption[1]/PaymentAmount/@Amount"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/processPaymentRequest/Payment_IN/paymentGroup/paymentInfo/paymentDetails/amount"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="12">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseBookingPaymentRQ/ReservationInfo/PaymentOptions/PaymentOption[1]/PaymentAmount/@CurrencyCode"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/processPaymentRequest/Payment_IN/paymentGroup/paymentInfo/paymentDetails/currency"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="13">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseBookingPaymentRQ/ReservationInfo/PaymentOptions/PaymentOption[1]/PaymentCard/@CardNumber"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/processPaymentRequest/Payment_IN/paymentGroup/paymentInfo/creditCardInfo/creditCardNbr"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="14">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseBookingPaymentRQ/ReservationInfo/PaymentOptions/PaymentOption[1]/PaymentCard/@CardCode"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/processPaymentRequest/Payment_IN/paymentGroup/paymentInfo/creditCardInfo/creditCardCode"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="15">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseBookingPaymentRQ/ReservationInfo/PaymentOptions/PaymentOption[1]/PaymentCard/CardHolderName"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/processPaymentRequest/Payment_IN/paymentGroup/ccHolderName"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="16">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseBookingPaymentRQ/ReservationInfo/PaymentOptions/PaymentOption[1]/PaymentCard/Address/AddressLine"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/processPaymentRequest/Payment_IN/paymentGroup/billingAddress/addressDetails/addressLine1"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="17">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseBookingPaymentRQ/ReservationInfo/PaymentOptions/PaymentOption[1]/PaymentCard/Address/CityName"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/processPaymentRequest/Payment_IN/paymentGroup/billingAddress/cityName"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="18">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseBookingPaymentRQ/ReservationInfo/PaymentOptions/PaymentOption[1]/PaymentCard/Address/PostalCode"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/processPaymentRequest/Payment_IN/paymentGroup/billingAddress/zipCode"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="19">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseBookingPaymentRQ/ReservationInfo/PaymentOptions/PaymentOption[1]/PaymentCard/Address/CountryName/@Code"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/processPaymentRequest/Payment_IN/paymentGroup/billingAddress/CountryIsoCode"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="20">
+    <map:custom>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseBookingPaymentRQ/ReservationInfo/PaymentOptions/PaymentOption[1]/PaymentCard/@ExpireDate"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/processPaymentRequest/Payment_IN/paymentGroup/paymentInfo/creditCardInfo/creditCardExpiryDate"/>
+      <map:javaCode>java.lang.String __ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption1_PaymentCard_$aExpireDate = (java.lang.String)ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption1_PaymentCard_$aExpireDate;&#xD;
+java.lang.String __ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_creditCardInfo_creditCardExpiryDate = (java.lang.String)ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_creditCardInfo_creditCardExpiryDate;&#xD;
+// Input ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption[1]_PaymentCard_@ExpireDate is represented as ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption1_PaymentCard_$aExpireDate&#xD;
+// Input ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption[1]_PaymentCard_@ExpireDate is represented as ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption1_PaymentCard_$aExpireDate&#xD;
+// Input ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption[1]_PaymentCard_@ExpireDate is represented as ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption1_PaymentCard_$aExpireDate&#xD;
+try {&#xD;
+//	java.lang.String __ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_creditCardInfo_creditCardExpiryDate = (java.lang.String)ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_creditCardInfo_creditCardExpiryDate;
+	java.lang.String input = __ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption1_PaymentCard_$aExpireDate;
+	java.lang.String __result__12 = &quot;20&quot;;
+	byte __result__10 = 2;
+	byte __result__9 = 0;
+	java.lang.String __result__11 = input.substring(__result__9, __result__10);
+	byte __result__16 = 4;
+	byte __result__15 = 2;
+	java.lang.String __result__17 = input.substring(__result__15, __result__16);
+	java.lang.String __result__13 = __result__11.concat(__result__12);
+	java.lang.String __result__18 = __result__13.concat(__result__17);
+	__ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_creditCardInfo_creditCardExpiryDate = __result__18;
+	ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_creditCardInfo_creditCardExpiryDate = __ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_creditCardInfo_creditCardExpiryDate;&#xD;
+}&#xD;
+catch(Exception e){&#xD;
+ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_creditCardInfo_creditCardExpiryDate = &quot;122006&quot;;&#xD;
+}&#xD;
+finally {&#xD;
+//   The specific type of variable ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_creditCardInfo_creditCardExpiryDate is java.lang.String&#xD;
+}
+</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="21">
+    <map:custom>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseBookingPaymentRQ/ReservationInfo/PaymentOptions/PaymentOption[1]/@ReferenceNumber"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/processPaymentRequest/Payment_IN/paymentGroup/paymentInfo/paymentDetails/referenceNbr"/>
+      <map:javaCode>java.lang.String __ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption1_$aReferenceNumber = (java.lang.String)ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption1_$aReferenceNumber;&#xD;
+java.math.BigInteger __ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_paymentDetails_referenceNbr = (java.math.BigInteger)ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_paymentDetails_referenceNbr;&#xD;
+// Input ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption[1]_@ReferenceNumber is represented as ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption1_$aReferenceNumber&#xD;
+// Input ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption[1]_@ReferenceNumber is represented as ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption1_$aReferenceNumber&#xD;
+int __result__4 = 0;&#xD;
+try {&#xD;
+	{// convert string to integer&#xD;
+		__result__4 = Integer.valueOf(__ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption1_$aReferenceNumber).intValue();&#xD;
+	}&#xD;
+}&#xD;
+catch(java.lang.NumberFormatException ex){&#xD;
+}&#xD;
+int input = __result__4;&#xD;
+byte __result__9 = 0;&#xD;
+boolean __result__10;&#xD;
+{// greater than&#xD;
+	__result__10 = input > __result__9;&#xD;
+}&#xD;
+if (__result__10){&#xD;
+	__ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_paymentDetails_referenceNbr = new java.math.BigInteger(java.lang.Integer.toString(input));&#xD;
+	ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_paymentDetails_referenceNbr = __ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_paymentDetails_referenceNbr;&#xD;
+}&#xD;
+else{&#xD;
+}&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption1_$aReferenceNumber&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength1to16&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Input ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption[1]_@ReferenceNumber is represented as ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption1_$aReferenceNumber&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Input ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption[1]_@ReferenceNumber is represented as ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption1_$aReferenceNumber&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;ServiceMessageObject_context_correlation_NCL_CruiseBookingPaymentRQ_ReservationInfo_PaymentOptions_PaymentOption1_$aReferenceNumber&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.3/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength1to16&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;convert string to integer&quot; description=&quot;Convert string to integer&quot; category=&quot;converter&quot; template=&quot;&amp;lt;%return%> Integer.valueOf(&amp;lt;%inputString%>).intValue();&quot;>
+//    &lt;parameters name=&quot;inputString&quot; dataInputs=&quot;//@executableElements.2/@dataOutputs.0&quot; displayName=&quot;input&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result name=&quot;result&quot; displayName=&quot;string converted to int&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.5&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//    &lt;/result>
+//    &lt;exceptions>
+//      &lt;dataOutputs target=&quot;//@executableElements.4/@parameters.0&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.NumberFormatException&quot;/>
+//    &lt;/exceptions>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:ExceptionHandler&quot; name=&quot;Exception Handler&quot;>
+//    &lt;parameters name=&quot;ex&quot; dataInputs=&quot;//@executableElements.3/@exceptions.0/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.NumberFormatException&quot;/>
+//    &lt;/parameters>
+//    &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;ex&quot; variable=&quot;true&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.NumberFormatException&quot;/>
+//    &lt;/executableElements>
+//    &lt;executableGroups executableElements=&quot;//@executableElements.4/@executableElements.0&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.3/@result/@dataOutputs.0&quot; value=&quot;input&quot; localVariable=&quot;//@localVariables.0&quot; variable=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;input&quot; localVariable=&quot;//@localVariables.0&quot; variable=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.8/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;0&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.8/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;byte&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;greater than&quot; description=&quot;True if the value of the first input is greater than the value of the second input&quot; category=&quot;math&quot; template=&quot;&amp;lt;%return%> &amp;lt;%input1%> > &amp;lt;%input2%>;&quot;>
+//    &lt;parameters name=&quot;input1&quot; dataInputs=&quot;//@executableElements.6/@dataOutputs.0&quot; displayName=&quot;input 1&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;input2&quot; dataInputs=&quot;//@executableElements.7/@dataOutputs.0&quot; displayName=&quot;input 2&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;result name=&quot;result&quot; displayName=&quot;result&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.9&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;boolean&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:BranchElement&quot; dataInputs=&quot;//@executableElements.8/@result/@dataOutputs.0&quot;>
+//    &lt;conditionalActivities>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;input&quot; localVariable=&quot;//@localVariables.0&quot; variable=&quot;true&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.9/@conditionalActivities.0/@executableElements.1&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.9/@conditionalActivities.0/@executableElements.0/@dataOutputs.0&quot; value=&quot;ServiceMessageObject_1_body_processPaymentRequest_Payment_IN_paymentGroup_paymentInfo_paymentDetails_referenceNbr&quot; variable=&quot;true&quot;>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;integer&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableGroups executableElements=&quot;//@executableElements.9/@conditionalActivities.0/@executableElements.0 //@executableElements.9/@conditionalActivities.0/@executableElements.1&quot;/>
+//      &lt;condition value=&quot;true&quot;/>
+//    &lt;/conditionalActivities>
+//    &lt;conditionalActivities>
+//      &lt;condition value=&quot;&quot;/>
+//    &lt;/conditionalActivities>
+//  &lt;/executableElements>
+//  &lt;localVariables name=&quot;input&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//  &lt;/localVariables>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.1&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.2 //@executableElements.3 //@executableElements.4 //@executableElements.5&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.6 //@executableElements.7 //@executableElements.8 //@executableElements.9&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!4:7,4&#xD;
+//!SMAP!7:13,1&#xD;
+//!SMAP!9:14,1&#xD;
+//!SMAP!10:15,4&#xD;
+//!SMAP!11:19,1&#xD;
+//!SMAP!14:20,2&#xD;
+//!SMAP!1000000:124,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="22">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="body/retrieveallGET_EXT_DAYS_and_DB_DATEResponse/retrieveallGET_EXT_DAYS_and_DB_DATEOutput/GET_EXT_DAYS_and_DB_DATE[1]/param_value"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/processPaymentRequest/Payment_IN/paymentGroup/paymentInfo/paymentDetails/extensionDays"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

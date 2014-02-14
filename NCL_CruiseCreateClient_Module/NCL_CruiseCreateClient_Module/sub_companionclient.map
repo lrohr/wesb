@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:NCL_CruiseCreateClientRQ="http://nclapi/schemas" xmlns:NclseaNcl_Wesb_Create_Companion_XrefBG="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_companion_xrefbg" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:sub_companionclient="http://NCL_CruiseCreateClient_Module" targetNamespace="http://NCL_CruiseCreateClient_Module">
+  <map:name>sub_companionclient</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="NCL_CruiseCreateClientRQ:NCL_CruiseCreateClientRQ" name="NCL_CruiseCreateClientRQ"/>
+  <map:outputBusinessObjectVariable businessObjectRef="NclseaNcl_Wesb_Create_Companion_XrefBG:NclseaNcl_Wesb_Create_Companion_XrefBG" name="NclseaNcl_Wesb_Create_Companion_XrefBG"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="ClientInfo/@LoyaltyMembershipID"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Companion_XrefBG" property="NclseaNcl_Wesb_Create_Companion_Xref/p_clientid"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateClientRQ" property="TravelCompanions/TravelCompanion[1]/@LoyaltyMembershipID"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Create_Companion_XrefBG" property="NclseaNcl_Wesb_Create_Companion_Xref/p_companionclientid"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

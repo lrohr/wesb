@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://NCL_WESB_Shared_Library/NCL_CruiseBookingPayment_Interface" xmlns:ns1_1="http://NCL_CruiseBookingPayment/JDBCOutboundInterface" xmlns:ns1_2="http://E-Mail_Generic/E-Mail_Interface" xmlns:ns1_3="http://TP_Logger/TP_Interface" xmlns:ns1_4="http://versonix.com/api/definitions" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="NCL_CruiseBookingPayment" targetNamespace="http://NCL_CruiseBookingPayment/NCL_CruiseBookingPayment">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:NCL_CruiseBookingPayment_Interface"/>
+  </interfaces>
+  <references>
+    <reference name="JDBCOutboundInterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_1:JDBCOutboundInterface"/>
+    </reference>
+    <reference name="E-Mail_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_2:E-Mail_Interface"/>
+    </reference>
+    <reference name="TP_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_3:TP_Interface"/>
+    </reference>
+    <reference name="SwApiPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_4:SwApi"/>
+    </reference>
+  </references>
+  <operationFlow medflow="NCL_CruiseBookingPayment.medflow"/>
+</mfc:interfaceMediationFlow>

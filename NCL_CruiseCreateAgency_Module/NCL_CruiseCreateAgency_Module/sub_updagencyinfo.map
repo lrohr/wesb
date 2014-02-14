@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:NCL_CruiseCreateAgencyRQ="http://nclapi/schemas" xmlns:NclseaNcl_Wesb_Update_Agency_InfoBG="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_update_agency_infobg" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:sub_updagencyinfo="http://NCL_CruiseCreateAgency_Module" targetNamespace="http://NCL_CruiseCreateAgency_Module">
+  <map:name>sub_updagencyinfo</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="NCL_CruiseCreateAgencyRQ:NCL_CruiseCreateAgencyRQ" name="NCL_CruiseCreateAgencyRQ"/>
+  <map:outputBusinessObjectVariable businessObjectRef="NclseaNcl_Wesb_Update_Agency_InfoBG:NclseaNcl_Wesb_Update_Agency_InfoBG" name="NclseaNcl_Wesb_Update_Agency_InfoBG"/>
+  <map:propertyMap executionOrder="1">
+    <map:set value="U">
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Update_Agency_InfoBG" property="NclseaNcl_Wesb_Update_Agency_Info/p_action"/>
+    </map:set>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/RequestorID/@ID"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Update_Agency_InfoBG" property="NclseaNcl_Wesb_Update_Agency_Info/p_agencyid"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/RequestorID/CompanyName/value()"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Update_Agency_InfoBG" property="NclseaNcl_Wesb_Update_Agency_Info/p_agencyname"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/@ISOCurrency"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Update_Agency_InfoBG" property="NclseaNcl_Wesb_Update_Agency_Info/p_currency"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="5">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/@Website"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Update_Agency_InfoBG" property="NclseaNcl_Wesb_Update_Agency_Info/p_website"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="6">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/@AgencyType"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Update_Agency_InfoBG" property="NclseaNcl_Wesb_Update_Agency_Info/p_agency_type"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="7">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/@IdentificationNumber"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Update_Agency_InfoBG" property="NclseaNcl_Wesb_Update_Agency_Info/p_taxpayer_number"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="8">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/@ARCNumber"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Update_Agency_InfoBG" property="NclseaNcl_Wesb_Update_Agency_Info/p_arcnumber"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="9">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/@IATANumber"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Update_Agency_InfoBG" property="NclseaNcl_Wesb_Update_Agency_Info/p_iatanumber"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="10">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/@CLIANumber"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Update_Agency_InfoBG" property="NclseaNcl_Wesb_Update_Agency_Info/p_clianumber"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="11">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/@OfficeCode"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Update_Agency_InfoBG" property="NclseaNcl_Wesb_Update_Agency_Info/p_officecode"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="12">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/@LegalName"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Update_Agency_InfoBG" property="NclseaNcl_Wesb_Update_Agency_Info/p_legalname"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="13">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/@AgencyClassificationCode"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Update_Agency_InfoBG" property="NclseaNcl_Wesb_Update_Agency_Info/p_agency_classification_code"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="14">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/@AgencyClassificationName"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Update_Agency_InfoBG" property="NclseaNcl_Wesb_Update_Agency_Info/p_agency_classification_name"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="15">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/@PrekitDocsDeliveryPref"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Update_Agency_InfoBG" property="NclseaNcl_Wesb_Update_Agency_Info/p_drs_delivery_pref_prekit"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="16">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseCreateAgencyRQ" property="AgencyInfo/@FinalDocsDeliveryPref"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Update_Agency_InfoBG" property="NclseaNcl_Wesb_Update_Agency_Info/p_drs_delivery_pref_final"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

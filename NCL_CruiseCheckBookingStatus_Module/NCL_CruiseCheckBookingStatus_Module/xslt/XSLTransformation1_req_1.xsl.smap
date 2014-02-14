@@ -1,0 +1,14 @@
+* SMAP
+XSLTransformation1_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLTransformation1_req_1.map
+/NCL_CruiseCheckBookingStatus_Module/xslt/XSLTransformation1_req_1.map
+*L
+1:50,17
+2:78,4
+5:86,4
+3:82,4
+4:90,3
+*E

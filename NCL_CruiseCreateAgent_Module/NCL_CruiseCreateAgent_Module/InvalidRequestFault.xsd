@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://com/ibm/j2ca/fault/afcfault"
+    xmlns="http://www.w3.org/2001/XMLSchema" xmlns:basefault="http://com/ibm/j2ca/fault">
+    <import namespace="http://com/ibm/j2ca/fault" schemaLocation="WBIFault.xsd"/>
+    <annotation>
+        <appinfo source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+            <info:resourceAdapter version="7.5.0.1" xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability"/>
+        </appinfo>
+    </annotation>
+    <annotation>
+        <appinfo source="commonj.connector.asi">
+            <asi:annotationSet asiNSURI="" xmlns:asi="commonj.connector.asi"/>
+        </appinfo>
+    </annotation>
+    <complexType name="InvalidRequestFault">
+        <annotation/>
+        <complexContent>
+            <extension base="basefault:WBIFault">
+                <sequence maxOccurs="1" minOccurs="1"/>
+            </extension>
+        </complexContent>
+    </complexType>
+</schema>

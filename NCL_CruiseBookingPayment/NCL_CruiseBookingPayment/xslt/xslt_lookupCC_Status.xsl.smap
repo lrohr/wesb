@@ -1,0 +1,10 @@
+* SMAP
+xslt_lookupCC_Status.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 xslt_lookupCC_Status.map
+/NCL_CruiseBookingPayment/xslt/xslt_lookupCC_Status.map
+*L
+1:54,17
+*E

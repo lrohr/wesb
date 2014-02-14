@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:BOMapper.mednode="mednode://mednodes/BOMapper.mednode/BOMapper" xmlns:DatabaseLookup.mednode="mednode://mednodes/DatabaseLookup.mednode/DatabaseLookup" xmlns:Input.mednode="mednode://mednodes/Input.mednode/Input" xmlns:InputResponse.mednode="mednode://mednodes/InputResponse.mednode/InputResponse" xmlns:NCL_CruiseCheckBookingStatus_Module.medflow="NCL_CruiseCheckBookingStatus_Module.medflow" xmlns:ServiceInvoke.mednode="mednode://mednodes/ServiceInvoke.mednode/ServiceInvoke" xmlns:Stop.mednode="mednode://mednodes/Stop.mednode/Stop" xmlns:XSLTransformation.mednode="mednode://mednodes/XSLTransformation.mednode/XSLTransformation" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow2="http://www.ibm.com/2006/eflow" xmlns:type="http://www.ibm.com/2006/eflow/type" xmlns:utility="http://www.ibm.com/2006/eflow/utility" name="NCL_CruiseCheckBookingStatus_Module" nsURI="NCL_CruiseCheckBookingStatus_Module.medflow" nsPrefix="NCL_CruiseCheckBookingStatus_Module.medflow">
+  <eClassifiers xmi:type="eflow2:FCMComposite" name="NCL_CruiseCheckBookingStatus_Module_I_2">
+    <eSuperTypes href="http://www.ibm.com/2006/eflow#//FCMBlock"/>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.name" name="name" lowerBound="1" defaultValueLiteral="">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <composition>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_1">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://NCL_WESB_Shared_Library/NCL_CruiseCheckBookingStatus_Interface}Perform_NCL_CruiseCheckBookingStatusRequestMsg"/>
+        </elements>
+        <elements id="correlationContext">
+          <type xmi:type="type:XSDType" xsiType="{http://NCL_CruiseCheckBookingStatus_Module}App_context"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_2">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://NCL_WESB_Shared_Library/NCL_CruiseCheckBookingStatus_Interface}Perform_NCL_CruiseCheckBookingStatusResponseMsg"/>
+        </elements>
+        <elements id="correlationContext">
+          <type xmi:type="type:XSDType" xsiType="{http://NCL_CruiseCheckBookingStatus_Module}App_context"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_3">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://TP_Logger/TP_Interface}TP_InsertUpdateRequestMsg"/>
+        </elements>
+        <elements id="correlationContext">
+          <type xmi:type="type:XSDType" xsiType="{http://NCL_CruiseCheckBookingStatus_Module}App_context"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_4">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://TP_Logger/TP_Interface}TP_InsertUpdateResponseMsg"/>
+        </elements>
+        <elements id="correlationContext">
+          <type xmi:type="type:XSDType" xsiType="{http://NCL_CruiseCheckBookingStatus_Module}App_context"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_5">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://TP_Logger/TP_Interface}TP_InsertUpdate_DB_ErrorsMsg"/>
+        </elements>
+        <elements id="correlationContext">
+          <type xmi:type="type:XSDType" xsiType="{http://NCL_CruiseCheckBookingStatus_Module}App_context"/>
+        </elements>
+      </type>
+      <type xmi:type="type:AnyType" xmi:id="AnyType_1"/>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_6">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://www.w3.org/2001/XMLSchema}anyType"/>
+        </elements>
+        <elements id="correlationContext">
+          <type xmi:type="type:XSDType" xsiType="{http://NCL_CruiseCheckBookingStatus_Module}App_context"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_7">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://E-Mail_Generic/E-Mail_Interface}Send_Email1RequestMsg"/>
+        </elements>
+        <elements id="correlationContext">
+          <type xmi:type="type:XSDType" xsiType="{http://NCL_CruiseCheckBookingStatus_Module}App_context"/>
+        </elements>
+      </type>
+      <nodes xmi:type="Input.mednode:Input" xmi:id="Input_1" name="NCL_CruiseCheckBookingStatus_Interface_Perform_NCL_CruiseCheckBookingStatus_Input" correlationContext="{http://NCL_CruiseCheckBookingStatus_Module}App_context">
+        <location x="10" y="20"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_1"/>
+        <translation xmi:type="utility:ConstantString" string="Perform_NCL_CruiseCheckBookingStatus : NCL_CruiseCheckBookingStatus_Interface"/>
+      </nodes>
+      <nodes xmi:type="InputResponse.mednode:InputResponse" xmi:id="InputResponse_1" name="NCL_CruiseCheckBookingStatus_Interface_Perform_NCL_CruiseCheckBookingStatus_InputResponse">
+        <location x="1291" y="16"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_2"/>
+        <translation xmi:type="utility:ConstantString" string="Perform_NCL_CruiseCheckBookingStatus : NCL_CruiseCheckBookingStatus_Interface"/>
+      </nodes>
+      <nodes xmi:type="BOMapper.mednode:BOMapper" xmi:id="BOMapper_1" name="BOMapper1" root="/" mappingFile="Req_to_context.map">
+        <location x="357" y="10"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_3"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_1"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_1"/>
+        <translation xmi:type="utility:ConstantString" string="BOMapper1"/>
+      </nodes>
+      <nodes xmi:type="ServiceInvoke.mednode:ServiceInvoke" xmi:id="ServiceInvoke_1" name="ReqLogger" referenceName="TP_InterfacePartner" operationName="TP_InsertUpdate">
+        <location x="485" y="148"/>
+        <outTerminals terminalNodeID="OutTerminal.timeout" explicitType="true" type="CompositeType_3"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_3"/>
+        <outTerminals terminalNodeID="OutTerminal.dynamic:out:out" dynamic="true" explicitType="true" label="out" longDescription="" type="CompositeType_4"/>
+        <outTerminals terminalNodeID="OutTerminal.dynamic:out:TP_InsertUpdate_DB_ErrorsMsg" dynamic="true" explicitType="true" label="TP_InsertUpdate_DB_ErrorsMsg" longDescription="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." type="CompositeType_5"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_3"/>
+        <translation xmi:type="utility:ConstantString" string="ReqLogger"/>
+      </nodes>
+      <nodes xmi:type="DatabaseLookup.mednode:DatabaseLookup" xmi:id="DatabaseLookup_1" name="DatabaseLookup1" dataSourceJNDIName="SEAWARE_JNDI" tableName="res_lock" keyColumnName="table_rec_id" keyPath="number( /context/correlation/NCL_CruiseCheckBookingStatusRQ/ReservationID/@ID)" dataElements.valueColumnName="table_rec_id" dataElements.messageValueType="%7Bhttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%7Dint" dataElements.messageElement="%2Fcontext%2Fcorrelation%2FRes_ID">
+        <location x="677" y="7"/>
+        <outTerminals terminalNodeID="OutTerminal.out" type="CompositeType_3"/>
+        <outTerminals terminalNodeID="OutTerminal.keyNotFound" type="CompositeType_3"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_3"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_3"/>
+        <translation xmi:type="utility:ConstantString" string="DatabaseLookup1"/>
+      </nodes>
+      <nodes xmi:type="BOMapper.mednode:BOMapper" xmi:id="BOMapper_2" name="BOMapper2" root="/" mappingFile="bo_to_resp.map">
+        <location x="878" y="223"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_2"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="AnyType_1"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="AnyType_1"/>
+        <translation xmi:type="utility:ConstantString" string="BOMapper2"/>
+      </nodes>
+      <nodes xmi:type="BOMapper.mednode:BOMapper" xmi:id="BOMapper_3" name="BOMapper3" root="/" mappingFile="bo_lock_resp.map">
+        <location x="885" y="302"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_2"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="AnyType_1"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="AnyType_1"/>
+        <translation xmi:type="utility:ConstantString" string="BOMapper3"/>
+      </nodes>
+      <nodes xmi:type="BOMapper.mednode:BOMapper" xmi:id="BOMapper_4" name="BOMapper4" root="/" mappingFile="bo_tolockresp_logger.map">
+        <location x="1039" y="249"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_3"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_2"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_2"/>
+        <translation xmi:type="utility:ConstantString" string="BOMapper4"/>
+      </nodes>
+      <nodes xmi:type="ServiceInvoke.mednode:ServiceInvoke" xmi:id="ServiceInvoke_2" name="RespLogger" referenceName="TP_InterfacePartner" operationName="TP_InsertUpdate">
+        <location x="1116" y="320"/>
+        <outTerminals terminalNodeID="OutTerminal.timeout" explicitType="true" type="CompositeType_3"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_3"/>
+        <outTerminals terminalNodeID="OutTerminal.dynamic:out:out" dynamic="true" explicitType="true" label="out" longDescription="" type="CompositeType_4"/>
+        <outTerminals terminalNodeID="OutTerminal.dynamic:out:TP_InsertUpdate_DB_ErrorsMsg" dynamic="true" explicitType="true" label="TP_InsertUpdate_DB_ErrorsMsg" longDescription="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." type="CompositeType_5"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_3"/>
+        <translation xmi:type="utility:ConstantString" string="RespLogger"/>
+      </nodes>
+      <nodes xmi:type="BOMapper.mednode:BOMapper" xmi:id="BOMapper_5" name="BOMapper5" root="/" mappingFile="bo_to_resplog.map">
+        <location x="1042" y="153"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_3"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_2"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_2"/>
+        <translation xmi:type="utility:ConstantString" string="BOMapper5"/>
+      </nodes>
+      <nodes xmi:type="Stop.mednode:Stop" xmi:id="Stop_1" name="Stop1">
+        <location x="537" y="260"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_6"/>
+        <translation xmi:type="utility:ConstantString" string="Stop1"/>
+      </nodes>
+      <nodes xmi:type="Stop.mednode:Stop" xmi:id="Stop_2" name="Stop2">
+        <location x="1198" y="372"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_6"/>
+        <translation xmi:type="utility:ConstantString" string="Stop2"/>
+      </nodes>
+      <nodes xmi:type="ServiceInvoke.mednode:ServiceInvoke" xmi:id="ServiceInvoke_3" name="Email" referenceName="E-Mail_InterfacePartner" operationName="Send_Email1">
+        <location x="806" y="326"/>
+        <outTerminals terminalNodeID="OutTerminal.timeout" explicitType="true" type="CompositeType_7"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_7"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_7"/>
+        <translation xmi:type="utility:ConstantString" string="Email"/>
+      </nodes>
+      <nodes xmi:type="XSLTransformation.mednode:XSLTransformation" xmi:id="XSLTransformation_1" name="XSLTransformation1" root="/" XSLTransform="xslt/XSLTransformation1_req_1.xsl" XMXMap="xslt/XSLTransformation1_req_1.map" SMOVersion="SMO61">
+        <location x="697" y="251"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_7"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_3"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_3"/>
+        <translation xmi:type="utility:ConstantString" string="XSLTransformation1"/>
+      </nodes>
+      <nodes xmi:type="XSLTransformation.mednode:XSLTransformation" xmi:id="XSLTransformation_2" name="XSLTransformation2" root="/" XSLTransform="xslt/XSLTransformation2_req_1.xsl" XMXMap="xslt/XSLTransformation2_req_1.map" SMOVersion="SMO61">
+        <location x="850" y="119"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_2"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_3"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_3"/>
+        <translation xmi:type="utility:ConstantString" string="XSLTransformation2"/>
+      </nodes>
+      <nodes xmi:type="XSLTransformation.mednode:XSLTransformation" xmi:id="XSLTransformation_3" name="XSLTransformation3" root="/" XSLTransform="xslt/XSLTransformation3_req_1.xsl" XMXMap="xslt/XSLTransformation3_req_1.map" SMOVersion="SMO61">
+        <location x="842" y="17"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_2"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_3"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_3"/>
+        <translation xmi:type="utility:ConstantString" string="XSLTransformation3"/>
+      </nodes>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_1" targetNode="BOMapper_1" sourceNode="Input_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_2" targetNode="ServiceInvoke_1" sourceNode="BOMapper_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_3" targetNode="DatabaseLookup_1" sourceNode="BOMapper_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_4" targetNode="Stop_1" sourceNode="ServiceInvoke_1" sourceTerminalName="OutTerminal.dynamic:out:out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_5" targetNode="Stop_1" sourceNode="ServiceInvoke_1" sourceTerminalName="OutTerminal.timeout" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_6" targetNode="Stop_1" sourceNode="ServiceInvoke_1" sourceTerminalName="OutTerminal.dynamic:out:TP_InsertUpdate_DB_ErrorsMsg" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_7" targetNode="Stop_1" sourceNode="ServiceInvoke_1" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_8" targetNode="XSLTransformation_2" sourceNode="DatabaseLookup_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_9" targetNode="XSLTransformation_3" sourceNode="DatabaseLookup_1" sourceTerminalName="OutTerminal.keyNotFound" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_10" targetNode="XSLTransformation_1" sourceNode="DatabaseLookup_1" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_11" targetNode="InputResponse_1" sourceNode="BOMapper_2" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_12" targetNode="BOMapper_5" sourceNode="BOMapper_2" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_13" targetNode="InputResponse_1" sourceNode="BOMapper_3" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_14" targetNode="BOMapper_4" sourceNode="BOMapper_3" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_15" targetNode="ServiceInvoke_2" sourceNode="BOMapper_4" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_16" targetNode="Stop_2" sourceNode="ServiceInvoke_2" sourceTerminalName="OutTerminal.dynamic:out:out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_17" targetNode="Stop_2" sourceNode="ServiceInvoke_2" sourceTerminalName="OutTerminal.timeout" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_18" targetNode="Stop_2" sourceNode="ServiceInvoke_2" sourceTerminalName="OutTerminal.dynamic:out:TP_InsertUpdate_DB_ErrorsMsg" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_19" targetNode="Stop_2" sourceNode="ServiceInvoke_2" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_20" targetNode="ServiceInvoke_2" sourceNode="BOMapper_5" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_21" targetNode="ServiceInvoke_3" sourceNode="XSLTransformation_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_22" targetNode="InputResponse_1" sourceNode="XSLTransformation_2" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_23" targetNode="BOMapper_4" sourceNode="XSLTransformation_2" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_24" targetNode="InputResponse_1" sourceNode="XSLTransformation_3" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_25" targetNode="BOMapper_5" sourceNode="XSLTransformation_3" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+    </composition>
+    <propertyOrganizer>
+      <propertyDescriptor groupName="basic" describedAttribute="Property.name"/>
+    </propertyOrganizer>
+  </eClassifiers>
+  <eClassifiers xmi:type="eflow2:FCMComposite" name="NCL_CruiseCheckBookingStatus_Module">
+    <eSuperTypes href="http://www.ibm.com/2006/eflow#//FCMBlock"/>
+    <composition>
+      <nodes xmi:type="NCL_CruiseCheckBookingStatus_Module.medflow:NCL_CruiseCheckBookingStatus_Module_I_2" xmi:id="NCL_CruiseCheckBookingStatus_Module_I_2_1" name="{http://NCL_WESB_Shared_Library/NCL_CruiseCheckBookingStatus_Interface}NCL_CruiseCheckBookingStatus_Interface:Perform_NCL_CruiseCheckBookingStatus::request"/>
+    </composition>
+    <propertyOrganizer/>
+  </eClassifiers>
+</ecore:EPackage>
