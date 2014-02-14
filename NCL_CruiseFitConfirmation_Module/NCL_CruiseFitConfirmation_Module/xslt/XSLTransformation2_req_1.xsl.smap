@@ -1,0 +1,14 @@
+* SMAP
+XSLTransformation2_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLTransformation2_req_1.map
+/NCL_CruieFitConfirmation_Module/xslt/XSLTransformation2_req_1.map
+*L
+5:110,3
+2:90,5
+1:58,17
+3:86,4
+4:104,6
+*E

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mediationFlow xmlns="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlow" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:mfcex="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlowExtension" xmlns:ns1="http://NCL_CruieFitConfirmation_Module/JDBCImport" xmlns:ns1_1="http://NCL_WESB_Shared_Library/NCL_CruiseFitConfirmation_Interface" xmlns:ns2="http://TP_Logger/TP_Interface" name="NCL_CruieFitConfirmation_Module" targetNamespace="http://NCL_CruieFitConfirmation_Module/NCL_CruieFitConfirmation_Module">
+  <import location="NCL_CruiseFitConfirmation_Interface.wsdl" namespace="http://NCL_WESB_Shared_Library/NCL_CruiseFitConfirmation_Interface"/>
+  <import location="TP_Interface.wsdl" namespace="http://TP_Logger/TP_Interface"/>
+  <import location="JDBCImport.wsdl" namespace="http://NCL_CruieFitConfirmation_Module/JDBCImport"/>
+  <reference name="TP_InterfacePartner" portType="ns2:TP_Interface"/>
+  <reference name="JDBCImportPartner" portType="ns1:JDBCImport"/>
+  <interface portType="ns1_1:NCL_CruiseFitConfirmation_Interface">
+    <operation name="Perform_NCL_CruiseFitConfirmation">
+      <requestFlow mfcex:autoLayout="false">
+        <node displayName="Perform_NCL_CruiseFitConfirmation : NCL_CruiseFitConfirmation_Interface" name="NCL_CruiseFitConfirmation_Interface_Perform_NCL_CruiseFitConfirmation_Input" type="Input" mfcex:x="10" mfcex:y="20">
+          <property name="correlationContext" value="{http://NCL_CruieFitConfirmation_Module}AppContext"/>
+          <outputTerminal type="ns1_1:Perform_NCL_CruiseFitConfirmationRequestMsg">
+            <wire targetNode="BOMapper1"/>
+          </outputTerminal>
+        </node>
+        <node displayName="Perform_NCL_CruiseFitConfirmation : NCL_CruiseFitConfirmation_Interface" name="NCL_CruiseFitConfirmation_Interface_Perform_NCL_CruiseFitConfirmation_InputResponse" type="InputResponse" mfcex:x="1164" mfcex:y="24">
+          <inputTerminal type="ns1_1:Perform_NCL_CruiseFitConfirmationResponseMsg"/>
+        </node>
+        <node name="ServiceInvoke1" type="ServiceInvoke" mfcex:x="446" mfcex:y="158">
+          <property name="referenceName" value="TP_InterfacePartner"/>
+          <property name="operationName" value="TP_InsertUpdate"/>
+          <inputTerminal type="ns2:TP_InsertUpdateRequestMsg"/>
+          <outputTerminal type="ns2:TP_InsertUpdateResponseMsg">
+            <wire targetNode="Stop1"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns2:TP_InsertUpdateRequestMsg">
+            <wire targetNode="Stop1"/>
+          </outputTerminal>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="TP_InsertUpdate_DB_ErrorsMsg" type="ns2:TP_InsertUpdate_DB_ErrorsMsg">
+            <wire targetNode="Stop1"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="BOMapper1" type="BOMapper" mfcex:x="340" mfcex:y="34">
+          <property name="root" value="/"/>
+          <property name="mappingFile" value="BO_BuildLogReq.map"/>
+          <inputTerminal type="ns1_1:Perform_NCL_CruiseFitConfirmationRequestMsg"/>
+          <outputTerminal type="ns2:TP_InsertUpdateRequestMsg">
+            <wire targetNode="XSLTransformation1"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLTransformation1" type="XSLTransformation" mfcex:x="523" mfcex:y="35">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation1_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation1_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns2:TP_InsertUpdateRequestMsg"/>
+          <outputTerminal type="ns1:executeNclseaNcl_Wesb_Fit_ConfirmationRequestMsg">
+            <wire targetNode="ServiceInvoke2"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="Stop1" type="Stop" mfcex:x="714" mfcex:y="239">
+          <inputTerminal type="XMLSchema:anyType"/>
+        </node>
+        <node name="ServiceInvoke2" type="ServiceInvoke" mfcex:x="685" mfcex:y="30">
+          <property name="referenceName" value="JDBCImportPartner"/>
+          <property name="operationName" value="executeNclseaNcl_Wesb_Fit_Confirmation"/>
+          <inputTerminal type="ns1:executeNclseaNcl_Wesb_Fit_ConfirmationRequestMsg"/>
+          <outputTerminal type="ns1:executeNclseaNcl_Wesb_Fit_ConfirmationResponseMsg">
+            <wire targetNode="XSLTransformation2"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns1:executeNclseaNcl_Wesb_Fit_ConfirmationRequestMsg"/>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="executeNclseaNcl_Wesb_Fit_ConfirmationUniqueConstraintFaultMsg" type="ns1:executeNclseaNcl_Wesb_Fit_ConfirmationUniqueConstraintFaultMsg"/>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="executeNclseaNcl_Wesb_Fit_ConfirmationIntegrityConstraintFaultMsg" type="ns1:executeNclseaNcl_Wesb_Fit_ConfirmationIntegrityConstraintFaultMsg"/>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="executeNclseaNcl_Wesb_Fit_ConfirmationRecordNotFoundFaultMsg" type="ns1:executeNclseaNcl_Wesb_Fit_ConfirmationRecordNotFoundFaultMsg"/>
+          <failTerminal/>
+        </node>
+        <node name="XSLTransformation2" type="XSLTransformation" mfcex:x="860" mfcex:y="31">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation2_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation2_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1:executeNclseaNcl_Wesb_Fit_ConfirmationResponseMsg"/>
+          <outputTerminal type="ns1_1:Perform_NCL_CruiseFitConfirmationResponseMsg">
+            <wire targetNode="NCL_CruiseFitConfirmation_Interface_Perform_NCL_CruiseFitConfirmation_InputResponse"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="ServiceInvoke3" type="ServiceInvoke" mfcex:x="1095" mfcex:y="197">
+          <property name="referenceName" value="TP_InterfacePartner"/>
+          <property name="operationName" value="TP_InsertUpdate"/>
+          <inputTerminal type="ns2:TP_InsertUpdateRequestMsg"/>
+          <outputTerminal type="ns2:TP_InsertUpdateResponseMsg"/>
+          <outputTerminal name="timeout" type="ns2:TP_InsertUpdateRequestMsg"/>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="TP_InsertUpdate_DB_ErrorsMsg" type="ns2:TP_InsertUpdate_DB_ErrorsMsg"/>
+          <failTerminal/>
+        </node>
+        <node name="BOMapper2" type="BOMapper" mfcex:x="1012" mfcex:y="110">
+          <property name="root" value="/"/>
+          <property name="mappingFile" value="BO_LoadResp.map"/>
+          <inputTerminal type="ns1_1:Perform_NCL_CruiseFitConfirmationResponseMsg"/>
+          <outputTerminal type="ns2:TP_InsertUpdateRequestMsg">
+            <wire targetNode="ServiceInvoke3"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </requestFlow>
+      <errorFlow>
+        <node displayName="Perform_NCL_CruiseFitConfirmation : NCL_CruiseFitConfirmation_Interface" name="NCL_CruiseFitConfirmation_Interface_Perform_NCL_CruiseFitConfirmation_ErrorInput" type="ErrorInput">
+          <outputTerminal name="catchAll" type="XMLSchema:anyType"/>
+        </node>
+        <node displayName="Perform_NCL_CruiseFitConfirmation : NCL_CruiseFitConfirmation_Interface" name="NCL_CruiseFitConfirmation_Interface_Perform_NCL_CruiseFitConfirmation_InputResponse" type="InputResponse">
+          <inputTerminal type="ns1_1:Perform_NCL_CruiseFitConfirmationResponseMsg"/>
+        </node>
+      </errorFlow>
+    </operation>
+  </interface>
+</mediationFlow>

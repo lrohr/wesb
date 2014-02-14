@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:BO_BuildLogReq="http://NCL_CruieFitConfirmation_Module" xmlns:ServiceMessageObject="smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FNCL_CruieFitConfirmation_Module%257DAppContext/message%3D%257Bhttp%253A%252F%252FTP_Logger%252FTP_Interface%257DTP_InsertUpdateRequestMsg/xpath%3D%252F/namespace%3DBOMap/smo.xsd" xmlns:ServiceMessageObject_1="smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FNCL_CruieFitConfirmation_Module%257DAppContext/message%3D%257Bhttp%253A%252F%252FNCL_WESB_Shared_Library%252FNCL_CruiseFitConfirmation_Interface%257DPerform_NCL_CruiseFitConfirmationRequestMsg/xpath%3D%252F/namespace%3DBOMap/smo.xsd" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" targetNamespace="http://NCL_CruieFitConfirmation_Module">
+  <map:name>BO_BuildLogReq</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="ServiceMessageObject_1:ServiceMessageObject" name="ServiceMessageObject"/>
+  <map:outputBusinessObjectVariable businessObjectRef="ServiceMessageObject:ServiceMessageObject" name="ServiceMessageObject_1"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="body/Perform_NCL_CruiseFitConfirmation/NCL_CruiseFitConfirmationRQ"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/NCL_CruiseFitConfirmationRQ"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:set value="INSERT">
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/TP_InsertUpdate/OPERATION_TYPE"/>
+    </map:set>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="body/Perform_NCL_CruiseFitConfirmation/NCL_CruiseFitConfirmationRQ/POS/Source[1]/BookingChannel/CompanyName/@Code"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/TP_InsertUpdate/SOURCE_CD"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:customAssignment>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/TP_InsertUpdate/REQUEST_TS"/>
+      <map:javaCode>java.lang.String __ServiceMessageObject_1_body_TP_InsertUpdate_REQUEST_TS = (java.lang.String)ServiceMessageObject_1_body_TP_InsertUpdate_REQUEST_TS;&#xD;
+java.util.Date __result__1;&#xD;
+{// current date and time&#xD;
+	__result__1 = new java.util.Date();&#xD;
+}&#xD;
+java.lang.String __result__2 = &quot;yyyy-MM-dd HH:mm:ss&quot;;&#xD;
+java.lang.String __result__3;&#xD;
+{// format date to string using pattern&#xD;
+	java.text.SimpleDateFormat df2 = new java.text.SimpleDateFormat(__result__2);
+	df2.setTimeZone(java.util.TimeZone.getDefault());   
+	__result__3 = df2.format(__result__1);&#xD;
+}&#xD;
+__ServiceMessageObject_1_body_TP_InsertUpdate_REQUEST_TS = __result__3;&#xD;
+ServiceMessageObject_1_body_TP_InsertUpdate_REQUEST_TS = __ServiceMessageObject_1_body_TP_InsertUpdate_REQUEST_TS;&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;current date and time&quot; description=&quot;The current date and time&quot; category=&quot;date&quot; template=&quot;&amp;lt;%return%> new java.util.Date();&quot;>
+//    &lt;result name=&quot;dateTimeNow&quot; displayName=&quot;date time now&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.2/@parameters.0&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.util.Date&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;yyyy-MM-dd HH:mm:ss&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.2/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;format date to string using pattern&quot; description=&quot;Format a Date object from a given pattern to a string&quot; category=&quot;date&quot; template=&quot;java.text.SimpleDateFormat df2 = new java.text.SimpleDateFormat(&amp;lt;%pattern%>);&amp;#xA;df2.setTimeZone(java.util.TimeZone.getDefault());   &amp;#xA;&amp;lt;%return%> df2.format(&amp;lt;%date%>);&quot;>
+//    &lt;parameters name=&quot;date&quot; dataInputs=&quot;//@executableElements.0/@result/@dataOutputs.0&quot; displayName=&quot;date&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.util.Date&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;pattern&quot; dataInputs=&quot;//@executableElements.1/@dataOutputs.0&quot; displayName=&quot;pattern&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result name=&quot;dateString&quot; displayName=&quot;date string&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.3&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.2/@result/@dataOutputs.0&quot; value=&quot;ServiceMessageObject_1_body_TP_InsertUpdate_REQUEST_TS&quot; variable=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;Date_Format&quot; namespace=&quot;http://TP_Logger&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0 //@executableElements.1 //@executableElements.2 //@executableElements.3&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!1:2,4&#xD;
+//!SMAP!2:6,1&#xD;
+//!SMAP!3:7,6&#xD;
+//!SMAP!4:13,2&#xD;
+//!SMAP!1000000:57,1</map:javaCode>
+    </map:customAssignment>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="5">
+    <map:set value="FITREQ">
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/TP_InsertUpdate/REQUEST_TYPE_CD"/>
+    </map:set>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="6">
+    <map:custom>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="body/Perform_NCL_CruiseFitConfirmation/NCL_CruiseFitConfirmationRQ/@TransactionIdentifier"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/TP_InsertUpdate/RECORD_ID"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/LogId"/>
+      <map:javaCode>java.lang.String __ServiceMessageObject_body_Perform_NCL_CruiseFitConfirmation_NCL_CruiseFitConfirmationRQ_$aTransactionIdentifier = (java.lang.String)ServiceMessageObject_body_Perform_NCL_CruiseFitConfirmation_NCL_CruiseFitConfirmationRQ_$aTransactionIdentifier;&#xD;
+java.lang.String __ServiceMessageObject_1_body_TP_InsertUpdate_RECORD_ID = (java.lang.String)ServiceMessageObject_1_body_TP_InsertUpdate_RECORD_ID;&#xD;
+java.lang.String __ServiceMessageObject_1_context_correlation_LogId = (java.lang.String)ServiceMessageObject_1_context_correlation_LogId;&#xD;
+// Input ServiceMessageObject_body_Perform_NCL_CruiseFitConfirmation_NCL_CruiseFitConfirmationRQ_@TransactionIdentifier is represented as ServiceMessageObject_body_Perform_NCL_CruiseFitConfirmation_NCL_CruiseFitConfirmationRQ_$aTransactionIdentifier&#xD;
+java.util.Date __result__2;&#xD;
+{// current date and time&#xD;
+	__result__2 = new java.util.Date();&#xD;
+}&#xD;
+java.lang.String __result__3 = &quot;yyyyMMddHHmmssSS&quot;;&#xD;
+java.lang.String __result__4;&#xD;
+{// format date to string using pattern&#xD;
+	java.text.SimpleDateFormat df2 = new java.text.SimpleDateFormat(__result__3);
+	df2.setTimeZone(java.util.TimeZone.getDefault());   
+	__result__4 = df2.format(__result__2);&#xD;
+}&#xD;
+java.lang.String __result__5 = &quot;FITREQ&quot;;&#xD;
+java.lang.String __result__6 = __result__4.concat(__result__5);&#xD;
+java.lang.String __result__8 = __result__6.concat(__ServiceMessageObject_body_Perform_NCL_CruiseFitConfirmation_NCL_CruiseFitConfirmationRQ_$aTransactionIdentifier);&#xD;
+java.lang.String __result__9 = &quot;123456789012345678901234567890&quot;;&#xD;
+java.lang.String __result__10 = __result__8.concat(__result__9);&#xD;
+java.lang.String temo = __result__10;&#xD;
+byte __result__13 = 0;&#xD;
+byte __result__14 = 50;&#xD;
+java.lang.String __result__15 = temo.substring(__result__13, __result__14);&#xD;
+java.lang.String result = __result__15;&#xD;
+__ServiceMessageObject_1_body_TP_InsertUpdate_RECORD_ID = result;&#xD;
+ServiceMessageObject_1_body_TP_InsertUpdate_RECORD_ID = __ServiceMessageObject_1_body_TP_InsertUpdate_RECORD_ID;&#xD;
+__ServiceMessageObject_1_context_correlation_LogId = result;&#xD;
+ServiceMessageObject_1_context_correlation_LogId = __ServiceMessageObject_1_context_correlation_LogId;&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;ServiceMessageObject_body_Perform_NCL_CruiseFitConfirmation_NCL_CruiseFitConfirmationRQ_$aTransactionIdentifier&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength1to32&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Input ServiceMessageObject_body_Perform_NCL_CruiseFitConfirmation_NCL_CruiseFitConfirmationRQ_@TransactionIdentifier is represented as ServiceMessageObject_body_Perform_NCL_CruiseFitConfirmation_NCL_CruiseFitConfirmationRQ_$aTransactionIdentifier&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;current date and time&quot; description=&quot;The current date and time&quot; category=&quot;date&quot; template=&quot;&amp;lt;%return%> new java.util.Date();&quot;>
+//    &lt;result name=&quot;dateTimeNow&quot; displayName=&quot;date time now&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.3/@parameters.0&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.util.Date&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;yyyyMMddHHmmssSS&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.3/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;format date to string using pattern&quot; description=&quot;Format a Date object from a given pattern to a string&quot; category=&quot;date&quot; template=&quot;java.text.SimpleDateFormat df2 = new java.text.SimpleDateFormat(&amp;lt;%pattern%>);&amp;#xA;df2.setTimeZone(java.util.TimeZone.getDefault());   &amp;#xA;&amp;lt;%return%> df2.format(&amp;lt;%date%>);&quot;>
+//    &lt;parameters name=&quot;date&quot; dataInputs=&quot;//@executableElements.1/@result/@dataOutputs.0&quot; displayName=&quot;date&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.util.Date&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;pattern&quot; dataInputs=&quot;//@executableElements.2/@dataOutputs.0&quot; displayName=&quot;pattern&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result name=&quot;dateString&quot; displayName=&quot;date string&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.5/@parameters.0&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;FITREQ&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.5/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;concat&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;concat&quot;>
+//    &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.3/@result/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;string&quot; dataInputs=&quot;//@executableElements.4/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result>
+//      &lt;dataOutputs target=&quot;//@executableElements.7/@parameters.0&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;ServiceMessageObject_body_Perform_NCL_CruiseFitConfirmation_NCL_CruiseFitConfirmationRQ_$aTransactionIdentifier&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.7/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength1to32&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;concat&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;concat&quot;>
+//    &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.5/@result/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;string&quot; dataInputs=&quot;//@executableElements.6/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result>
+//      &lt;dataOutputs target=&quot;//@executableElements.9/@parameters.0&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;123456789012345678901234567890&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.9/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;concat&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;concat&quot;>
+//    &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.7/@result/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;string&quot; dataInputs=&quot;//@executableElements.8/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result>
+//      &lt;dataOutputs target=&quot;//@executableElements.10&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.9/@result/@dataOutputs.0&quot; value=&quot;temo&quot; localVariable=&quot;//@localVariables.0&quot; variable=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;temo&quot; localVariable=&quot;//@localVariables.0&quot; variable=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.14/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;0&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.14/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;byte&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;50&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.14/@parameters.2&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;byte&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;substring&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;substring&quot;>
+//    &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.11/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;start&quot; dataInputs=&quot;//@executableElements.12/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;end&quot; dataInputs=&quot;//@executableElements.13/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//    &lt;/parameters>
+//    &lt;result>
+//      &lt;dataOutputs target=&quot;//@executableElements.15&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.14/@result/@dataOutputs.0&quot; value=&quot;result&quot; localVariable=&quot;//@localVariables.1&quot; variable=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;result&quot; localVariable=&quot;//@localVariables.1&quot; variable=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.17&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.16/@dataOutputs.0&quot; value=&quot;ServiceMessageObject_1_body_TP_InsertUpdate_RECORD_ID&quot; variable=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;result&quot; localVariable=&quot;//@localVariables.1&quot; variable=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.19&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.18/@dataOutputs.0&quot; value=&quot;ServiceMessageObject_1_context_correlation_LogId&quot; variable=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;localVariables name=&quot;temo&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//  &lt;/localVariables>
+//  &lt;localVariables name=&quot;result&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//  &lt;/localVariables>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.1 //@executableElements.2 //@executableElements.3 //@executableElements.4 //@executableElements.5 //@executableElements.6 //@executableElements.7 //@executableElements.8 //@executableElements.9 //@executableElements.10&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.11 //@executableElements.12 //@executableElements.13 //@executableElements.14 //@executableElements.15&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.16 //@executableElements.17&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.18 //@executableElements.19&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!2:5,4&#xD;
+//!SMAP!3:9,1&#xD;
+//!SMAP!4:10,6&#xD;
+//!SMAP!5:16,1&#xD;
+//!SMAP!6:17,1&#xD;
+//!SMAP!8:18,1&#xD;
+//!SMAP!9:19,1&#xD;
+//!SMAP!10:20,1&#xD;
+//!SMAP!11:21,1&#xD;
+//!SMAP!13:22,1&#xD;
+//!SMAP!14:23,1&#xD;
+//!SMAP!15:24,1&#xD;
+//!SMAP!16:25,1&#xD;
+//!SMAP!18:26,2&#xD;
+//!SMAP!20:28,2&#xD;
+//!SMAP!1000000:191,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="7">
+    <map:custom>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="body/Perform_NCL_CruiseFitConfirmation/NCL_CruiseFitConfirmationRQ"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/TP_InsertUpdate/XML"/>
+      <map:javaCode>commonj.sdo.DataObject __ServiceMessageObject = (commonj.sdo.DataObject)ServiceMessageObject;&#xD;
+java.lang.String __ServiceMessageObject_1_body_TP_InsertUpdate_XML = (java.lang.String)ServiceMessageObject_1_body_TP_InsertUpdate_XML;&#xD;
+java.lang.String __result__2 = &quot;http://nclapi/schemas&quot;;&#xD;
+java.lang.String __result__3 = &quot;NCL_CruiseFitConfirmationRQ&quot;;&#xD;
+java.lang.String __result__4 = null;&#xD;
+try {&#xD;
+	{// create XML string from BO&#xD;
+		byte[] C_START = new byte[] {'&lt;', '!', '[', 'C', 'D', 'A', 'T', 'A', '['};
+		byte[] C_END = new byte[] {']', ']', '>'};
+		String encoding = &quot;UTF-8&quot;;
+		String Cstart = new String(C_START, encoding);
+		String Cend = new String(C_END, encoding);
+		java.io.ByteArrayOutputStream outStream = new java.io.ByteArrayOutputStream();
+		com.ibm.websphere.bo.BOXMLSerializer boXMLSerializer = (com.ibm.websphere.bo.BOXMLSerializer) com.ibm.websphere.sca.ServiceManager.INSTANCE.locateService(&quot;com/ibm/websphere/bo/BOXMLSerializer&quot;);
+		boXMLSerializer.writeDataObject(__ServiceMessageObject, __result__2, __result__3, outStream);
+		__result__4 = Cstart + outStream.toString(encoding) + Cend;&#xD;
+	}&#xD;
+}&#xD;
+catch(java.io.IOException ex){&#xD;
+	java.lang.String __result__6 = &quot;error createing xml&quot;;&#xD;
+	__ServiceMessageObject_1_body_TP_InsertUpdate_XML = __result__6;&#xD;
+	ServiceMessageObject_1_body_TP_InsertUpdate_XML = __ServiceMessageObject_1_body_TP_InsertUpdate_XML;&#xD;
+}&#xD;
+__ServiceMessageObject_1_body_TP_InsertUpdate_XML = __result__4;&#xD;
+ServiceMessageObject_1_body_TP_InsertUpdate_XML = __ServiceMessageObject_1_body_TP_InsertUpdate_XML;&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;ServiceMessageObject&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;ServiceMessageObject&quot; namespace=&quot;http://www.ibm.com/websphere/sibx/smo/v6.0.1&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;ServiceMessageObject&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.3/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;ServiceMessageObject&quot; namespace=&quot;smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FNCL_CruieFitConfirmation_Module%257DAppContext/message%3D%257Bhttp%253A%252F%252FNCL_WESB_Shared_Library%252FNCL_CruiseFitConfirmation_Interface%257DPerform_NCL_CruiseFitConfirmationRequestMsg/xpath%3D%252F/smo.xsd&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;http://nclapi/schemas&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.3/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;NCL_CruiseFitConfirmationRQ&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.3/@parameters.2&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;create XML string from BO&quot; description=&quot;create XML embedded in a string from BO&quot; category=&quot;Advanced Integration and BO services&quot; template=&quot;byte[] C_START = new byte[] {'&amp;lt;', '!', '[', 'C', 'D', 'A', 'T', 'A', '['};&amp;#xA;byte[] C_END = new byte[] {']', ']', '>'};&amp;#xA;String encoding = &amp;quot;UTF-8&amp;quot;;&amp;#xA;String Cstart = new String(C_START, encoding);&amp;#xA;String Cend = new String(C_END, encoding);&amp;#xA;java.io.ByteArrayOutputStream outStream = new java.io.ByteArrayOutputStream();&amp;#xA;com.ibm.websphere.bo.BOXMLSerializer boXMLSerializer = (com.ibm.websphere.bo.BOXMLSerializer) com.ibm.websphere.sca.ServiceManager.INSTANCE.locateService(&amp;quot;com/ibm/websphere/bo/BOXMLSerializer&amp;quot;);&amp;#xA;boXMLSerializer.writeDataObject(&amp;lt;%bo%>, &amp;lt;%namespace%>, &amp;lt;%name%>, outStream);&amp;#xA;&amp;lt;%return%> Cstart + outStream.toString(encoding) + Cend;&quot;>
+//    &lt;parameters name=&quot;bo&quot; dataInputs=&quot;//@executableElements.0/@dataOutputs.0&quot; displayName=&quot;BO&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;commonj.sdo.DataObject&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;namespace&quot; dataInputs=&quot;//@executableElements.1/@dataOutputs.0&quot; displayName=&quot;namespace&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;name&quot; dataInputs=&quot;//@executableElements.2/@dataOutputs.0&quot; displayName=&quot;name&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result name=&quot;xmlStr&quot; displayName=&quot;string&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.5&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/result>
+//    &lt;exceptions>
+//      &lt;dataOutputs target=&quot;//@executableElements.4/@parameters.0&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.io.IOException&quot;/>
+//    &lt;/exceptions>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:ExceptionHandler&quot; name=&quot;Exception Handler&quot;>
+//    &lt;parameters name=&quot;ex&quot; dataInputs=&quot;//@executableElements.3/@exceptions.0/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.io.IOException&quot;/>
+//    &lt;/parameters>
+//    &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;error createing xml&amp;quot;&quot; assignable=&quot;false&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.4/@executableElements.1&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//    &lt;/executableElements>
+//    &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.4/@executableElements.0/@dataOutputs.0&quot; value=&quot;ServiceMessageObject_1_body_TP_InsertUpdate_XML&quot; variable=&quot;true&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//    &lt;/executableElements>
+//    &lt;executableGroups executableElements=&quot;//@executableElements.4/@executableElements.0 //@executableElements.4/@executableElements.1&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.3/@result/@dataOutputs.0&quot; value=&quot;ServiceMessageObject_1_body_TP_InsertUpdate_XML&quot; variable=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0 //@executableElements.1 //@executableElements.2 //@executableElements.3 //@executableElements.4 //@executableElements.5&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!2:3,1&#xD;
+//!SMAP!3:4,1&#xD;
+//!SMAP!4:7,12&#xD;
+//!SMAP!6:20,1&#xD;
+//!SMAP!7:21,2&#xD;
+//!SMAP!8:24,2&#xD;
+//!SMAP!1000000:95,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+</map:businessObjectMap>

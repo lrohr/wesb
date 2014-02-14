@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="JDBCImport" targetNamespace="http://NCL_CruieFitConfirmation_Module/JDBCImport" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_fit_confirmation" xmlns:bons2="http://com/ibm/j2ca/fault/afcfault" xmlns:tns="http://NCL_CruieFitConfirmation_Module/JDBCImport" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://com/ibm/j2ca/fault/afcfault" xmlns:tns="http://com/ibm/j2ca/fault/afcfault">
+      <xsd:include schemaLocation="UniqueConstraintFault.xsd"/>
+      <xsd:include schemaLocation="RecordNotFoundFault.xsd"/>
+      <xsd:include schemaLocation="IntegrityConstraintFault.xsd"/>
+    </xsd:schema>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://NCL_CruieFitConfirmation_Module/JDBCImport" xmlns:bons4="http://com/ibm/j2ca/fault/afcfault">
+      <xsd:import namespace="http://com/ibm/j2ca/fault/afcfault"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_fit_confirmation" schemaLocation="NclseaNcl_Wesb_Fit_Confirmation.xsd"/>
+      <xsd:element name="executeNclseaNcl_Wesb_Fit_Confirmation">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Fit_ConfirmationInput" type="bons1:NclseaNcl_Wesb_Fit_Confirmation"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Fit_ConfirmationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Fit_ConfirmationOutput" type="bons1:NclseaNcl_Wesb_Fit_Confirmation"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UniqueConstraintFault_element" nillable="true" type="bons4:UniqueConstraintFault"/>
+      <xsd:element name="IntegrityConstraintFault_element" nillable="true" type="bons4:IntegrityConstraintFault"/>
+      <xsd:element name="RecordNotFoundFault_element" nillable="true" type="bons4:RecordNotFoundFault"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeNclseaNcl_Wesb_Fit_ConfirmationRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Fit_Confirmation" name="executeNclseaNcl_Wesb_Fit_ConfirmationParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Fit_ConfirmationResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Fit_ConfirmationResponse" name="executeNclseaNcl_Wesb_Fit_ConfirmationResult"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Fit_ConfirmationUniqueConstraintFaultMsg">
+    <wsdl:part element="tns:UniqueConstraintFault_element" name="UniqueConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Fit_ConfirmationIntegrityConstraintFaultMsg">
+    <wsdl:part element="tns:IntegrityConstraintFault_element" name="IntegrityConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Fit_ConfirmationRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:portType name="JDBCImport">
+    <wsdl:operation name="executeNclseaNcl_Wesb_Fit_Confirmation">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Fit_ConfirmationRequestMsg" name="executeNclseaNcl_Wesb_Fit_ConfirmationRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Fit_ConfirmationResponseMsg" name="executeNclseaNcl_Wesb_Fit_ConfirmationResponse"/>
+      <wsdl:fault message="tns:executeNclseaNcl_Wesb_Fit_ConfirmationUniqueConstraintFaultMsg" name="UNIQUECONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:executeNclseaNcl_Wesb_Fit_ConfirmationIntegrityConstraintFaultMsg" name="INTEGRITY_CONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:executeNclseaNcl_Wesb_Fit_ConfirmationRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
