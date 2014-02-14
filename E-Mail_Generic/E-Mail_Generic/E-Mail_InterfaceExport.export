@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://E-Mail_Generic/E-Mail_Interface" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="E-Mail_InterfaceExport" name="E-Mail_InterfaceExport" target="E-Mail_Generic">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:E-Mail_Interface"/>
+  </interfaces>
+</scdl:export>

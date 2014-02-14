@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com/ibm/j2ca/fault">
+
+<annotation xml:space="preserve">
+<appinfo source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability" version="6.2.0.0"/>
+</appinfo>
+</annotation>
+
+<annotation xml:space="preserve">
+<appinfo source="commonj.connector.asi">
+<asi:annotationSet xmlns:asi="commonj.connector.asi" asiNSURI=""/>
+</appinfo>
+</annotation>
+<complexType name="PrimaryKeyPairType">
+<annotation xml:space="preserve">
+
+
+</annotation>
+<sequence minOccurs="1" maxOccurs="1">
+<element name="keyName" type="string" nillable="true" minOccurs="1" maxOccurs="1"/>
+<element name="keyValue" type="string" nillable="true" minOccurs="1" maxOccurs="1"/>
+</sequence>
+</complexType>
+</schema>

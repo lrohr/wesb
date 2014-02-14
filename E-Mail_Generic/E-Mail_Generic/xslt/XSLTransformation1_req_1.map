@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://E-Mail_Generic/xslt/XSLTransformation1_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://E-Mail_Generic/xslt/XSLTransformation1_req_1">
+    <input correlationContext="" message="{http://E-Mail_Generic/E-Mail_Interface}Send_Email1RequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="" message="{http://E-Mail_Generic/E-Mail_Interface}Send_Email1RequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLTransformation1_req_1.xml"/>
+        <import kind="xslt" location="XSLTransformation1_req_1_custom.xsl"/>
+    </imports>
+    <mappingDeclaration name="XSLTransformation1_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context"/>
+            <output path="context"/>
+        </move>
+        <assign value="lrohr@ncl.com">
+            <output path="body/Send_Email1/To"/>
+        </assign>
+        <customFunction lang="xslt" location="XSLTransformation1_req_1_custom.xsl" ref="SubjectToSubject">
+            <input path="body/Send_Email1/Subject" var="Subject"/>
+            <output path="body/Send_Email1/Subject"/>
+            <param name="Subject" value="$Subject"/>
+        </customFunction>
+        <move>
+            <input path="body/Send_Email1/Content"/>
+            <output path="body/Send_Email1/Content"/>
+        </move>
+        <move>
+            <input path="body/Send_Email1/Severity"/>
+            <output path="body/Send_Email1/Severity"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

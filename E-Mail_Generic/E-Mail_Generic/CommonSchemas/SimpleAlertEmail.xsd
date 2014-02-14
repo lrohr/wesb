@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/email/simplealertemail">
+
+<annotation xml:space="preserve">
+<appinfo source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability" version="6.2.0.0"/>
+</appinfo>
+</annotation>
+
+<annotation xml:space="preserve">
+<appinfo source="commonj.connector.asi">
+<asi:annotationSet xmlns:asi="commonj.connector.asi" asiNSURI=""/>
+</appinfo>
+</annotation>
+<complexType name="SimpleAlertEmail">
+<annotation xml:space="preserve">
+
+
+</annotation>
+<sequence minOccurs="1" maxOccurs="1">
+<element name="To" type="string" nillable="true" minOccurs="0" maxOccurs="1"/>
+<element name="From" type="string" nillable="true" minOccurs="0" maxOccurs="1"/>
+<element name="CC" type="string" nillable="true" minOccurs="0" maxOccurs="1"/>
+<element name="BCC" type="string" nillable="true" minOccurs="0" maxOccurs="1"/>
+<element name="Reply-To" type="string" nillable="true" minOccurs="0" maxOccurs="1"/>
+<element name="Subject" type="string" nillable="true" minOccurs="0" maxOccurs="1"/>
+<element name="Encoding" type="string" nillable="true" minOccurs="0" maxOccurs="1"/>
+<element name="mailContent" type="string" nillable="true" minOccurs="0" maxOccurs="1"/>
+</sequence>
+</complexType>
+</schema>

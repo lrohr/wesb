@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:E-Mail_Interface="http://E-Mail_Generic/E-Mail_Interface" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://E-Mail_Generic/EmailServiceImport" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="E-Mail_Generic" targetNamespace="http://E-Mail_Generic/E-Mail_Generic">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="E-Mail_Interface:E-Mail_Interface"/>
+  </interfaces>
+  <references>
+    <reference name="EmailServiceImportPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1:EmailServiceImport"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="Send_Email1" target="sendSimpleAlertEmail" sourcePortType="E-Mail_Interface:E-Mail_Interface" targetReference="EmailServiceImportPartner"/>
+  <operationFlow medflow="E-Mail_Generic.medflow"/>
+</mfc:interfaceMediationFlow>
