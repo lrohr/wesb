@@ -1,0 +1,12 @@
+* SMAP
+UpdateFuseBoxReqTransform.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 UpdateFuseBoxReqTransform.map
+/NCLFuseBoxMediation/xslt/UpdateFuseBoxReqTransform.map
+*L
+3:63,5
+2:53,10
+1:43,1
+*E

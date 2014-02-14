@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="ProcessCreditCard" targetNamespace="http://FuseBoxLib/ProcessCreditCard" xmlns:bons1="http://FuseBoxLib" xmlns:tns="http://FuseBoxLib/ProcessCreditCard" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://FuseBoxLib/ProcessCreditCard">
+      <xsd:import namespace="http://FuseBoxLib" schemaLocation="NclCreditCardInfo.xsd"/>
+      <xsd:element name="process">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="cardInfo" nillable="true" type="bons1:NclCreditCardInfo"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="processRequestMsg">
+    <wsdl:part element="tns:process" name="processParameters"/>
+  </wsdl:message>
+    <wsdl:portType name="ProcessCreditCard">
+    <wsdl:operation name="process">
+      <wsdl:input message="tns:processRequestMsg" name="processRequest"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

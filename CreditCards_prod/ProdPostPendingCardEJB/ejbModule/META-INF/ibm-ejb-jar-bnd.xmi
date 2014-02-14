@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejbbnd:EJBJarBinding xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ejb="ejb.xmi" xmlns:ejbbnd="ejbbnd.xmi" xmi:id="EJBJarBinding_1340388349343">
+  <ejbJar href="META-INF/ejb-jar.xml#ejb-jar_ID"/>
+  <ejbBindings xmi:id="EnterpriseBeanBinding_1340388633250" jndiName="ejb/com/ibm/websphere/startupservice/AppStartUpHome">
+    <enterpriseBean xmi:type="ejb:Session" href="META-INF/ejb-jar.xml#RegisterTask"/>
+  </ejbBindings>
+  <ejbBindings xmi:id="EnterpriseBeanBinding_1340394690609" jndiName="ejb/com/ncl/fusebox/ProdInvokeCreditCardProcessingTimerHome">
+    <enterpriseBean xmi:type="ejb:Session" href="META-INF/ejb-jar.xml#ProdInvokeCreditCardProcessingTimer"/>
+    <resRefBindings xmi:id="ResourceRefBinding_1340722296546" jndiName="SEAWARE_PROD_JNDI">
+      <bindingResourceRef href="META-INF/ejb-jar.xml#ResourceRef_1340722296546"/>
+    </resRefBindings>
+    <resRefBindings xmi:id="ResourceRefBinding_1340734995890" jndiName="jms/ProdpendingCardTransactionCF" loginConfigurationName="DefaultPrincipalMapping">
+      <bindingResourceRef href="META-INF/ejb-jar.xml#ResourceRef_1340734995890"/>
+      <properties xmi:id="Property_1342534925937" name="com.ibm.mapping.authDataAlias" value="SCA_Auth_Alias" description="container-managed auth alias from resource-ref"/>
+    </resRefBindings>
+    <resRefBindings xmi:id="ResourceRefBinding_1340734995891" jndiName="ProdNCLFuseBoxMediation/NCLFuseBoxMediationExport1_RECEIVE_D">
+      <bindingResourceRef href="META-INF/ejb-jar.xml#ResourceRef_1340734995891"/>
+    </resRefBindings>
+  </ejbBindings>
+</ejbbnd:EJBJarBinding>

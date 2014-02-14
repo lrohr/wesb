@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="UpdateEsbCCLogSql.wsdl" targetNamespace="http://NCLFuseBoxMediation/UpdateEsbCCLogSql" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/update_ncl_esb_cc_log" xmlns:tns="http://NCLFuseBoxMediation/UpdateEsbCCLogSql" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://NCLFuseBoxMediation/UpdateEsbCCLogSql">
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/update_ncl_esb_cc_log" schemaLocation="UPDATE_NCL_ESB_CC_LOG.xsd"/>
+      <xsd:element name="executeUPDATE_NCL_ESB_CC_LOG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeUPDATE_NCL_ESB_CC_LOGInput" type="bons1:UPDATE_NCL_ESB_CC_LOG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeUPDATE_NCL_ESB_CC_LOGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeUPDATE_NCL_ESB_CC_LOGOutput" type="bons1:UPDATE_NCL_ESB_CC_LOG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeUPDATE_NCL_ESB_CC_LOGRequestMsg">
+    <wsdl:part element="tns:executeUPDATE_NCL_ESB_CC_LOG" name="executeUPDATE_NCL_ESB_CC_LOGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeUPDATE_NCL_ESB_CC_LOGResponseMsg">
+    <wsdl:part element="tns:executeUPDATE_NCL_ESB_CC_LOGResponse" name="executeUPDATE_NCL_ESB_CC_LOGResult"/>
+  </wsdl:message>
+  <wsdl:portType name="UpdateEsbCCLogSql">
+    <wsdl:operation name="executeUPDATE_NCL_ESB_CC_LOG">
+      <wsdl:input message="tns:executeUPDATE_NCL_ESB_CC_LOGRequestMsg" name="executeUPDATE_NCL_ESB_CC_LOGRequest"/>
+      <wsdl:output message="tns:executeUPDATE_NCL_ESB_CC_LOGResponseMsg" name="executeUPDATE_NCL_ESB_CC_LOGResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Binding="http://FuseBoxLib/ProcessFailedCreditCard/Binding" xmlns:ns1="http://FuseBoxLib/ProcessFailedCreditCard" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:webservice="http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="ProcessFailedCreditCardExport1" name="ProcessFailedCreditCardExport1" target="ProdNCLFuseBoxMediation">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:ProcessFailedCreditCard"/>
+  </interfaces>
+  <esbBinding xsi:type="webservice:WebServiceExportBinding" port="Binding:ProcessFailedCreditCardExport1_ProcessFailedCreditCardHttpPort" service="Binding:ProcessFailedCreditCardExport1_ProcessFailedCreditCardHttpService"/>
+</scdl:export>

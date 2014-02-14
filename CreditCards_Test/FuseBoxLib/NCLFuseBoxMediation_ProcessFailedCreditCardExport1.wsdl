@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="ProcessFailedCreditCardExport1_ProcessFailedCreditCardHttp_Service" targetNamespace="http://FuseBoxLib/ProcessFailedCreditCard/Binding" xmlns:Port_0="http://FuseBoxLib/ProcessFailedCreditCard" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="http://FuseBoxLib/ProcessFailedCreditCard/Binding" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="ProcessFailedCreditCard.wsdl" namespace="http://FuseBoxLib/ProcessFailedCreditCard"/>
+  <wsdl:binding name="ProcessFailedCreditCardExport1_ProcessFailedCreditCardHttpBinding" type="Port_0:ProcessFailedCreditCard">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="processFailedTxn">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="processFailedTxnRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProcessFailedCreditCardExport1_ProcessFailedCreditCardHttpService">
+    <wsdl:port binding="this:ProcessFailedCreditCardExport1_ProcessFailedCreditCardHttpBinding" name="ProcessFailedCreditCardExport1_ProcessFailedCreditCardHttpPort">
+      <soap:address location="http://localhost:9080/ProdNCLFuseBoxMediationWeb/sca/ProcessFailedCreditCardExport1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webappbnd:WebAppBinding xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:webappbnd="webappbnd.xmi" xmi:id="WebAppBinding_1340397603312" virtualHostName="default_host">
+  <webapp href="WEB-INF/web.xml#WebApp_ID"/>
+  <ejbRefBindings xmi:id="EjbRefBinding_1340397768265" jndiName="ejb/com/ncl/fusebox/ProdInvokeCreditCardProcessingTimerHome">
+    <bindingEjbRef href="WEB-INF/web.xml#EjbRef_1340397768265"/>
+  </ejbRefBindings>
+  <ejbRefBindings xmi:id="EjbRefBinding_1341944669968" jndiName="ejb/com/ncl/fusebox/HealthCheckTimerHome">
+    <bindingEjbRef href="WEB-INF/web.xml#EjbRef_1341944669968"/>
+  </ejbRefBindings>
+</webappbnd:WebAppBinding>

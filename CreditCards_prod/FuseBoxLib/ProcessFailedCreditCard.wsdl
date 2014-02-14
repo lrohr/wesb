@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="ProcessFailedCreditCard" targetNamespace="http://FuseBoxLib/ProcessFailedCreditCard" xmlns:bons1="http://FuseBoxLib" xmlns:tns="http://FuseBoxLib/ProcessFailedCreditCard" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://FuseBoxLib/ProcessFailedCreditCard">
+      <xsd:import namespace="http://FuseBoxLib" schemaLocation="FailedTransactionRequest.xsd"/>
+      <xsd:element name="processFailedTxn">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="req" nillable="true" type="bons1:FailedTransactionRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="processFailedTxnRequestMsg">
+    <wsdl:part element="tns:processFailedTxn" name="processFailedTxnParameters"/>
+  </wsdl:message>
+    <wsdl:portType name="ProcessFailedCreditCard">
+    <wsdl:operation name="processFailedTxn">
+      <wsdl:input message="tns:processFailedTxnRequestMsg" name="processFailedTxnRequest"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

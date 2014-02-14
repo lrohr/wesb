@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Class-Path: FuseBoxLib.jar 
+ CWYBC_JDBC.rar 
+ CWYEM_EMail.rar
+Created-By: 1.5.0 (IBM Corporation)
+

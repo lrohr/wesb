@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://FuseBoxLib/ProcessCreditCard" xmlns:ns10="http://ProdNCLFuseBoxMediation/EmailServiceImport" xmlns:ns1_1="http://FuseBoxLib/FuseBoxCredCardProvider" xmlns:ns1_2="http://NCLFuseBoxMediation/NCL_ESB_CC_UPDATE_IMPORT" xmlns:ns4="http://NCLFuseBoxMediation/UpdateESBCreditCardLog" xmlns:ns5="http://NCLFuseBoxMediation/UpdateEsbCCLogSql" xmlns:ns6="http://NCLFuseBoxMediation/NclEsbCreditCardUpdateImport" xmlns:ns7="http://NCLFuseBoxMediation/UpdateRequestMsgSQL" xmlns:ns8="http://FuseBoxLib/ProcessFailedCreditCard" xmlns:ns9="http://NCLFuseBoxMediation/FindFailedCCTxnSQLImport" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="ProdNCLFuseBoxMediation" targetNamespace="http://NCLFuseBoxMediation/NCLFuseBoxMediation">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:ProcessCreditCard"/>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns8:ProcessFailedCreditCard">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="true"/>
+    </interface>
+  </interfaces>
+  <references>
+    <reference name="FuseBoxCredCardProviderPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_1:FuseBoxCredCardProvider"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="FuseBoxCredCardProviderImport1"/>
+    </reference>
+    <reference name="NclEsbCreditCardUpdateImportPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns6:NclEsbCreditCardUpdateImport"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NclEsbCreditCardUpdateImport"/>
+    </reference>
+    <reference name="UpdateRequestMsgSQLPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns7:UpdateRequestMsgSQL"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="UpdateRequestMsgSQL"/>
+    </reference>
+    <reference name="FindFailedCCTxnSQLImportPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns9:FindFailedCCTxnSQLImport"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="FindFailedCCTxnSQLImport"/>
+    </reference>
+    <reference name="EmailServiceImportPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns10:EmailServiceImport"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="EmailServiceImport"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="processFailedTxn" target="retrieveallFailedCreditCardTxnBG" sourcePortType="ns8:ProcessFailedCreditCard" targetReference="FindFailedCCTxnSQLImportPartner"/>
+  <operationFlow medflow="ProdNCLFuseBoxMediation.medflow"/>
+</mfc:interfaceMediationFlow>

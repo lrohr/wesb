@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:CreateCCProviderReques="http://NCLFuseBoxMediation" xmlns:ServiceMessageObject="smo://smo/name%3Dwsdl-primary/transientContext%3D%257Bhttp%253A%252F%252FNCLFuseBoxMediation%257DFuseBoxMediationSharedCtx/message%3D%257Bhttp%253A%252F%252FFuseBoxLib%252FFuseBoxCredCardProvider%257DprocessCardInfoRequestMsg/xpath%3D%252F/namespace%3DBOMap/types%3D%252Fcontext%252FprimitiveContext%252FFanOutContext%252Foccurrence%253D%257Bhttp%253A%252F%252Fwww.ibm.com%252Fxmlns%252Fprod%252Fwebsphere%252Fj2ca%252Fjdbc%252Ffailedcreditcardtxn%257DFailedCreditCardTxn/smo.xsd" xmlns:ServiceMessageObject_1="smo://smo/name%3Dwsdl-primary/transientContext%3D%257Bhttp%253A%252F%252FNCLFuseBoxMediation%257DFuseBoxMediationSharedCtx/message%3D%257Bhttp%253A%252F%252FNCLFuseBoxMediation%252FFindFailedCCTxnSQLImport%257DretrieveallFailedCreditCardTxnBGResponseMsg/xpath%3D%252F/namespace%3DBOMap/types%3D%252Fcontext%252FprimitiveContext%252FFanOutContext%252Foccurrence%253D%257Bhttp%253A%252F%252Fwww.ibm.com%252Fxmlns%252Fprod%252Fwebsphere%252Fj2ca%252Fjdbc%252Ffailedcreditcardtxn%257DFailedCreditCardTxn/smo.xsd" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" targetNamespace="http://NCLFuseBoxMediation">
+  <map:name>CreateCCProviderReques</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="ServiceMessageObject_1:ServiceMessageObject" name="ServiceMessageObject"/>
+  <map:outputBusinessObjectVariable businessObjectRef="ServiceMessageObject:ServiceMessageObject" name="ServiceMessageObject_1"/>
+  <map:propertyMap executionOrder="1">
+    <map:custom>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/primitiveContext/FanOutContext/occurrence"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/processCardInfo/Request"/>
+      <map:javaCode>commonj.sdo.DataObject __ServiceMessageObject_context_primitiveContext_FanOutContext_occurrence = (commonj.sdo.DataObject)ServiceMessageObject_context_primitiveContext_FanOutContext_occurrence;&#xD;
+commonj.sdo.DataObject __ServiceMessageObject_1 = (commonj.sdo.DataObject)ServiceMessageObject_1;&#xD;
+java.lang.String __result__1 = __ServiceMessageObject_context_primitiveContext_FanOutContext_occurrence.getString(&quot;req_message_txt&quot;);&#xD;
+java.lang.String xmlString = __result__1;&#xD;
+boolean __result__3 = xmlString != null;&#xD;
+if (__result__3){&#xD;
+	java.lang.String __result__6 = xmlString.replace(&quot;xxxxxxxxxxxx&quot;,__ServiceMessageObject_context_primitiveContext_FanOutContext_occurrence.getString(&quot;cc_number&quot;));&#xD;
+	xmlString = __result__6;&#xD;
+	commonj.sdo.DataObject __result__9 = null;&#xD;
+	try {&#xD;
+		{// create BO from XML string&#xD;
+			byte[] C_START = new byte[] {'&lt;', '!', '[', 'C', 'D', 'A', 'T', 'A', '['};
+			byte[] C_END = new byte[] {']', ']', '>'};
+			String encoding = &quot;UTF-8&quot;;
+			String Cstart = new String(C_START, encoding);
+			String Cend = new String(C_END, encoding);
+			if (xmlString.startsWith(Cstart)) {
+				xmlString = xmlString.substring(Cstart.length(), xmlString.length()-Cend.length());
+			}
+			com.ibm.websphere.bo.BOXMLSerializer boXMLSerializer = (com.ibm.websphere.bo.BOXMLSerializer) com.ibm.websphere.sca.ServiceManager.INSTANCE.locateService(&quot;com/ibm/websphere/bo/BOXMLSerializer&quot;);
+			com.ibm.websphere.bo.BOXMLDocument boDoc = boXMLSerializer.readXMLDocument(new java.io.ByteArrayInputStream(xmlString.getBytes(encoding)));
+			__result__9 = boDoc.getDataObject();&#xD;
+		}&#xD;
+	}&#xD;
+	catch(java.io.IOException ex){&#xD;
+	}&#xD;
+	__ServiceMessageObject_1.getDataObject(&quot;body&quot;).getDataObject(&quot;processCardInfo&quot;).set(&quot;Request&quot;, __result__9);&#xD;
+}&#xD;
+else{&#xD;
+}&#xD;
+commonj.sdo.DataObject __result__14 = __ServiceMessageObject_1.getDataObject(&quot;body&quot;).getDataObject(&quot;processCardInfo&quot;);&#xD;
+java.lang.String __result__13 = &quot;Card Info&quot;;&#xD;
+try {&#xD;
+	{// Log Level: INFO&#xD;
+		final String FQCN = getClass().getName();
+		java.util.logging.Logger l = java.util.logging.Logger.getLogger(FQCN);
+		if(l.isLoggable(java.util.logging.Level.INFO))
+		 {
+		com.ibm.websphere.bo.BOXMLSerializer serializer =(com.ibm.websphere.bo.BOXMLSerializer) com.ibm.websphere.sca.ServiceManager.INSTANCE.locateService(&quot;com/ibm/websphere/bo/BOXMLSerializer&quot;);
+		java.io.ByteArrayOutputStream stream = new java.io.ByteArrayOutputStream();
+		serializer.writeDataObject(__result__14,__result__14.getType().getURI(),__result__14.getType().getName(),stream);
+		l.logp(java.util.logging.Level.INFO, FQCN.substring(FQCN.lastIndexOf('.') + 1), &quot;snippet&quot;, String.format(&quot;%s: %s&quot;,__result__13 ,stream.toString() ));
+		}&#xD;
+	}&#xD;
+}&#xD;
+catch(java.io.IOException ex2){&#xD;
+}&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;ServiceMessageObject_context_primitiveContext_FanOutContext_occurrence&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;FailedCreditCardTxn&quot; namespace=&quot;http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/failedcreditcardtxn&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;ServiceMessageObject_context_primitiveContext_FanOutContext_occurrence.req_message_txt&quot; field=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot; nillable=&quot;false&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.0/@dataOutputs.0&quot; value=&quot;xmlString&quot; localVariable=&quot;//@localVariables.0&quot; variable=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;xmlString != null&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.3&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;boolean&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:BranchElement&quot; dataInputs=&quot;//@executableElements.2/@dataOutputs.0&quot;>
+//    &lt;conditionalActivities>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;xmlString.replace( &amp;quot;xxxxxxxxxxxx&amp;quot;,ServiceMessageObject_context_primitiveContext_FanOutContext_occurrence.cc_number)&quot; assignable=&quot;false&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.3/@conditionalActivities.0/@executableElements.1&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.3/@conditionalActivities.0/@executableElements.0/@dataOutputs.0&quot; value=&quot;xmlString&quot; localVariable=&quot;//@localVariables.0&quot; variable=&quot;true&quot;>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;xmlString&quot; localVariable=&quot;//@localVariables.0&quot; variable=&quot;true&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.3/@conditionalActivities.0/@executableElements.3/@parameters.0&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;create BO from XML string&quot; description=&quot;create BO from XML embedded in a string&quot; category=&quot;SCA and BO services&quot; template=&quot;byte[] C_START = new byte[] {'&amp;lt;', '!', '[', 'C', 'D', 'A', 'T', 'A', '['};&amp;#xA;byte[] C_END = new byte[] {']', ']', '>'};&amp;#xA;String encoding = &amp;quot;UTF-8&amp;quot;;&amp;#xA;String Cstart = new String(C_START, encoding);&amp;#xA;String Cend = new String(C_END, encoding);&amp;#xA;if (&amp;lt;%xmlStr%>.startsWith(Cstart)) {&amp;#xA;&amp;#x9;&amp;lt;%xmlStr%> = &amp;lt;%xmlStr%>.substring(Cstart.length(), &amp;lt;%xmlStr%>.length()-Cend.length());&amp;#xA;}&amp;#xA;com.ibm.websphere.bo.BOXMLSerializer boXMLSerializer = (com.ibm.websphere.bo.BOXMLSerializer) com.ibm.websphere.sca.ServiceManager.INSTANCE.locateService(&amp;quot;com/ibm/websphere/bo/BOXMLSerializer&amp;quot;);&amp;#xA;com.ibm.websphere.bo.BOXMLDocument boDoc = boXMLSerializer.readXMLDocument(new java.io.ByteArrayInputStream(&amp;lt;%xmlStr%>.getBytes(encoding)));&amp;#xA;&amp;lt;%return%> boDoc.getDataObject();&quot;>
+//        &lt;parameters name=&quot;xmlStr&quot; dataInputs=&quot;//@executableElements.3/@conditionalActivities.0/@executableElements.2/@dataOutputs.0&quot; displayName=&quot;string&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//        &lt;/parameters>
+//        &lt;result name=&quot;bo&quot; displayName=&quot;BO&quot;>
+//          &lt;dataOutputs target=&quot;//@executableElements.3/@conditionalActivities.0/@executableElements.5&quot;/>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;commonj.sdo.DataObject&quot;/>
+//        &lt;/result>
+//        &lt;exceptions>
+//          &lt;dataOutputs target=&quot;//@executableElements.3/@conditionalActivities.0/@executableElements.4/@parameters.0&quot;/>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.io.IOException&quot;/>
+//        &lt;/exceptions>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:ExceptionHandler&quot; name=&quot;Exception Handler&quot;>
+//        &lt;parameters name=&quot;ex&quot; dataInputs=&quot;//@executableElements.3/@conditionalActivities.0/@executableElements.3/@exceptions.0/@dataOutputs.0&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.io.IOException&quot;/>
+//        &lt;/parameters>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.3/@conditionalActivities.0/@executableElements.3/@result/@dataOutputs.0&quot; value=&quot;ServiceMessageObject_1.body.processCardInfo.Request&quot; field=&quot;true&quot;>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;Request;/Request&quot; namespace=&quot;[null]&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableGroups executableElements=&quot;//@executableElements.3/@conditionalActivities.0/@executableElements.0 //@executableElements.3/@conditionalActivities.0/@executableElements.1&quot;/>
+//      &lt;executableGroups executableElements=&quot;//@executableElements.3/@conditionalActivities.0/@executableElements.2 //@executableElements.3/@conditionalActivities.0/@executableElements.3 //@executableElements.3/@conditionalActivities.0/@executableElements.4 //@executableElements.3/@conditionalActivities.0/@executableElements.5&quot;/>
+//      &lt;condition value=&quot;true&quot;/>
+//    &lt;/conditionalActivities>
+//    &lt;conditionalActivities>
+//      &lt;condition value=&quot;&quot;/>
+//    &lt;/conditionalActivities>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;Card Info&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.6/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;ServiceMessageObject_1.body.processCardInfo&quot; field=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.6/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;processCardInfo;/processCardInfo&quot; namespace=&quot;http://FuseBoxLib/FuseBoxCredCardProvider&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;Log Level: INFO&quot; description=&quot;BO print to logger&quot; category=&quot;utility&quot; template=&quot;final String FQCN = getClass().getName();&amp;#xA;java.util.logging.Logger l = java.util.logging.Logger.getLogger(FQCN);&amp;#xA;if(l.isLoggable(java.util.logging.Level.INFO))&amp;#xA; {&amp;#xA;com.ibm.websphere.bo.BOXMLSerializer serializer =(com.ibm.websphere.bo.BOXMLSerializer) com.ibm.websphere.sca.ServiceManager.INSTANCE.locateService(&amp;quot;com/ibm/websphere/bo/BOXMLSerializer&amp;quot;);&amp;#xA;java.io.ByteArrayOutputStream stream = new java.io.ByteArrayOutputStream();&amp;#xA;serializer.writeDataObject(&amp;lt;%object%>,&amp;lt;%object%>.getType().getURI(),&amp;lt;%object%>.getType().getName(),stream);&amp;#xA;l.logp(java.util.logging.Level.INFO, FQCN.substring(FQCN.lastIndexOf('.') + 1), &amp;quot;snippet&amp;quot;, String.format(&amp;quot;%s: %s&amp;quot;,&amp;lt;%logMessage%> ,stream.toString() ));&amp;#xA;}&quot;>
+//    &lt;parameters name=&quot;logMessage&quot; dataInputs=&quot;//@executableElements.4/@dataOutputs.0&quot; displayName=&quot;Log Message&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;object&quot; dataInputs=&quot;//@executableElements.5/@dataOutputs.0&quot; displayName=&quot;object&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;commonj.sdo.DataObject&quot;/>
+//    &lt;/parameters>
+//    &lt;exceptions>
+//      &lt;dataOutputs target=&quot;//@executableElements.7/@parameters.0&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.io.IOException&quot;/>
+//    &lt;/exceptions>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:ExceptionHandler&quot; name=&quot;Exception Handler&quot;>
+//    &lt;parameters name=&quot;ex2&quot; dataInputs=&quot;//@executableElements.6/@exceptions.0/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.io.IOException&quot;/>
+//    &lt;/parameters>
+//    &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;ex2&quot; variable=&quot;true&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.io.IOException&quot;/>
+//    &lt;/executableElements>
+//    &lt;executableGroups executableElements=&quot;//@executableElements.7/@executableElements.0&quot;/>
+//  &lt;/executableElements>
+//  &lt;localVariables name=&quot;xmlString&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/localVariables>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0 //@executableElements.1&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.2 //@executableElements.3&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.4 //@executableElements.5 //@executableElements.6 //@executableElements.7&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!1:3,1&#xD;
+//!SMAP!2:4,1&#xD;
+//!SMAP!3:5,1&#xD;
+//!SMAP!4:6,1&#xD;
+//!SMAP!6:7,1&#xD;
+//!SMAP!7:8,1&#xD;
+//!SMAP!9:11,14&#xD;
+//!SMAP!11:27,1&#xD;
+//!SMAP!13:32,1&#xD;
+//!SMAP!14:31,1&#xD;
+//!SMAP!15:34,11&#xD;
+//!SMAP!1000000:162,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/primitiveContext/FanOutContext/occurrence/cc_number"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/transient/CRED_CRD_NBR"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/primitiveContext/FanOutContext/occurrence/unique_val_id"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/transient/UNIQUE_VAL_ID"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

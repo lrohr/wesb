@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://FuseBoxLib"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="NclCreditCardInfo">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="currencyCd"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="credCrdNbr"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="transAmt"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="ccExpDat"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="uniqueValId"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="transId"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="arrivalDat"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="departureDat"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="shipNam"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="destEntityId"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="ccTransId"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="manAuthCodeTxt"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="transTypeTxt"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="srcEntityId"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="resGrpId"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="shipCd"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="inputResId"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="inputGroupId"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="officeCodeTxt"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="srcEntityTxt"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="destEntityTxt"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="ccTypeTxt"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="terminalId"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="sourceTxt"
+				type="xsd:string">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

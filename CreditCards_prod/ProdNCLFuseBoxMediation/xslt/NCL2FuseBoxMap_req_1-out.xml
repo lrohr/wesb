@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<body xmlns:out2="wsdl.http://FuseBoxLib/FuseBoxCredCardProvider" xmlns:io5="http://www.w3.org/2005/08/addressing" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:io4="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:out="http://FuseBoxLib/FuseBoxCredCardProvider" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:io3="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:io="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:io2="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0">
+  <out:processCardInfo>
+    <Request type="AuthorizationRequest">
+      <Field name="Chain_Code">NC</Field>
+      <Field name="Location_ID">MIAMI</Field>
+      <Field name="Currency_Code">GBP</Field>
+      <Field name="Venue_ID">RESUKGBP</Field>
+      <Field name="Message_ID">5638895</Field>
+      <Field name="Application_ID">ESB_CCApp 0.1</Field>
+      <Field name="Invoice_Nbr">19599027</Field>
+      <Field name="Transaction_Type">S</Field>
+      <Field name="Auth_Amount">2274.20</Field>
+      <Field name="Cardholder_Nbr">4012000077777777</Field>
+      <Field name="Expiration_Date">0414</Field>
+      <Field name="Terminal_Type">0</Field>
+      <Field name="Terminal_Capability">0</Field>
+      <Field name="Account_Source">M</Field>
+      <Field name="Departure_Date">072212</Field>
+      <Field name="Arrival_Date">071512</Field>
+    </Request>
+  </out:processCardInfo>
+</body>

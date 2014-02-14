@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<body xmlns:out2="wsdl.http://FuseBoxLib/FuseBoxCredCardProvider" xmlns:io5="http://www.w3.org/2005/08/addressing" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:io4="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:out="http://FuseBoxLib/FuseBoxCredCardProvider" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:io3="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:io="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:io2="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0">
+  <out:processCardInfo>
+    <Request>
+      <Field>2274.20</Field>
+    </Request>
+  </out:processCardInfo>
+</body>

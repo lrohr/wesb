@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mediationFlow xmlns="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlow" xmlns:EmailServiceImport="http://ProdNCLFuseBoxMediation/EmailServiceImport" xmlns:FuseBoxCredCardProvider="http://FuseBoxLib/FuseBoxCredCardProvider" xmlns:NclEsbCreditCardUpdateImport="http://NCLFuseBoxMediation/NclEsbCreditCardUpdateImport" xmlns:UpdateRequestMsgSQL="http://NCLFuseBoxMediation/UpdateRequestMsgSQL" xmlns:mfcex="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlowExtension" name="FuseBoxMediationSubFlow" targetNamespace="http://NCLFuseBoxMediation">
+  <promotedProperty name="EmailServiceImportPartner" group="ProdNCLFuseBoxMediation.FuseBoxMediationSubFlow" value="EmailServiceImportPartner"/>
+  <reference name="EmailServiceImportPartner" portType="EmailServiceImport:EmailServiceImport"/>
+  <reference name="FuseBoxCredCardProviderPartner" portType="FuseBoxCredCardProvider:FuseBoxCredCardProvider"/>
+  <reference name="NclEsbCreditCardUpdateImportPartner" portType="NclEsbCreditCardUpdateImport:NclEsbCreditCardUpdateImport"/>
+  <reference name="UpdateRequestMsgSQLPartner" portType="UpdateRequestMsgSQL:UpdateRequestMsgSQL"/>
+  <subflow mfcex:autoLayout="false">
+    <node name="in" type="In" mfcex:x="10" mfcex:y="146">
+      <outputTerminal type="FuseBoxCredCardProvider:processCardInfoRequestMsg">
+        <wire targetNode="InvokeExternalEvalonCreditCardService"/>
+        <wire targetNode="UpdateRequesMsgLog"/>
+      </outputTerminal>
+    </node>
+    <node name="out" type="Out" mfcex:x="1022" mfcex:y="146">
+      <inputTerminal type="NclEsbCreditCardUpdateImport:executeNclseaNcl_Esb_Cc_UpdateResponseMsg"/>
+    </node>
+    <node name="InvokeExternalEvalonCreditCardService" type="ServiceInvoke" mfcex:x="96" mfcex:y="146">
+      <property name="referenceName" value="FuseBoxCredCardProviderPartner"/>
+      <property name="operationName" value="processCardInfo"/>
+      <property name="retryOn" value="1"/>
+      <property name="retryCount" value="1"/>
+      <inputTerminal type="FuseBoxCredCardProvider:processCardInfoRequestMsg"/>
+      <outputTerminal type="FuseBoxCredCardProvider:processCardInfoResponseMsg">
+        <wire targetNode="TransformForCreditCardResponse"/>
+      </outputTerminal>
+      <outputTerminal name="timeout" type="FuseBoxCredCardProvider:processCardInfoRequestMsg"/>
+      <failTerminal>
+        <wire targetNode="LogServiceInvocationFault"/>
+        <wire targetNode="XSLT_LoadEmail"/>
+      </failTerminal>
+    </node>
+    <node name="UpdateCreditCardResponse" type="ServiceInvoke" mfcex:x="521" mfcex:y="146">
+      <property name="referenceName" value="NclEsbCreditCardUpdateImportPartner"/>
+      <property name="operationName" value="executeNclseaNcl_Esb_Cc_Update"/>
+      <inputTerminal type="NclEsbCreditCardUpdateImport:executeNclseaNcl_Esb_Cc_UpdateRequestMsg"/>
+      <outputTerminal type="NclEsbCreditCardUpdateImport:executeNclseaNcl_Esb_Cc_UpdateResponseMsg">
+        <wire targetNode="out"/>
+      </outputTerminal>
+      <outputTerminal name="timeout" type="NclEsbCreditCardUpdateImport:executeNclseaNcl_Esb_Cc_UpdateRequestMsg"/>
+      <failTerminal>
+        <wire targetNode="LogResponseUpdateFailure"/>
+      </failTerminal>
+    </node>
+    <node name="TransformForCreditCardResponse" type="XSLTransformation" mfcex:x="241" mfcex:y="146">
+      <property name="root" value="/body"/>
+      <property name="XSLTransform" value="xslt/XSLTransformation1_req_3.xsl"/>
+      <property name="XMXMap" value="xslt/XSLTransformation1_req_3.map"/>
+      <property name="SMOVersion" value="SMO61"/>
+      <inputTerminal/>
+      <outputTerminal type="NclEsbCreditCardUpdateImport:executeNclseaNcl_Esb_Cc_UpdateRequestMsg">
+        <wire targetNode="LogBeforeResponseDBUpdate"/>
+      </outputTerminal>
+      <failTerminal/>
+    </node>
+    <node name="Stop3" type="Stop" mfcex:x="941" mfcex:y="178">
+      <inputTerminal/>
+    </node>
+    <node name="LogBeforeResponseDBUpdate" type="CustomMediation" mfcex:x="381" mfcex:y="146">
+      <property name="javaCode"><![CDATA[
+commonj.sdo.DataObject __smo = (commonj.sdo.DataObject)smo;
+
+java.lang.String __result__3 = "Before Response DB Update ";
+
+commonj.sdo.DataObject __result__4 = __smo.getDataObject("body");
+
+try {
+
+	{// Log Level: FINEST
+
+		final String FQCN = getClass().getName();
+		java.util.logging.Logger l = java.util.logging.Logger.getLogger(FQCN);
+		if(l.isLoggable(java.util.logging.Level.FINEST))
+		 {
+		com.ibm.websphere.bo.BOXMLSerializer serializer =(com.ibm.websphere.bo.BOXMLSerializer) com.ibm.websphere.sca.ServiceManager.INSTANCE.locateService("com/ibm/websphere/bo/BOXMLSerializer");
+		java.io.ByteArrayOutputStream stream = new java.io.ByteArrayOutputStream();
+		serializer.writeDataObject(__result__4,__result__4.getType().getURI(),__result__4.getType().getName(),stream);
+		l.logp(java.util.logging.Level.FINEST, FQCN.substring(FQCN.lastIndexOf('.') + 1), "snippet", String.format("%s: %s",__result__3 ,stream.toString() ));
+		}
+
+	}
+
+}
+
+catch(java.io.IOException ex2){
+
+}
+
+commonj.sdo.DataObject __result__7 = __smo.getDataObject("body");
+
+try {
+
+	{// print BO to log
+
+		com.ibm.websphere.bo.BOXMLSerializer srv = (com.ibm.websphere.bo.BOXMLSerializer) new com.ibm.websphere.sca.ServiceManager().locateService("com/ibm/websphere/bo/BOXMLSerializer");
+		commonj.sdo.Type type = __result__7.getType();
+		srv.writeDataObject(__result__7, type.getURI(), type.getName(), java.lang.System.out);
+
+	}
+
+}
+
+catch(java.io.IOException ex){
+
+}
+
+out.fire(__smo);
+
+
+//@generated:com.ibm.wbit.activity.ui
+//<?xml version="1.0" encoding="UTF-8"?>
+//<com.ibm.wbit.activity:CompositeActivity xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.wbit.activity="http:///com/ibm/wbit/activity.ecore" name="ActivityMethod">
+//  <parameters name="inputTerminal">
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.InputTerminal"/>
+//  </parameters>
+//  <parameters name="smo" objectType="true">
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="ServiceMessageObject" namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1"/>
+//  </parameters>
+//  <exceptions>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.MediationBusinessException"/>
+//  </exceptions>
+//  <exceptions>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.MediationConfigurationException"/>
+//  </exceptions>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="out" variable="true">
+//    <dataOutputs target="//@executableElements.9/@parameters.0"/>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.OutputTerminal"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="smo" variable="true" assignable="false" input="true">
+//    <dataOutputs target="//@executableElements.9/@parameters.1"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="ServiceMessageObject" namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" nillable="false"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="&quot;Before Response DB Update &quot;" assignable="false">
+//    <dataOutputs target="//@executableElements.4/@parameters.0"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="smo.body" field="true">
+//    <dataOutputs target="//@executableElements.4/@parameters.1"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="executeNclseaNcl_Esb_Cc_UpdateRequestMsg" namespace="wsdl.http://NCLFuseBoxMediation/NclEsbCreditCardUpdateImport"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:LibraryActivity" name="Log Level: FINEST" description="BO print to logger" category="utility" template="final String FQCN = getClass().getName();&#xA;java.util.logging.Logger l = java.util.logging.Logger.getLogger(FQCN);&#xA;if(l.isLoggable(java.util.logging.Level.FINEST))&#xA; {&#xA;com.ibm.websphere.bo.BOXMLSerializer serializer =(com.ibm.websphere.bo.BOXMLSerializer) com.ibm.websphere.sca.ServiceManager.INSTANCE.locateService(&quot;com/ibm/websphere/bo/BOXMLSerializer&quot;);&#xA;java.io.ByteArrayOutputStream stream = new java.io.ByteArrayOutputStream();&#xA;serializer.writeDataObject(&lt;%object%>,&lt;%object%>.getType().getURI(),&lt;%object%>.getType().getName(),stream);&#xA;l.logp(java.util.logging.Level.FINEST, FQCN.substring(FQCN.lastIndexOf('.') + 1), &quot;snippet&quot;, String.format(&quot;%s: %s&quot;,&lt;%logMessage%> ,stream.toString() ));&#xA;}">
+//    <parameters name="logMessage" dataInputs="//@executableElements.2/@dataOutputs.0" displayName="Log Message">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.lang.String"/>
+//    </parameters>
+//    <parameters name="object" dataInputs="//@executableElements.3/@dataOutputs.0" displayName="object">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="commonj.sdo.DataObject"/>
+//    </parameters>
+//    <exceptions>
+//      <dataOutputs target="//@executableElements.5/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.io.IOException"/>
+//    </exceptions>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:ExceptionHandler" name="Exception Handler">
+//    <parameters name="ex2" dataInputs="//@executableElements.4/@exceptions.0/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.io.IOException"/>
+//    </parameters>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="smo.body" field="true">
+//    <dataOutputs target="//@executableElements.7/@parameters.0"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="executeNclseaNcl_Esb_Cc_UpdateRequestMsg" namespace="wsdl.http://NCLFuseBoxMediation/NclEsbCreditCardUpdateImport"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:LibraryActivity" name="print BO to log" description="Print a text representation of the input BO to System.out" category="utility" template="com.ibm.websphere.bo.BOXMLSerializer srv = (com.ibm.websphere.bo.BOXMLSerializer) new com.ibm.websphere.sca.ServiceManager().locateService(&quot;com/ibm/websphere/bo/BOXMLSerializer&quot;);&#xA;commonj.sdo.Type type = &lt;%businessObject%>.getType();&#xA;srv.writeDataObject(&lt;%businessObject%>, type.getURI(), type.getName(), java.lang.System.out);">
+//    <parameters name="businessObject" dataInputs="//@executableElements.6/@dataOutputs.0" displayName="business object">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="commonj.sdo.DataObject"/>
+//    </parameters>
+//    <exceptions>
+//      <dataOutputs target="//@executableElements.8/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.io.IOException"/>
+//    </exceptions>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:ExceptionHandler" name="Exception Handler">
+//    <parameters name="ex" dataInputs="//@executableElements.7/@exceptions.0/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.io.IOException"/>
+//    </parameters>
+//    <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="ex" variable="true">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.io.IOException"/>
+//    </executableElements>
+//    <executableGroups executableElements="//@executableElements.8/@executableElements.0"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:JavaActivity" name="fire" category="com.ibm.wsspi.sibx.mediation.OutputTerminal" className="com.ibm.wsspi.sibx.mediation.OutputTerminal" memberName="fire">
+//    <parameters name="OutputTerminal" dataInputs="//@executableElements.0/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.OutputTerminal"/>
+//    </parameters>
+//    <parameters name="smo" dataInputs="//@executableElements.1/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="ServiceMessageObject" namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" nillable="false"/>
+//    </parameters>
+//  </executableElements>
+//  <executableGroups executableElements="//@executableElements.2 //@executableElements.3 //@executableElements.4 //@executableElements.5"/>
+//  <executableGroups executableElements="//@executableElements.6 //@executableElements.7 //@executableElements.8"/>
+//  <executableGroups executableElements="//@executableElements.0 //@executableElements.1 //@executableElements.9"/>
+//</com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG
+
+//!SMAP!*L
+
+//!SMAP!3:2,1
+
+//!SMAP!4:3,1
+
+//!SMAP!5:5,11
+
+//!SMAP!7:19,1
+
+//!SMAP!8:21,5
+
+//!SMAP!11:29,1
+
+//!SMAP!1000000:123,1]]></property>
+      <property name="javaClass" value="sca.component.mediation.java.Custom1341927823171"/>
+      <property name="version" value="6.1.0"/>
+      <inputTerminal/>
+      <outputTerminal explicitType="false" type="NclEsbCreditCardUpdateImport:executeNclseaNcl_Esb_Cc_UpdateRequestMsg">
+        <wire targetNode="UpdateCreditCardResponse"/>
+      </outputTerminal>
+      <failTerminal/>
+    </node>
+    <node name="ResponseUpdateFailure" type="EventEmitter" mfcex:x="806" mfcex:y="178">
+      <property name="label" value="NCLFuseBoxMediation_ResponseUpdateFailure"/>
+      <property name="root" value="/body/executeNclseaNcl_Esb_Cc_Update"/>
+      <inputTerminal/>
+      <outputTerminal>
+        <wire targetNode="Stop3"/>
+      </outputTerminal>
+      <failTerminal/>
+    </node>
+    <node name="Stop1" type="Stop" mfcex:x="521" mfcex:y="248">
+      <inputTerminal/>
+    </node>
+    <node name="UpdateRequestMsgSQLPartner" type="ServiceInvoke" mfcex:x="381" mfcex:y="20">
+      <property name="referenceName" value="UpdateRequestMsgSQLPartner"/>
+      <property name="operationName" value="executeUpdateRequestMsgSQLBG"/>
+      <inputTerminal type="UpdateRequestMsgSQL:executeUpdateRequestMsgSQLBGRequestMsg"/>
+      <outputTerminal type="UpdateRequestMsgSQL:executeUpdateRequestMsgSQLBGResponseMsg"/>
+      <outputTerminal name="timeout" type="UpdateRequestMsgSQL:executeUpdateRequestMsgSQLBGRequestMsg"/>
+      <failTerminal>
+        <wire targetNode="Stop2"/>
+      </failTerminal>
+    </node>
+    <node name="Stop2" type="Stop" mfcex:x="521" mfcex:y="44">
+      <inputTerminal/>
+    </node>
+    <node name="EmitEvalonCreditCardFailure" type="EventEmitter" mfcex:x="381" mfcex:y="248">
+      <property name="label" value="NCLFuseBoxMediation_CreditCardInvocationError"/>
+      <property name="root" value="concat(/context/failInfo/failureString ,&quot; :  For Uniue Id:&quot; ,/context/transient/UNIQUE_VAL_ID )"/>
+      <property name="transactionMode" value="2"/>
+      <inputTerminal/>
+      <outputTerminal>
+        <wire targetNode="Stop1"/>
+      </outputTerminal>
+      <failTerminal/>
+    </node>
+    <node name="LogBeforeRequestUpdate" type="CustomMediation" mfcex:x="241" mfcex:y="20">
+      <property name="javaCode"><![CDATA[
+commonj.sdo.DataObject __smo = (commonj.sdo.DataObject)smo;
+
+commonj.sdo.DataObject __result__4 = __smo.getDataObject("body");
+
+java.lang.String __result__3 = "Before Request Log Update ";
+
+try {
+
+	{// Log Level: FINEST
+
+		final String FQCN = getClass().getName();
+		java.util.logging.Logger l = java.util.logging.Logger.getLogger(FQCN);
+		if(l.isLoggable(java.util.logging.Level.FINEST))
+		 {
+		com.ibm.websphere.bo.BOXMLSerializer serializer =(com.ibm.websphere.bo.BOXMLSerializer) com.ibm.websphere.sca.ServiceManager.INSTANCE.locateService("com/ibm/websphere/bo/BOXMLSerializer");
+		java.io.ByteArrayOutputStream stream = new java.io.ByteArrayOutputStream();
+		serializer.writeDataObject(__result__4,__result__4.getType().getURI(),__result__4.getType().getName(),stream);
+		l.logp(java.util.logging.Level.FINEST, FQCN.substring(FQCN.lastIndexOf('.') + 1), "snippet", String.format("%s: %s",__result__3 ,stream.toString() ));
+		}
+
+	}
+
+}
+
+catch(java.io.IOException ex2){
+
+}
+
+out.fire(__smo);
+
+
+//@generated:com.ibm.wbit.activity.ui
+//<?xml version="1.0" encoding="UTF-8"?>
+//<com.ibm.wbit.activity:CompositeActivity xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.wbit.activity="http:///com/ibm/wbit/activity.ecore" name="ActivityMethod">
+//  <parameters name="inputTerminal">
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.InputTerminal"/>
+//  </parameters>
+//  <parameters name="smo" objectType="true">
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="ServiceMessageObject" namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1"/>
+//  </parameters>
+//  <exceptions>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.MediationBusinessException"/>
+//  </exceptions>
+//  <exceptions>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.MediationConfigurationException"/>
+//  </exceptions>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="out" variable="true">
+//    <dataOutputs target="//@executableElements.6/@parameters.0"/>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.OutputTerminal"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="smo" variable="true" assignable="false" input="true">
+//    <dataOutputs target="//@executableElements.6/@parameters.1"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="ServiceMessageObject" namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" nillable="false"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="&quot;Before Request Log Update &quot;" assignable="false">
+//    <dataOutputs target="//@executableElements.4/@parameters.0"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="smo.body" field="true">
+//    <dataOutputs target="//@executableElements.4/@parameters.1"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="executeUpdateRequestMsgSQLBGRequestMsg" namespace="wsdl.http://NCLFuseBoxMediation/UpdateRequestMsgSQL"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:LibraryActivity" name="Log Level: FINEST" description="BO print to logger" category="utility" template="final String FQCN = getClass().getName();&#xA;java.util.logging.Logger l = java.util.logging.Logger.getLogger(FQCN);&#xA;if(l.isLoggable(java.util.logging.Level.FINEST))&#xA; {&#xA;com.ibm.websphere.bo.BOXMLSerializer serializer =(com.ibm.websphere.bo.BOXMLSerializer) com.ibm.websphere.sca.ServiceManager.INSTANCE.locateService(&quot;com/ibm/websphere/bo/BOXMLSerializer&quot;);&#xA;java.io.ByteArrayOutputStream stream = new java.io.ByteArrayOutputStream();&#xA;serializer.writeDataObject(&lt;%object%>,&lt;%object%>.getType().getURI(),&lt;%object%>.getType().getName(),stream);&#xA;l.logp(java.util.logging.Level.FINEST, FQCN.substring(FQCN.lastIndexOf('.') + 1), &quot;snippet&quot;, String.format(&quot;%s: %s&quot;,&lt;%logMessage%> ,stream.toString() ));&#xA;}">
+//    <parameters name="logMessage" dataInputs="//@executableElements.2/@dataOutputs.0" displayName="Log Message">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.lang.String"/>
+//    </parameters>
+//    <parameters name="object" dataInputs="//@executableElements.3/@dataOutputs.0" displayName="object">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="commonj.sdo.DataObject"/>
+//    </parameters>
+//    <exceptions>
+//      <dataOutputs target="//@executableElements.5/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.io.IOException"/>
+//    </exceptions>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:ExceptionHandler" name="Exception Handler">
+//    <parameters name="ex2" dataInputs="//@executableElements.4/@exceptions.0/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.io.IOException"/>
+//    </parameters>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:JavaActivity" name="fire" category="com.ibm.wsspi.sibx.mediation.OutputTerminal" className="com.ibm.wsspi.sibx.mediation.OutputTerminal" memberName="fire">
+//    <parameters name="OutputTerminal" dataInputs="//@executableElements.0/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.OutputTerminal"/>
+//    </parameters>
+//    <parameters name="smo" dataInputs="//@executableElements.1/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="ServiceMessageObject" namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" nillable="false"/>
+//    </parameters>
+//  </executableElements>
+//  <executableGroups executableElements="//@executableElements.2 //@executableElements.3 //@executableElements.4 //@executableElements.5"/>
+//  <executableGroups executableElements="//@executableElements.0 //@executableElements.1 //@executableElements.6"/>
+//</com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG
+
+//!SMAP!*L
+
+//!SMAP!3:3,1
+
+//!SMAP!4:2,1
+
+//!SMAP!5:5,11
+
+//!SMAP!7:19,1
+
+//!SMAP!1000000:88,1]]></property>
+      <property name="javaClass" value="sca.component.mediation.java.Custom1341927859671"/>
+      <property name="version" value="6.1.0"/>
+      <inputTerminal/>
+      <outputTerminal explicitType="false" type="UpdateRequestMsgSQL:executeUpdateRequestMsgSQLBGRequestMsg">
+        <wire targetNode="UpdateRequestMsgSQLPartner"/>
+      </outputTerminal>
+      <failTerminal/>
+    </node>
+    <node name="LogServiceInvocationFault" type="CustomMediation" mfcex:x="241" mfcex:y="248">
+      <property name="javaCode"><![CDATA[
+commonj.sdo.DataObject __smo = (commonj.sdo.DataObject)smo;
+
+commonj.sdo.DataObject __result__4 = __smo.getDataObject("context").getDataObject("failInfo");
+
+java.lang.String __result__3 = "Exception when calling credit card company for UNIQUE ID: ";
+
+try {
+
+	{// Log Level: SEVERE
+
+		final String FQCN = getClass().getName();
+		java.util.logging.Logger l = java.util.logging.Logger.getLogger(FQCN);
+		if(l.isLoggable(java.util.logging.Level.SEVERE))
+		 {
+		com.ibm.websphere.bo.BOXMLSerializer serializer =(com.ibm.websphere.bo.BOXMLSerializer) com.ibm.websphere.sca.ServiceManager.INSTANCE.locateService("com/ibm/websphere/bo/BOXMLSerializer");
+		java.io.ByteArrayOutputStream stream = new java.io.ByteArrayOutputStream();
+		serializer.writeDataObject(__result__4,__result__4.getType().getURI(),__result__4.getType().getName(),stream);
+		l.logp(java.util.logging.Level.SEVERE, FQCN.substring(FQCN.lastIndexOf('.') + 1), "snippet", String.format("%s: %s",__result__3 ,stream.toString() ));
+		}
+
+	}
+
+}
+
+catch(java.io.IOException ex2){
+
+}
+
+out.fire(__smo);
+
+
+//@generated:com.ibm.wbit.activity.ui
+//<?xml version="1.0" encoding="UTF-8"?>
+//<com.ibm.wbit.activity:CompositeActivity xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.wbit.activity="http:///com/ibm/wbit/activity.ecore" name="ActivityMethod">
+//  <parameters name="inputTerminal">
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.InputTerminal"/>
+//  </parameters>
+//  <parameters name="smo" objectType="true">
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="ServiceMessageObject" namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1"/>
+//  </parameters>
+//  <exceptions>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.MediationBusinessException"/>
+//  </exceptions>
+//  <exceptions>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.MediationConfigurationException"/>
+//  </exceptions>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="out" variable="true">
+//    <dataOutputs target="//@executableElements.6/@parameters.0"/>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.OutputTerminal"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="smo" variable="true" assignable="false" input="true">
+//    <dataOutputs target="//@executableElements.6/@parameters.1"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="ServiceMessageObject" namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" nillable="false"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="&quot;Exception when calling credit card company for UNIQUE ID: &quot;" assignable="false">
+//    <dataOutputs target="//@executableElements.4/@parameters.0"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="smo.context.failInfo" field="true">
+//    <dataOutputs target="//@executableElements.4/@parameters.1"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="FailInfoType" namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:LibraryActivity" name="Log Level: SEVERE" description="BO print to logger" category="utility" template="final String FQCN = getClass().getName();&#xA;java.util.logging.Logger l = java.util.logging.Logger.getLogger(FQCN);&#xA;if(l.isLoggable(java.util.logging.Level.SEVERE))&#xA; {&#xA;com.ibm.websphere.bo.BOXMLSerializer serializer =(com.ibm.websphere.bo.BOXMLSerializer) com.ibm.websphere.sca.ServiceManager.INSTANCE.locateService(&quot;com/ibm/websphere/bo/BOXMLSerializer&quot;);&#xA;java.io.ByteArrayOutputStream stream = new java.io.ByteArrayOutputStream();&#xA;serializer.writeDataObject(&lt;%object%>,&lt;%object%>.getType().getURI(),&lt;%object%>.getType().getName(),stream);&#xA;l.logp(java.util.logging.Level.SEVERE, FQCN.substring(FQCN.lastIndexOf('.') + 1), &quot;snippet&quot;, String.format(&quot;%s: %s&quot;,&lt;%logMessage%> ,stream.toString() ));&#xA;}">
+//    <parameters name="logMessage" dataInputs="//@executableElements.2/@dataOutputs.0" displayName="Log Message">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.lang.String"/>
+//    </parameters>
+//    <parameters name="object" dataInputs="//@executableElements.3/@dataOutputs.0" displayName="object">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="commonj.sdo.DataObject"/>
+//    </parameters>
+//    <exceptions>
+//      <dataOutputs target="//@executableElements.5/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.io.IOException"/>
+//    </exceptions>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:ExceptionHandler" name="Exception Handler">
+//    <parameters name="ex2" dataInputs="//@executableElements.4/@exceptions.0/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.io.IOException"/>
+//    </parameters>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:JavaActivity" name="fire" category="com.ibm.wsspi.sibx.mediation.OutputTerminal" className="com.ibm.wsspi.sibx.mediation.OutputTerminal" memberName="fire">
+//    <parameters name="OutputTerminal" dataInputs="//@executableElements.0/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.OutputTerminal"/>
+//    </parameters>
+//    <parameters name="smo" dataInputs="//@executableElements.1/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="ServiceMessageObject" namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" nillable="false"/>
+//    </parameters>
+//  </executableElements>
+//  <executableGroups executableElements="//@executableElements.2 //@executableElements.3 //@executableElements.4 //@executableElements.5"/>
+//  <executableGroups executableElements="//@executableElements.0 //@executableElements.1 //@executableElements.6"/>
+//</com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG
+
+//!SMAP!*L
+
+//!SMAP!3:3,1
+
+//!SMAP!4:2,1
+
+//!SMAP!5:5,11
+
+//!SMAP!7:19,1
+
+//!SMAP!1000000:88,1]]></property>
+      <property name="javaClass" value="sca.component.mediation.java.Custom1341927859687"/>
+      <property name="version" value="6.1.0"/>
+      <inputTerminal/>
+      <outputTerminal>
+        <wire targetNode="EmitEvalonCreditCardFailure"/>
+      </outputTerminal>
+      <failTerminal/>
+    </node>
+    <node name="UpdateRequesMsgLog" type="XSLTransformation" mfcex:x="96" mfcex:y="20">
+      <property name="root" value="/"/>
+      <property name="XSLTransform" value="xslt/UpdateRequesMsgLog_req_1.xsl"/>
+      <property name="XMXMap" value="xslt/UpdateRequesMsgLog_req_1.map"/>
+      <property name="SMOVersion" value="SMO61"/>
+      <inputTerminal/>
+      <outputTerminal type="UpdateRequestMsgSQL:executeUpdateRequestMsgSQLBGRequestMsg">
+        <wire targetNode="LogBeforeRequestUpdate"/>
+      </outputTerminal>
+      <failTerminal/>
+    </node>
+    <node name="LogResponseUpdateFailure" type="CustomMediation" mfcex:x="666" mfcex:y="178">
+      <property name="javaCode"><![CDATA[
+commonj.sdo.DataObject __smo = (commonj.sdo.DataObject)smo;
+
+commonj.sdo.DataObject __result__3 = __smo.getDataObject("context").getDataObject("failInfo");
+
+try {
+
+	{// print BO to log
+
+		com.ibm.websphere.bo.BOXMLSerializer srv = (com.ibm.websphere.bo.BOXMLSerializer) new com.ibm.websphere.sca.ServiceManager().locateService("com/ibm/websphere/bo/BOXMLSerializer");
+		commonj.sdo.Type type = __result__3.getType();
+		srv.writeDataObject(__result__3, type.getURI(), type.getName(), java.lang.System.out);
+
+	}
+
+}
+
+catch(java.io.IOException ex){
+
+}
+
+out.fire(__smo);
+
+
+//@generated:com.ibm.wbit.activity.ui
+//<?xml version="1.0" encoding="UTF-8"?>
+//<com.ibm.wbit.activity:CompositeActivity xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.wbit.activity="http:///com/ibm/wbit/activity.ecore" name="ActivityMethod">
+//  <parameters name="inputTerminal">
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.InputTerminal"/>
+//  </parameters>
+//  <parameters name="smo" objectType="true">
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="ServiceMessageObject" namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1"/>
+//  </parameters>
+//  <exceptions>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.MediationBusinessException"/>
+//  </exceptions>
+//  <exceptions>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.MediationConfigurationException"/>
+//  </exceptions>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="out" variable="true">
+//    <dataOutputs target="//@executableElements.5/@parameters.0"/>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.OutputTerminal"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="smo" variable="true" assignable="false" input="true">
+//    <dataOutputs target="//@executableElements.5/@parameters.1"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="ServiceMessageObject" namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" nillable="false"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="smo.context.failInfo" field="true">
+//    <dataOutputs target="//@executableElements.3/@parameters.0"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="FailInfoType" namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:LibraryActivity" name="print BO to log" description="Print a text representation of the input BO to System.out" category="utility" template="com.ibm.websphere.bo.BOXMLSerializer srv = (com.ibm.websphere.bo.BOXMLSerializer) new com.ibm.websphere.sca.ServiceManager().locateService(&quot;com/ibm/websphere/bo/BOXMLSerializer&quot;);&#xA;commonj.sdo.Type type = &lt;%businessObject%>.getType();&#xA;srv.writeDataObject(&lt;%businessObject%>, type.getURI(), type.getName(), java.lang.System.out);">
+//    <parameters name="businessObject" dataInputs="//@executableElements.2/@dataOutputs.0" displayName="business object">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="commonj.sdo.DataObject"/>
+//    </parameters>
+//    <exceptions>
+//      <dataOutputs target="//@executableElements.4/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.io.IOException"/>
+//    </exceptions>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:ExceptionHandler" name="Exception Handler">
+//    <parameters name="ex" dataInputs="//@executableElements.3/@exceptions.0/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.io.IOException"/>
+//    </parameters>
+//    <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="ex" variable="true">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.io.IOException"/>
+//    </executableElements>
+//    <executableGroups executableElements="//@executableElements.4/@executableElements.0"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:JavaActivity" name="fire" category="com.ibm.wsspi.sibx.mediation.OutputTerminal" className="com.ibm.wsspi.sibx.mediation.OutputTerminal" memberName="fire">
+//    <parameters name="OutputTerminal" dataInputs="//@executableElements.0/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.OutputTerminal"/>
+//    </parameters>
+//    <parameters name="smo" dataInputs="//@executableElements.1/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="ServiceMessageObject" namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" nillable="false"/>
+//    </parameters>
+//  </executableElements>
+//  <executableGroups executableElements="//@executableElements.2 //@executableElements.3 //@executableElements.4"/>
+//  <executableGroups executableElements="//@executableElements.0 //@executableElements.1 //@executableElements.5"/>
+//</com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG
+
+//!SMAP!*L
+
+//!SMAP!3:2,1
+
+//!SMAP!4:4,5
+
+//!SMAP!7:12,1
+
+//!SMAP!1000000:77,1]]></property>
+      <property name="javaClass" value="sca.component.mediation.java.Custom1353404499218"/>
+      <property name="version" value="6.1.0"/>
+      <inputTerminal/>
+      <outputTerminal>
+        <wire targetNode="ResponseUpdateFailure"/>
+      </outputTerminal>
+      <failTerminal/>
+    </node>
+    <node name="XSLT_LoadEmail" type="XSLTransformation" mfcex:x="243" mfcex:y="337">
+      <property name="root" value="/"/>
+      <property name="XSLTransform" value="xslt/XSLT_LoadEmail_sub_1.xsl"/>
+      <property name="XMXMap" value="xslt/XSLT_LoadEmail_sub_1.map"/>
+      <property name="SMOVersion" value="SMO61"/>
+      <inputTerminal type="FuseBoxCredCardProvider:processCardInfoRequestMsg"/>
+      <outputTerminal type="EmailServiceImport:sendSimpleAlertEmailRequestMsg">
+        <wire targetNode="ServiceInvoke1"/>
+      </outputTerminal>
+      <failTerminal/>
+    </node>
+    <node name="ServiceInvoke1" type="ServiceInvoke" mfcex:x="411" mfcex:y="338">
+      <property name="referenceName" promotedPropertyGroup="ProdNCLFuseBoxMediation.FuseBoxMediationSubFlow" promotedPropertyName="EmailServiceImportPartner" value="EmailServiceImportPartner"/>
+      <property name="operationName" value="sendSimpleAlertEmail"/>
+      <inputTerminal type="EmailServiceImport:sendSimpleAlertEmailRequestMsg"/>
+      <outputTerminal name="timeout" type="EmailServiceImport:sendSimpleAlertEmailRequestMsg">
+        <wire targetNode="Stop11"/>
+      </outputTerminal>
+      <failTerminal>
+        <wire targetNode="Stop4"/>
+      </failTerminal>
+    </node>
+    <node name="Stop11" type="Stop" mfcex:x="539" mfcex:y="333">
+      <inputTerminal/>
+    </node>
+    <node name="Stop4" type="Stop" mfcex:x="543" mfcex:y="395">
+      <inputTerminal/>
+    </node>
+  </subflow>
+</mediationFlow>

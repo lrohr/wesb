@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Q1:Request xmlns:Q1="http://FuseBoxLib"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://FuseBoxLib FuseBoxRequest.xsd " type="AuthorizationRequest">
+	<Field name="Chain_Code">NC</Field>
+	<Field name="Location_ID">MIAMI</Field>
+</Q1:Request>

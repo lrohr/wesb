@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:EIS="http://www.ibm.com/xmlns/prod/websphere/scdl/eis/6.0.0" xmlns:ns1="http://FuseBoxLib/ProcessCreditCard" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="NCLFuseBoxMediationExport1" name="NCLFuseBoxMediationExport1" target="ProdNCLFuseBoxMediation">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="async" portType="ns1:ProcessCreditCard"/>
+  </interfaces>
+  <esbBinding xsi:type="EIS:JMSExportBinding" dataBindingType="com.ibm.ncl.fusebox.NclCreditCardInfoBinding">
+    <resourceAdapter type="com.ibm.ws.sib.api.jmsra.impl.JmsJcaResourceAdapterImpl"/>
+    <connection type="com.ibm.ws.sib.api.jmsra.impl.JmsJcaActivationSpecImpl" listenerType="javax.jms.MessageListener" selectorType="com.ibm.wbiserver.functionselector.ConstantFunctionSelector">
+      <properties>
+        <DestinationType>javax.jms.Queue</DestinationType>
+      </properties>
+      <authentication resAuthAlias="SCA_Auth_Alias"/>
+    </connection>
+    <methodBinding method="process" nativeMethod="process"/>
+    <destination implType="com.ibm.ws.sib.api.jms.impl.JmsQueueImpl" type="javax.jms.Queue" usage="receive"/>
+  </esbBinding>
+</scdl:export>

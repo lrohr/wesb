@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<Response Type="AuthorizationResponse">
+	<Field name="Chain_Code">NC</Field>
+	<Field name="Location_ID">MIAMI</Field>
+	<Field name="Venue_ID">RESUSD</Field>
+	<Field name="Message_ID">5638868</Field>
+	<Field name="Invoice_Nbr">20635390</Field>
+	<Field name="Approval_Code">OK8144</Field>
+</Response>

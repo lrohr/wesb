@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><body xmlns:ns2="http://FuseBoxLib/ProcessCreditCard" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ns2:process>
+    <cardInfo>
+      <currencyCd>GBP</currencyCd>
+      <credCrdNbr>4012000077777777</credCrdNbr>
+      <transAmt>2274.20</transAmt>
+      <ccExpDat>0414</ccExpDat>
+      <uniqueValId>5638895</uniqueValId>
+      <transId>43022777</transId>
+      <arrivalDat>072212</arrivalDat>
+      <departureDat>071512</departureDat>
+      <shipNam>EPIC</shipNam>
+      <destEntityId>19599027</destEntityId>
+      <ccTransId>9185700</ccTransId>
+      <transTypeTxt>PMNT</transTypeTxt>
+      <srcEntityId>13090</srcEntityId>
+      <resGrpId>19599027</resGrpId>
+      <inputResId>19599027</inputResId>
+      <officeCodeTxt>NCL LONDON</officeCodeTxt>
+      <srcEntityTxt>SW_RES</srcEntityTxt>
+      <ccTypeTxt>VISA</ccTypeTxt>
+      <terminalId>SWA</terminalId>
+    </cardInfo>
+  </ns2:process>
+</body>

@@ -1,0 +1,11 @@
+* SMAP
+NCL2FuseBoxMap_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 NCL2FuseBoxMap_req_1.map
+/ProdNCLFuseBoxMediation/xslt/NCL2FuseBoxMap_req_1.map
+*L
+2:80,7
+1:53,17
+*E

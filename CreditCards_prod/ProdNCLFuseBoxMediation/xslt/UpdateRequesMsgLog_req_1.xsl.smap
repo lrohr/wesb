@@ -1,0 +1,13 @@
+* SMAP
+UpdateRequesMsgLog_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 UpdateRequesMsgLog_req_1.map
+/ProdNCLFuseBoxMediation/xslt/UpdateRequesMsgLog_req_1.map
+*L
+2:90,10
+4:85,3
+1:56,17
+3:100,5
+*E

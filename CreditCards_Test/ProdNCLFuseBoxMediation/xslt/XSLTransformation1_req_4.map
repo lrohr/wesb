@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCLFuseBoxMediation/xslt/XSLTransformation1_req_4" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCLFuseBoxMediation/xslt/XSLTransformation1_req_4">
+    <input correlationContext="" message="{http://FuseBoxLib/ProcessFailedCreditCard}processFailedTxnRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/body"/>
+    <output correlationContext="" message="{http://NCLFuseBoxMediation/FindFailedCCTxnSQLImport}retrieveallFailedCreditCardTxnBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/body"/>
+    <imports>
+        <import kind="xml" location="XSLTransformation1_req_4.xml"/>
+    </imports>
+    <mappingDeclaration name="XSLTransformation1_req_4">
+        <input path="body"/>
+        <output path="body"/>
+        <assign value="Create">
+            <output path="retrieveallFailedCreditCardTxnBG/retrieveallFailedCreditCardTxnBGInput/verb"/>
+        </assign>
+    </mappingDeclaration>
+</mappingRoot>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:EIS="http://www.ibm.com/xmlns/prod/websphere/scdl/eis/6.0.0" xmlns:ns1="http://NCLFuseBoxMediation/NclEsbCreditCardUpdateImport" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="NclEsbCreditCardUpdateImport" name="NclEsbCreditCardUpdateImport">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:NclEsbCreditCardUpdateImport">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="false"/>
+    </interface>
+  </interfaces>
+  <esbBinding xsi:type="EIS:EISImportBinding" dataBindingType="com.ibm.j2ca.jdbc.emd.databinding.JDBCDataBindingGenerator">
+    <resourceAdapter name="ProdNCLFuseBoxMediationApp.IBM WebSphere Adapter for JDBC" type="com.ibm.j2ca.jdbc.JDBCResourceAdapter" version="6.2.0.4">
+      <properties>
+        <adapterID>001</adapterID>
+      </properties>
+    </resourceAdapter>
+    <connection type="com.ibm.j2ca.jdbc.JDBCManagedConnectionFactory" interactionType="com.ibm.j2ca.jdbc.JDBCInteractionSpec">
+      <properties>
+        <XADataSourceName>SEAWARE_PROD_JNDI</XADataSourceName>
+        <adapterID>001</adapterID>
+        <dataSourceJNDIName>SEAWARE_PROD_JNDI</dataSourceJNDIName>
+        <databaseVendor>ORACLE</databaseVendor>
+        <returnDummyBOForSP>false</returnDummyBOForSP>
+        <userName>nclsea</userName>
+        <connectionType>XADataSourceJNDI</connectionType>
+        <detectXMLCharacter>[A]</detectXMLCharacter>
+        <XADataSourceJNDIName>SEAWARE_PROD_JNDI</XADataSourceJNDIName>
+      </properties>
+    </connection>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_esb_cc_update.NclseaNcl_Esb_Cc_UpdateDataBinding" method="executeNclseaNcl_Esb_Cc_Update" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_esb_cc_update.NclseaNcl_Esb_Cc_UpdateDataBinding">
+      <interaction>
+        <properties>
+          <functionName>Execute</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+  </esbBinding>
+</scdl:import>

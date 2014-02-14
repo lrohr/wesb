@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<body xmlns:io5="http://www.w3.org/2005/08/addressing" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:io4="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:out3="wsdl.http://NCLFuseBoxMediation/NclEsbCreditCardUpdateImport" xmlns:io3="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:io="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:io2="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:out="http://NCLFuseBoxMediation/NclEsbCreditCardUpdateImport" xmlns:out2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_esb_cc_update">
+  <out:executeNclseaNcl_Esb_Cc_Update>
+    <out:executeNclseaNcl_Esb_Cc_UpdateInput>
+      <p_resp_trans_id>5638873</p_resp_trans_id>
+      <p_resp_message><![CDATA[
+        <Response xmlns:httpsca="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:mq="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:smo="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:tns="http://FuseBoxLib/FuseBoxCredCardProvider" xmlns:tns1="http://www.w3.org/2005/08/addressing" xmlns:tns_1="wsdl.http://FuseBoxLib/FuseBoxCredCardProvider" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" Type="AuthorizationResponse">
+          <Field name="Chain_Code">NC</Field>
+          <Field name="Location_ID">MIAMI</Field>
+          <Field name="Venue_ID">RESUSD</Field>
+          <Field name="Message_ID">5638873</Field>
+          <Field name="Invoice_Nbr">19567560</Field>
+          <Field name="Approval_Code">OK8575</Field>
+        </Response>]]></p_resp_message>
+      <p_resp_response_code/>
+      <p_resp_response_text/>
+      <p_resp_approval_code>OK8575</p_resp_approval_code>
+    </out:executeNclseaNcl_Esb_Cc_UpdateInput>
+  </out:executeNclseaNcl_Esb_Cc_Update>
+</body>

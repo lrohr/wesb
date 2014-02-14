@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:BOMapper.mednode="mednode://mednodes/BOMapper.mednode/BOMapper" xmlns:CustomMediation.mednode="mednode://mednodes/CustomMediation.mednode/CustomMediation" xmlns:FanIn.mednode="mednode://mednodes/FanIn.mednode/FanIn" xmlns:FanOut.mednode="mednode://mednodes/FanOut.mednode/FanOut" xmlns:Input.mednode="mednode://mednodes/Input.mednode/Input" xmlns:ProdNCLFuseBoxMediation.medflow="ProdNCLFuseBoxMediation.medflow" xmlns:ServiceInvoke.mednode="mednode://mednodes/ServiceInvoke.mednode/ServiceInvoke" xmlns:Stop.mednode="mednode://mednodes/Stop.mednode/Stop" xmlns:Subflow.mednode="mednode://mednodes/Subflow.mednode/Subflow" xmlns:XSLTransformation.mednode="mednode://mednodes/XSLTransformation.mednode/XSLTransformation" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow2="http://www.ibm.com/2006/eflow" xmlns:type="http://www.ibm.com/2006/eflow/type" xmlns:utility="http://www.ibm.com/2006/eflow/utility" name="ProdNCLFuseBoxMediation" nsURI="ProdNCLFuseBoxMediation.medflow" nsPrefix="ProdNCLFuseBoxMediation.medflow">
+  <eClassifiers xmi:type="eflow2:FCMComposite" name="ProdNCLFuseBoxMediation_I_2">
+    <eSuperTypes href="http://www.ibm.com/2006/eflow#//FCMBlock"/>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.name" name="name" lowerBound="1" defaultValueLiteral="">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <composition>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_1">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://FuseBoxLib/ProcessCreditCard}processRequestMsg"/>
+        </elements>
+        <elements id="transientContext">
+          <type xmi:type="type:XSDType" xsiType="{http://NCLFuseBoxMediation}FuseBoxMediationSharedCtx"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_2">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://FuseBoxLib/FuseBoxCredCardProvider}processCardInfoRequestMsg"/>
+        </elements>
+        <elements id="transientContext">
+          <type xmi:type="type:XSDType" xsiType="{http://NCLFuseBoxMediation}FuseBoxMediationSharedCtx"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_3">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://NCLFuseBoxMediation/NclEsbCreditCardUpdateImport}executeNclseaNcl_Esb_Cc_UpdateResponseMsg"/>
+        </elements>
+        <elements id="transientContext">
+          <type xmi:type="type:XSDType" xsiType="{http://NCLFuseBoxMediation}FuseBoxMediationSharedCtx"/>
+        </elements>
+      </type>
+      <nodes xmi:type="Input.mednode:Input" xmi:id="Input_1" name="ProcessCreditCard_process_Input" transientContext="{http://NCLFuseBoxMediation}FuseBoxMediationSharedCtx">
+        <location x="10" y="110"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_1"/>
+        <translation xmi:type="utility:ConstantString" string="process : ProcessCreditCard"/>
+      </nodes>
+      <nodes xmi:type="CustomMediation.mednode:CustomMediation" xmi:id="CustomMediation_1" name="SetTransientContext" javaCode="commonj.sdo.DataObject __smo = (commonj.sdo.DataObject)smo;&#xD;&#xA;java.lang.String __result__4 = &quot;FuseBoxInput&quot;;&#xD;&#xA;try {&#xD;&#xA;&#x9;{// Log Level: FINEST&#xD;&#xA;&#x9;&#x9;final String FQCN = getClass().getName();&#xA;&#x9;&#x9;java.util.logging.Logger l = java.util.logging.Logger.getLogger(FQCN);&#xA;&#x9;&#x9;if(l.isLoggable(java.util.logging.Level.FINEST))&#xA;&#x9;&#x9; {&#xA;&#x9;&#x9;com.ibm.websphere.bo.BOXMLSerializer serializer =(com.ibm.websphere.bo.BOXMLSerializer) com.ibm.websphere.sca.ServiceManager.INSTANCE.locateService(&quot;com/ibm/websphere/bo/BOXMLSerializer&quot;);&#xA;&#x9;&#x9;java.io.ByteArrayOutputStream stream = new java.io.ByteArrayOutputStream();&#xA;&#x9;&#x9;serializer.writeDataObject(__smo,__smo.getType().getURI(),__smo.getType().getName(),stream);&#xA;&#x9;&#x9;l.logp(java.util.logging.Level.FINEST, FQCN.substring(FQCN.lastIndexOf('.') + 1), &quot;snippet&quot;, String.format(&quot;%s: %s&quot;,__result__4 ,stream.toString() ));&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;catch(java.io.IOException ex2){&#xD;&#xA;}&#xD;&#xA;// Set the Transient Context variable used later in the process&#xD;&#xA;java.lang.String __result__3 = __smo.getDataObject(&quot;body&quot;).getDataObject(&quot;process&quot;).getDataObject(&quot;cardInfo&quot;).getString(&quot;credCrdNbr&quot;);&#xD;&#xA;__smo.getDataObject(&quot;context&quot;).getDataObject(&quot;transient&quot;).setString(&quot;CRED_CRD_NBR&quot;, __result__3);&#xD;&#xA;java.lang.String __result__10 = __smo.getDataObject(&quot;body&quot;).getDataObject(&quot;process&quot;).getDataObject(&quot;cardInfo&quot;).getString(&quot;currencyCd&quot;);&#xD;&#xA;__smo.getDataObject(&quot;context&quot;).getDataObject(&quot;transient&quot;).setString(&quot;CURRENCY_CD&quot;, __result__10);&#xD;&#xA;java.lang.String __result__12 = __smo.getDataObject(&quot;body&quot;).getDataObject(&quot;process&quot;).getDataObject(&quot;cardInfo&quot;).getString(&quot;uniqueValId&quot;);&#xD;&#xA;__smo.getDataObject(&quot;context&quot;).getDataObject(&quot;transient&quot;).setString(&quot;UNIQUE_VAL_ID&quot;, __result__12);&#xD;&#xA;out.fire(__smo);&#xD;&#xA;&#xA;//@generated:com.ibm.wbit.activity.ui&#xA;//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>&#xA;//  &lt;parameters name=&quot;inputTerminal&quot;>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;com.ibm.wsspi.sibx.mediation.InputTerminal&quot;/>&#xA;//  &lt;/parameters>&#xA;//  &lt;parameters name=&quot;smo&quot; objectType=&quot;true&quot;>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;ServiceMessageObject&quot; namespace=&quot;http://www.ibm.com/websphere/sibx/smo/v6.0.1&quot;/>&#xA;//  &lt;/parameters>&#xA;//  &lt;exceptions>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;com.ibm.wsspi.sibx.mediation.MediationBusinessException&quot;/>&#xA;//  &lt;/exceptions>&#xA;//  &lt;exceptions>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;com.ibm.wsspi.sibx.mediation.MediationConfigurationException&quot;/>&#xA;//  &lt;/exceptions>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;out&quot; variable=&quot;true&quot;>&#xA;//    &lt;dataOutputs target=&quot;//@executableElements.13/@parameters.0&quot;/>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;com.ibm.wsspi.sibx.mediation.OutputTerminal&quot;/>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;smo&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>&#xA;//    &lt;dataOutputs target=&quot;//@executableElements.13/@parameters.1&quot;/>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;ServiceMessageObject&quot; namespace=&quot;http://www.ibm.com/websphere/sibx/smo/v6.0.1&quot; nillable=&quot;false&quot;/>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;smo.body.process.cardInfo.credCrdNbr&quot; field=&quot;true&quot;>&#xA;//    &lt;dataOutputs target=&quot;//@executableElements.8&quot;/>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot; nillable=&quot;false&quot;/>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;FuseBoxInput&amp;quot;&quot; assignable=&quot;false&quot;>&#xA;//    &lt;dataOutputs target=&quot;//@executableElements.5/@parameters.0&quot;/>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;smo&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>&#xA;//    &lt;dataOutputs target=&quot;//@executableElements.5/@parameters.1&quot;/>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;ServiceMessageObject&quot; namespace=&quot;http://www.ibm.com/websphere/sibx/smo/v6.0.1&quot;/>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;Log Level: FINEST&quot; description=&quot;BO print to logger&quot; category=&quot;utility&quot; template=&quot;final String FQCN = getClass().getName();&amp;#xA;java.util.logging.Logger l = java.util.logging.Logger.getLogger(FQCN);&amp;#xA;if(l.isLoggable(java.util.logging.Level.FINEST))&amp;#xA; {&amp;#xA;com.ibm.websphere.bo.BOXMLSerializer serializer =(com.ibm.websphere.bo.BOXMLSerializer) com.ibm.websphere.sca.ServiceManager.INSTANCE.locateService(&amp;quot;com/ibm/websphere/bo/BOXMLSerializer&amp;quot;);&amp;#xA;java.io.ByteArrayOutputStream stream = new java.io.ByteArrayOutputStream();&amp;#xA;serializer.writeDataObject(&amp;lt;%object%>,&amp;lt;%object%>.getType().getURI(),&amp;lt;%object%>.getType().getName(),stream);&amp;#xA;l.logp(java.util.logging.Level.FINEST, FQCN.substring(FQCN.lastIndexOf('.') + 1), &amp;quot;snippet&amp;quot;, String.format(&amp;quot;%s: %s&amp;quot;,&amp;lt;%logMessage%> ,stream.toString() ));&amp;#xA;}&quot;>&#xA;//    &lt;parameters name=&quot;logMessage&quot; dataInputs=&quot;//@executableElements.3/@dataOutputs.0&quot; displayName=&quot;Log Message&quot;>&#xA;//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>&#xA;//    &lt;/parameters>&#xA;//    &lt;parameters name=&quot;object&quot; dataInputs=&quot;//@executableElements.4/@dataOutputs.0&quot; displayName=&quot;object&quot;>&#xA;//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;commonj.sdo.DataObject&quot;/>&#xA;//    &lt;/parameters>&#xA;//    &lt;exceptions>&#xA;//      &lt;dataOutputs target=&quot;//@executableElements.6/@parameters.0&quot;/>&#xA;//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.io.IOException&quot;/>&#xA;//    &lt;/exceptions>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:ExceptionHandler&quot; name=&quot;Exception Handler&quot;>&#xA;//    &lt;parameters name=&quot;ex2&quot; dataInputs=&quot;//@executableElements.5/@exceptions.0/@dataOutputs.0&quot;>&#xA;//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.io.IOException&quot;/>&#xA;//    &lt;/parameters>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Set the Transient Context variable used later in the process&amp;quot;&quot; assignable=&quot;false&quot;>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.2/@dataOutputs.0&quot; value=&quot;smo.context.transient.CRED_CRD_NBR&quot; field=&quot;true&quot;>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot; nillable=&quot;false&quot;/>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;smo.body.process.cardInfo.currencyCd&quot; field=&quot;true&quot;>&#xA;//    &lt;dataOutputs target=&quot;//@executableElements.10&quot;/>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot; nillable=&quot;false&quot;/>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.9/@dataOutputs.0&quot; value=&quot;smo.context.transient.CURRENCY_CD&quot; field=&quot;true&quot;>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot; nillable=&quot;false&quot;/>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;smo.body.process.cardInfo.uniqueValId&quot; field=&quot;true&quot;>&#xA;//    &lt;dataOutputs target=&quot;//@executableElements.12&quot;/>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot; nillable=&quot;false&quot;/>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.11/@dataOutputs.0&quot; value=&quot;smo.context.transient.UNIQUE_VAL_ID&quot; field=&quot;true&quot;>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot; nillable=&quot;false&quot;/>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;fire&quot; category=&quot;com.ibm.wsspi.sibx.mediation.OutputTerminal&quot; className=&quot;com.ibm.wsspi.sibx.mediation.OutputTerminal&quot; memberName=&quot;fire&quot;>&#xA;//    &lt;parameters name=&quot;OutputTerminal&quot; dataInputs=&quot;//@executableElements.0/@dataOutputs.0&quot;>&#xA;//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;com.ibm.wsspi.sibx.mediation.OutputTerminal&quot;/>&#xA;//    &lt;/parameters>&#xA;//    &lt;parameters name=&quot;smo&quot; dataInputs=&quot;//@executableElements.1/@dataOutputs.0&quot;>&#xA;//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;ServiceMessageObject&quot; namespace=&quot;http://www.ibm.com/websphere/sibx/smo/v6.0.1&quot; nillable=&quot;false&quot;/>&#xA;//    &lt;/parameters>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableGroups executableElements=&quot;//@executableElements.3 //@executableElements.4 //@executableElements.5 //@executableElements.6&quot;/>&#xA;//  &lt;executableGroups executableElements=&quot;//@executableElements.7&quot;/>&#xA;//  &lt;executableGroups executableElements=&quot;//@executableElements.2 //@executableElements.8&quot;/>&#xA;//  &lt;executableGroups executableElements=&quot;//@executableElements.9 //@executableElements.10&quot;/>&#xA;//  &lt;executableGroups executableElements=&quot;//@executableElements.11 //@executableElements.12&quot;/>&#xA;//  &lt;executableGroups executableElements=&quot;//@executableElements.0 //@executableElements.1 //@executableElements.13&quot;/>&#xA;//&lt;/com.ibm.wbit.activity:CompositeActivity>&#xA;//@generated:end&#xA;//!SMAP!*S WBIACTDBG&#xD;&#xA;//!SMAP!*L&#xD;&#xA;//!SMAP!3:19,1&#xD;&#xA;//!SMAP!4:2,1&#xD;&#xA;//!SMAP!6:4,11&#xD;&#xA;//!SMAP!7:17,1&#xD;&#xA;//!SMAP!9:20,1&#xD;&#xA;//!SMAP!10:21,1&#xD;&#xA;//!SMAP!11:22,1&#xD;&#xA;//!SMAP!12:23,1&#xD;&#xA;//!SMAP!13:24,1&#xD;&#xA;//!SMAP!14:25,1&#xD;&#xA;//!SMAP!1000000:128,1" javaClass="sca.component.mediation.java.Custom1340819597000" version="6.1.0">
+        <location x="193" y="110"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_1"/>
+        <outTerminals terminalNodeID="OutTerminal.dynamic:out:out" dynamic="true" label="out" longDescription="" type="CompositeType_1"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_1"/>
+        <translation xmi:type="utility:ConstantString" string="SetTransientContext"/>
+      </nodes>
+      <nodes xmi:type="XSLTransformation.mednode:XSLTransformation" xmi:id="XSLTransformation_1" name="NCL2FuseBoxMap" root="/body" XSLTransform="xslt/NCL2FuseBoxMap_req_1.xsl" XMXMap="xslt/NCL2FuseBoxMap_req_1.map" SMOVersion="SMO61">
+        <location x="314" y="110"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_2"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_1"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_1"/>
+        <translation xmi:type="utility:ConstantString" string="NCL2FuseBoxMap"/>
+      </nodes>
+      <nodes xmi:type="Subflow.mednode:Subflow" xmi:id="Subflow_1" name="FuseBoxMediationSubFlow" subflowFile="FuseBoxMediationSubFlow.subflow" subflowName="{http://NCLFuseBoxMediation}FuseBoxMediationSubFlow" references.name="NclEsbCreditCardUpdateImportPartner^UpdateRequestMsgSQLPartner^EmailServiceImportPartner^FuseBoxCredCardProviderPartner" references.interface="%7Bhttp%3A%2F%2FNCLFuseBoxMediation%2FNclEsbCreditCardUpdateImport%7DNclEsbCreditCardUpdateImport^%7Bhttp%3A%2F%2FNCLFuseBoxMediation%2FUpdateRequestMsgSQL%7DUpdateRequestMsgSQL^%7Bhttp%3A%2F%2FProdNCLFuseBoxMediation%2FEmailServiceImport%7DEmailServiceImport^%7Bhttp%3A%2F%2FFuseBoxLib%2FFuseBoxCredCardProvider%7DFuseBoxCredCardProvider" references.value="NclEsbCreditCardUpdateImportPartner^UpdateRequestMsgSQLPartner^EmailServiceImportPartner^FuseBoxCredCardProviderPartner">
+        <location x="426" y="20"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_2"/>
+        <outTerminals terminalNodeID="OutTerminal.dynamic:out:out" dynamic="true" explicitType="true" label="out" longDescription="The Out node is the end point for the subflow." type="CompositeType_3"/>
+        <inTerminals terminalNodeID="InTerminal.dynamic:in:in" dynamic="true" explicitType="true" label="in" longDescription="The In node is the starting point for the subflow." type="CompositeType_2"/>
+        <translation xmi:type="utility:ConstantString" string="FuseBoxMediationSubFlow"/>
+      </nodes>
+      <nodes xmi:type="Stop.mednode:Stop" xmi:id="Stop_1" name="Stop1">
+        <location x="426" y="122"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_1"/>
+        <translation xmi:type="utility:ConstantString" string="Stop1"/>
+      </nodes>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_1" targetNode="CustomMediation_1" sourceNode="Input_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_2" targetNode="XSLTransformation_1" sourceNode="CustomMediation_1" sourceTerminalName="OutTerminal.dynamic:out:out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_3" targetNode="Subflow_1" sourceNode="XSLTransformation_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.dynamic:in:in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_4" targetNode="Stop_1" sourceNode="XSLTransformation_1" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+    </composition>
+    <propertyOrganizer>
+      <propertyDescriptor groupName="basic" describedAttribute="Property.name"/>
+    </propertyOrganizer>
+  </eClassifiers>
+  <eClassifiers xmi:type="eflow2:FCMComposite" name="ProdNCLFuseBoxMediation_I_3">
+    <eSuperTypes href="http://www.ibm.com/2006/eflow#//FCMBlock"/>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.name" name="name" lowerBound="1" defaultValueLiteral="">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <composition>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_4">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://FuseBoxLib/ProcessFailedCreditCard}processFailedTxnRequestMsg"/>
+        </elements>
+        <elements id="transientContext">
+          <type xmi:type="type:XSDType" xsiType="{http://NCLFuseBoxMediation}FuseBoxMediationSharedCtx"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_5">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://NCLFuseBoxMediation/FindFailedCCTxnSQLImport}retrieveallFailedCreditCardTxnBGRequestMsg"/>
+        </elements>
+        <elements id="transientContext">
+          <type xmi:type="type:XSDType" xsiType="{http://NCLFuseBoxMediation}FuseBoxMediationSharedCtx"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_6">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://NCLFuseBoxMediation/FindFailedCCTxnSQLImport}retrieveallFailedCreditCardTxnBGResponseMsg"/>
+        </elements>
+        <elements id="transientContext">
+          <type xmi:type="type:XSDType" xsiType="{http://NCLFuseBoxMediation}FuseBoxMediationSharedCtx"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_7">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://NCLFuseBoxMediation/FindFailedCCTxnSQLImport}retrieveallFailedCreditCardTxnBGRecordNotFoundFaultMsg"/>
+        </elements>
+        <elements id="transientContext">
+          <type xmi:type="type:XSDType" xsiType="{http://NCLFuseBoxMediation}FuseBoxMediationSharedCtx"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_8">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://NCLFuseBoxMediation/FindFailedCCTxnSQLImport}retrieveallFailedCreditCardTxnBGMatchesExceededLimitFaultMsg"/>
+        </elements>
+        <elements id="transientContext">
+          <type xmi:type="type:XSDType" xsiType="{http://NCLFuseBoxMediation}FuseBoxMediationSharedCtx"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_9">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://NCLFuseBoxMediation/FindFailedCCTxnSQLImport}retrieveallFailedCreditCardTxnBGResponseMsg"/>
+        </elements>
+        <elements id="transientContext">
+          <type xmi:type="type:XSDType" xsiType="{http://NCLFuseBoxMediation}FuseBoxMediationSharedCtx"/>
+        </elements>
+        <elements id="/context/primitiveContext/FanOutContext/occurrence">
+          <type xmi:type="type:XSDType" xsiType="{http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/failedcreditcardtxn}FailedCreditCardTxn"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_10">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://NCLFuseBoxMediation/NclEsbCreditCardUpdateImport}executeNclseaNcl_Esb_Cc_UpdateResponseMsg"/>
+        </elements>
+        <elements id="transientContext">
+          <type xmi:type="type:XSDType" xsiType="{http://NCLFuseBoxMediation}FuseBoxMediationSharedCtx"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_11">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://FuseBoxLib/FuseBoxCredCardProvider}processCardInfoRequestMsg"/>
+        </elements>
+        <elements id="transientContext">
+          <type xmi:type="type:XSDType" xsiType="{http://NCLFuseBoxMediation}FuseBoxMediationSharedCtx"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_12">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://FuseBoxLib/FuseBoxCredCardProvider}processCardInfoRequestMsg"/>
+        </elements>
+        <elements id="transientContext">
+          <type xmi:type="type:XSDType" xsiType="{http://NCLFuseBoxMediation}FuseBoxMediationSharedCtx"/>
+        </elements>
+        <elements id="/context/primitiveContext/FanOutContext/occurrence">
+          <type xmi:type="type:XSDType" xsiType="{http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/failedcreditcardtxn}FailedCreditCardTxn"/>
+        </elements>
+      </type>
+      <nodes xmi:type="Input.mednode:Input" xmi:id="Input_2" name="ProcessFailedCreditCard_processFailedTxn_Input" transientContext="{http://NCLFuseBoxMediation}FuseBoxMediationSharedCtx">
+        <location x="10" y="284"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_4"/>
+        <translation xmi:type="utility:ConstantString" string="processFailedTxn : ProcessFailedCreditCard"/>
+      </nodes>
+      <nodes xmi:type="ServiceInvoke.mednode:ServiceInvoke" xmi:id="ServiceInvoke_1" name="FindFailedCCTxnSQLImportPartner" referenceName="FindFailedCCTxnSQLImportPartner" operationName="retrieveallFailedCreditCardTxnBG">
+        <location x="322" y="176"/>
+        <outTerminals terminalNodeID="OutTerminal.timeout" explicitType="true" type="CompositeType_5"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_5"/>
+        <outTerminals terminalNodeID="OutTerminal.dynamic:out:out" dynamic="true" explicitType="true" label="out" longDescription="" type="CompositeType_6"/>
+        <outTerminals terminalNodeID="OutTerminal.dynamic:out:retrieveallFailedCreditCardTxnBGRecordNotFoundFaultMsg" dynamic="true" explicitType="true" label="retrieveallFailedCreditCardTxnBGRecordNotFoundFaultMsg" longDescription="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." type="CompositeType_7"/>
+        <outTerminals terminalNodeID="OutTerminal.dynamic:out:retrieveallFailedCreditCardTxnBGMatchesExceededLimitFaultMsg" dynamic="true" explicitType="true" label="retrieveallFailedCreditCardTxnBGMatchesExceededLimitFaultMsg" longDescription="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." type="CompositeType_8"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_5"/>
+        <translation xmi:type="utility:ConstantString" string="FindFailedCCTxnSQLImportPartner"/>
+      </nodes>
+      <nodes xmi:type="XSLTransformation.mednode:XSLTransformation" xmi:id="XSLTransformation_2" name="XSLTransformation1" root="/body" XSLTransform="xslt/XSLTransformation1_req_4.xsl" XMXMap="xslt/XSLTransformation1_req_4.map" SMOVersion="SMO61">
+        <location x="200" y="284"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_5"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_4"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_4"/>
+        <translation xmi:type="utility:ConstantString" string="XSLTransformation1"/>
+      </nodes>
+      <nodes xmi:type="FanOut.mednode:FanOut" xmi:id="FanOut_1" name="FanOut1" mode="1" iterateExpression="/body/retrieveallFailedCreditCardTxnBGResponse/retrieveallFailedCreditCardTxnBGOutput/FailedCreditCardTxn" batchCount="10">
+        <location x="477" y="20"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_9"/>
+        <outTerminals terminalNodeID="OutTerminal.noOccurrences" explicitType="true" type="CompositeType_6"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_6"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_6"/>
+        <translation xmi:type="utility:ConstantString" string="FanOut1"/>
+      </nodes>
+      <nodes xmi:type="CustomMediation.mednode:CustomMediation" xmi:id="CustomMediation_2" name="LogFanOut" javaCode="commonj.sdo.DataObject __smo = (commonj.sdo.DataObject)smo;&#xD;&#xA;commonj.sdo.DataObject __result__4 = __smo.getDataObject(&quot;context&quot;);&#xD;&#xA;java.lang.String __result__3 = &quot;Fan out Context&quot;;&#xD;&#xA;try {&#xD;&#xA;&#x9;{// Log Level: FINEST&#xD;&#xA;&#x9;&#x9;final String FQCN = getClass().getName();&#xA;&#x9;&#x9;java.util.logging.Logger l = java.util.logging.Logger.getLogger(FQCN);&#xA;&#x9;&#x9;if(l.isLoggable(java.util.logging.Level.FINEST))&#xA;&#x9;&#x9; {&#xA;&#x9;&#x9;com.ibm.websphere.bo.BOXMLSerializer serializer =(com.ibm.websphere.bo.BOXMLSerializer) com.ibm.websphere.sca.ServiceManager.INSTANCE.locateService(&quot;com/ibm/websphere/bo/BOXMLSerializer&quot;);&#xA;&#x9;&#x9;java.io.ByteArrayOutputStream stream = new java.io.ByteArrayOutputStream();&#xA;&#x9;&#x9;serializer.writeDataObject(__result__4,__result__4.getType().getURI(),__result__4.getType().getName(),stream);&#xA;&#x9;&#x9;l.logp(java.util.logging.Level.FINEST, FQCN.substring(FQCN.lastIndexOf('.') + 1), &quot;snippet&quot;, String.format(&quot;%s: %s&quot;,__result__3 ,stream.toString() ));&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;catch(java.io.IOException ex){&#xD;&#xA;}&#xD;&#xA;out.fire(__smo);&#xD;&#xA;&#xA;//@generated:com.ibm.wbit.activity.ui&#xA;//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>&#xA;//  &lt;parameters name=&quot;inputTerminal&quot;>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;com.ibm.wsspi.sibx.mediation.InputTerminal&quot;/>&#xA;//  &lt;/parameters>&#xA;//  &lt;parameters name=&quot;smo&quot; objectType=&quot;true&quot;>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;ServiceMessageObject&quot; namespace=&quot;http://www.ibm.com/websphere/sibx/smo/v6.0.1&quot;/>&#xA;//  &lt;/parameters>&#xA;//  &lt;exceptions>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;com.ibm.wsspi.sibx.mediation.MediationBusinessException&quot;/>&#xA;//  &lt;/exceptions>&#xA;//  &lt;exceptions>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;com.ibm.wsspi.sibx.mediation.MediationConfigurationException&quot;/>&#xA;//  &lt;/exceptions>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;out&quot; variable=&quot;true&quot;>&#xA;//    &lt;dataOutputs target=&quot;//@executableElements.6/@parameters.0&quot;/>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;com.ibm.wsspi.sibx.mediation.OutputTerminal&quot;/>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;smo&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>&#xA;//    &lt;dataOutputs target=&quot;//@executableElements.6/@parameters.1&quot;/>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;ServiceMessageObject&quot; namespace=&quot;http://www.ibm.com/websphere/sibx/smo/v6.0.1&quot; nillable=&quot;false&quot;/>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;Fan out Context&amp;quot;&quot; assignable=&quot;false&quot;>&#xA;//    &lt;dataOutputs target=&quot;//@executableElements.4/@parameters.0&quot;/>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;smo.context&quot; field=&quot;true&quot;>&#xA;//    &lt;dataOutputs target=&quot;//@executableElements.4/@parameters.1&quot;/>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;commonj.sdo.DataObject&quot;/>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;Log Level: FINEST&quot; description=&quot;BO print to logger&quot; category=&quot;utility&quot; template=&quot;final String FQCN = getClass().getName();&amp;#xA;java.util.logging.Logger l = java.util.logging.Logger.getLogger(FQCN);&amp;#xA;if(l.isLoggable(java.util.logging.Level.FINEST))&amp;#xA; {&amp;#xA;com.ibm.websphere.bo.BOXMLSerializer serializer =(com.ibm.websphere.bo.BOXMLSerializer) com.ibm.websphere.sca.ServiceManager.INSTANCE.locateService(&amp;quot;com/ibm/websphere/bo/BOXMLSerializer&amp;quot;);&amp;#xA;java.io.ByteArrayOutputStream stream = new java.io.ByteArrayOutputStream();&amp;#xA;serializer.writeDataObject(&amp;lt;%object%>,&amp;lt;%object%>.getType().getURI(),&amp;lt;%object%>.getType().getName(),stream);&amp;#xA;l.logp(java.util.logging.Level.FINEST, FQCN.substring(FQCN.lastIndexOf('.') + 1), &amp;quot;snippet&amp;quot;, String.format(&amp;quot;%s: %s&amp;quot;,&amp;lt;%logMessage%> ,stream.toString() ));&amp;#xA;}&quot;>&#xA;//    &lt;parameters name=&quot;logMessage&quot; dataInputs=&quot;//@executableElements.2/@dataOutputs.0&quot; displayName=&quot;Log Message&quot;>&#xA;//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>&#xA;//    &lt;/parameters>&#xA;//    &lt;parameters name=&quot;object&quot; dataInputs=&quot;//@executableElements.3/@dataOutputs.0&quot; displayName=&quot;object&quot;>&#xA;//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;commonj.sdo.DataObject&quot;/>&#xA;//    &lt;/parameters>&#xA;//    &lt;exceptions>&#xA;//      &lt;dataOutputs target=&quot;//@executableElements.5/@parameters.0&quot;/>&#xA;//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.io.IOException&quot;/>&#xA;//    &lt;/exceptions>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:ExceptionHandler&quot; name=&quot;Exception Handler&quot;>&#xA;//    &lt;parameters name=&quot;ex&quot; dataInputs=&quot;//@executableElements.4/@exceptions.0/@dataOutputs.0&quot;>&#xA;//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.io.IOException&quot;/>&#xA;//    &lt;/parameters>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;fire&quot; category=&quot;com.ibm.wsspi.sibx.mediation.OutputTerminal&quot; className=&quot;com.ibm.wsspi.sibx.mediation.OutputTerminal&quot; memberName=&quot;fire&quot;>&#xA;//    &lt;parameters name=&quot;OutputTerminal&quot; dataInputs=&quot;//@executableElements.0/@dataOutputs.0&quot;>&#xA;//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;com.ibm.wsspi.sibx.mediation.OutputTerminal&quot;/>&#xA;//    &lt;/parameters>&#xA;//    &lt;parameters name=&quot;smo&quot; dataInputs=&quot;//@executableElements.1/@dataOutputs.0&quot;>&#xA;//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;ServiceMessageObject&quot; namespace=&quot;http://www.ibm.com/websphere/sibx/smo/v6.0.1&quot; nillable=&quot;false&quot;/>&#xA;//    &lt;/parameters>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableGroups executableElements=&quot;//@executableElements.2 //@executableElements.3 //@executableElements.4 //@executableElements.5&quot;/>&#xA;//  &lt;executableGroups executableElements=&quot;//@executableElements.0 //@executableElements.1 //@executableElements.6&quot;/>&#xA;//&lt;/com.ibm.wbit.activity:CompositeActivity>&#xA;//@generated:end&#xA;//!SMAP!*S WBIACTDBG&#xD;&#xA;//!SMAP!*L&#xD;&#xA;//!SMAP!3:3,1&#xD;&#xA;//!SMAP!4:2,1&#xD;&#xA;//!SMAP!5:5,11&#xD;&#xA;//!SMAP!7:19,1&#xD;&#xA;//!SMAP!1000000:88,1" javaClass="sca.component.mediation.java.Custom1341863843625" version="6.1.0">
+        <location x="563" y="20"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_9"/>
+        <outTerminals terminalNodeID="OutTerminal.dynamic:out:out" dynamic="true" explicitType="true" label="out" longDescription="" type="CompositeType_9"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_9"/>
+        <translation xmi:type="utility:ConstantString" string="LogFanOut"/>
+      </nodes>
+      <nodes xmi:type="FanIn.mednode:FanIn" xmi:id="FanIn_1" name="FanIn1" fanOutID="FanOut1">
+        <location x="907" y="20"/>
+        <outTerminals terminalNodeID="OutTerminal.out" type="CompositeType_10"/>
+        <outTerminals terminalNodeID="OutTerminal.incomplete" type="CompositeType_10"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_10"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_10"/>
+        <inTerminals terminalNodeID="InTerminal.stop" type="CompositeType_10"/>
+        <translation xmi:type="utility:ConstantString" string="FanIn1"/>
+      </nodes>
+      <nodes xmi:type="Subflow.mednode:Subflow" xmi:id="Subflow_2" name="FuseBoxMediationSubFlow" subflowFile="FuseBoxMediationSubFlow.subflow" subflowName="{http://NCLFuseBoxMediation}FuseBoxMediationSubFlow" references.name="NclEsbCreditCardUpdateImportPartner^UpdateRequestMsgSQLPartner^EmailServiceImportPartner^FuseBoxCredCardProviderPartner" references.interface="%7Bhttp%3A%2F%2FNCLFuseBoxMediation%2FNclEsbCreditCardUpdateImport%7DNclEsbCreditCardUpdateImport^%7Bhttp%3A%2F%2FNCLFuseBoxMediation%2FUpdateRequestMsgSQL%7DUpdateRequestMsgSQL^%7Bhttp%3A%2F%2FProdNCLFuseBoxMediation%2FEmailServiceImport%7DEmailServiceImport^%7Bhttp%3A%2F%2FFuseBoxLib%2FFuseBoxCredCardProvider%7DFuseBoxCredCardProvider" references.value="NclEsbCreditCardUpdateImportPartner^UpdateRequestMsgSQLPartner^EmailServiceImportPartner^FuseBoxCredCardProviderPartner">
+        <location x="762" y="20"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_11"/>
+        <outTerminals terminalNodeID="OutTerminal.dynamic:out:out" dynamic="true" explicitType="true" label="out" longDescription="The Out node is the end point for the subflow." type="CompositeType_10"/>
+        <inTerminals terminalNodeID="InTerminal.dynamic:in:in" dynamic="true" explicitType="true" label="in" longDescription="The In node is the starting point for the subflow." type="CompositeType_11"/>
+        <translation xmi:type="utility:ConstantString" string="FuseBoxMediationSubFlow"/>
+      </nodes>
+      <nodes xmi:type="BOMapper.mednode:BOMapper" xmi:id="BOMapper_1" name="ReqXMLStringToBO" root="/" mappingFile="CreateCCProviderReques.map">
+        <location x="644" y="20"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_12"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_9"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_9"/>
+        <translation xmi:type="utility:ConstantString" string="ReqXMLStringToBO"/>
+      </nodes>
+      <nodes xmi:type="Stop.mednode:Stop" xmi:id="Stop_2" name="Stop1">
+        <location x="791" y="116"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_9"/>
+        <translation xmi:type="utility:ConstantString" string="Stop1"/>
+      </nodes>
+      <nodes xmi:type="Stop.mednode:Stop" xmi:id="Stop_3" name="Stop2">
+        <location x="907" y="116"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_11"/>
+        <translation xmi:type="utility:ConstantString" string="Stop2"/>
+      </nodes>
+      <nodes xmi:type="Stop.mednode:Stop" xmi:id="Stop_4" name="Stop3">
+        <location x="563" y="116"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_6"/>
+        <translation xmi:type="utility:ConstantString" string="Stop3"/>
+      </nodes>
+      <nodes xmi:type="Stop.mednode:Stop" xmi:id="Stop_5" name="Stop4">
+        <location x="477" y="308"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_5"/>
+        <translation xmi:type="utility:ConstantString" string="Stop4"/>
+      </nodes>
+      <nodes xmi:type="Stop.mednode:Stop" xmi:id="Stop_6" name="Stop5">
+        <location x="477" y="116"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_7"/>
+        <translation xmi:type="utility:ConstantString" string="Stop5"/>
+      </nodes>
+      <nodes xmi:type="Stop.mednode:Stop" xmi:id="Stop_7" name="Stop6">
+        <location x="477" y="212"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_8"/>
+        <translation xmi:type="utility:ConstantString" string="Stop6"/>
+      </nodes>
+      <nodes xmi:type="Stop.mednode:Stop" xmi:id="Stop_8" name="Stop7">
+        <location x="351" y="296"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_4"/>
+        <translation xmi:type="utility:ConstantString" string="Stop7"/>
+      </nodes>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_5" targetNode="XSLTransformation_2" sourceNode="Input_2" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_6" targetNode="FanOut_1" sourceNode="ServiceInvoke_1" sourceTerminalName="OutTerminal.dynamic:out:out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_7" targetNode="Stop_6" sourceNode="ServiceInvoke_1" sourceTerminalName="OutTerminal.dynamic:out:retrieveallFailedCreditCardTxnBGRecordNotFoundFaultMsg" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_8" targetNode="Stop_7" sourceNode="ServiceInvoke_1" sourceTerminalName="OutTerminal.dynamic:out:retrieveallFailedCreditCardTxnBGMatchesExceededLimitFaultMsg" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_9" targetNode="Stop_5" sourceNode="ServiceInvoke_1" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_10" targetNode="ServiceInvoke_1" sourceNode="XSLTransformation_2" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_11" targetNode="Stop_8" sourceNode="XSLTransformation_2" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_12" targetNode="CustomMediation_2" sourceNode="FanOut_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_13" targetNode="Stop_4" sourceNode="FanOut_1" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_14" targetNode="BOMapper_1" sourceNode="CustomMediation_2" sourceTerminalName="OutTerminal.dynamic:out:out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_15" targetNode="FanIn_1" sourceNode="Subflow_2" sourceTerminalName="OutTerminal.dynamic:out:out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_16" targetNode="Stop_3" sourceNode="Subflow_2" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_17" targetNode="Subflow_2" sourceNode="BOMapper_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.dynamic:in:in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_18" targetNode="Stop_2" sourceNode="BOMapper_1" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+    </composition>
+    <propertyOrganizer>
+      <propertyDescriptor groupName="basic" describedAttribute="Property.name"/>
+    </propertyOrganizer>
+  </eClassifiers>
+  <eClassifiers xmi:type="eflow2:FCMComposite" name="ProdNCLFuseBoxMediation">
+    <eSuperTypes href="http://www.ibm.com/2006/eflow#//FCMBlock"/>
+    <composition>
+      <nodes xmi:type="ProdNCLFuseBoxMediation.medflow:ProdNCLFuseBoxMediation_I_2" xmi:id="ProdNCLFuseBoxMediation_I_2_1" name="{http://FuseBoxLib/ProcessCreditCard}ProcessCreditCard:process::request"/>
+      <nodes xmi:type="ProdNCLFuseBoxMediation.medflow:ProdNCLFuseBoxMediation_I_3" xmi:id="ProdNCLFuseBoxMediation_I_3_1" name="{http://FuseBoxLib/ProcessFailedCreditCard}ProcessFailedCreditCard:processFailedTxn::request"/>
+    </composition>
+    <propertyOrganizer/>
+  </eClassifiers>
+</ecore:EPackage>

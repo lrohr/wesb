@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="NclEsbCreditCardUpdateImport.wsdl" targetNamespace="http://NCLFuseBoxMediation/NclEsbCreditCardUpdateImport" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_esb_cc_update" xmlns:tns="http://NCLFuseBoxMediation/NclEsbCreditCardUpdateImport" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://NCLFuseBoxMediation/NclEsbCreditCardUpdateImport">
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_esb_cc_update" schemaLocation="NclseaNcl_Esb_Cc_Update.xsd"/>
+      <xsd:element name="executeNclseaNcl_Esb_Cc_Update">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Esb_Cc_UpdateInput" type="bons1:NclseaNcl_Esb_Cc_Update"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Esb_Cc_UpdateResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Esb_Cc_UpdateOutput" type="bons1:NclseaNcl_Esb_Cc_Update"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeNclseaNcl_Esb_Cc_UpdateRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Esb_Cc_Update" name="executeNclseaNcl_Esb_Cc_UpdateParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Esb_Cc_UpdateResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Esb_Cc_UpdateResponse" name="executeNclseaNcl_Esb_Cc_UpdateResult"/>
+  </wsdl:message>
+  <wsdl:portType name="NclEsbCreditCardUpdateImport">
+    <wsdl:operation name="executeNclseaNcl_Esb_Cc_Update">
+      <wsdl:input message="tns:executeNclseaNcl_Esb_Cc_UpdateRequestMsg" name="executeNclseaNcl_Esb_Cc_UpdateRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Esb_Cc_UpdateResponseMsg" name="executeNclseaNcl_Esb_Cc_UpdateResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

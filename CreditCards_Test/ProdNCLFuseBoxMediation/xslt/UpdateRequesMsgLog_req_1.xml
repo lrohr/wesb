@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?><ns0:smo xmlns:ns3="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:ns4="http://www.w3.org/2005/08/addressing" xmlns:ns5="http://FuseBoxLib/FuseBoxCredCardProvider" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns0="http://www.ibm.com/websphere/sibx/smo/v6.0.1">
+  <context>
+    <transient>
+      <CRED_CRD_NBR/>
+      <CURRENCY_CD/>
+      <UNIQUE_VAL_ID/>
+    </transient>
+    <failInfo xml:lang="EN">
+      <failureString/>
+      <origin/>
+      <invocationPath/>
+    </failInfo>
+    <primitiveContext>
+      <FanOutContext>
+        <iteration>0</iteration>
+      </FanOutContext>
+    </primitiveContext>
+    <dynamicProperty isPropagated="false"/>
+    <userContext/>
+  </context>
+  <headers>
+    <SMOHeader>
+      <MessageUUID/>
+      <Version>
+        <Version>0</Version>
+        <Release>0</Release>
+        <Modification>0</Modification>
+      </Version>
+      <MessageType/>
+      <Operation/>
+      <Action/>
+      <Target bindingType="NotSet" import="">
+        <address>http://</address>
+      </Target>
+      <SourceNode/>
+      <SourceBindingType>NotSet</SourceBindingType>
+      <Interface/>
+    </SMOHeader>
+    <JMSHeader>
+      <JMSDestination>http://</JMSDestination>
+      <JMSDeliveryMode>NonPersistent</JMSDeliveryMode>
+      <JMSMessageID/>
+      <JMSTimestamp>0</JMSTimestamp>
+      <JMSCorrelationID/>
+      <JMSReplyTo>http://</JMSReplyTo>
+      <JMSRedelivered>false</JMSRedelivered>
+      <JMSType/>
+      <JMSExpiration>0</JMSExpiration>
+      <JMSPriority>0</JMSPriority>
+    </JMSHeader>
+    <SOAPFaultInfo>
+      <faultcode>xsd:QName</faultcode>
+      <faultstring/>
+      <faultactor>http://</faultactor>
+    </SOAPFaultInfo>
+    <MQHeader>
+      <md>
+        <Report>0</Report>
+        <MsgType>0</MsgType>
+        <Expiry>0</Expiry>
+        <Feedback>0</Feedback>
+        <Priority>0</Priority>
+        <Persistence>0</Persistence>
+        <MsgId>00</MsgId>
+        <CorrelId>00</CorrelId>
+        <BackoutCount>0</BackoutCount>
+        <ReplyToQ/>
+        <ReplyToQMgr/>
+        <UserIdentifier/>
+        <AccountingToken>00</AccountingToken>
+        <ApplIdentityData/>
+        <PutApplType>0</PutApplType>
+        <PutApplName/>
+        <PutDate/>
+        <PutTime/>
+        <ApplOriginData/>
+        <GroupId>00</GroupId>
+        <MsgSeqNumber>0</MsgSeqNumber>
+        <Offset>0</Offset>
+        <MsgFlags>0</MsgFlags>
+        <OriginalLength>0</OriginalLength>
+      </md>
+      <control>
+        <Encoding>0</Encoding>
+        <CodedCharSetId>0</CodedCharSetId>
+        <Format/>
+      </control>
+    </MQHeader>
+    <HTTPHeader>
+      <control>
+        <ns3:URL>http://</ns3:URL>
+        <ns3:Version>1.0</ns3:Version>
+        <ns3:Method/>
+        <ns3:DynamicOverrideURL>http://</ns3:DynamicOverrideURL>
+        <ns3:DynamicOverrideVersion>1.0</ns3:DynamicOverrideVersion>
+        <ns3:DynamicOverrideMethod/>
+        <ns3:MediaType/>
+        <ns3:Charset/>
+        <ns3:TransferEncoding/>
+        <ns3:ContentEncoding/>
+        <ns3:StatusCode>0</ns3:StatusCode>
+        <ns3:ReasonPhrase/>
+        <ns3:Authentication>
+          <ns3:authenticationType>Basic</ns3:authenticationType>
+        </ns3:Authentication>
+        <ns3:SSLSettings>
+          <ns3:SSLVersion>SSL</ns3:SSLVersion>
+          <ns3:SSLDebug>false</ns3:SSLDebug>
+          <ns3:KeyStoreType>JKS</ns3:KeyStoreType>
+          <ns3:TrustStoreType>JKS</ns3:TrustStoreType>
+          <ns3:KeyStore/>
+          <ns3:KeyStoreAlias/>
+          <ns3:KeyStorePassword/>
+          <ns3:TrustStore/>
+          <ns3:TrustStorePassword/>
+          <ns3:UseClientAuth>false</ns3:UseClientAuth>
+        </ns3:SSLSettings>
+      </control>
+    </HTTPHeader>
+    <EISHeader/>
+    <WSAHeader version="http://www.w3.org/2005/08/addressing">
+      <ns4:To>http://</ns4:To>
+      <ReferenceParameters/>
+      <ns4:From>
+        <ns4:Address>http://</ns4:Address>
+        <ns4:ReferenceParameters/>
+        <ns4:Metadata/>
+      </ns4:From>
+      <ns4:ReplyTo>
+        <ns4:Address>http://</ns4:Address>
+        <ns4:ReferenceParameters/>
+        <ns4:Metadata/>
+      </ns4:ReplyTo>
+      <ns4:FaultTo>
+        <ns4:Address>http://</ns4:Address>
+        <ns4:ReferenceParameters/>
+        <ns4:Metadata/>
+      </ns4:FaultTo>
+      <ns4:Action>http://</ns4:Action>
+      <ns4:MessageID>http://</ns4:MessageID>
+    </WSAHeader>
+  </headers>
+  <body>
+    <ns5:processCardInfo>
+      <Request type="AuthorizationRequest">
+        <Field name="Chain_Code">NC</Field>
+        <Field name="Location_ID">MIAMI</Field>
+        <Field name="Currency_Code">USD</Field>
+        <Field name="Venue_ID">RESUSD</Field>
+        <Field name="Message_ID">5638874</Field>
+        <Field name="Application_ID">ESB_CCApp 0.1</Field>
+        <Field name="Invoice_Nbr">20636290</Field>
+        <Field name="Transaction_Type">S</Field>
+        <Field name="Auth_Amount">4840.92</Field>
+        <Field name="Cardholder_Nbr">xxxxxxxxxxxx</Field>
+        <Field name="Expiration_Date">0214</Field>
+        <Field name="Terminal_Type">0</Field>
+        <Field name="Terminal_Capability">0</Field>
+        <Field name="Account_Source">M</Field>
+        <Field name="Departure_Date">071412</Field>
+        <Field name="Arrival_Date">070712</Field>
+      </Request>
+    </ns5:processCardInfo>
+  </body>
+</ns0:smo>

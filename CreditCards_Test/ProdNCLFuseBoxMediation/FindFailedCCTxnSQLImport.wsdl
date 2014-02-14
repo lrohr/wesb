@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="FindFailedCCTxnSQLImport.wsdl" targetNamespace="http://NCLFuseBoxMediation/FindFailedCCTxnSQLImport" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/failedcreditcardtxnbg" xmlns:bons2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/failedcreditcardtxncontainer" xmlns:bons3="http://com/ibm/j2ca/fault/afcfault" xmlns:tns="http://NCLFuseBoxMediation/FindFailedCCTxnSQLImport" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://com/ibm/j2ca/fault/afcfault" xmlns:tns="http://com/ibm/j2ca/fault/afcfault">
+      <xsd:include schemaLocation="RecordNotFoundFault.xsd"/>
+      <xsd:include schemaLocation="MatchesExceededLimitFault.xsd"/>
+    </xsd:schema>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://NCLFuseBoxMediation/FindFailedCCTxnSQLImport" xmlns:bons4="http://com/ibm/j2ca/fault/afcfault">
+      <xsd:import namespace="http://com/ibm/j2ca/fault/afcfault"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/failedcreditcardtxnbg" schemaLocation="FailedCreditCardTxnBG.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/failedcreditcardtxncontainer" schemaLocation="FailedCreditCardTxnContainer.xsd"/>
+      <xsd:element name="retrieveallFailedCreditCardTxnBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveallFailedCreditCardTxnBGInput" type="bons1:FailedCreditCardTxnBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveallFailedCreditCardTxnBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveallFailedCreditCardTxnBGOutput" type="bons2:FailedCreditCardTxnContainer"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RecordNotFoundFault_element" nillable="true" type="bons4:RecordNotFoundFault"/>
+      <xsd:element name="MatchesExceededLimitFault_element" nillable="true" type="bons4:MatchesExceededLimitFault"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="retrieveallFailedCreditCardTxnBGRequestMsg">
+    <wsdl:part element="tns:retrieveallFailedCreditCardTxnBG" name="retrieveallFailedCreditCardTxnBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallFailedCreditCardTxnBGResponseMsg">
+    <wsdl:part element="tns:retrieveallFailedCreditCardTxnBGResponse" name="retrieveallFailedCreditCardTxnBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallFailedCreditCardTxnBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallFailedCreditCardTxnBGMatchesExceededLimitFaultMsg">
+    <wsdl:part element="tns:MatchesExceededLimitFault_element" name="MatchesExceededLimitFault"/>
+  </wsdl:message>
+  <wsdl:portType name="FindFailedCCTxnSQLImport">
+    <wsdl:operation name="retrieveallFailedCreditCardTxnBG">
+      <wsdl:input message="tns:retrieveallFailedCreditCardTxnBGRequestMsg" name="retrieveallFailedCreditCardTxnBGRequest"/>
+      <wsdl:output message="tns:retrieveallFailedCreditCardTxnBGResponseMsg" name="retrieveallFailedCreditCardTxnBGResponse"/>
+      <wsdl:fault message="tns:retrieveallFailedCreditCardTxnBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+      <wsdl:fault message="tns:retrieveallFailedCreditCardTxnBGMatchesExceededLimitFaultMsg" name="MATCHES_EXCEEDED_LIMIT"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

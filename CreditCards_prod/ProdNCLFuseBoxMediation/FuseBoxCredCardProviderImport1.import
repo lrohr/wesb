@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:configuration_6.1.0="http://www.ibm.com/xmlns/prod/websphere/j2ca/configuration/6.1.0" xmlns:http="http://www.ibm.com/xmlns/prod/websphere/scdl/http/6.1.0" xmlns:ns1="http://FuseBoxLib/FuseBoxCredCardProvider" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="FuseBoxCredCardProviderImport1" name="FuseBoxCredCardProviderImport1">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:FuseBoxCredCardProvider">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="false"/>
+    </interface>
+  </interfaces>
+  <esbBinding xsi:type="http:HTTPImportBinding" defaultDataBindingReferenceName="configuration_6.1.0:UTF8XMLDataHandler">
+    <importInteraction endpointURL="https://fuseboxtrant.elavon.net:15443" httpMethod="POST">
+      <sslSettings>
+        <sslConfigAlias>elavon</sslConfigAlias>
+      </sslSettings>
+      <requestAuthentication>
+        <credentials>
+          <credentialAlias>SCA_Auth_Alias</credentialAlias>
+        </credentials>
+        <authenticationType>Basic</authenticationType>
+      </requestAuthentication>
+      <numberOfRetries>1</numberOfRetries>
+    </importInteraction>
+    <methodBinding inDataBinding="com.ibm.ncl.fusebox.FuseBoxHttpBinding" method="processCardInfo" outDataBinding="com.ibm.ncl.fusebox.FuseBoxHttpBinding">
+      <importInteraction endpointURL="https://fuseboxtrant.elavon.net:15443" httpMethod="POST">
+        <sslSettings>
+          <sslConfigAlias>elavon</sslConfigAlias>
+        </sslSettings>
+        <requestAuthentication>
+          <credentials>
+            <credentialAlias>SCA_Auth_Alias</credentialAlias>
+          </credentials>
+          <authenticationType>Basic</authenticationType>
+        </requestAuthentication>
+        <numberOfRetries>1</numberOfRetries>
+      </importInteraction>
+    </methodBinding>
+  </esbBinding>
+</scdl:import>

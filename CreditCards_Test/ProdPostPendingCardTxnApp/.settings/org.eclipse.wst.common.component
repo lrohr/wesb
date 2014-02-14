@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="ProdPostPendingCardTxnApp">
+        <wb-resource deploy-path="/" source-path="/"/>
+        <dependent-module archiveName="FuseBoxLib.jar" deploy-path="/" handle="module:/resource/FuseBoxLib/FuseBoxLib">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ProdPostPendingCardEJB.jar" deploy-path="/" handle="module:/resource/ProdPostPendingCardEJB/ProdPostPendingCardEJB">
+            <dependent-object>EjbModule_1364478639667</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ProdPostPendingCardEJBClient.jar" deploy-path="/" handle="module:/resource/ProdPostPendingCardEJBClient/ProdPostPendingCardEJBClient">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ProdRegisterCreditCardTimer.war" deploy-path="/" handle="module:/resource/ProdRegisterCreditCardTimer/ProdRegisterCreditCardTimer">
+            <dependent-object>WebModule_1364478734309</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

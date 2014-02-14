@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:EIS="http://www.ibm.com/xmlns/prod/websphere/scdl/eis/6.0.0" xmlns:ns1="http://NCLFuseBoxMediation/FindFailedCCTxnSQLImport" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="FindFailedCCTxnSQLImport" name="FindFailedCCTxnSQLImport">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:FindFailedCCTxnSQLImport">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="true"/>
+    </interface>
+  </interfaces>
+  <esbBinding xsi:type="EIS:EISImportBinding" faultSelector="com.ibm.j2ca.extension.emd.runtime.WBIFaultSelectorImpl" dataBindingType="com.ibm.j2ca.jdbc.emd.databinding.JDBCDataBindingGenerator">
+    <resourceAdapter name="ProdNCLFuseBoxMediationApp.IBM WebSphere Adapter for JDBC" type="com.ibm.j2ca.jdbc.JDBCResourceAdapter" version="6.2.0.4">
+      <properties>
+        <adapterID>001</adapterID>
+      </properties>
+    </resourceAdapter>
+    <connection type="com.ibm.j2ca.jdbc.JDBCManagedConnectionFactory" interactionType="com.ibm.j2ca.jdbc.JDBCInteractionSpec">
+      <properties>
+        <XADataSourceName>SEAWARE_PROD_JNDI</XADataSourceName>
+        <adapterID>001</adapterID>
+        <dataSourceJNDIName>SEAWARE_PROD_JNDI</dataSourceJNDIName>
+        <databaseVendor>ORACLE</databaseVendor>
+        <returnDummyBOForSP>false</returnDummyBOForSP>
+        <XADataSourceJNDIName>SEAWARE_PROD_JNDI</XADataSourceJNDIName>
+        <connectionType>XADataSourceJNDI</connectionType>
+        <detectXMLCharacter>[A]</detectXMLCharacter>
+      </properties>
+    </connection>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.failedcreditcardtxnbg.FailedCreditCardTxnBGDataBinding" method="retrieveallFailedCreditCardTxnBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.failedcreditcardtxncontainer.FailedCreditCardTxnContainerDataBinding">
+      <faultBinding fault="MATCHES_EXCEEDED_LIMIT" faultBindingType="com.ibm.j2ca.extension.emd.runtime.MatchingFaultDataBinding"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>RetrieveAll</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+  </esbBinding>
+</scdl:import>

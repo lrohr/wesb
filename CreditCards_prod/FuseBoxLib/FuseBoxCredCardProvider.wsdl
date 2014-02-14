@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="FuseBoxCredCardProvider" targetNamespace="http://FuseBoxLib/FuseBoxCredCardProvider" xmlns:tns="http://FuseBoxLib/FuseBoxCredCardProvider" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://FuseBoxLib/FuseBoxCredCardProvider">
+            <xsd:import schemaLocation="GCS_Response.xsd"/>
+            <xsd:import schemaLocation="GCS_Request.xsd"/>
+      <xsd:element name="processCardInfo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="Request"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="processCardInfoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="Response"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="processCardInfoRequestMsg">
+    <wsdl:part element="tns:processCardInfo" name="processCardInfoParameters"/>
+  </wsdl:message>
+    <wsdl:message name="processCardInfoResponseMsg">
+    <wsdl:part element="tns:processCardInfoResponse" name="processCardInfoResult"/>
+  </wsdl:message>
+    <wsdl:portType name="FuseBoxCredCardProvider">
+    <wsdl:operation name="processCardInfo">
+      <wsdl:input message="tns:processCardInfoRequestMsg" name="processCardInfoRequest"/>
+      <wsdl:output message="tns:processCardInfoResponseMsg" name="processCardInfoResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

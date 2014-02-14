@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application id="Application_ID" version="1.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/application_1_4.xsd">
+	<display-name>ProdPostPendingCardTxnApp</display-name>
+	<module id="EjbModule_1364478639667">
+		<ejb>ProdPostPendingCardEJB.jar</ejb>
+	</module>
+	<module id="WebModule_1364478734309">
+		<web>
+			<web-uri>ProdRegisterCreditCardTimer.war</web-uri>
+			<context-root>ProdRegisterCreditCardTimer</context-root>
+		</web>
+	</module>
+	<security-role id="SecurityRole_1342810605671">
+		<role-name>FuseBoxAdmin</role-name>
+	</security-role>
+</application>

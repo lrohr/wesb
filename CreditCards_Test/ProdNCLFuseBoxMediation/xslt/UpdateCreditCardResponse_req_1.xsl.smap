@@ -1,0 +1,11 @@
+* SMAP
+UpdateCreditCardResponse_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 UpdateCreditCardResponse_req_1.map
+/NCLFuseBoxMediation/xslt/UpdateCreditCardResponse_req_1.map
+*L
+2:50,7
+1:42,1
+*E

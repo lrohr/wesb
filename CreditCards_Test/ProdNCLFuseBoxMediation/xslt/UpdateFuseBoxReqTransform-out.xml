@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<io:smo xmlns:io="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:io6="http://www.w3.org/2005/08/addressing" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:out3="http://NCLFuseBoxMediation/UpdateEsbCCLogSql" xmlns:io5="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:io4="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:io2="http://NCLFuseBoxMediation" xmlns:io3="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:out2="wsdl.http://NCLFuseBoxMediation/UpdateEsbCCLogSql" xmlns:out="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/update_ncl_esb_cc_log">
+  <body>
+    <out3:executeUPDATE_NCL_ESB_CC_LOG>
+      <out3:executeUPDATE_NCL_ESB_CC_LOGInput>
+        <REQ_MESSAGE_TXT><![CDATA[
+          <Request type="AuthorizationRequest">
+            <Field name="Chain_Code">NC</Field>
+            <Field name="Location_ID">MIAMI</Field>
+            <Field name="Currency_Code">USD</Field>
+            <Field name="Venue_ID">RESUSD</Field>
+            <Field name="Message_ID">5638851</Field>
+            <Field name="Application_ID">ESB_CCApp 0.1</Field>
+            <Field name="Invoice_Nbr">19401980</Field>
+            <Field name="Transaction_Type">S</Field>
+            <Field name="Auth_Amount">50.00</Field>
+            <Field name="Cardholder_Nbr">yyyy</Field>
+            <Field name="Expiration_Date">0414</Field>
+            <Field name="Terminal_Type">0</Field>
+            <Field name="Terminal_Capability">0</Field>
+            <Field name="Account_Source">M</Field>
+            <Field name="Departure_Date">050612</Field>
+            <Field name="Arrival_Date">042912</Field>
+          </Request>]]></REQ_MESSAGE_TXT>
+        <UNIQUE_ID>5638851</UNIQUE_ID>
+      </out3:executeUPDATE_NCL_ESB_CC_LOGInput>
+    </out3:executeUPDATE_NCL_ESB_CC_LOG>
+  </body>
+</io:smo>

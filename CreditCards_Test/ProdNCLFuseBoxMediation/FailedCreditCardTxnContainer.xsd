@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/failedcreditcardtxncontainer" xmlns:failedcreditcardtxn="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/failedcreditcardtxn">
+<xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/failedcreditcardtxn" schemaLocation="FailedCreditCardTxn.xsd"/>
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability" version="6.2.0.4"/>
+</xsd:appinfo>
+</xsd:annotation>
+
+<xsd:complexType name="FailedCreditCardTxnContainer">
+<xsd:sequence>
+<xsd:element name="FailedCreditCardTxn" type="failedcreditcardtxn:FailedCreditCardTxn" minOccurs="1" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>

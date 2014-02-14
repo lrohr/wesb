@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<body xmlns:httpsca="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0"
+	xmlns:mq="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0"
+	xmlns:p="http://FuseBoxLib" xmlns:smo="http://www.ibm.com/websphere/sibx/smo/v6.0.1"
+	xmlns:tns="http://FuseBoxLib/ProcessCreditCard" xmlns:tns1="http://www.w3.org/2005/08/addressing"
+	xmlns:tns_1="wsdl.http://FuseBoxLib/ProcessCreditCard" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="foo.xsd"
+	xsi:schemaLocation="wsdl.http://FuseBoxLib/ProcessCreditCard /name%3Dwsdl-body/correlationContext%3Dhttp%253A%252F%252FFuseBoxLib%252FProcessCreditCard/message%3D%257Bhttp%253A%252F%252FFuseBoxLib%252FProcessCreditCard%257DprocessRequestMsg/smo.xsd http://FuseBoxLib/ProcessCreditCard platform:/resource/FuseBoxLib/ProcessCreditCard.wsdl http://FuseBoxLib platform:/resource/FuseBoxLib/NclCreditCardInfo.xsd http://www.ibm.com/websphere/sibx/smo/v6.0.1 platform:/plugin/com.ibm.ws.sibx.smo/smo.xsd http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0 platform:/plugin/com.ibm.ws.sibx.smo/smo-mq.xsd http://schemas.xmlsoap.org/ws/2004/08/addressing platform:/plugin/com.ibm.ws.sibx.smo/ws-addressing2004.xsd http://www.w3.org/2005/08/addressing platform:/plugin/com.ibm.ws.sibx.smo/ws-addr-10.xsd http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0 platform:/plugin/com.ibm.ws.sibx.smo/smo-http.xsd ">
+	<tns:process>
+		<cardInfo>
+			<currencyCd>GBP</currencyCd>
+			<credCrdNbr>4012000077777777</credCrdNbr>
+			<transAmt>   2274.20</transAmt>
+			<ccExpDat>0414</ccExpDat>
+			<uniqueValId>5638895</uniqueValId>
+			<transId>43022777</transId>
+			<arrivalDat>072212</arrivalDat>
+			<departureDat>071512</departureDat>
+			<shipNam>EPIC</shipNam>
+			<destEntityId>19599027</destEntityId>
+			<ccTransId>9185700</ccTransId>
+			<transTypeTxt>PMNT</transTypeTxt>
+			<srcEntityId>13090</srcEntityId>
+			<resGrpId>19599027</resGrpId>
+			<inputResId>19599027</inputResId>
+			<officeCodeTxt>NCL LONDON</officeCodeTxt>
+			<srcEntityTxt>SW_RES</srcEntityTxt>
+			<ccTypeTxt>VISA</ccTypeTxt>
+			<terminalId>SWA</terminalId>
+		</cardInfo>
+	</tns:process>
+</body>

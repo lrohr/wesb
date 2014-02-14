@@ -1,0 +1,10 @@
+* SMAP
+TransformFuseBoxRequest.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 TransformFuseBoxRequest.map
+/NCLFuseBoxMediation/xslt/TransformFuseBoxRequest.map
+*L
+1:38,1
+*E

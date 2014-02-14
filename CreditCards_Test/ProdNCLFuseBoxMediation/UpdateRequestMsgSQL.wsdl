@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="UpdateRequestMsgSQL.wsdl" targetNamespace="http://NCLFuseBoxMediation/UpdateRequestMsgSQL" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/updaterequestmsgsqlbg" xmlns:tns="http://NCLFuseBoxMediation/UpdateRequestMsgSQL" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://NCLFuseBoxMediation/UpdateRequestMsgSQL">
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/updaterequestmsgsqlbg" schemaLocation="UpdateRequestMsgSQLBG.xsd"/>
+      <xsd:element name="executeUpdateRequestMsgSQLBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeUpdateRequestMsgSQLBGInput" type="bons1:UpdateRequestMsgSQLBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeUpdateRequestMsgSQLBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeUpdateRequestMsgSQLBGOutput" type="bons1:UpdateRequestMsgSQLBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeUpdateRequestMsgSQLBGRequestMsg">
+    <wsdl:part element="tns:executeUpdateRequestMsgSQLBG" name="executeUpdateRequestMsgSQLBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeUpdateRequestMsgSQLBGResponseMsg">
+    <wsdl:part element="tns:executeUpdateRequestMsgSQLBGResponse" name="executeUpdateRequestMsgSQLBGResult"/>
+  </wsdl:message>
+  <wsdl:portType name="UpdateRequestMsgSQL">
+    <wsdl:operation name="executeUpdateRequestMsgSQLBG">
+      <wsdl:input message="tns:executeUpdateRequestMsgSQLBGRequestMsg" name="executeUpdateRequestMsgSQLBGRequest"/>
+      <wsdl:output message="tns:executeUpdateRequestMsgSQLBGResponseMsg" name="executeUpdateRequestMsgSQLBGResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
