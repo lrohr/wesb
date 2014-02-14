@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_prof_v1p_cursor" xmlns:nclseancl_wesb_get_client_prof_v1p_cursor="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_prof_v1p_cursor" xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata" schemaLocation="JDBCASI.xsd"/>
+
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability" version="7.5.0.1"/>
+</xsd:appinfo>
+</xsd:annotation>
+
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="commonj.connector.asi">
+<asi:annotationSet xmlns:asi="commonj.connector.asi" asiNSURI="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata"/>
+</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType name="NclseaNcl_Wesb_Get_Client_Prof_V1P_Cursor">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCBusinessObjectTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPName>NCLSEA.NCL_WESB_GET_CLIENT_PROF_V1</jdbcasi:SPName>
+</jdbcasi:JDBCBusinessObjectTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+<xsd:sequence minOccurs="1" maxOccurs="1">
+<xsd:element name="birthday" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="citizenship" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="client_id" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="country_of_birth" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="email" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="first_name" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="last_name" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="full_name" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="middle_name" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="nationality" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="occupation" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="sex" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="title" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="web_login_name" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="web_password" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="address_line1" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="address_line2" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="address_line3" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="address_line4" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="address_type" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="address_city" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="country_code" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="state_code" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="zip" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="phone_type" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="phone_number" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="client_type" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="1">
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+</xsd:schema>

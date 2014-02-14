@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:E-Mail_Interface="http://E-Mail_Generic/E-Mail_Interface" xmlns:NCL_CruiseRetrieveGroupBookings_Interface="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveGroupBookings_Interface" xmlns:TP_Interface="http://TP_Logger/TP_Interface" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://NCL_CruiseRetrieveGroupBookings_Module/DB_LOOKUP" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="NCL_CruiseRetrieveGroupBookings_Module" targetNamespace="http://NCL_CruiseRetrieveGroupBookings_Module/NCL_CruiseRetrieveGroupBookings_Module">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="NCL_CruiseRetrieveGroupBookings_Interface:NCL_CruiseRetrieveGroupBookings_Interface"/>
+  </interfaces>
+  <references>
+    <reference name="DB_LOOKUPPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1:DB_LOOKUP"/>
+    </reference>
+    <reference name="TP_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="TP_Interface:TP_Interface"/>
+    </reference>
+    <reference name="E-Mail_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="E-Mail_Interface:E-Mail_Interface"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="Perform_NCL_CruiseRetrieveGroupBookings" target="TP_InsertUpdate" sourcePortType="NCL_CruiseRetrieveGroupBookings_Interface:NCL_CruiseRetrieveGroupBookings_Interface" targetReference="TP_InterfacePartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseRetrieveGroupBookings" target="executeNclseaNcl_Wesb_Retrieve_Grp_BookingBG" sourcePortType="NCL_CruiseRetrieveGroupBookings_Interface:NCL_CruiseRetrieveGroupBookings_Interface" targetReference="DB_LOOKUPPartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseRetrieveGroupBookings" target="TP_InsertUpdate" sourcePortType="NCL_CruiseRetrieveGroupBookings_Interface:NCL_CruiseRetrieveGroupBookings_Interface" targetReference="TP_InterfacePartner"/>
+  <operationFlow medflow="NCL_CruiseRetrieveGroupBookings_Module.medflow"/>
+</mfc:interfaceMediationFlow>

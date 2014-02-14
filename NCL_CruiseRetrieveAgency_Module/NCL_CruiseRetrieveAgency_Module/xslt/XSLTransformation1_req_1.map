@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRetrieveAgency_Module/xslt/XSLTransformation1_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRetrieveAgency_Module/xslt/XSLTransformation1_req_1">
+    <input correlationContext="{http://NCL_CruiseRetrieveAgency_Module}appContext" message="{http://NCL_CruiseRetrieveAgency_Module/JDBCOutboundInterface}executeNclseaNcl_Wesb_Ar_Get_Agency_InfoBGResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRetrieveAgency_Module}appContext" message="{http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveAgency_Interface}Perform_NCL_CruiseRetrieveAgencyResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xslt" location="XSLTransformation1_req_1_custom.xsl"/>
+    </imports>
+    <mappingDeclaration name="XSLTransformation1_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/logId"/>
+            <output path="context/correlation/logId"/>
+        </move>
+        <move>
+            <input path="context/correlation/errorCode"/>
+            <output path="context/correlation/errorCode"/>
+        </move>
+        <move>
+            <input path="context/correlation/errorText"/>
+            <output path="context/correlation/errorText"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveAgencyRQ"/>
+            <output path="context/correlation/NCL_CruiseRetrieveAgencyRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveAgencyRQ/@TransactionIdentifier"/>
+            <output path="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/@TransactionIdentifier"/>
+        </move>
+        <customFunction lang="xslt" location="XSLTransformation1_req_1_custom.xsl" ref="ToSuccess">
+            <output path="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/Success"/>
+        </customFunction>
+        <assign value="9915">
+            <output path="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/Warnings/Warning/@Code"/>
+        </assign>
+        <assign value="agency not found">
+            <output path="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/Warnings/Warning/@ShortText"/>
+        </assign>
+    </mappingDeclaration>
+</mappingRoot>

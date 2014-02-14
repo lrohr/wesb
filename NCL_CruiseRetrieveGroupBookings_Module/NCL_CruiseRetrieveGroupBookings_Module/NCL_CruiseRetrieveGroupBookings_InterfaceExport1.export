@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Binding="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveGroupBookings_Interface/Binding" xmlns:ns1="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveGroupBookings_Interface" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:webservice="http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="NCL_CruiseRetrieveGroupBookings_InterfaceExport1" name="NCL_CruiseRetrieveGroupBookings_InterfaceExport1" target="NCL_CruiseRetrieveGroupBookings_Module">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:NCL_CruiseRetrieveGroupBookings_Interface"/>
+  </interfaces>
+  <esbBinding xsi:type="webservice:WebServiceExportBinding" port="Binding:NCL_CruiseRetrieveGroupBookings_InterfaceExport1_NCL_CruiseRetrieveGroupBookings_InterfaceHttpPort" service="Binding:NCL_CruiseRetrieveGroupBookings_InterfaceExport1_NCL_CruiseRetrieveGroupBookings_InterfaceHttpService"/>
+</scdl:export>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="JDBCOutboundInterface.wsdl" targetNamespace="http://NCL_CruiseRetrieveAgent_Module/JDBCOutboundInterface" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_agent_with_paged" xmlns:bons2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_agent_with_paging" xmlns:bons3="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_agy_for_agtreq" xmlns:tns="http://NCL_CruiseRetrieveAgent_Module/JDBCOutboundInterface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://NCL_CruiseRetrieveAgent_Module/JDBCOutboundInterface">
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_agent_with_paging" schemaLocation="NclseaNcl_Wesb_Get_Agent_With_Paging.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_agent_with_paged" schemaLocation="NclseaNcl_Wesb_Get_Agent_With_Paged.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_agy_for_agtreq" schemaLocation="NclseaNcl_Wesb_Get_Agy_For_Agtreq.xsd"/>
+      <xsd:element name="executeNclseaNcl_Wesb_Get_Agent_With_Paged">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Get_Agent_With_PagedInput" type="bons1:NclseaNcl_Wesb_Get_Agent_With_Paged"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Get_Agent_With_PagedResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Get_Agent_With_PagedOutput" type="bons1:NclseaNcl_Wesb_Get_Agent_With_Paged"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Get_Agent_With_Paging">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Get_Agent_With_PagingInput" type="bons2:NclseaNcl_Wesb_Get_Agent_With_Paging"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Get_Agent_With_PagingResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Get_Agent_With_PagingOutput" type="bons2:NclseaNcl_Wesb_Get_Agent_With_Paging"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Get_Agy_For_Agtreq">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Get_Agy_For_AgtreqInput" type="bons3:NclseaNcl_Wesb_Get_Agy_For_Agtreq"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Get_Agy_For_AgtreqResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Get_Agy_For_AgtreqOutput" type="bons3:NclseaNcl_Wesb_Get_Agy_For_Agtreq"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeNclseaNcl_Wesb_Get_Agent_With_PagedRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Get_Agent_With_Paged" name="executeNclseaNcl_Wesb_Get_Agent_With_PagedParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Get_Agent_With_PagedResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Get_Agent_With_PagedResponse" name="executeNclseaNcl_Wesb_Get_Agent_With_PagedResult"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Get_Agent_With_PagingRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Get_Agent_With_Paging" name="executeNclseaNcl_Wesb_Get_Agent_With_PagingParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Get_Agent_With_PagingResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Get_Agent_With_PagingResponse" name="executeNclseaNcl_Wesb_Get_Agent_With_PagingResult"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Get_Agy_For_AgtreqRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Get_Agy_For_Agtreq" name="executeNclseaNcl_Wesb_Get_Agy_For_AgtreqParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Get_Agy_For_AgtreqResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Get_Agy_For_AgtreqResponse" name="executeNclseaNcl_Wesb_Get_Agy_For_AgtreqResult"/>
+  </wsdl:message>
+  <wsdl:portType name="JDBCOutboundInterface">
+    <wsdl:operation name="executeNclseaNcl_Wesb_Get_Agent_With_Paged">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Get_Agent_With_PagedRequestMsg" name="executeNclseaNcl_Wesb_Get_Agent_With_PagedRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Get_Agent_With_PagedResponseMsg" name="executeNclseaNcl_Wesb_Get_Agent_With_PagedResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="executeNclseaNcl_Wesb_Get_Agent_With_Paging">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Get_Agent_With_PagingRequestMsg" name="executeNclseaNcl_Wesb_Get_Agent_With_PagingRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Get_Agent_With_PagingResponseMsg" name="executeNclseaNcl_Wesb_Get_Agent_With_PagingResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="executeNclseaNcl_Wesb_Get_Agy_For_Agtreq">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Get_Agy_For_AgtreqRequestMsg" name="executeNclseaNcl_Wesb_Get_Agy_For_AgtreqRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Get_Agy_For_AgtreqResponseMsg" name="executeNclseaNcl_Wesb_Get_Agy_For_AgtreqResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="DB_LOOKUP.wsdl" targetNamespace="http://NCL_CruiseRetrieveGroupBookings_Module/DB_LOOKUP" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_retrieve_grp_bookingbg" xmlns:tns="http://NCL_CruiseRetrieveGroupBookings_Module/DB_LOOKUP" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://NCL_CruiseRetrieveGroupBookings_Module/DB_LOOKUP">
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_retrieve_grp_bookingbg" schemaLocation="NclseaNcl_Wesb_Retrieve_Grp_BookingBG.xsd"/>
+      <xsd:element name="executeNclseaNcl_Wesb_Retrieve_Grp_BookingBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGInput" type="bons1:NclseaNcl_Wesb_Retrieve_Grp_BookingBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGOutput" type="bons1:NclseaNcl_Wesb_Retrieve_Grp_BookingBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Retrieve_Grp_BookingBG" name="executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGResponse" name="executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGResult"/>
+  </wsdl:message>
+  <wsdl:portType name="DB_LOOKUP">
+    <wsdl:operation name="executeNclseaNcl_Wesb_Retrieve_Grp_BookingBG">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGRequestMsg" name="executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGResponseMsg" name="executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

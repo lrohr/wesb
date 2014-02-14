@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema
+    targetNamespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_agy_for_agtreqp_cursor"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata" xmlns:nclseancl_wesb_get_agy_for_agtreqp_cursor="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_agy_for_agtreqp_cursor">
+    <import
+        namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata" schemaLocation="JDBCASI.xsd"/>
+    <annotation xml:space="preserve">
+<appinfo
+                source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter
+                version="7.5.0.1" xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability"/>
+</appinfo>
+</annotation>
+    <annotation xml:space="preserve">
+<appinfo
+                source="commonj.connector.asi">
+<asi:annotationSet
+                asiNSURI="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata" xmlns:asi="commonj.connector.asi"/>
+</appinfo>
+</annotation>
+    <complexType name="NclseaNcl_Wesb_Get_Agy_For_AgtreqP_Cursor">
+        <annotation xml:space="preserve">
+<appinfo
+                    source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCBusinessObjectTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPName>NCLSEA.NCL_WESB_GET_AGY_FOR_AGTREQ</jdbcasi:SPName>
+</jdbcasi:JDBCBusinessObjectTypeMetadata>
+</appinfo>
+</annotation>
+        <sequence maxOccurs="1" minOccurs="1">
+            <element maxOccurs="1" minOccurs="0" name="agency_id"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="agency_name"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0"
+                name="agency_name_essential" nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0"
+                name="agency_name_typed" nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="agency_type"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="ag_entity_type"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="arc_number"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="bc_type_id"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="clia_number"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="comments"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="consortium_type"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="contact_name"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="country_code"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="default_currency"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="floating_deposit"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="iata_number"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="is_active"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="is_consortium"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="is_domestic"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0"
+                name="is_fax_email_secured" nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="is_gsa"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="is_internal"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="marketing_msg"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0"
+                name="notif_dflt_distr_type" nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="office_code"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="taxowner_name"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="taxpayer_number"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="taxpayer_type"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0"
+                name="use_dflt_consortium" nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="use_guest_addr"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="vendor_number"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="web_address"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="address_city"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="address_line1"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="address_line2"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="address_type"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="add_country_code"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0"
+                name="is_address_mailing" nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0"
+                name="is_address_shipping" nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="seq_number"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="state_code"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="zip"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="is_phone_fax"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="is_phone_primary"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="phone_number"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="phone_type"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0"
+                name="contact_preference" nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="email_address"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="dsm_last"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="dsm_first"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="extra1"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="extra2"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="extra3"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="extra4"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="extra5"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="extra6"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="extra7"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="extra8"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="extra9"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="extraa"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0"
+                name="agency_classification_code" nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0"
+                name="agency_classification_name" nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+        </sequence>
+    </complexType>
+</schema>

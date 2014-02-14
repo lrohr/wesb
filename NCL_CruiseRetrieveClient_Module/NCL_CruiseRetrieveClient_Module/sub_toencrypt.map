@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:NclseaNcl_Wesb_Get_Client_ProfileBG="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_profilebg" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:processEncryptDecryptRequest="http://versonix.com/api/schemas" xmlns:sub_toencrypt="http://NCL_CruiseRetrieveClient_Module" targetNamespace="http://NCL_CruiseRetrieveClient_Module">
+  <map:name>sub_toencrypt</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="NclseaNcl_Wesb_Get_Client_ProfileBG:NclseaNcl_Wesb_Get_Client_ProfileBG" name="NclseaNcl_Wesb_Get_Client_ProfileBG"/>
+  <map:outputBusinessObjectVariable businessObjectRef="processEncryptDecryptRequest:processEncryptDecryptRequest" name="processEncryptDecryptRequest"/>
+  <map:propertyMap executionOrder="1">
+    <map:set value="DECRYPT">
+      <map:output businessObjectVariableRef="processEncryptDecryptRequest" property="Encrypt_Decrypt/Action"/>
+    </map:set>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/web_password"/>
+      <map:output businessObjectVariableRef="processEncryptDecryptRequest" property="Encrypt_Decrypt/EncryptString"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

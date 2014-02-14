@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:NclseaNcl_Wesb_Get_Client_ProfileBG="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_profilebg" xmlns:NclseaNcl_Wesb_Get_Client_ProgramsBG="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_programsbg" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:sub_togetclprograms="http://NCL_CruiseRetrieveClient_Module" targetNamespace="http://NCL_CruiseRetrieveClient_Module">
+  <map:name>sub_togetclprograms</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="NclseaNcl_Wesb_Get_Client_ProfileBG:NclseaNcl_Wesb_Get_Client_ProfileBG" name="NclseaNcl_Wesb_Get_Client_ProfileBG"/>
+  <map:outputBusinessObjectVariable businessObjectRef="NclseaNcl_Wesb_Get_Client_ProgramsBG:NclseaNcl_Wesb_Get_Client_ProgramsBG" name="NclseaNcl_Wesb_Get_Client_ProgramsBG"/>
+  <map:propertyMap executionOrder="1">
+    <map:custom>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/client_id"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProgramsBG" property="NclseaNcl_Wesb_Get_Client_Programs/p_clientid"/>
+      <map:javaCode>java.lang.String __NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_cursor1_client_id = (java.lang.String)NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_cursor1_client_id;&#xD;
+java.lang.Integer __NclseaNcl_Wesb_Get_Client_ProgramsBG_NclseaNcl_Wesb_Get_Client_Programs_p_clientid = (java.lang.Integer)NclseaNcl_Wesb_Get_Client_ProgramsBG_NclseaNcl_Wesb_Get_Client_Programs_p_clientid;&#xD;
+byte __result__3 = 1;&#xD;
+int __result__2 = __NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_cursor1_client_id.length();&#xD;
+boolean __result__4;&#xD;
+{// greater than&#xD;
+	__result__4 = __result__2 > __result__3;&#xD;
+}&#xD;
+if (__result__4){&#xD;
+	int __result__8 = 0;&#xD;
+	try {&#xD;
+		__result__8 = java.lang.Integer.parseInt(__NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_cursor1_client_id);&#xD;
+	}&#xD;
+	catch(java.lang.NumberFormatException ex){&#xD;
+	}&#xD;
+	__NclseaNcl_Wesb_Get_Client_ProgramsBG_NclseaNcl_Wesb_Get_Client_Programs_p_clientid = new java.lang.Integer(__result__8);&#xD;
+	NclseaNcl_Wesb_Get_Client_ProgramsBG_NclseaNcl_Wesb_Get_Client_Programs_p_clientid = __NclseaNcl_Wesb_Get_Client_ProgramsBG_NclseaNcl_Wesb_Get_Client_Programs_p_clientid;&#xD;
+}&#xD;
+else{&#xD;
+}&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_cursor1_client_id&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_cursor1_client_id&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.1/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;length&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;length&quot;>
+//    &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.0/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result>
+//      &lt;dataOutputs target=&quot;//@executableElements.3/@parameters.0&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;1&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.3/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;byte&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;greater than&quot; description=&quot;True if the value of the first input is greater than the value of the second input&quot; category=&quot;math&quot; template=&quot;&amp;lt;%return%> &amp;lt;%input1%> > &amp;lt;%input2%>;&quot;>
+//    &lt;parameters name=&quot;input1&quot; dataInputs=&quot;//@executableElements.1/@result/@dataOutputs.0&quot; displayName=&quot;input 1&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;input2&quot; dataInputs=&quot;//@executableElements.2/@dataOutputs.0&quot; displayName=&quot;input 2&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;result name=&quot;result&quot; displayName=&quot;result&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.4&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;boolean&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:BranchElement&quot; dataInputs=&quot;//@executableElements.3/@result/@dataOutputs.0&quot;>
+//    &lt;conditionalActivities>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_cursor1_client_id&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.4/@conditionalActivities.0/@executableElements.1/@parameters.0&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;parseInt&quot; category=&quot;java.lang.Integer&quot; className=&quot;java.lang.Integer&quot; static=&quot;true&quot; memberName=&quot;parseInt&quot;>
+//        &lt;parameters name=&quot;s&quot; dataInputs=&quot;//@executableElements.4/@conditionalActivities.0/@executableElements.0/@dataOutputs.0&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//        &lt;/parameters>
+//        &lt;result>
+//          &lt;dataOutputs target=&quot;//@executableElements.4/@conditionalActivities.0/@executableElements.2&quot;/>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//        &lt;/result>
+//        &lt;exceptions>
+//          &lt;dataOutputs target=&quot;//@executableElements.4/@conditionalActivities.0/@executableElements.3/@parameters.0&quot;/>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.NumberFormatException&quot;/>
+//        &lt;/exceptions>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.4/@conditionalActivities.0/@executableElements.1/@result/@dataOutputs.0&quot; value=&quot;NclseaNcl_Wesb_Get_Client_ProgramsBG_NclseaNcl_Wesb_Get_Client_Programs_p_clientid&quot; variable=&quot;true&quot;>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;int&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:ExceptionHandler&quot; name=&quot;Exception Handler&quot;>
+//        &lt;parameters name=&quot;ex&quot; dataInputs=&quot;//@executableElements.4/@conditionalActivities.0/@executableElements.1/@exceptions.0/@dataOutputs.0&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.NumberFormatException&quot;/>
+//        &lt;/parameters>
+//        &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;ex&quot; variable=&quot;true&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.NumberFormatException&quot;/>
+//        &lt;/executableElements>
+//        &lt;executableGroups executableElements=&quot;//@executableElements.4/@conditionalActivities.0/@executableElements.3/@executableElements.0&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableGroups executableElements=&quot;//@executableElements.4/@conditionalActivities.0/@executableElements.0 //@executableElements.4/@conditionalActivities.0/@executableElements.1 //@executableElements.4/@conditionalActivities.0/@executableElements.2 //@executableElements.4/@conditionalActivities.0/@executableElements.3&quot;/>
+//      &lt;condition value=&quot;true&quot;/>
+//    &lt;/conditionalActivities>
+//    &lt;conditionalActivities>
+//      &lt;condition value=&quot;&quot;/>
+//    &lt;/conditionalActivities>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0 //@executableElements.1 //@executableElements.2 //@executableElements.3 //@executableElements.4&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!2:4,1&#xD;
+//!SMAP!3:3,1&#xD;
+//!SMAP!4:5,4&#xD;
+//!SMAP!5:9,1&#xD;
+//!SMAP!8:12,2&#xD;
+//!SMAP!9:16,2&#xD;
+//!SMAP!1000000:110,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+</map:businessObjectMap>

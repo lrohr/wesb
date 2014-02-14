@@ -1,0 +1,17 @@
+* SMAP
+XSLTBuildError.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLTBuildError.map
+/NCL_CruiseRtrvNameList_Module/xslt/XSLTBuildError.map
+*L
+1:52,17
+7:98,6
+5:114,4
+6:118,3
+4:110,4
+8:104,3
+3:84,5
+2:80,4
+*E

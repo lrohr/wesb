@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<io:smo xmlns:io="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:io6="http://NCL_CruiseRtrvNameList_Module" xmlns:io7="http://www.w3.org/2005/08/addressing" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:out2="http://NCL_WESB_Shared_Library/NCL_CruiseRtrvNameList_Interface" xmlns:io4="http://nclapi/schemas" xmlns:io5="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:io3="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:io2="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:out="wsdl.http://NCL_WESB_Shared_Library/NCL_CruiseRtrvNameList_Interface">
+  <context>
+    <correlation>
+      <p1:NCL_CruiseRtrvNameListRQ xmlns:p1="http://nclapi/schemas" xmlns:httpsca="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:mq="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:nclseancl_wesb_get_consumer_nam_list="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_consumer_nam_list" xmlns:nclseancl_wesb_get_consumer_nam_listp_cursor="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_consumer_nam_listp_cursor" xmlns:nclseancl_wesb_retrieve_name_list="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_retrieve_name_list" xmlns:nclseancl_wesb_retrieve_name_listp_cursor="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_retrieve_name_listp_cursor" xmlns:p="http://NCL_CruiseRtrvNameList_Module" xmlns:p2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_retrieve_name_listbg" xmlns:p3="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0" xmlns:p4="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_consumer_nam_listbg" xmlns:tns="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:tns1="http://NCL_CruiseRtrvNameList_Module/DB_LOOKUP" xmlns:tns2="http://www.w3.org/2005/08/addressing" xmlns:tns_1="wsdl.http://NCL_CruiseRtrvNameList_Module/DB_LOOKUP" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" AltLangID="EN" EchoToken="" MaxResponses="1" MoreDataEchoToken="" MoreIndicator="true" PrimaryLangID="EN" RetransmissionIndicator="true" SequenceNmbr="0" Target="Production" TimeStamp="2001-12-31T12:00:00" TransactionIdentifier="" TransactionStatusCode="Start" Version="0.0">
+        <p1:POS>
+          <p1:Source AgentDutyCode="" AgentSine="" AirlineVendorID="" AirportCode="" ERSP_UserID="" FirstDepartPoint="" ISOCountry="" ISOCurrency="" PseudoCityCode="" TerminalID="">
+            <p1:RequestorID ID="" ID_Context="" Instance="" MessagePassword="" Type="" URL="http://tempuri.org">
+              <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+            </p1:RequestorID>
+            <p1:Position Altitude="" AltitudeUnitOfMeasureCode="" Latitude="" Longitude=""/>
+            <p1:BookingChannel Primary="true" Type="">
+              <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+            </p1:BookingChannel>
+          </p1:Source>
+        </p1:POS>
+        <p1:Agency AgentDutyCode="" AgentSine="" AirlineVendorID="" AirportCode="" ERSP_UserID="" FirstDepartPoint="" ISOCountry="" ISOCurrency="" PseudoCityCode="" TerminalID="">
+          <p1:RequestorID ID="" ID_Context="" Instance="" MessagePassword="" Type="" URL="http://tempuri.org">
+            <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+          </p1:RequestorID>
+          <p1:Position Altitude="" AltitudeUnitOfMeasureCode="" Latitude="" Longitude=""/>
+          <p1:BookingChannel Primary="true" Type="">
+            <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+          </p1:BookingChannel>
+        </p1:Agency>
+        <p1:SelectedSailing Duration="" End="" ShipCode="" ShipName="" Start="" Status="" VendorCode="" VendorCodeContext="" VendorName="" VoyageID=""/>
+        <p1:GuestInfo NameType="" ShareMarketInd="Yes" ShareSynchInd="Yes">
+          <p1:NamePrefix>p1:NamePrefix</p1:NamePrefix>
+          <p1:GivenName>p1:GivenName</p1:GivenName>
+          <p1:MiddleName>p1:MiddleName</p1:MiddleName>
+          <p1:SurnamePrefix>p1:SurnamePrefix</p1:SurnamePrefix>
+          <p1:Surname>p1:Surname</p1:Surname>
+          <p1:NameSuffix>p1:NameSuffix</p1:NameSuffix>
+          <p1:NameTitle>p1:NameTitle</p1:NameTitle>
+          <p1:GroupInfo GroupCode=""/>
+          <p1:LoyaltyInfo EffectiveDate="2001-01-01" ExpireDate="2001-01-01" LoyalLevel="" MembershipID="" ProgramID="" RPH="" ShareMarketInd="Yes" ShareSynchInd="Yes" SignupDate="2001-01-01" SingleVendorInd="SingleVndr" TravelSector="" VendorCode=""/>
+        </p1:GuestInfo>
+      </p1:NCL_CruiseRtrvNameListRQ>
+      <LogID>LogID</LogID>
+    </correlation>
+  </context>
+  <body>
+    <out2:Perform_NCL_CruiseRtrvNameListResponse>
+      <io4:NCL_CruiseRtrvNameListRS>
+        <io4:GuestsInfo>
+          <io4:GuestInfo Age="0.0" Gender="sex" LoyaltyMembershipID="0.0">
+            <io4:SailingInfo>
+              <io4:SelectedSailing End="sail_date_to" Start="sail_date_from" VoyageID="0.0">
+                <io4:CruiseLine ShipCode="ship_code" VendorCode="source_code"/>
+              </io4:SelectedSailing>
+              <io4:SelectedCategory BerthedCategoryCode="priced_category" PricedCategoryCode="priced_category">
+                <io4:SelectedCabin CabinNumber="cabin_nbr"/>
+              </io4:SelectedCategory>
+            </io4:SailingInfo>
+            <io4:ReservationID ID="0.0" Status="res_status"/>
+            <io4:PersonName>
+              <io4:GivenName>first_name</io4:GivenName>
+              <io4:Surname>last_name</io4:Surname>
+              <io4:NameTitle>title</io4:NameTitle>
+            </io4:PersonName>
+            <io4:GroupInfo GroupCode="0.0"/>
+          </io4:GuestInfo>
+        </io4:GuestsInfo>
+      </io4:NCL_CruiseRtrvNameListRS>
+    </out2:Perform_NCL_CruiseRtrvNameListResponse>
+  </body>
+</io:smo>

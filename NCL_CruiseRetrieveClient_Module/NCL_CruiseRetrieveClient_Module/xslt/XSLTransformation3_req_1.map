@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRetrieveClient_Module/xslt/XSLTransformation3_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRetrieveClient_Module/xslt/XSLTransformation3_req_1">
+    <input correlationContext="{http://NCL_CruiseRetrieveClient_Module}App_Context" message="{http://NCL_CruiseRetrieveClient_Module/DB_Lookup}executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRetrieveClient_Module}App_Context" message="{http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveClient_Interface}Perform_NCL_CruiseRetrieveClientResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLTransformation3_req_1.xml"/>
+    </imports>
+    <mappingDeclaration name="XSLTransformation3_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRS/LoyaltyInfo"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/LoyaltyInfo"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRS/UserLogin"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/UserLogin"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_prefcruiselength"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/VacationPreference/@PreferredCruiseLength"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_future_cruise_plan"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/VacationPreference/@FutureCruisePlan"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_pref_cruise_time"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/VacationPreference/@PreferredCruiseTime"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_previously_cruised"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/VacationPreference/@PreviouslyCruised"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_previously_cruised_number"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/VacationPreference/@PreviouslyCruisedNumber"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_pref_booking_mode"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/VacationPreference/@PreferredBookingMode"/>
+        </move>
+        <move>
+            <input path="context/correlation/ClientID"/>
+            <output path="context/correlation/ClientID"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_prev_crus_cur[1]/previous_cruise_line"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/VacationPreference/PreviousCruiseLines[1]"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_prev_crus_cur[2]/previous_cruise_line"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/VacationPreference/PreviousCruiseLines[2]"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_prev_crus_cur[3]/previous_cruise_line"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/VacationPreference/PreviousCruiseLines[3]"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_prev_crus_cur[4]/previous_cruise_line"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/VacationPreference/PreviousCruiseLines[4]"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_prev_crus_cur[5]/previous_cruise_line"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/VacationPreference/PreviousCruiseLines[5]"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_prev_crus_cur[6]/previous_cruise_line"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/VacationPreference/PreviousCruiseLines[6]"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_prev_crus_cur[7]/previous_cruise_line"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/VacationPreference/PreviousCruiseLines[7]"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_prev_crus_cur[8]/previous_cruise_line"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/VacationPreference/PreviousCruiseLines[8]"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_prev_crus_cur[9]/previous_cruise_line"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/VacationPreference/PreviousCruiseLines[9]"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_prev_crus_cur[10]/previous_cruise_line"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/VacationPreference/PreviousCruiseLines[10]"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_dest_cur[1]/desired_destination"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/VacationPreference/DesiredDestination[1]"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_dest_cur[2]/desired_destination"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/VacationPreference/DesiredDestination[2]"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_dest_cur[3]/desired_destination"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/VacationPreference/DesiredDestination[3]"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_dest_cur[4]/desired_destination"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/VacationPreference/DesiredDestination[4]"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_dest_cur[5]/desired_destination"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/VacationPreference/DesiredDestination[5]"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_dest_cur[6]/desired_destination"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/VacationPreference/DesiredDestination[6]"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_dest_cur[7]/desired_destination"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/VacationPreference/DesiredDestination[7]"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_dest_cur[8]/desired_destination"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/VacationPreference/DesiredDestination[8]"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_dest_cur[9]/desired_destination"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/VacationPreference/DesiredDestination[9]"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_dest_cur[10]/desired_destination"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/VacationPreference/DesiredDestination[10]"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

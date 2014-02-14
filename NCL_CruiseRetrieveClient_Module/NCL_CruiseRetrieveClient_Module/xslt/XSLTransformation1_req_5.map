@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRetrieveClient_Module/xslt/XSLTransformation1_req_5" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRetrieveClient_Module/xslt/XSLTransformation1_req_5">
+    <input correlationContext="{http://NCL_CruiseRetrieveClient_Module}App_Context" message="{http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveClient_Interface}Perform_NCL_CruiseRetrieveClientRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRetrieveClient_Module}App_Context" message="{http://TP_Logger/TP_Interface}TP_InsertUpdateRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLTransformation1_req_5.xml"/>
+    </imports>
+    <mappingDeclaration name="XSLTransformation1_req_5">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+    </mappingDeclaration>
+</mappingRoot>

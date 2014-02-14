@@ -1,0 +1,16 @@
+* SMAP
+Seaware_Down_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 Seaware_Down_req_1.map
+/NCL_CruiseRetrieveClient_Module/xslt/Seaware_Down_req_1.map
+*L
+4:99,3
+1:54,17
+2:86,5
+3:82,4
+5:105,4
+6:109,3
+7:93,6
+*E

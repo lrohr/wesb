@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:NCL_CruiseRetrieveClientRQ="http://nclapi/schemas" xmlns:NclseaNcl_Wesb_Get_Client_ProfileBG="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_profilebg" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:sub_tocreateclientprofile="http://NCL_CruiseRetrieveClient_Module" targetNamespace="http://NCL_CruiseRetrieveClient_Module">
+  <map:name>sub_tocreateclientprofile</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="NCL_CruiseRetrieveClientRQ:NCL_CruiseRetrieveClientRQ" name="NCL_CruiseRetrieveClientRQ"/>
+  <map:outputBusinessObjectVariable businessObjectRef="NclseaNcl_Wesb_Get_Client_ProfileBG:NclseaNcl_Wesb_Get_Client_ProfileBG" name="NclseaNcl_Wesb_Get_Client_ProfileBG"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseRetrieveClientRQ" property="ReservationID/@ID"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_resid"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseRetrieveClientRQ" property="ClientInfo/PersonName/Surname"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_lastname"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseRetrieveClientRQ" property="ClientInfo/PersonName/GivenName[1]"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_firstname"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseRetrieveClientRQ" property="SelectedSailing/@ShipCode"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_shipcode"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="5">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseRetrieveClientRQ" property="ClientInfo/Email/value()"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_email"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="6">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseRetrieveClientRQ" property="ClientInfo/Address/PostalCode"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_zipcode"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="7">
+    <map:custom>
+      <map:input businessObjectVariableRef="NCL_CruiseRetrieveClientRQ" property="LoyaltyInfo/@MembershipID"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_clientid"/>
+      <map:javaCode>java.lang.String __NCL_CruiseRetrieveClientRQ_LoyaltyInfo_$aMembershipID = (java.lang.String)NCL_CruiseRetrieveClientRQ_LoyaltyInfo_$aMembershipID;&#xD;
+java.lang.Integer __NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_clientid = (java.lang.Integer)NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_clientid;&#xD;
+// Input NCL_CruiseRetrieveClientRQ_LoyaltyInfo_@MembershipID is represented as NCL_CruiseRetrieveClientRQ_LoyaltyInfo_$aMembershipID&#xD;
+byte __result__4 = 0;&#xD;
+int __result__3 = __NCL_CruiseRetrieveClientRQ_LoyaltyInfo_$aMembershipID.length();&#xD;
+boolean __result__5;&#xD;
+{// greater than&#xD;
+	__result__5 = __result__3 > __result__4;&#xD;
+}&#xD;
+if (__result__5){&#xD;
+	int __result__9 = 0;&#xD;
+	try {&#xD;
+		__result__9 = java.lang.Integer.parseInt(__NCL_CruiseRetrieveClientRQ_LoyaltyInfo_$aMembershipID);&#xD;
+	}&#xD;
+	catch(java.lang.NumberFormatException ex){&#xD;
+	}&#xD;
+	__NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_clientid = new java.lang.Integer(__result__9);&#xD;
+	NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_clientid = __NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_clientid;&#xD;
+}&#xD;
+else{&#xD;
+}&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;NCL_CruiseRetrieveClientRQ_LoyaltyInfo_$aMembershipID&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength1to32&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Input NCL_CruiseRetrieveClientRQ_LoyaltyInfo_@MembershipID is represented as NCL_CruiseRetrieveClientRQ_LoyaltyInfo_$aMembershipID&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NCL_CruiseRetrieveClientRQ_LoyaltyInfo_$aMembershipID&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.2/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength1to32&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;length&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;length&quot;>
+//    &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.1/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result>
+//      &lt;dataOutputs target=&quot;//@executableElements.4/@parameters.0&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;0&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.4/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;byte&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;greater than&quot; description=&quot;True if the value of the first input is greater than the value of the second input&quot; category=&quot;math&quot; template=&quot;&amp;lt;%return%> &amp;lt;%input1%> > &amp;lt;%input2%>;&quot;>
+//    &lt;parameters name=&quot;input1&quot; dataInputs=&quot;//@executableElements.2/@result/@dataOutputs.0&quot; displayName=&quot;input 1&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;input2&quot; dataInputs=&quot;//@executableElements.3/@dataOutputs.0&quot; displayName=&quot;input 2&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;result name=&quot;result&quot; displayName=&quot;result&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.5&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;boolean&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:BranchElement&quot; dataInputs=&quot;//@executableElements.4/@result/@dataOutputs.0&quot;>
+//    &lt;conditionalActivities>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NCL_CruiseRetrieveClientRQ_LoyaltyInfo_$aMembershipID&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.1/@parameters.0&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength1to32&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;parseInt&quot; category=&quot;java.lang.Integer&quot; className=&quot;java.lang.Integer&quot; static=&quot;true&quot; memberName=&quot;parseInt&quot;>
+//        &lt;parameters name=&quot;s&quot; dataInputs=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.0/@dataOutputs.0&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//        &lt;/parameters>
+//        &lt;result>
+//          &lt;dataOutputs target=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.2&quot;/>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//        &lt;/result>
+//        &lt;exceptions>
+//          &lt;dataOutputs target=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.3/@parameters.0&quot;/>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.NumberFormatException&quot;/>
+//        &lt;/exceptions>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.1/@result/@dataOutputs.0&quot; value=&quot;NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_clientid&quot; variable=&quot;true&quot;>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;int&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:ExceptionHandler&quot; name=&quot;Exception Handler&quot;>
+//        &lt;parameters name=&quot;ex&quot; dataInputs=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.1/@exceptions.0/@dataOutputs.0&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.NumberFormatException&quot;/>
+//        &lt;/parameters>
+//        &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;ex&quot; variable=&quot;true&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.NumberFormatException&quot;/>
+//        &lt;/executableElements>
+//        &lt;executableGroups executableElements=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.3/@executableElements.0&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableGroups executableElements=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.0 //@executableElements.5/@conditionalActivities.0/@executableElements.1 //@executableElements.5/@conditionalActivities.0/@executableElements.2 //@executableElements.5/@conditionalActivities.0/@executableElements.3&quot;/>
+//      &lt;condition value=&quot;true&quot;/>
+//    &lt;/conditionalActivities>
+//    &lt;conditionalActivities>
+//      &lt;condition value=&quot;&quot;/>
+//    &lt;/conditionalActivities>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.1 //@executableElements.2 //@executableElements.3 //@executableElements.4 //@executableElements.5&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!3:5,1&#xD;
+//!SMAP!4:4,1&#xD;
+//!SMAP!5:6,4&#xD;
+//!SMAP!6:10,1&#xD;
+//!SMAP!9:13,2&#xD;
+//!SMAP!10:17,2&#xD;
+//!SMAP!1000000:115,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="8">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseRetrieveClientRQ" property="ClientInfo/@BirthDate"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_dateofbirth"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="9">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseRetrieveClientRQ" property="SelectedSailing/@Start"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_sailingdate"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="10">
+    <map:custom>
+      <map:input businessObjectVariableRef="NCL_CruiseRetrieveClientRQ" property="UserLogin/@UserLoginName"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_webusername"/>
+      <map:javaCode>java.lang.String __NCL_CruiseRetrieveClientRQ_UserLogin_$aUserLoginName = (java.lang.String)NCL_CruiseRetrieveClientRQ_UserLogin_$aUserLoginName;&#xD;
+java.lang.String __NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_webusername = (java.lang.String)NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_webusername;&#xD;
+// Input NCL_CruiseRetrieveClientRQ_UserLogin_@UserLoginName is represented as NCL_CruiseRetrieveClientRQ_UserLogin_$aUserLoginName&#xD;
+// Input NCL_CruiseRetrieveClientRQ_UserLogin_@UserLoginName is represented as NCL_CruiseRetrieveClientRQ_UserLogin_$aUserLoginName&#xD;
+// Input NCL_CruiseRetrieveClientRQ_UserLogin_@UserLoginName is represented as NCL_CruiseRetrieveClientRQ_UserLogin_$aUserLoginName&#xD;
+// Input NCL_CruiseRetrieveClientRQ_UserLogin_@UserLoginName is represented as NCL_CruiseRetrieveClientRQ_UserLogin_$aUserLoginName&#xD;
+// Input NCL_CruiseRetrieveClientRQ_UserLogin_@UserLoginName is represented as NCL_CruiseRetrieveClientRQ_UserLogin_$aUserLoginName&#xD;
+byte __result__8 = 0;&#xD;
+int __result__7 = __NCL_CruiseRetrieveClientRQ_UserLogin_$aUserLoginName.length();&#xD;
+boolean __result__9;&#xD;
+{// greater than&#xD;
+	__result__9 = __result__7 > __result__8;&#xD;
+}&#xD;
+if (__result__9){&#xD;
+	java.lang.String __result__13 = __NCL_CruiseRetrieveClientRQ_UserLogin_$aUserLoginName.toUpperCase();&#xD;
+	__NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_webusername = __result__13;&#xD;
+	NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_webusername = __NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_webusername;&#xD;
+}&#xD;
+else{&#xD;
+}&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;NCL_CruiseRetrieveClientRQ_UserLogin_$aUserLoginName&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength1to64&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Input NCL_CruiseRetrieveClientRQ_UserLogin_@UserLoginName is represented as NCL_CruiseRetrieveClientRQ_UserLogin_$aUserLoginName&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Input NCL_CruiseRetrieveClientRQ_UserLogin_@UserLoginName is represented as NCL_CruiseRetrieveClientRQ_UserLogin_$aUserLoginName&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Input NCL_CruiseRetrieveClientRQ_UserLogin_@UserLoginName is represented as NCL_CruiseRetrieveClientRQ_UserLogin_$aUserLoginName&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Input NCL_CruiseRetrieveClientRQ_UserLogin_@UserLoginName is represented as NCL_CruiseRetrieveClientRQ_UserLogin_$aUserLoginName&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Input NCL_CruiseRetrieveClientRQ_UserLogin_@UserLoginName is represented as NCL_CruiseRetrieveClientRQ_UserLogin_$aUserLoginName&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NCL_CruiseRetrieveClientRQ_UserLogin_$aUserLoginName&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.6/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength1to64&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;length&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;length&quot;>
+//    &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.5/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result>
+//      &lt;dataOutputs target=&quot;//@executableElements.8/@parameters.0&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;0&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.8/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;byte&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;greater than&quot; description=&quot;True if the value of the first input is greater than the value of the second input&quot; category=&quot;math&quot; template=&quot;&amp;lt;%return%> &amp;lt;%input1%> > &amp;lt;%input2%>;&quot;>
+//    &lt;parameters name=&quot;input1&quot; dataInputs=&quot;//@executableElements.6/@result/@dataOutputs.0&quot; displayName=&quot;input 1&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;input2&quot; dataInputs=&quot;//@executableElements.7/@dataOutputs.0&quot; displayName=&quot;input 2&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;result name=&quot;result&quot; displayName=&quot;result&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.9&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;boolean&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:BranchElement&quot; dataInputs=&quot;//@executableElements.8/@result/@dataOutputs.0&quot;>
+//    &lt;conditionalActivities>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NCL_CruiseRetrieveClientRQ_UserLogin_$aUserLoginName&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.9/@conditionalActivities.0/@executableElements.1/@parameters.0&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength1to64&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;toUpperCase&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;toUpperCase&quot;>
+//        &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.9/@conditionalActivities.0/@executableElements.0/@dataOutputs.0&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//        &lt;/parameters>
+//        &lt;result>
+//          &lt;dataOutputs target=&quot;//@executableElements.9/@conditionalActivities.0/@executableElements.2&quot;/>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//        &lt;/result>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.9/@conditionalActivities.0/@executableElements.1/@result/@dataOutputs.0&quot; value=&quot;NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_webusername&quot; variable=&quot;true&quot;>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableGroups executableElements=&quot;//@executableElements.9/@conditionalActivities.0/@executableElements.0 //@executableElements.9/@conditionalActivities.0/@executableElements.1 //@executableElements.9/@conditionalActivities.0/@executableElements.2&quot;/>
+//      &lt;condition value=&quot;true&quot;/>
+//    &lt;/conditionalActivities>
+//    &lt;conditionalActivities>
+//      &lt;condition value=&quot;&quot;/>
+//    &lt;/conditionalActivities>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.1&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.2&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.3&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.4&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.5 //@executableElements.6 //@executableElements.7 //@executableElements.8 //@executableElements.9&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!7:9,1&#xD;
+//!SMAP!8:8,1&#xD;
+//!SMAP!9:10,4&#xD;
+//!SMAP!10:14,1&#xD;
+//!SMAP!13:15,1&#xD;
+//!SMAP!14:16,2&#xD;
+//!SMAP!1000000:117,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+</map:businessObjectMap>

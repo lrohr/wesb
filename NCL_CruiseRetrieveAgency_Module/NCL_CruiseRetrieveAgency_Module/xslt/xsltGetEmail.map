@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRetrieveAgency_Module/xslt/xsltGetEmail" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRetrieveAgency_Module/xslt/xsltGetEmail">
+    <input correlationContext="{http://NCL_CruiseRetrieveAgency_Module}appContext" message="{http://NCL_CruiseRetrieveAgency_Module/JDBCOutboundInterface}executeNclseaNcl_Wesb_Ar_Get_Agency_PhoneBGResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRetrieveAgency_Module}appContext" message="{http://NCL_CruiseRetrieveAgency_Module/JDBCOutboundInterface}executeNclseaNcl_Wesb_Ar_Get_Agency_EmailBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="xsltGetEmail.xml"/>
+    </imports>
+    <mappingDeclaration name="xsltGetEmail">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/logId"/>
+            <output path="context/correlation/logId"/>
+        </move>
+        <move>
+            <input path="context/correlation/errorCode"/>
+            <output path="context/correlation/errorCode"/>
+        </move>
+        <move>
+            <input path="context/correlation/errorText"/>
+            <output path="context/correlation/errorText"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveAgencyRQ"/>
+            <output path="context/correlation/NCL_CruiseRetrieveAgencyRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/address"/>
+            <output path="context/correlation/address"/>
+        </move>
+        <move>
+            <input path="context/correlation/info"/>
+            <output path="context/correlation/info"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveAgencyRQ/AgencyInfo/RequestorID/@ID"/>
+            <output path="body/executeNclseaNcl_Wesb_Ar_Get_Agency_EmailBG/executeNclseaNcl_Wesb_Ar_Get_Agency_EmailBGInput/NclseaNcl_Wesb_Ar_Get_Agency_Email/p_agencyid"/>
+        </move>
+        <foreach>
+            <input path="body/executeNclseaNcl_Wesb_Ar_Get_Agency_PhoneBGResponse/executeNclseaNcl_Wesb_Ar_Get_Agency_PhoneBGOutput/NclseaNcl_Wesb_Ar_Get_Agency_Phone/p_cursor"/>
+            <output path="context/correlation/phone/Get_AgencyPhoneInfo/P_CURSOR"/>
+            <move>
+                <input path="seq_number"/>
+                <output path="SEQ_NUMBER"/>
+            </move>
+            <move>
+                <input path="phone_type"/>
+                <output path="PHONE_TYPE"/>
+            </move>
+            <move>
+                <input path="phone_number"/>
+                <output path="PHONE_NUMBER"/>
+            </move>
+            <move>
+                <input path="is_phone_primary"/>
+                <output path="IS_PHONE_PRIMARY"/>
+            </move>
+            <move>
+                <input path="is_phone_secondary"/>
+                <output path="IS_PHONE_SECONDARY"/>
+            </move>
+            <move>
+                <input path="is_phone_fax"/>
+                <output path="IS_PHONE_FAX"/>
+            </move>
+            <move>
+                <input path="fax_attention_line"/>
+                <output path="FAX_ATTENTION_LINE"/>
+            </move>
+            <move>
+                <input path="comments"/>
+                <output path="COMMENTS"/>
+            </move>
+            <move>
+                <input path="agency_phone_id"/>
+                <output path="AGENCY_PHONE_ID"/>
+            </move>
+            <move>
+                <input path="phone_ext"/>
+                <output path="PHONE_EXT"/>
+            </move>
+            <move>
+                <input path="agency_id"/>
+                <output path="AGENCY_ID"/>
+            </move>
+        </foreach>
+    </mappingDeclaration>
+</mappingRoot>

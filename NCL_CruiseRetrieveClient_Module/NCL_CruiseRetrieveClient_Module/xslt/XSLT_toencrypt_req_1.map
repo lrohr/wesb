@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRetrieveClient_Module/xslt/XSLT_toencrypt_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRetrieveClient_Module/xslt/XSLT_toencrypt_req_1">
+    <input correlationContext="{http://NCL_CruiseRetrieveClient_Module}App_Context" message="{http://NCL_CruiseRetrieveClient_Module/JDBCImport2}executeNclseaNcl_Wesb_Get_Client_Prof_V1ResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRetrieveClient_Module}App_Context" message="{http://versonix.com/api/definitions}processEncryptDecryptRequest" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xslt" location="XSLT_toencrypt_req_1_sex.xsl"/>
+    </imports>
+    <mappingDeclaration name="XSLT_toencrypt_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="context/correlation/ClientID"/>
+            <output path="context/correlation/ClientID"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor[1]/web_password"/>
+            <output path="body/processEncryptDecryptRequest/Encrypt_Decrypt/EncryptString"/>
+        </move>
+        <assign value="DECRYPT">
+            <output path="body/processEncryptDecryptRequest/Encrypt_Decrypt/Action"/>
+        </assign>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor[1]/citizenship"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo/@Nationality"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor[1]/client_id"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo/@LoyaltyMembershipID"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor[1]/occupation"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo/@GuestOccupation"/>
+        </move>
+        <customFunction lang="xslt" location="XSLT_toencrypt_req_1_sex.xsl" ref="SexToGender">
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor[1]/sex" var="sex"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo/@Gender"/>
+            <param name="sex" value="$sex"/>
+        </customFunction>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor[1]/birthday"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo/@BirthDate"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor[1]/title"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo/PersonName/NamePrefix[1]"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor[1]/first_name"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo/PersonName/GivenName[1]"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor[1]/middle_name"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo/PersonName/MiddleName[1]"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor[1]/last_name"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo/PersonName/Surname"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor[1]/phone_type"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo/Telephone[1]/@PhoneTechType"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor[1]/phone_number"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo/Telephone[1]/@PhoneNumber"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor[1]/address_type"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo/Address[1]/@Type"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor[1]/address_line1"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo/Address[1]/AddressLine[1]"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor[1]/address_line2"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo/Address[1]/AddressLine[2]"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor[1]/address_city"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo/Address[1]/CityName"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor[1]/zip"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo/Address[1]/PostalCode"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor[1]/state_code"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo/Address[1]/StateProv/@StateCode"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor[1]/state_code"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo/Address[1]/StateProv/text()"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor[1]/country_code"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo/Address[1]/CountryName/@Code"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor[1]/email"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo/Email[1]/text()"/>
+        </move>
+        <assign value="CONSUMER">
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/UserLogin/@UserType"/>
+        </assign>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor[1]/web_login_name"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/UserLogin/@UserLoginName"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor[1]/web_password"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/UserLogin/@Password"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor[1]/client_id"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/LoyaltyInfo/@MembershipID"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor[1]/client_type"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/LoyaltyInfo/@LoyalLevel"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor[1]/client_type"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/LoyaltyInfo/@ProgramID"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

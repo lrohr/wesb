@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRetrieveAgent_Module/xslt/xsltStoreAgencyData" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRetrieveAgent_Module/xslt/xsltStoreAgencyData">
+    <input correlationContext="{http://NCL_CruiseRetrieveAgent_Module}appContext" message="{http://NCL_CruiseRetrieveAgent_Module/JDBCOutboundInterface}executeNclseaNcl_Wesb_Get_Agy_For_AgtreqResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRetrieveAgent_Module}appContext" message="{http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveAgent_Interface}Perform_NCL_CruiseRetrieveAgentResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="xsltStoreAgencyData.xml"/>
+    </imports>
+    <mappingDeclaration name="xsltStoreAgencyData">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/logId"/>
+            <output path="context/correlation/logId"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveAgentRQ"/>
+            <output path="context/correlation/NCL_CruiseRetrieveAgentRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent"/>
+            <output path="context/correlation/agent_work_getAgent"/>
+        </move>
+        <foreach>
+            <input path="body/executeNclseaNcl_Wesb_Get_Agy_For_AgtreqResponse/executeNclseaNcl_Wesb_Get_Agy_For_AgtreqOutput/p_cursor"/>
+            <output path="context/correlation/Agent_work_agency/spGetAgencyInfo/P_CURSOR"/>
+            <move>
+                <input path="agency_type"/>
+                <output path="AGENCY_TYPE"/>
+            </move>
+            <move>
+                <input path="agency_id"/>
+                <output path="AGENCY_ID"/>
+            </move>
+            <move>
+                <input path="agency_name"/>
+                <output path="AGENCY_NAME"/>
+            </move>
+            <move>
+                <input path="agency_name_essential"/>
+                <output path="AGENCY_NAME_ESSENTIAL"/>
+            </move>
+            <move>
+                <input path="agency_name_typed"/>
+                <output path="AGENCY_NAME_TYPED"/>
+            </move>
+            <move>
+                <input path="arc_number"/>
+                <output path="ARC_NUMBER"/>
+            </move>
+            <move>
+                <input path="ag_entity_type"/>
+                <output path="AG_ENTITY_TYPE"/>
+            </move>
+            <move>
+                <input path="bc_type_id"/>
+                <output path="BC_TYPE_ID"/>
+            </move>
+            <move>
+                <input path="clia_number"/>
+                <output path="CLIA_NUMBER"/>
+            </move>
+            <move>
+                <input path="comments"/>
+                <output path="COMMENTS"/>
+            </move>
+            <move>
+                <input path="consortium_type"/>
+                <output path="CONSORTIUM_TYPE"/>
+            </move>
+            <move>
+                <input path="contact_name"/>
+                <output path="CONTACT_NAME"/>
+            </move>
+            <move>
+                <input path="country_code"/>
+                <output path="COUNTRY_CODE"/>
+            </move>
+            <move>
+                <input path="default_currency"/>
+                <output path="DEFAULT_CURRENCY"/>
+            </move>
+            <move>
+                <input path="floating_deposit"/>
+                <output path="FLOATING_DEPOSIT"/>
+            </move>
+            <move>
+                <input path="iata_number"/>
+                <output path="IATA_NUMBER"/>
+            </move>
+            <move>
+                <input path="is_active"/>
+                <output path="IS_ACTIVE"/>
+            </move>
+            <move>
+                <input path="is_consortium"/>
+                <output path="IS_CONSORTIUM"/>
+            </move>
+            <move>
+                <input path="is_domestic"/>
+                <output path="IS_DOMESTIC"/>
+            </move>
+            <move>
+                <input path="is_fax_email_secured"/>
+                <output path="IS_FAX_EMAIL_SECURED"/>
+            </move>
+            <move>
+                <input path="is_gsa"/>
+                <output path="IS_GSA"/>
+            </move>
+            <move>
+                <input path="is_internal"/>
+                <output path="IS_INTERNAL"/>
+            </move>
+            <move>
+                <input path="marketing_msg"/>
+                <output path="MARKETING_MSG"/>
+            </move>
+            <move>
+                <input path="notif_dflt_distr_type"/>
+                <output path="NOTIF_DFLT_DISTR_TYPE"/>
+            </move>
+            <move>
+                <input path="office_code"/>
+                <output path="OFFICE_CODE"/>
+            </move>
+            <move>
+                <input path="taxowner_name"/>
+                <output path="TAXOWNER_NAME"/>
+            </move>
+            <move>
+                <input path="taxpayer_number"/>
+                <output path="TAXPAYER_NUMBER"/>
+            </move>
+            <move>
+                <input path="taxpayer_type"/>
+                <output path="TAXPAYER_TYPE"/>
+            </move>
+            <move>
+                <input path="use_dflt_consortium"/>
+                <output path="USE_DFLT_CONSORTIUM"/>
+            </move>
+            <move>
+                <input path="use_guest_addr"/>
+                <output path="USE_GUEST_ADDR"/>
+            </move>
+            <move>
+                <input path="vendor_number"/>
+                <output path="VENDOR_NUMBER"/>
+            </move>
+            <move>
+                <input path="web_address"/>
+                <output path="WEB_ADDRESS"/>
+            </move>
+            <move>
+                <input path="address_city"/>
+                <output path="ADDRESS_CITY"/>
+            </move>
+            <move>
+                <input path="address_line1"/>
+                <output path="ADDRESS_LINE1"/>
+            </move>
+            <move>
+                <input path="address_line2"/>
+                <output path="ADDRESS_LINE2"/>
+            </move>
+            <move>
+                <input path="address_type"/>
+                <output path="ADDRESS_TYPE"/>
+            </move>
+            <move>
+                <input path="add_country_code"/>
+                <output path="ADD_COUNTRY_CODE"/>
+            </move>
+            <move>
+                <input path="is_address_mailing"/>
+                <output path="IS_ADDRESS_MAILING"/>
+            </move>
+            <move>
+                <input path="is_address_shipping"/>
+                <output path="IS_ADDRESS_SHIPPING"/>
+            </move>
+            <move>
+                <input path="seq_number"/>
+                <output path="SEQ_NUMBER"/>
+            </move>
+            <move>
+                <input path="state_code"/>
+                <output path="STATE_CODE"/>
+            </move>
+            <move>
+                <input path="zip"/>
+                <output path="ZIP"/>
+            </move>
+            <move>
+                <input path="is_phone_fax"/>
+                <output path="IS_PHONE_FAX"/>
+            </move>
+            <move>
+                <input path="is_phone_primary"/>
+                <output path="IS_PHONE_PRIMARY"/>
+            </move>
+            <move>
+                <input path="phone_number"/>
+                <output path="PHONE_NUMBER"/>
+            </move>
+            <move>
+                <input path="phone_type"/>
+                <output path="PHONE_TYPE"/>
+            </move>
+            <move>
+                <input path="contact_preference"/>
+                <output path="CONTACT_PREFERENCE"/>
+            </move>
+            <move>
+                <input path="email_address"/>
+                <output path="AGENCY_CLASSIFICATION_CODE"/>
+            </move>
+            <move>
+                <input path="dsm_last"/>
+                <output path="DSM_FIRST"/>
+            </move>
+            <move>
+                <input path="dsm_first"/>
+                <output path="DSM_LAST"/>
+            </move>
+        </foreach>
+    </mappingDeclaration>
+</mappingRoot>

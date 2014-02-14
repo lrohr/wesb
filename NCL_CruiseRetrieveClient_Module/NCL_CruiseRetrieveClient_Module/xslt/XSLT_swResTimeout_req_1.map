@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRetrieveClient_Module/xslt/XSLT_swResTimeout_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRetrieveClient_Module/xslt/XSLT_swResTimeout_req_1">
+    <input correlationContext="{http://NCL_CruiseRetrieveClient_Module}App_Context" message="{http://versonix.com/api/definitions}processEncryptDecryptRequest" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRetrieveClient_Module}App_Context" message="{http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveClient_Interface}Perform_NCL_CruiseRetrieveClientResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLT_swResTimeout_req_1.xml"/>
+        <import kind="xslt" location="XSLT_swResTimeout_req_1_custom.xsl"/>
+        <import kind="xslt" location="XSLT_swResTimeout_req_1.xsl"/>
+        <import kind="xslt" location="XSLT_swResTimeout_req_1_cust.xsl"/>
+    </imports>
+    <mappingDeclaration name="XSLT_swResTimeout_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation"/>
+            <output path="context/correlation"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRS/@TransactionIdentifier"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/@TransactionStatusCode"/>
+        </move>
+        <assign value="9919">
+            <output path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/Warnings/Warning[1]/@Code"/>
+        </assign>
+        <assign value="swResObj timed out 1">
+            <output path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/Warnings/Warning[1]/@ShortText"/>
+        </assign>
+        <customFunction lang="xslt" location="XSLT_swResTimeout_req_1_cust.xsl" ref="TransactionIdentifierToSuccess">
+            <input path="context/correlation/NCL_CruiseRetrieveClientRS/@TransactionIdentifier" var="TransactionIdentifier1"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/Success"/>
+            <param name="TransactionIdentifier1" value="$TransactionIdentifier1"/>
+        </customFunction>
+    </mappingDeclaration>
+</mappingRoot>

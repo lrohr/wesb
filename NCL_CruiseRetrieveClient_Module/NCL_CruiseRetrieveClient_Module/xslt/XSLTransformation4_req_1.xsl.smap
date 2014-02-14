@@ -1,0 +1,22 @@
+* SMAP
+XSLTransformation4_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLTransformation4_req_1.map
+/NCL_CruiseRetrieveClient_Module/xslt/XSLTransformation4_req_1.map
+*L
+12:136,3
+6:93,4
+2:141,1
+9:124,4
+10:128,4
+13:110,4
+3:223,5
+1:65,17
+7:104,6
+11:132,4
+5:97,5
+8:114,10
+4:217,6
+*E

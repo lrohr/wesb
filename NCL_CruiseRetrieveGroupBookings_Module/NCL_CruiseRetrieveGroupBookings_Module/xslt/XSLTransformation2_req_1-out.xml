@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<io:smo xmlns:io="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:out6="wsdl.http://NCL_CruiseRetrieveGroupBookings_Module/DB_LOOKUP" xmlns:io6="http://www.w3.org/2005/08/addressing" xmlns:io7="http://NCL_CruiseRetrieveGroupBookings_Module" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:out5="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0" xmlns:io5="http://nclapi/schemas" xmlns:io4="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:out4="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_retrieve_grp_bookingp_cursor" xmlns:io3="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:out3="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_retrieve_grp_bookingbg" xmlns:io2="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:out2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_retrieve_grp_booking" xmlns:out="http://NCL_CruiseRetrieveGroupBookings_Module/DB_LOOKUP" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <context>
+    <correlation>
+      <p1:NCL_CruiseRetrieveGroupBookingsRQ xmlns:p1="http://nclapi/schemas" xmlns:bons1="http://TP_Logger" xmlns:httpsca="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:mq="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:p="http://NCL_CruiseRetrieveGroupBookings_Module" xmlns:tns="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:tns1="http://TP_Logger/TP_Interface" xmlns:tns2="http://www.w3.org/2005/08/addressing" xmlns:tns_1="wsdl.http://TP_Logger/TP_Interface" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" AltLangID="EN" EchoToken="" MaxResponses="1" MoreDataEchoToken="" MoreIndicator="true" PrimaryLangID="EN" RetransmissionIndicator="true" SequenceNmbr="0" Target="Production" TimeStamp="2001-12-31T12:00:00" TransactionIdentifier="" TransactionStatusCode="Start" Version="0.0">
+        <p1:POS>
+          <p1:Source AgentDutyCode="" AgentSine="" AirlineVendorID="" AirportCode="" ERSP_UserID="" FirstDepartPoint="" ISOCountry="" ISOCurrency="" PseudoCityCode="" TerminalID="">
+            <p1:RequestorID ID="" ID_Context="" Instance="" MessagePassword="" Type="" URL="http://tempuri.org">
+              <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+            </p1:RequestorID>
+            <p1:Position Altitude="" AltitudeUnitOfMeasureCode="" Latitude="" Longitude=""/>
+            <p1:BookingChannel Primary="true" Type="">
+              <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+            </p1:BookingChannel>
+          </p1:Source>
+        </p1:POS>
+        <p1:Agency AgentDutyCode="" AgentSine="" AirlineVendorID="" AirportCode="" ERSP_UserID="" FirstDepartPoint="" ISOCountry="" ISOCurrency="" PseudoCityCode="" TerminalID="">
+          <p1:RequestorID ID="" ID_Context="" Instance="" MessagePassword="" Type="" URL="http://tempuri.org">
+            <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+          </p1:RequestorID>
+          <p1:Position Altitude="" AltitudeUnitOfMeasureCode="" Latitude="" Longitude=""/>
+          <p1:BookingChannel Primary="true" Type="">
+            <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+          </p1:BookingChannel>
+        </p1:Agency>
+        <p1:SelectedSailing Duration="" End="" ShipCode="" ShipName="" Start="" Status="" VendorCode="" VendorCodeContext="" VendorName="" VoyageID=""/>
+        <p1:GroupInfo GroupCode=""/>
+      </p1:NCL_CruiseRetrieveGroupBookingsRQ>
+      <LogID>LogID</LogID>
+    </correlation>
+  </context>
+  <body>
+    <out:executeNclseaNcl_Wesb_Retrieve_Grp_BookingBG>
+      <out:executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGInput>
+        <NclseaNcl_Wesb_Retrieve_Grp_Booking>
+          <p_agencyid/>
+          <p_agent_id/>
+          <p_groupid/>
+          <p_shipcode/>
+          <p_packageid/>
+          <p_lastgrpidreturned/>
+          <p_maxrecordsoutput>1</p_maxrecordsoutput>
+        </NclseaNcl_Wesb_Retrieve_Grp_Booking>
+      </out:executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGInput>
+    </out:executeNclseaNcl_Wesb_Retrieve_Grp_BookingBG>
+  </body>
+</io:smo>

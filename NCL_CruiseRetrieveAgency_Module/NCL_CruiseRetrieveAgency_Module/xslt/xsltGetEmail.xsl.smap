@@ -1,0 +1,29 @@
+* SMAP
+xsltGetEmail.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 xsltGetEmail.map
+/NCL_CruiseRetrieveAgency_Module/xslt/xsltGetEmail.map
+*L
+16:246,4
+9:124,1
+12:230,4
+2:92,6
+3:98,6
+1:64,17
+19:258,3
+8:137,5
+4:104,6
+5:110,4
+13:234,4
+17:250,4
+10:222,4
+15:242,4
+11:226,4
+6:114,4
+20:218,4
+18:254,4
+7:118,3
+14:238,4
+*E

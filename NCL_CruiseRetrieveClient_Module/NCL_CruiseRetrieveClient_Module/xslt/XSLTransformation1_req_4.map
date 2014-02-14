@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRetrieveClient_Module/xslt/XSLTransformation1_req_4" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRetrieveClient_Module/xslt/XSLTransformation1_req_4">
+    <input correlationContext="{http://NCL_CruiseRetrieveClient_Module}App_Context" message="{http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveClient_Interface}Perform_NCL_CruiseRetrieveClientResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRetrieveClient_Module}App_Context" message="{http://NCL_CruiseRetrieveClient_Module/DB_Lookup}executeNclseaNcl_Wesb_Get_Client_ProgramsBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLTransformation1_req_4.xml"/>
+    </imports>
+    <mappingDeclaration name="XSLTransformation1_req_4">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/ClientID"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_ProgramsBG/executeNclseaNcl_Wesb_Get_Client_ProgramsBGInput/NclseaNcl_Wesb_Get_Client_Programs/p_clientid"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRS"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS"/>
+        </move>
+        <move>
+            <input path="context/correlation/ClientID"/>
+            <output path="context/correlation/ClientID"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

@@ -1,0 +1,14 @@
+* SMAP
+xsltLoadGetAgencyData.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 xsltLoadGetAgencyData.map
+/NCL_CruiseRetrieveAgent_Module/xslt/xsltLoadGetAgencyData.map
+*L
+2:84,6
+5:94,3
+3:90,4
+4:106,5
+1:56,17
+*E

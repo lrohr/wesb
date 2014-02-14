@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<io5:smo xmlns:io5="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:io7="http://www.w3.org/2005/08/addressing" xmlns:out18="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agc_cont_prf" xmlns:out16="http://NCL_CruiseRetrieveAgency_Module/JDBCOutboundInterface" xmlns:out17="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0" xmlns:io6="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:out15="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_addressp_cursor" xmlns:out14="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_addressbg" xmlns:out13="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_address" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:out12="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_phonebg" xmlns:out11="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_phonep_cursor" xmlns:io4="http://NCL_CruiseRetrieveAgency_Module" xmlns:io3="http://nclapi/schemas" xmlns:io2="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:out10="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_phone" xmlns:io="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:out8="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_infop_cursor" xmlns:out9="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_infobg" xmlns:out6="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_emailbg" xmlns:out7="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_emailp_cursor" xmlns:out5="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_info" xmlns:out3="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_email" xmlns:out4="wsdl.http://NCL_CruiseRetrieveAgency_Module/JDBCOutboundInterface" xmlns:out="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agc_cont_prfbg" xmlns:out2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agc_cont_prfp_cursor">
+  <context>
+    <correlation>
+      <logId>logId</logId>
+      <errorCode>errorCode</errorCode>
+      <errorText>errorText</errorText>
+      <p1:NCL_CruiseRetrieveAgencyRQ xmlns:p1="http://nclapi/schemas" xmlns:bons1="http://TP_Logger" xmlns:httpsca="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:mq="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:p="http://NCL_CruiseRetrieveAgency_Module" xmlns:tns="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:tns1="http://TP_Logger/TP_Interface" xmlns:tns2="http://www.w3.org/2005/08/addressing" xmlns:tns_1="wsdl.http://TP_Logger/TP_Interface" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" AltLangID="EN" EchoToken="" MaxResponses="1" MoreDataEchoToken="" MoreIndicator="true" PrimaryLangID="EN" RetransmissionIndicator="true" SequenceNmbr="0" Target="Production" TimeStamp="2001-12-31T12:00:00" TransactionIdentifier="" TransactionStatusCode="Start" Version="0.0">
+        <p1:POS>
+          <p1:Source AgentDutyCode="" AgentSine="" AirlineVendorID="" AirportCode="" ERSP_UserID="" FirstDepartPoint="" ISOCountry="" ISOCurrency="" PseudoCityCode="" TerminalID="">
+            <p1:RequestorID ID="" ID_Context="" Instance="" MessagePassword="" Type="" URL="http://tempuri.org">
+              <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+            </p1:RequestorID>
+            <p1:Position Altitude="" AltitudeUnitOfMeasureCode="" Latitude="" Longitude=""/>
+            <p1:BookingChannel Primary="true" Type="">
+              <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+            </p1:BookingChannel>
+          </p1:Source>
+        </p1:POS>
+        <p1:AgencyInfo ARCNumber="" AgencyClassificationCode="" AgencyClassificationName="" AgencyType="" AgentDutyCode="" AgentSine="" AirlineVendorID="" AirportCode="" BusinessType="" CLIANumber="" CompanyType="" ERSP_UserID="" FirstDepartPoint="" IATANumber="" ISOCountry="" ISOCurrency="" IdentificationNumber="" LegalName="" OfficeCode="" PseudoCityCode="" TerminalID="" Website="">
+          <p1:RequestorID ID="" ID_Context="" Instance="" MessagePassword="" Type="" URL="http://tempuri.org">
+            <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+          </p1:RequestorID>
+          <p1:Position Altitude="" AltitudeUnitOfMeasureCode="" Latitude="" Longitude=""/>
+          <p1:BookingChannel Primary="true" Type="">
+            <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+          </p1:BookingChannel>
+          <p1:Telephone AreaCityCode="" CountryAccessCode="" DefaultInd="false" Extension="" FormattedInd="false" PIN="" PhoneLocationType="" PhoneNumber="" PhoneTechType="" PhoneUseType="" RPH="" ShareMarketInd="Yes" ShareSynchInd="Yes"/>
+          <p1:Address DefaultInd="false" FormattedInd="false" RPH="" ShareMarketInd="Yes" ShareSynchInd="Yes" Type="" UseType="">
+            <p1:StreetNmbr PO_Box="" RuralRouteNmbr="" StreetDirection="" StreetNmbrSuffix="">p1:StreetNmbr</p1:StreetNmbr>
+            <p1:BldgRoom>p1:BldgRoom</p1:BldgRoom>
+            <p1:AddressLine>p1:AddressLine</p1:AddressLine>
+            <p1:CityName>p1:CityName</p1:CityName>
+            <p1:PostalCode>p1:PostalCode</p1:PostalCode>
+            <p1:County>p1:County</p1:County>
+            <p1:StateProv StateCode="">p1:StateProv</p1:StateProv>
+            <p1:CountryName Code="">p1:CountryName</p1:CountryName>
+          </p1:Address>
+          <p1:Email DefaultInd="false" EmailType="" RPH="" ShareMarketInd="Yes" ShareSynchInd="Yes">p1:Email</p1:Email>
+          <p1:ContactPreferences ContactPreference=""/>
+        </p1:AgencyInfo>
+      </p1:NCL_CruiseRetrieveAgencyRQ>
+      <info xmlns:bons1="http://TP_Logger" xmlns:httpsca="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:mq="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:p="http://NCL_CruiseRetrieveAgency_Module" xmlns:p1="http://nclapi/schemas" xmlns:tns="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:tns1="http://TP_Logger/TP_Interface" xmlns:tns2="http://www.w3.org/2005/08/addressing" xmlns:tns_1="wsdl.http://TP_Logger/TP_Interface" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+        <Get_Agency_Info>
+          <P_ERRORCODE>P_ERRORCODE</P_ERRORCODE>
+          <P_CURSOR>
+            <AGENCY_ID>0.0</AGENCY_ID>
+            <TAXPAYER_NUMBER>TAXPAYER_NUMBER</TAXPAYER_NUMBER>
+            <IATA_NUMBER>IATA_NUMBER</IATA_NUMBER>
+            <ARC_NUMBER>ARC_NUMBER</ARC_NUMBER>
+            <CLIA_NUMBER>CLIA_NUMBER</CLIA_NUMBER>
+            <AGENCY_NAME>AGENCY_NAME</AGENCY_NAME>
+            <AGENCY_TYPE>AGENCY_TYPE</AGENCY_TYPE>
+            <OFFICE_CODE>OFFICE_CODE</OFFICE_CODE>
+            <AGENCY_CLASSIFICATION_CODE>AGENCY_CLASSIFICATION_CODE</AGENCY_CLASSIFICATION_CODE>
+            <AGENCY_CLASSIFICATION_NAME>AGENCY_CLASSIFICATION_NAME</AGENCY_CLASSIFICATION_NAME>
+            <DRS_DELIVERY_PREF_PREKIT>DRS_DELIVERY_PREF_PREKIT</DRS_DELIVERY_PREF_PREKIT>
+            <DRS_DELIVERY_PREF_FINAL>DRS_DELIVERY_PREF_FINAL</DRS_DELIVERY_PREF_FINAL>
+          </P_CURSOR>
+        </Get_Agency_Info>
+      </info>
+    </correlation>
+  </context>
+  <body>
+    <out16:executeNclseaNcl_Wesb_Ar_Get_Agency_InfoBG>
+      <out16:executeNclseaNcl_Wesb_Ar_Get_Agency_InfoBGInput>
+        <NclseaNcl_Wesb_Ar_Get_Agency_Info>
+          <p_agencyid/>
+        </NclseaNcl_Wesb_Ar_Get_Agency_Info>
+      </out16:executeNclseaNcl_Wesb_Ar_Get_Agency_InfoBGInput>
+    </out16:executeNclseaNcl_Wesb_Ar_Get_Agency_InfoBG>
+  </body>
+</io5:smo>

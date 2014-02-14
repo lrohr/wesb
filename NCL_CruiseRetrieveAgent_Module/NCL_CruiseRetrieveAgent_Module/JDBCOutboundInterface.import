@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import displayName="JDBCOutboundInterface"
+    name="JDBCOutboundInterface"
+    xmlns:EIS="http://www.ibm.com/xmlns/prod/websphere/scdl/eis/6.0.0"
+    xmlns:ns1="http://NCL_CruiseRetrieveAgent_Module/JDBCOutboundInterface"
+    xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0"
+    xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interfaces>
+        <interface portType="ns1:JDBCOutboundInterface"
+            preferredInteractionStyle="sync" xsi:type="wsdl:WSDLPortType">
+            <scdl:interfaceQualifier value="false" xsi:type="scdl:JoinTransaction"/>
+        </interface>
+    </interfaces>
+    <esbBinding
+        dataBindingType="com.ibm.j2ca.jdbc.emd.databinding.JDBCDataBindingGenerator" xsi:type="EIS:EISImportBinding">
+        <resourceAdapter
+            name="NCL_CruiseRetrieveAgent_ModuleApp.IBM WebSphere Adapter for JDBC"
+            type="com.ibm.j2ca.jdbc.JDBCResourceAdapter" version="7.5.0.1">
+            <properties>
+                <adapterID>001</adapterID>
+            </properties>
+        </resourceAdapter>
+        <connection
+            interactionType="com.ibm.j2ca.jdbc.JDBCInteractionSpec" type="com.ibm.j2ca.jdbc.JDBCManagedConnectionFactory">
+            <properties>
+                <adapterID>001</adapterID>
+                <dataSourceJNDIName>SEAWARE_JNDI</dataSourceJNDIName>
+                <databaseVendor>ORACLE</databaseVendor>
+                <returnDummyBOForSP>false</returnDummyBOForSP>
+                <XADataSourceJNDIName>SEAWARE_JNDI</XADataSourceJNDIName>
+                <connectionType>XADataSourceJNDI</connectionType>
+            </properties>
+        </connection>
+        <methodBinding
+            inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_get_agent_with_paged.NclseaNcl_Wesb_Get_Agent_With_PagedDataBinding"
+            method="executeNclseaNcl_Wesb_Get_Agent_With_Paged" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_get_agent_with_paged.NclseaNcl_Wesb_Get_Agent_With_PagedDataBinding">
+            <interaction>
+                <properties>
+                    <functionName>Execute</functionName>
+                </properties>
+            </interaction>
+        </methodBinding>
+        <methodBinding
+            inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_get_agent_with_paging.NclseaNcl_Wesb_Get_Agent_With_PagingDataBinding"
+            method="executeNclseaNcl_Wesb_Get_Agent_With_Paging" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_get_agent_with_paging.NclseaNcl_Wesb_Get_Agent_With_PagingDataBinding">
+            <interaction>
+                <properties>
+                    <functionName>Execute</functionName>
+                </properties>
+            </interaction>
+        </methodBinding>
+        <methodBinding
+            inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_get_agy_for_agtreq.NclseaNcl_Wesb_Get_Agy_For_AgtreqDataBinding"
+            method="executeNclseaNcl_Wesb_Get_Agy_For_Agtreq" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_get_agy_for_agtreq.NclseaNcl_Wesb_Get_Agy_For_AgtreqDataBinding">
+            <interaction>
+                <properties>
+                    <functionName>Execute</functionName>
+                </properties>
+            </interaction>
+        </methodBinding>
+    </esbBinding>
+</scdl:import>

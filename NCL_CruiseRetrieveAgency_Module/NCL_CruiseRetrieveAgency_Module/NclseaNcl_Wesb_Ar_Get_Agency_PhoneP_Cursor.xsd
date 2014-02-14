@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema
+    targetNamespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_phonep_cursor"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata" xmlns:nclseancl_wesb_ar_get_agency_phonep_cursor="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_phonep_cursor">
+    <import
+        namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata" schemaLocation="JDBCASI.xsd"/>
+    <annotation xml:space="preserve">
+<appinfo
+                source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter
+                version="7.5.0.1" xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability"/>
+</appinfo>
+</annotation>
+    <annotation xml:space="preserve">
+<appinfo
+                source="commonj.connector.asi">
+<asi:annotationSet
+                asiNSURI="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata" xmlns:asi="commonj.connector.asi"/>
+</appinfo>
+</annotation>
+    <complexType name="NclseaNcl_Wesb_Ar_Get_Agency_PhoneP_Cursor">
+        <annotation xml:space="preserve">
+<appinfo
+                    source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCBusinessObjectTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPName>NCLSEA.NCL_WESB_AR_GET_AGENCY_PHONE</jdbcasi:SPName>
+</jdbcasi:JDBCBusinessObjectTypeMetadata>
+</appinfo>
+</annotation>
+        <sequence maxOccurs="1" minOccurs="1">
+            <element maxOccurs="1" minOccurs="0" name="agency_id"
+                nillable="true" type="decimal">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="seq_number"
+                nillable="true" type="decimal">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="phone_type"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="intl_code"
+                nillable="true" type="decimal">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="phone_number"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="is_phone_primary"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0"
+                name="is_phone_secondary" nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="is_phone_fax"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0"
+                name="fax_attention_line" nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="comments"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="agency_phone_id"
+                nillable="true" type="decimal">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="phone_ext"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="order_field"
+                nillable="true" type="decimal">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+        </sequence>
+    </complexType>
+</schema>

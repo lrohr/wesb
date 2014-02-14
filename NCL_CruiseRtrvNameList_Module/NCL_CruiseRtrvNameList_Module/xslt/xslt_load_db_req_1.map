@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRtrvNameList_Module/xslt/xslt_load_db_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRtrvNameList_Module/xslt/xslt_load_db_req_1">
+    <input correlationContext="{http://NCL_CruiseRtrvNameList_Module}App_Context" message="{http://TP_Logger/TP_Interface}TP_InsertUpdateRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRtrvNameList_Module}App_Context" message="{http://NCL_CruiseRtrvNameList_Module/DB_LOOKUP}executeNclseaNcl_Wesb_Retrieve_Name_ListBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="xslt_load_db_req_1.xml"/>
+        <import kind="xslt" location="xslt_load_db_req_1_Last.xsl"/>
+        <import kind="xslt" location="xslt_load_db_req_1_Ship.xsl"/>
+        <import kind="xslt" location="xslt_load_db_req_1_Start.xsl"/>
+        <import kind="xslt" location="xslt_load_db_req_1_End.xsl"/>
+        <import kind="xslt" location="xslt_load_db_req_1_Max.xsl"/>
+        <import kind="xslt" location="xslt_load_db_req_1_last1.xsl"/>
+    </imports>
+    <mappingDeclaration name="xslt_load_db_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ"/>
+            <output path="context/correlation/NCL_CruiseRtrvNameListRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <customFunction lang="xslt" location="xslt_load_db_req_1_Last.xsl" ref="SurnameToP_lastname">
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ/GuestInfo/Surname" var="Surname"/>
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Name_ListBG/executeNclseaNcl_Wesb_Retrieve_Name_ListBGInput/NclseaNcl_Wesb_Retrieve_Name_List/p_lastname"/>
+            <param name="Surname" value="$Surname"/>
+        </customFunction>
+        <customFunction lang="xslt" location="xslt_load_db_req_1_Ship.xsl" ref="ShipCodeToP_shipcode">
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ/SelectedSailing/@ShipCode" var="ShipCode"/>
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Name_ListBG/executeNclseaNcl_Wesb_Retrieve_Name_ListBGInput/NclseaNcl_Wesb_Retrieve_Name_List/p_shipcode"/>
+            <param name="ShipCode" value="$ShipCode"/>
+        </customFunction>
+        <customFunction lang="xslt" location="xslt_load_db_req_1_Start.xsl" ref="StartToP_sailingdate">
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ/SelectedSailing/@Start" var="Start"/>
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Name_ListBG/executeNclseaNcl_Wesb_Retrieve_Name_ListBGInput/NclseaNcl_Wesb_Retrieve_Name_List/p_sailingdate"/>
+            <param name="Start" value="$Start"/>
+        </customFunction>
+        <customFunction lang="xslt" location="xslt_load_db_req_1_End.xsl" ref="EndToP_sailingenddate">
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ/SelectedSailing/@End" var="End"/>
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Name_ListBG/executeNclseaNcl_Wesb_Retrieve_Name_ListBGInput/NclseaNcl_Wesb_Retrieve_Name_List/p_sailingenddate"/>
+            <param name="End" value="$End"/>
+        </customFunction>
+        <move>
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ/POS/Source/RequestorID/@ID"/>
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Name_ListBG/executeNclseaNcl_Wesb_Retrieve_Name_ListBGInput/NclseaNcl_Wesb_Retrieve_Name_List/p_agencyid"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ/POS/Source[1]/RequestorID/CompanyName/@Code"/>
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Name_ListBG/executeNclseaNcl_Wesb_Retrieve_Name_ListBGInput/NclseaNcl_Wesb_Retrieve_Name_List/p_gds"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ/GuestInfo/GroupInfo/@GroupCode"/>
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Name_ListBG/executeNclseaNcl_Wesb_Retrieve_Name_ListBGInput/NclseaNcl_Wesb_Retrieve_Name_List/p_groupid"/>
+        </move>
+        <customFunction lang="xslt" location="xslt_load_db_req_1_Max.xsl" ref="MaxResponsesToP_maxrecordsoutput">
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ/@MaxResponses" var="MaxResponses"/>
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Name_ListBG/executeNclseaNcl_Wesb_Retrieve_Name_ListBGInput/NclseaNcl_Wesb_Retrieve_Name_List/p_maxrecordsoutput"/>
+            <param name="MaxResponses" value="$MaxResponses"/>
+        </customFunction>
+        <customFunction lang="xslt" location="xslt_load_db_req_1_last1.xsl" ref="NCL_CruiseRtrvNameListRQToP_lastresidreturned">
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ" var="NCL_CruiseRtrvNameListRQ"/>
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Name_ListBG/executeNclseaNcl_Wesb_Retrieve_Name_ListBGInput/NclseaNcl_Wesb_Retrieve_Name_List/p_lastresidreturned"/>
+            <param name="NCL_CruiseRtrvNameListRQ" value="$NCL_CruiseRtrvNameListRQ"/>
+        </customFunction>
+    </mappingDeclaration>
+</mappingRoot>

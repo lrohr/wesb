@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema
+    targetNamespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_retrieve_name_list"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata"
+    xmlns:nclseancl_wesb_retrieve_name_list="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_retrieve_name_list" xmlns:nclseancl_wesb_retrieve_name_listp_cursor="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_retrieve_name_listp_cursor">
+    <import
+        namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_retrieve_name_listp_cursor" schemaLocation="NclseaNcl_Wesb_Retrieve_Name_ListP_Cursor.xsd"/>
+    <import
+        namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata" schemaLocation="JDBCASI.xsd"/>
+    <annotation xml:space="preserve">
+<appinfo
+                source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter
+                version="7.5.0.1" xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability"/>
+</appinfo>
+</annotation>
+    <annotation xml:space="preserve">
+<appinfo
+                source="commonj.connector.asi">
+<asi:annotationSet
+                asiNSURI="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata" xmlns:asi="commonj.connector.asi"/>
+</appinfo>
+</annotation>
+    <complexType name="NclseaNcl_Wesb_Retrieve_Name_List">
+        <annotation xml:space="preserve">
+<appinfo
+                    source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCBusinessObjectTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPName>NCLSEA.NCL_WESB_RETRIEVE_NAME_LIST</jdbcasi:SPName>
+<jdbcasi:MaxNumOfRetRS>1</jdbcasi:MaxNumOfRetRS>
+<jdbcasi:ResultSet>true</jdbcasi:ResultSet>
+</jdbcasi:JDBCBusinessObjectTypeMetadata>
+</appinfo>
+</annotation>
+        <sequence maxOccurs="1" minOccurs="1">
+            <element maxOccurs="1" minOccurs="0" name="p_agencyid"
+                nillable="true" type="int">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>IP</jdbcasi:SPParameterType>
+<jdbcasi:DecimalScale>0</jdbcasi:DecimalScale>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="p_gds"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>IP</jdbcasi:SPParameterType>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="p_agentid"
+                nillable="true" type="int">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>IP</jdbcasi:SPParameterType>
+<jdbcasi:DecimalScale>0</jdbcasi:DecimalScale>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="p_clientid"
+                nillable="true" type="int">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>IP</jdbcasi:SPParameterType>
+<jdbcasi:DecimalScale>0</jdbcasi:DecimalScale>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="p_lastname"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>IP</jdbcasi:SPParameterType>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="p_firstname"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>IP</jdbcasi:SPParameterType>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="p_shipcode"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>IP</jdbcasi:SPParameterType>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="p_sailingdate"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>IP</jdbcasi:SPParameterType>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="p_sailingenddate"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>IP</jdbcasi:SPParameterType>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0"
+                name="p_sailingduration" nillable="true" type="decimal">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>IP</jdbcasi:SPParameterType>
+<jdbcasi:DecimalScale>0</jdbcasi:DecimalScale>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="p_groupid"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>IP</jdbcasi:SPParameterType>
+<jdbcasi:DecimalScale>0</jdbcasi:DecimalScale>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0"
+                name="p_bookingsearchstartdate" nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>IP</jdbcasi:SPParameterType>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0"
+                name="p_bookingsearchenddate" nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>IP</jdbcasi:SPParameterType>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0" name="p_bookingstatus"
+                nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>IP</jdbcasi:SPParameterType>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0"
+                name="p_lastresidreturned" nillable="true" type="int">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>IP</jdbcasi:SPParameterType>
+<jdbcasi:DecimalScale>0</jdbcasi:DecimalScale>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0"
+                name="p_maxrecordsoutput" nillable="true" type="int">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>IP</jdbcasi:SPParameterType>
+<jdbcasi:DecimalScale>0</jdbcasi:DecimalScale>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="unbounded" minOccurs="0" name="p_cursor"
+                nillable="true" type="nclseancl_wesb_retrieve_name_listp_cursor:NclseaNcl_Wesb_Retrieve_Name_ListP_Cursor">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>OP</jdbcasi:SPParameterType>
+<jdbcasi:ChildBOType>ResultSet</jdbcasi:ChildBOType>
+<jdbcasi:ChildBOTypeName/>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+        </sequence>
+    </complexType>
+</schema>

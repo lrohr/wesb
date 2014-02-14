@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRetrieveClient_Module/xslt/to_vsacationpref" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRetrieveClient_Module/xslt/to_vsacationpref">
+    <input correlationContext="{http://NCL_CruiseRetrieveClient_Module}App_Context" message="{http://versonix.com/api/definitions}processEncryptDecryptResponse" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRetrieveClient_Module}App_Context" message="{http://NCL_CruiseRetrieveClient_Module/DB_Lookup}executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="to_vsacationpref.xml"/>
+    </imports>
+    <mappingDeclaration name="to_vsacationpref">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo/@LoyaltyMembershipID"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBG/executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGInput/NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_clientid"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRS/@TransactionIdentifier"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/@TransactionIdentifier"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRS/Success"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/Success"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRS/Warnings"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/Warnings"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRS/LoyaltyInfo"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/LoyaltyInfo"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRS/UserLogin/@UserLoginName"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/UserLogin/@UserLoginName"/>
+        </move>
+        <assign value="CONSUMER">
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/UserLogin/@UserType"/>
+        </assign>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo/@LoyaltyMembershipID"/>
+            <output path="context/correlation/ClientID"/>
+        </move>
+        <move>
+            <input path="context/correlation/DecriptedPassword"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/UserLogin/@Password"/>
+        </move>
+        <move>
+            <input path="context/correlation/DecriptedPassword"/>
+            <output path="context/correlation/DecriptedPassword"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

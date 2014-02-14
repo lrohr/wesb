@@ -1,0 +1,17 @@
+* SMAP
+XSLTransformation4_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLTransformation4_req_1.map
+/NCL_CruiseRetrieveGroupBookings_Module/xslt/XSLTransformation4_req_1.map
+*L
+5:110,4
+8:126,5
+3:90,5
+4:104,6
+1:58,17
+7:120,6
+6:114,3
+2:86,4
+*E

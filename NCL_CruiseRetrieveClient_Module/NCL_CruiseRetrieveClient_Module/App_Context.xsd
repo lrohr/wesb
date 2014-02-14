@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://NCL_CruiseRetrieveClient_Module"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0="http://nclapi/schemas">
+	<xsd:import schemaLocation="NCL_CruiseRetrieveClientRS.xsd"
+		namespace="http://nclapi/schemas">
+	</xsd:import>
+	<xsd:import schemaLocation="NCL_CruiseRetrieveClientRQ.xsd"
+		namespace="http://nclapi/schemas">
+	</xsd:import>
+	<xsd:complexType name="App_Context">
+		<xsd:sequence>
+
+			<xsd:element minOccurs="0"
+				ref="bons0:NCL_CruiseRetrieveClientRQ">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="LogID" type="xsd:string"></xsd:element>
+			<xsd:element minOccurs="0"
+				ref="bons0:NCL_CruiseRetrieveClientRS">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="ClientID"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="Enroll"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="Points"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="TierLevel"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="nextVal"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="TimeA" type="xsd:string"></xsd:element>
+			<xsd:element minOccurs="0" name="TimeB" type="xsd:string"></xsd:element>
+			<xsd:element minOccurs="0" name="TimeC" type="xsd:string"></xsd:element>
+			<xsd:element minOccurs="0" name="TimeD" type="xsd:string"></xsd:element>
+			<xsd:element minOccurs="0" name="TimeE" type="xsd:string"></xsd:element>
+			<xsd:element minOccurs="0" name="TimeF" type="xsd:string"></xsd:element>
+			<xsd:element minOccurs="0" name="TimeG" type="xsd:string"></xsd:element>
+			<xsd:element minOccurs="0" name="DecriptedPassword"
+				type="xsd:string">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

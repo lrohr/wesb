@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="JDBCOutboundInterface.wsdl" targetNamespace="http://NCL_CruiseRetrieveAgency_Module/JDBCOutboundInterface" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agc_cont_prfbg" xmlns:bons2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_addressbg" xmlns:bons3="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_emailbg" xmlns:bons4="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_infobg" xmlns:bons5="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_phonebg" xmlns:tns="http://NCL_CruiseRetrieveAgency_Module/JDBCOutboundInterface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://NCL_CruiseRetrieveAgency_Module/JDBCOutboundInterface">
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_infobg" schemaLocation="NclseaNcl_Wesb_Ar_Get_Agency_InfoBG.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_phonebg" schemaLocation="NclseaNcl_Wesb_Ar_Get_Agency_PhoneBG.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_emailbg" schemaLocation="NclseaNcl_Wesb_Ar_Get_Agency_EmailBG.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_addressbg" schemaLocation="NclseaNcl_Wesb_Ar_Get_Agency_AddressBG.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agc_cont_prfbg" schemaLocation="NclseaNcl_Wesb_Ar_Get_Agc_Cont_PrfBG.xsd"/>
+      <xsd:element name="executeNclseaNcl_Wesb_Ar_Get_Agc_Cont_PrfBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Ar_Get_Agc_Cont_PrfBGInput" type="bons1:NclseaNcl_Wesb_Ar_Get_Agc_Cont_PrfBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Ar_Get_Agc_Cont_PrfBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Ar_Get_Agc_Cont_PrfBGOutput" type="bons1:NclseaNcl_Wesb_Ar_Get_Agc_Cont_PrfBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Ar_Get_Agency_AddressBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Ar_Get_Agency_AddressBGInput" type="bons2:NclseaNcl_Wesb_Ar_Get_Agency_AddressBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Ar_Get_Agency_AddressBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Ar_Get_Agency_AddressBGOutput" type="bons2:NclseaNcl_Wesb_Ar_Get_Agency_AddressBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Ar_Get_Agency_EmailBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Ar_Get_Agency_EmailBGInput" type="bons3:NclseaNcl_Wesb_Ar_Get_Agency_EmailBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Ar_Get_Agency_EmailBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Ar_Get_Agency_EmailBGOutput" type="bons3:NclseaNcl_Wesb_Ar_Get_Agency_EmailBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Ar_Get_Agency_InfoBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Ar_Get_Agency_InfoBGInput" type="bons4:NclseaNcl_Wesb_Ar_Get_Agency_InfoBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Ar_Get_Agency_InfoBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Ar_Get_Agency_InfoBGOutput" type="bons4:NclseaNcl_Wesb_Ar_Get_Agency_InfoBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Ar_Get_Agency_PhoneBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Ar_Get_Agency_PhoneBGInput" type="bons5:NclseaNcl_Wesb_Ar_Get_Agency_PhoneBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Ar_Get_Agency_PhoneBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Ar_Get_Agency_PhoneBGOutput" type="bons5:NclseaNcl_Wesb_Ar_Get_Agency_PhoneBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeNclseaNcl_Wesb_Ar_Get_Agc_Cont_PrfBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Ar_Get_Agc_Cont_PrfBG" name="executeNclseaNcl_Wesb_Ar_Get_Agc_Cont_PrfBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Ar_Get_Agc_Cont_PrfBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Ar_Get_Agc_Cont_PrfBGResponse" name="executeNclseaNcl_Wesb_Ar_Get_Agc_Cont_PrfBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Ar_Get_Agency_AddressBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Ar_Get_Agency_AddressBG" name="executeNclseaNcl_Wesb_Ar_Get_Agency_AddressBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Ar_Get_Agency_AddressBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Ar_Get_Agency_AddressBGResponse" name="executeNclseaNcl_Wesb_Ar_Get_Agency_AddressBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Ar_Get_Agency_EmailBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Ar_Get_Agency_EmailBG" name="executeNclseaNcl_Wesb_Ar_Get_Agency_EmailBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Ar_Get_Agency_EmailBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Ar_Get_Agency_EmailBGResponse" name="executeNclseaNcl_Wesb_Ar_Get_Agency_EmailBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Ar_Get_Agency_InfoBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Ar_Get_Agency_InfoBG" name="executeNclseaNcl_Wesb_Ar_Get_Agency_InfoBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Ar_Get_Agency_InfoBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Ar_Get_Agency_InfoBGResponse" name="executeNclseaNcl_Wesb_Ar_Get_Agency_InfoBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Ar_Get_Agency_PhoneBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Ar_Get_Agency_PhoneBG" name="executeNclseaNcl_Wesb_Ar_Get_Agency_PhoneBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Ar_Get_Agency_PhoneBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Ar_Get_Agency_PhoneBGResponse" name="executeNclseaNcl_Wesb_Ar_Get_Agency_PhoneBGResult"/>
+  </wsdl:message>
+  <wsdl:portType name="JDBCOutboundInterface">
+    <wsdl:operation name="executeNclseaNcl_Wesb_Ar_Get_Agc_Cont_PrfBG">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Ar_Get_Agc_Cont_PrfBGRequestMsg" name="executeNclseaNcl_Wesb_Ar_Get_Agc_Cont_PrfBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Ar_Get_Agc_Cont_PrfBGResponseMsg" name="executeNclseaNcl_Wesb_Ar_Get_Agc_Cont_PrfBGResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="executeNclseaNcl_Wesb_Ar_Get_Agency_AddressBG">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Ar_Get_Agency_AddressBGRequestMsg" name="executeNclseaNcl_Wesb_Ar_Get_Agency_AddressBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Ar_Get_Agency_AddressBGResponseMsg" name="executeNclseaNcl_Wesb_Ar_Get_Agency_AddressBGResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="executeNclseaNcl_Wesb_Ar_Get_Agency_EmailBG">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Ar_Get_Agency_EmailBGRequestMsg" name="executeNclseaNcl_Wesb_Ar_Get_Agency_EmailBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Ar_Get_Agency_EmailBGResponseMsg" name="executeNclseaNcl_Wesb_Ar_Get_Agency_EmailBGResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="executeNclseaNcl_Wesb_Ar_Get_Agency_InfoBG">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Ar_Get_Agency_InfoBGRequestMsg" name="executeNclseaNcl_Wesb_Ar_Get_Agency_InfoBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Ar_Get_Agency_InfoBGResponseMsg" name="executeNclseaNcl_Wesb_Ar_Get_Agency_InfoBGResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="executeNclseaNcl_Wesb_Ar_Get_Agency_PhoneBG">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Ar_Get_Agency_PhoneBGRequestMsg" name="executeNclseaNcl_Wesb_Ar_Get_Agency_PhoneBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Ar_Get_Agency_PhoneBGResponseMsg" name="executeNclseaNcl_Wesb_Ar_Get_Agency_PhoneBGResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

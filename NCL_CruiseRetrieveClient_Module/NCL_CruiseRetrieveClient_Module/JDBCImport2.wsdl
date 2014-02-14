@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="JDBCImport2" targetNamespace="http://NCL_CruiseRetrieveClient_Module/JDBCImport2" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_prof_v1" xmlns:bons2="http://com/ibm/j2ca/fault/afcfault" xmlns:tns="http://NCL_CruiseRetrieveClient_Module/JDBCImport2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://com/ibm/j2ca/fault/afcfault" xmlns:tns="http://com/ibm/j2ca/fault/afcfault">
+      <xsd:include schemaLocation="UniqueConstraintFault.xsd"/>
+      <xsd:include schemaLocation="RecordNotFoundFault.xsd"/>
+      <xsd:include schemaLocation="IntegrityConstraintFault.xsd"/>
+    </xsd:schema>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://NCL_CruiseRetrieveClient_Module/JDBCImport2" xmlns:bons4="http://com/ibm/j2ca/fault/afcfault">
+      <xsd:import namespace="http://com/ibm/j2ca/fault/afcfault"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_prof_v1" schemaLocation="NclseaNcl_Wesb_Get_Client_Prof_V1.xsd"/>
+      <xsd:element name="executeNclseaNcl_Wesb_Get_Client_Prof_V1">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Get_Client_Prof_V1Input" type="bons1:NclseaNcl_Wesb_Get_Client_Prof_V1"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Get_Client_Prof_V1Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Get_Client_Prof_V1Output" type="bons1:NclseaNcl_Wesb_Get_Client_Prof_V1"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UniqueConstraintFault_element" nillable="true" type="bons4:UniqueConstraintFault"/>
+      <xsd:element name="IntegrityConstraintFault_element" nillable="true" type="bons4:IntegrityConstraintFault"/>
+      <xsd:element name="RecordNotFoundFault_element" nillable="true" type="bons4:RecordNotFoundFault"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeNclseaNcl_Wesb_Get_Client_Prof_V1RequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Get_Client_Prof_V1" name="executeNclseaNcl_Wesb_Get_Client_Prof_V1Parameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Get_Client_Prof_V1ResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Get_Client_Prof_V1Response" name="executeNclseaNcl_Wesb_Get_Client_Prof_V1Result"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Get_Client_Prof_V1UniqueConstraintFaultMsg">
+    <wsdl:part element="tns:UniqueConstraintFault_element" name="UniqueConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Get_Client_Prof_V1IntegrityConstraintFaultMsg">
+    <wsdl:part element="tns:IntegrityConstraintFault_element" name="IntegrityConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Get_Client_Prof_V1RecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:portType name="JDBCImport2">
+    <wsdl:operation name="executeNclseaNcl_Wesb_Get_Client_Prof_V1">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Get_Client_Prof_V1RequestMsg" name="executeNclseaNcl_Wesb_Get_Client_Prof_V1Request"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Get_Client_Prof_V1ResponseMsg" name="executeNclseaNcl_Wesb_Get_Client_Prof_V1Response"/>
+      <wsdl:fault message="tns:executeNclseaNcl_Wesb_Get_Client_Prof_V1UniqueConstraintFaultMsg" name="UNIQUECONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:executeNclseaNcl_Wesb_Get_Client_Prof_V1IntegrityConstraintFaultMsg" name="INTEGRITY_CONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:executeNclseaNcl_Wesb_Get_Client_Prof_V1RecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRetrieveClient_Module/xslt/XSLT_err_3_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRetrieveClient_Module/xslt/XSLT_err_3_req_1">
+    <input correlationContext="{http://NCL_CruiseRetrieveClient_Module}App_Context" message="{http://NCL_CruiseRetrieveClient_Module/JDBCImport}retrieveallgetNextResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/body"/>
+    <output correlationContext="{http://NCL_CruiseRetrieveClient_Module}App_Context" message="{http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveClient_Interface}Perform_NCL_CruiseRetrieveClientResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/body"/>
+    <imports>
+        <import kind="xml" location="XSLT_err_3_req_1.xml"/>
+    </imports>
+    <mappingDeclaration name="XSLT_err_3_req_1">
+        <input path="body"/>
+        <output path="body"/>
+    </mappingDeclaration>
+</mappingRoot>

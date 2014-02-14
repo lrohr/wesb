@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRtrvNameList_Module/xslt/xslt_load_getnext_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRtrvNameList_Module/xslt/xslt_load_getnext_req_1">
+    <input correlationContext="{http://NCL_CruiseRtrvNameList_Module}App_Context" message="{http://NCL_WESB_Shared_Library/NCL_CruiseRtrvNameList_Interface}Perform_NCL_CruiseRtrvNameListRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRtrvNameList_Module}App_Context" message="{http://NCL_CruiseRtrvNameList_Module/JDBCImport}retrieveallgetNextRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="xslt_load_getnext_req_1.xml"/>
+    </imports>
+    <mappingDeclaration name="xslt_load_getnext_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="body/Perform_NCL_CruiseRtrvNameList/NCL_CruiseRtrvNameListRQ"/>
+            <output path="context/correlation/NCL_CruiseRtrvNameListRQ"/>
+        </move>
+        <assign value="10">
+            <output path="body/retrieveallgetNext/retrieveallgetNextInput/parameter1"/>
+        </assign>
+    </mappingDeclaration>
+</mappingRoot>

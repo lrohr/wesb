@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema
+    targetNamespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_vacat_pref"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata"
+    xmlns:nclseancl_wesb_get_client_vacat_pref="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_vacat_pref"
+    xmlns:nclseancl_wesb_get_client_vacat_prefp_dest_cur="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_vacat_prefp_dest_cur" xmlns:nclseancl_wesb_get_client_vacat_prefp_prev_crus_cur="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_vacat_prefp_prev_crus_cur">
+    <import
+        namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_vacat_prefp_dest_cur" schemaLocation="NclseaNcl_Wesb_Get_Client_Vacat_PrefP_Dest_Cur.xsd"/>
+    <import
+        namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_vacat_prefp_prev_crus_cur" schemaLocation="NclseaNcl_Wesb_Get_Client_Vacat_PrefP_Prev_Crus_Cur.xsd"/>
+    <import
+        namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata" schemaLocation="JDBCASI.xsd"/>
+    <annotation xml:space="preserve">
+<appinfo
+                source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter
+                version="7.5.0.1" xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability"/>
+</appinfo>
+</annotation>
+    <annotation xml:space="preserve">
+<appinfo
+                source="commonj.connector.asi">
+<asi:annotationSet
+                asiNSURI="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata" xmlns:asi="commonj.connector.asi"/>
+</appinfo>
+</annotation>
+    <complexType name="NclseaNcl_Wesb_Get_Client_Vacat_Pref">
+        <annotation xml:space="preserve">
+<appinfo
+                    source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCBusinessObjectTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPName>NCLSEA.NCL_WESB_GET_CLIENT_VACAT_PREF</jdbcasi:SPName>
+<jdbcasi:MaxNumOfRetRS>1</jdbcasi:MaxNumOfRetRS>
+<jdbcasi:ResultSet>true</jdbcasi:ResultSet>
+</jdbcasi:JDBCBusinessObjectTypeMetadata>
+</appinfo>
+</annotation>
+        <sequence maxOccurs="1" minOccurs="1">
+            <element maxOccurs="1" minOccurs="0" name="p_clientid"
+                nillable="true" type="int">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>IP</jdbcasi:SPParameterType>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0"
+                name="p_prefcruiselength" nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>OP</jdbcasi:SPParameterType>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0"
+                name="p_future_cruise_plan" nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>OP</jdbcasi:SPParameterType>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0"
+                name="p_pref_cruise_time" nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>OP</jdbcasi:SPParameterType>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0"
+                name="p_previously_cruised" nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>OP</jdbcasi:SPParameterType>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0"
+                name="p_previously_cruised_number" nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>OP</jdbcasi:SPParameterType>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="1" minOccurs="0"
+                name="p_pref_booking_mode" nillable="true" type="string">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>OP</jdbcasi:SPParameterType>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="unbounded" minOccurs="0"
+                name="p_dest_cur" nillable="true" type="nclseancl_wesb_get_client_vacat_prefp_dest_cur:NclseaNcl_Wesb_Get_Client_Vacat_PrefP_Dest_Cur">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>OP</jdbcasi:SPParameterType>
+<jdbcasi:ChildBOType>ResultSet</jdbcasi:ChildBOType>
+<jdbcasi:ChildBOTypeName/>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+            <element maxOccurs="unbounded" minOccurs="0"
+                name="p_prev_crus_cur" nillable="true" type="nclseancl_wesb_get_client_vacat_prefp_prev_crus_cur:NclseaNcl_Wesb_Get_Client_Vacat_PrefP_Prev_Crus_Cur">
+                <annotation xml:space="preserve">
+<appinfo
+                            source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>OP</jdbcasi:SPParameterType>
+<jdbcasi:ChildBOType>ResultSet</jdbcasi:ChildBOType>
+<jdbcasi:ChildBOTypeName/>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+            </element>
+        </sequence>
+    </complexType>
+</schema>

@@ -1,0 +1,16 @@
+* SMAP
+xslt_loadGetLatData_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 xslt_loadGetLatData_req_1.map
+/NCL_CruiseRetrieveClient_Module/xslt/xslt_loadGetLatData_req_1.map
+*L
+4:113,5
+5:89,4
+7:99,5
+6:83,6
+1:51,17
+3:93,6
+2:79,4
+*E

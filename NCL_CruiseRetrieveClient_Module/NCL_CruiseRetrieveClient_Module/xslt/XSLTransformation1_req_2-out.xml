@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<io13:smo xmlns:io13="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:io20="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_vacat_prefp_dest_cur" xmlns:io19="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_vacat_prefp_prev_crus_cur" xmlns:io18="http://www.w3.org/2005/08/addressing" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:io17="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0" xmlns:io10="http://nclapi/schemas" xmlns:io11="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_profilep_cursor" xmlns:io12="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_profilebg" xmlns:io16="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:io9="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:io8="http://NCL_CruiseRetrieveClient_Module" xmlns:io7="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_profile" xmlns:io6="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:io15="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_vacat_prefbg" xmlns:io14="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_vacat_pref" xmlns:io5="wsdl.http://NCL_CruiseRetrieveClient_Module/DB_Lookup" xmlns:io4="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_programsp_cursor" xmlns:io3="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_programsbg" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:io2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_programs" xmlns:io="http://NCL_CruiseRetrieveClient_Module/DB_Lookup">
+  <context>
+    <correlation>
+      <io10:NCL_CruiseRetrieveClientRS>
+        <io10:ClientInfo BirthDate="birthday" LoyaltyMembershipID="client_id" Nationality="citizenship">
+          <io10:PersonName>
+            <io10:GivenName>first_name</io10:GivenName>
+          </io10:PersonName>
+          <io10:URL>email</io10:URL>
+        </io10:ClientInfo>
+        <io10:UserLogin Password="web_password" UserLoginName="web_login_name"/>
+      </io10:NCL_CruiseRetrieveClientRS>
+    </correlation>
+  </context>
+</io13:smo>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRetrieveClient_Module/xslt/XSLT_getClientData_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRetrieveClient_Module/xslt/XSLT_getClientData_req_1">
+    <input correlationContext="{http://NCL_CruiseRetrieveClient_Module}App_Context" message="{http://TP_Logger/TP_Interface}TP_InsertUpdateRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRetrieveClient_Module}App_Context" message="{http://NCL_CruiseRetrieveClient_Module/DB_Lookup}executeNclseaNcl_Wesb_Get_Client_ProfileBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLT_getClientData_req_1.xml"/>
+        <import kind="xslt" location="XSLT_UserName.xsl"/>
+    </imports>
+    <mappingDeclaration name="XSLT_getClientData_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ/ReservationID/@ID"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_ProfileBG/executeNclseaNcl_Wesb_Get_Client_ProfileBGInput/NclseaNcl_Wesb_Get_Client_Profile/p_resid"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ/ClientInfo/PersonName/GivenName[1]"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_ProfileBG/executeNclseaNcl_Wesb_Get_Client_ProfileBGInput/NclseaNcl_Wesb_Get_Client_Profile/p_firstname"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ/ClientInfo/PersonName/Surname"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_ProfileBG/executeNclseaNcl_Wesb_Get_Client_ProfileBGInput/NclseaNcl_Wesb_Get_Client_Profile/p_lastname"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ/SelectedSailing/@Start"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_ProfileBG/executeNclseaNcl_Wesb_Get_Client_ProfileBGInput/NclseaNcl_Wesb_Get_Client_Profile/p_sailingdate"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ/SelectedSailing/@ShipCode"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_ProfileBG/executeNclseaNcl_Wesb_Get_Client_ProfileBGInput/NclseaNcl_Wesb_Get_Client_Profile/p_shipcode"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ/LoyaltyInfo/@MembershipID"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_ProfileBG/executeNclseaNcl_Wesb_Get_Client_ProfileBGInput/NclseaNcl_Wesb_Get_Client_Profile/p_clientid"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ/ClientInfo/@BirthDate"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_ProfileBG/executeNclseaNcl_Wesb_Get_Client_ProfileBGInput/NclseaNcl_Wesb_Get_Client_Profile/p_dateofbirth"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ/ClientInfo/Address/PostalCode"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_ProfileBG/executeNclseaNcl_Wesb_Get_Client_ProfileBGInput/NclseaNcl_Wesb_Get_Client_Profile/p_zipcode"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ/ClientInfo/Email/text()"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_ProfileBG/executeNclseaNcl_Wesb_Get_Client_ProfileBGInput/NclseaNcl_Wesb_Get_Client_Profile/p_email"/>
+        </move>
+        <customFunction lang="xslt" location="XSLT_UserName.xsl" ref="UserLoginNameToP_webusername">
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ/UserLogin/@UserLoginName" var="UserLoginName"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_ProfileBG/executeNclseaNcl_Wesb_Get_Client_ProfileBGInput/NclseaNcl_Wesb_Get_Client_Profile/p_webusername"/>
+            <param name="UserLoginName" value="$UserLoginName"/>
+        </customFunction>
+    </mappingDeclaration>
+</mappingRoot>

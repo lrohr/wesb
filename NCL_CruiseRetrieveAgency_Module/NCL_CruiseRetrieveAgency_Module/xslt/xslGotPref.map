@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRetrieveAgency_Module/xslt/xslGotPref" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRetrieveAgency_Module/xslt/xslGotPref">
+    <input correlationContext="{http://NCL_CruiseRetrieveAgency_Module}appContext" message="{http://NCL_CruiseRetrieveAgency_Module/JDBCOutboundInterface}executeNclseaNcl_Wesb_Ar_Get_Agc_Cont_PrfBGResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRetrieveAgency_Module}appContext" message="{http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveAgency_Interface}Perform_NCL_CruiseRetrieveAgencyResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="xslGotPref.xml"/>
+    </imports>
+    <mappingDeclaration name="xslGotPref">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/logId"/>
+            <output path="context/correlation/logId"/>
+        </move>
+        <move>
+            <input path="context/correlation/errorCode"/>
+            <output path="context/correlation/errorCode"/>
+        </move>
+        <move>
+            <input path="context/correlation/errorText"/>
+            <output path="context/correlation/errorText"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveAgencyRQ"/>
+            <output path="context/correlation/NCL_CruiseRetrieveAgencyRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/address"/>
+            <output path="context/correlation/address"/>
+        </move>
+        <move>
+            <input path="context/correlation/eamil"/>
+            <output path="context/correlation/eamil"/>
+        </move>
+        <move>
+            <input path="context/correlation/info"/>
+            <output path="context/correlation/info"/>
+        </move>
+        <move>
+            <input path="context/correlation/phone"/>
+            <output path="context/correlation/phone"/>
+        </move>
+        <foreach>
+            <input path="body/executeNclseaNcl_Wesb_Ar_Get_Agc_Cont_PrfBGResponse/executeNclseaNcl_Wesb_Ar_Get_Agc_Cont_PrfBGOutput/NclseaNcl_Wesb_Ar_Get_Agc_Cont_Prf/p_cursor"/>
+            <output path="context/correlation/pref/Get_AgencyContactPrefInfo/P_CURSOR"/>
+            <move>
+                <input path="notif_dflt_distr_type"/>
+                <output path="NOTIF_DFLT_DISTR_TYPE"/>
+            </move>
+        </foreach>
+        <foreach>
+            <input path="context/correlation/phone/Get_AgencyPhoneInfo/P_CURSOR"/>
+            <output path="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/AgencyInfo/Telephone"/>
+            <move>
+                <input path="PHONE_NUMBER"/>
+                <output path="@PhoneNumber"/>
+            </move>
+            <move>
+                <input path="PHONE_TYPE"/>
+                <output path="@PhoneLocationType"/>
+            </move>
+            <move>
+                <input path="IS_PHONE_FAX"/>
+                <output path="@PhoneTechType"/>
+            </move>
+            <move>
+                <input path="IS_PHONE_PRIMARY"/>
+                <output path="@PhoneUseType"/>
+            </move>
+        </foreach>
+        <move>
+            <input path="context/correlation/info/Get_Agency_Info/P_CURSOR/TAXPAYER_NUMBER"/>
+            <output path="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/AgencyInfo/@IdentificationNumber"/>
+        </move>
+        <move>
+            <input path="context/correlation/info/Get_Agency_Info/P_CURSOR/IATA_NUMBER"/>
+            <output path="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/AgencyInfo/@IATANumber"/>
+        </move>
+        <move>
+            <input path="context/correlation/info/Get_Agency_Info/P_CURSOR/ARC_NUMBER"/>
+            <output path="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/AgencyInfo/@ARCNumber"/>
+        </move>
+        <move>
+            <input path="context/correlation/info/Get_Agency_Info/P_CURSOR/CLIA_NUMBER"/>
+            <output path="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/AgencyInfo/@CLIANumber"/>
+        </move>
+        <local>
+            <output path="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/Success"/>
+        </local>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveAgencyRQ/@TransactionIdentifier"/>
+            <output path="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/@TransactionIdentifier"/>
+        </move>
+        <foreach>
+            <input path="context/correlation/address/Get_AgencyAddressInfo/P_CURSOR"/>
+            <output path="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/AgencyInfo/Address"/>
+            <move>
+                <input path="ADDRESS_LINE1"/>
+                <output path="AddressLine[1]"/>
+            </move>
+            <move>
+                <input path="ADDRESS_LINE2"/>
+                <output path="AddressLine[2]"/>
+            </move>
+            <move>
+                <input path="ADDRESS_LINE3"/>
+                <output path="AddressLine[3]"/>
+            </move>
+            <move>
+                <input path="ADDRESS_LINE4"/>
+                <output path="AddressLine[4]"/>
+            </move>
+            <move>
+                <input path="IS_ADDRESS_MAILING"/>
+                <output path="@ShareSynchInd"/>
+            </move>
+            <move>
+                <input path="IS_ADDRESS_SHIPPING"/>
+                <output path="@ShareMarketInd"/>
+            </move>
+            <move>
+                <input path="ADDRESS_TYPE"/>
+                <output path="@Type"/>
+            </move>
+            <move>
+                <input path="ADDRESS_CITY"/>
+                <output path="CityName"/>
+            </move>
+            <move>
+                <input path="ZIP"/>
+                <output path="PostalCode"/>
+            </move>
+            <move>
+                <input path="STATE_CODE"/>
+                <output path="StateProv/@StateCode"/>
+            </move>
+            <move>
+                <input path="COUNTRY_CODE"/>
+                <output path="CountryName/@Code"/>
+            </move>
+        </foreach>
+        <foreach>
+            <input path="context/correlation/eamil/Get_AgencyEmailInfo/P_CURSOR"/>
+            <output path="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/AgencyInfo/Email"/>
+            <move>
+                <input path="IS_ADDRESS_MAILING"/>
+                <output path="@ShareMarketInd"/>
+            </move>
+            <move>
+                <input path="IS_ADDRESS_SHIPPING"/>
+                <output path="@ShareSynchInd"/>
+            </move>
+            <move>
+                <input path="ADDRESS_LINE1"/>
+                <output path="text()"/>
+            </move>
+        </foreach>
+        <move>
+            <input path="context/correlation/info/Get_Agency_Info/P_CURSOR[1]/AGENCY_NAME"/>
+            <output path="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/AgencyInfo/@LegalName"/>
+        </move>
+        <move>
+            <input path="context/correlation/info/Get_Agency_Info/P_CURSOR[1]/OFFICE_CODE"/>
+            <output path="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/AgencyInfo/@OfficeCode"/>
+        </move>
+        <move>
+            <input path="context/correlation/info/Get_Agency_Info/P_CURSOR[1]/AGENCY_CLASSIFICATION_CODE"/>
+            <output path="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/AgencyInfo/@AgencyClassificationCode"/>
+        </move>
+        <move>
+            <input path="context/correlation/info/Get_Agency_Info/P_CURSOR[1]/AGENCY_CLASSIFICATION_NAME"/>
+            <output path="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/AgencyInfo/@AgencyClassificationName"/>
+        </move>
+        <move>
+            <input path="context/correlation/info/Get_Agency_Info/P_CURSOR/AGENCY_TYPE"/>
+            <output path="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/AgencyInfo/@AgencyType"/>
+        </move>
+        <move>
+            <input path="context/correlation/info/Get_Agency_Info/P_CURSOR[1]/DRS_DELIVERY_PREF_PREKIT"/>
+            <output path="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/AgencyInfo/@PrekitDocsDeliveryPref"/>
+        </move>
+        <move>
+            <input path="context/correlation/info/Get_Agency_Info/P_CURSOR[1]/DRS_DELIVERY_PREF_FINAL"/>
+            <output path="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/AgencyInfo/@FinalDocsDeliveryPref"/>
+        </move>
+        <foreach>
+            <input path="body/executeNclseaNcl_Wesb_Ar_Get_Agc_Cont_PrfBGResponse/executeNclseaNcl_Wesb_Ar_Get_Agc_Cont_PrfBGOutput/NclseaNcl_Wesb_Ar_Get_Agc_Cont_Prf/p_cursor"/>
+            <output path="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/AgencyInfo/ContactPreferences"/>
+            <move>
+                <input path="notif_dflt_distr_type"/>
+                <output path="@ContactPreference"/>
+            </move>
+        </foreach>
+        <move>
+            <input path="context/correlation/info/Get_Agency_Info/P_CURSOR[1]/AGENCY_ID"/>
+            <output path="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/AgencyInfo/RequestorID/@ID"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

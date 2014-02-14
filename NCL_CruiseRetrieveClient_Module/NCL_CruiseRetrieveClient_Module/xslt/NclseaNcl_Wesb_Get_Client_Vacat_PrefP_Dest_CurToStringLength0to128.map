@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRetrieveClient_Module/xslt/NclseaNcl_Wesb_Get_Client_Vacat_PrefP_Dest_CurToStringLength0to128" domainID="com.ibm.ccl.mapping.codegen.xslt.domain" targetNamespace="http://NCL_CruiseRetrieveClient_Module/xslt/NclseaNcl_Wesb_Get_Client_Vacat_PrefP_Dest_CurToStringLength0to128">
+   <input path="../NclseaNcl_Wesb_Get_Client_Vacat_PrefP_Dest_Cur.xsd"/>
+   <mappingDeclaration name="NclseaNcl_Wesb_Get_Client_Vacat_PrefP_Dest_CurToStringLength0to128">
+       <input path="type('NclseaNcl_Wesb_Get_Client_Vacat_PrefP_Dest_Cur')"/>
+   </mappingDeclaration>
+</mappingRoot>

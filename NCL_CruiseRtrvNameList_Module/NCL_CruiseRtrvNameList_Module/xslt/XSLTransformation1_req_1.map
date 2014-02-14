@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRtrvNameList_Module/xslt/XSLTransformation1_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRtrvNameList_Module/xslt/XSLTransformation1_req_1">
+    <input correlationContext="{http://NCL_CruiseRtrvNameList_Module}App_Context" message="{http://NCL_CruiseRtrvNameList_Module/DB_LOOKUP}executeNclseaNcl_Wesb_Get_Consumer_Nam_ListBGResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRtrvNameList_Module}App_Context" message="{http://NCL_WESB_Shared_Library/NCL_CruiseRtrvNameList_Interface}Perform_NCL_CruiseRtrvNameListResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLTransformation1_req_1.xml"/>
+        <import kind="xslt" location="XSLTransformation1_req_1_date_from.xsl"/>
+        <import kind="xslt" location="XSLTransformation1_req_1_date_to.xsl"/>
+        <import kind="xslt" location="XSLTransformation1_req_1__more_ind.xsl"/>
+        <import kind="xslt" location="XSLTransformation1_req_1_more_token.xsl"/>
+        <import kind="xslt" location="XSLTransformation1_req_1_custom_1.xsl"/>
+    </imports>
+    <mappingDeclaration name="XSLTransformation1_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ"/>
+            <output path="context/correlation/NCL_CruiseRtrvNameListRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <foreach>
+            <input path="body/executeNclseaNcl_Wesb_Get_Consumer_Nam_ListBGResponse/executeNclseaNcl_Wesb_Get_Consumer_Nam_ListBGOutput/NclseaNcl_Wesb_Get_Consumer_Nam_List/p_cursor"/>
+            <output path="body/Perform_NCL_CruiseRtrvNameListResponse/NCL_CruiseRtrvNameListRS/GuestsInfo/GuestInfo"/>
+            <move>
+                <input path="res_id"/>
+                <output path="ReservationID/@ID"/>
+            </move>
+            <move>
+                <input path="first_name"/>
+                <output path="PersonName/GivenName"/>
+            </move>
+            <move>
+                <input path="edoc_avail"/>
+                <output path="EdocAvail"/>
+            </move>
+            <move>
+                <input path="apis_flag"/>
+                <output path="ApisFlag"/>
+            </move>
+            <move>
+                <input path="net_due"/>
+                <output path="NetDue"/>
+            </move>
+            <move>
+                <input path="sail_id"/>
+                <output path="SailID"/>
+            </move>
+            <move>
+                <input path="source_code"/>
+                <output path="ReservationID/CompanyName/@Code"/>
+            </move>
+            <move>
+                <input path="ship_code"/>
+                <output path="SailingInfo/SelectedSailing/CruiseLine/@ShipCode"/>
+            </move>
+            <customFunction lang="xslt" location="XSLTransformation1_req_1_date_from.xsl" ref="Sail_date_fromToStart">
+                <input path="sail_date_from" var="sail_date_from"/>
+                <output path="SailingInfo/SelectedSailing/@Start"/>
+                <param name="sail_date_from" value="$sail_date_from"/>
+            </customFunction>
+            <customFunction lang="xslt" location="XSLTransformation1_req_1_date_to.xsl" ref="Sail_date_toToEnd">
+                <input path="sail_date_to" var="sail_date_to"/>
+                <output path="SailingInfo/SelectedSailing/@End"/>
+                <param name="sail_date_to" value="$sail_date_to"/>
+            </customFunction>
+            <move>
+                <input path="priced_category"/>
+                <output path="SailingInfo/SelectedCategory/@BerthedCategoryCode"/>
+            </move>
+            <move>
+                <input path="priced_category"/>
+                <output path="SailingInfo/SelectedCategory/@PricedCategoryCode"/>
+            </move>
+            <move>
+                <input path="last_name"/>
+                <output path="PersonName/Surname"/>
+            </move>
+            <move>
+                <input path="age"/>
+                <output path="@Age"/>
+            </move>
+            <move>
+                <input path="client_id"/>
+                <output path="@LoyaltyMembershipID"/>
+            </move>
+            <move>
+                <input path="sex"/>
+                <output path="@Gender"/>
+            </move>
+            <move>
+                <input path="package_id"/>
+                <output path="SailingInfo/SelectedSailing/@VoyageID"/>
+            </move>
+            <move>
+                <input path="cabin_nbr"/>
+                <output path="SailingInfo/SelectedCategory/SelectedCabin/@CabinNumber"/>
+            </move>
+            <move>
+                <input path="group_id"/>
+                <output path="GroupInfo/@GroupCode"/>
+            </move>
+            <move>
+                <input path="res_status"/>
+                <output path="ReservationID/@Status"/>
+            </move>
+            <assign value="14">
+                <output path="ReservationID/@Type"/>
+            </assign>
+            <move>
+                <input path="title"/>
+                <output path="PersonName/NamePrefix"/>
+            </move>
+            <move>
+                <input path="cruise_line_code"/>
+                <output path="SailingInfo/SelectedSailing/CruiseLine/@ShipName"/>
+            </move>
+            <assign value="NCL">
+                <output path="SailingInfo/SelectedSailing/CruiseLine/@VendorCode"/>
+            </assign>
+            <assign value="Norwegian Cruise Line">
+                <output path="SailingInfo/SelectedSailing/CruiseLine/@VendorName"/>
+            </assign>
+        </foreach>
+        <customFunction lang="xslt" location="XSLTransformation1_req_1__more_ind.xsl" ref="P_cursorToMoreIndicator">
+            <input path="body/executeNclseaNcl_Wesb_Get_Consumer_Nam_ListBGResponse/executeNclseaNcl_Wesb_Get_Consumer_Nam_ListBGOutput/NclseaNcl_Wesb_Get_Consumer_Nam_List/p_cursor" var="p_cursor"/>
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ/@MaxResponses" var="MaxResponses"/>
+            <output path="body/Perform_NCL_CruiseRtrvNameListResponse/NCL_CruiseRtrvNameListRS/@MoreIndicator"/>
+            <param name="MaxResponses" value="$MaxResponses"/>
+            <param name="p_cursor" value="$p_cursor"/>
+        </customFunction>
+        <customFunction lang="xslt" location="XSLTransformation1_req_1_more_token.xsl" ref="P_cursorToMoreDataEchoToken">
+            <input path="body/executeNclseaNcl_Wesb_Get_Consumer_Nam_ListBGResponse/executeNclseaNcl_Wesb_Get_Consumer_Nam_ListBGOutput/NclseaNcl_Wesb_Get_Consumer_Nam_List/p_cursor" var="p_cursor"/>
+            <output path="body/Perform_NCL_CruiseRtrvNameListResponse/NCL_CruiseRtrvNameListRS/@MoreDataEchoToken"/>
+            <param name="p_cursor" value="$p_cursor"/>
+        </customFunction>
+        <move>
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ/@MaxResponses"/>
+            <output path="body/Perform_NCL_CruiseRtrvNameListResponse/NCL_CruiseRtrvNameListRS/@MaxResponses"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ/@TransactionIdentifier"/>
+            <output path="body/Perform_NCL_CruiseRtrvNameListResponse/NCL_CruiseRtrvNameListRS/@TransactionIdentifier"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ/@Version"/>
+            <output path="body/Perform_NCL_CruiseRtrvNameListResponse/NCL_CruiseRtrvNameListRS/@Version"/>
+        </move>
+        <customFunction lang="xslt" location="XSLTransformation1_req_1_custom_1.xsl" ref="ToSuccess">
+            <output path="body/Perform_NCL_CruiseRtrvNameListResponse/NCL_CruiseRtrvNameListRS/Success"/>
+        </customFunction>
+    </mappingDeclaration>
+</mappingRoot>

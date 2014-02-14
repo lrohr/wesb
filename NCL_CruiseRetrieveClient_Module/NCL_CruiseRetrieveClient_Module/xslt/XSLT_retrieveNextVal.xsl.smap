@@ -1,0 +1,12 @@
+* SMAP
+XSLT_retrieveNextVal.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLT_retrieveNextVal.map
+/NCL_CruiseRetrieveClient_Module/xslt/XSLT_retrieveNextVal.map
+*L
+3:86,5
+2:82,4
+1:54,17
+*E

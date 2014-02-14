@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2005 U (http://www.xmlspy.com) by XMLSPY 2005 Professional Ed. Release 3, Installed for 3 users (with SMP from 2005-04-15 to 2006-04-16) (NCL) -->
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+	<element name="Agent_work_agency">
+		<complexType>
+			<sequence>
+				<element name="spGetAgencyInfo" minOccurs="0" maxOccurs="unbounded">
+					<complexType>
+						<sequence>
+							<element name="P_AGENCYID" type="string" minOccurs="0"/>
+							<element name="P_CURSOR" minOccurs="0" maxOccurs="unbounded">
+								<complexType>
+									<sequence>
+										<element name="AGENCY_ID" type="string" minOccurs="0"/>
+										<element name="AGENCY_NAME" type="string" minOccurs="0"/>
+										<element name="AGENCY_NAME_ESSENTIAL" type="string" minOccurs="0"/>
+										<element name="AGENCY_NAME_TYPED" type="string" minOccurs="0"/>
+										<element name="AGENCY_TYPE" type="string" minOccurs="0"/>
+										<element name="AG_ENTITY_TYPE" type="string" minOccurs="0"/>
+										<element name="ARC_NUMBER" type="string" minOccurs="0"/>
+										<element name="BC_TYPE_ID" type="string" minOccurs="0"/>
+										<element name="CLIA_NUMBER" type="string" minOccurs="0"/>
+										<element name="COMMENTS" type="string" minOccurs="0"/>
+										<element name="CONSORTIUM_TYPE" type="string" minOccurs="0"/>
+										<element name="CONTACT_NAME" type="string" minOccurs="0"/>
+										<element name="COUNTRY_CODE" type="string" minOccurs="0"/>
+										<element name="DEFAULT_CURRENCY" type="string" minOccurs="0"/>
+										<element name="FLOATING_DEPOSIT" type="string" minOccurs="0"/>
+										<element name="IATA_NUMBER" type="string" minOccurs="0"/>
+										<element name="IS_ACTIVE" type="string" minOccurs="0"/>
+										<element name="IS_CONSORTIUM" type="string" minOccurs="0"/>
+										<element name="IS_DOMESTIC" type="string" minOccurs="0"/>
+										<element name="IS_FAX_EMAIL_SECURED" type="string" minOccurs="0"/>
+										<element name="IS_GSA" type="string" minOccurs="0"/>
+										<element name="IS_INTERNAL" type="string" minOccurs="0"/>
+										<element name="MARKETING_MSG" type="string" minOccurs="0"/>
+										<element name="NOTIF_DFLT_DISTR_TYPE" type="string" minOccurs="0"/>
+										<element name="OFFICE_CODE" type="string" minOccurs="0"/>
+										<element name="TAXOWNER_NAME" type="string" minOccurs="0"/>
+										<element name="TAXPAYER_NUMBER" type="string" minOccurs="0"/>
+										<element name="TAXPAYER_TYPE" type="string" minOccurs="0"/>
+										<element name="USE_DFLT_CONSORTIUM" type="string" minOccurs="0"/>
+										<element name="USE_GUEST_ADDR" type="string" minOccurs="0"/>
+										<element name="VENDOR_NUMBER" type="string" minOccurs="0"/>
+										<element name="WEB_ADDRESS" type="string" minOccurs="0"/>
+										<element name="ADDRESS_CITY" type="string" minOccurs="0"/>
+										<element name="ADDRESS_LINE1" type="string" minOccurs="0"/>
+										<element name="ADDRESS_LINE2" type="string" minOccurs="0"/>
+										<element name="ADDRESS_TYPE" type="string" minOccurs="0"/>
+										<element name="ADD_COUNTRY_CODE" type="string" minOccurs="0"/>
+										<element name="IS_ADDRESS_MAILING" type="string" minOccurs="0"/>
+										<element name="IS_ADDRESS_SHIPPING" type="string" minOccurs="0"/>
+										<element name="SEQ_NUMBER" type="string" minOccurs="0"/>
+										<element name="STATE_CODE" type="string" minOccurs="0"/>
+										<element name="ZIP" type="string" minOccurs="0"/>
+										<element name="IS_PHONE_FAX" type="string" minOccurs="0"/>
+										<element name="IS_PHONE_PRIMARY" type="string" minOccurs="0"/>
+										<element name="PHONE_NUMBER" type="string" minOccurs="0"/>
+										<element name="PHONE_TYPE" type="string" minOccurs="0"/>
+										<element name="CONTACT_PREFERENCE" type="string" minOccurs="0"/>
+										<element name="AGENCY_CLASSIFICATION_CODE" type="string" minOccurs="0"/>
+										<element name="AGENCY_CLASSIFICATION_NAME" type="string" minOccurs="0"/>
+										<element name="DSM_FIRST" type="string" minOccurs="0"/>
+										<element name="DSM_LAST" type="string" minOccurs="0"/>
+										<element name="EXTRA1" type="string" minOccurs="0"/>
+										<element name="EXTRA2" type="string" minOccurs="0"/>
+										<element name="EXTRA3" type="string" minOccurs="0"/>
+										<element name="EXTRA4" type="string" minOccurs="0"/>
+									</sequence>
+								</complexType>
+							</element>
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

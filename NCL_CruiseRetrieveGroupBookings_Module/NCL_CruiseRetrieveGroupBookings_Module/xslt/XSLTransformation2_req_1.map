@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRetrieveGroupBookings_Module/xslt/XSLTransformation2_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRetrieveGroupBookings_Module/xslt/XSLTransformation2_req_1">
+    <input correlationContext="{http://NCL_CruiseRetrieveGroupBookings_Module}App_context" message="{http://TP_Logger/TP_Interface}TP_InsertUpdateRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRetrieveGroupBookings_Module}App_context" message="{http://NCL_CruiseRetrieveGroupBookings_Module/DB_LOOKUP}executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLTransformation2_req_1.xml"/>
+    </imports>
+    <mappingDeclaration name="XSLTransformation2_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveGroupBookingsRQ"/>
+            <output path="context/correlation/NCL_CruiseRetrieveGroupBookingsRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveGroupBookingsRQ/POS/Source[1]/RequestorID/@ID"/>
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Grp_BookingBG/executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGInput/NclseaNcl_Wesb_Retrieve_Grp_Booking/p_agencyid"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveGroupBookingsRQ/POS/Source[1]/@AgentSine"/>
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Grp_BookingBG/executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGInput/NclseaNcl_Wesb_Retrieve_Grp_Booking/p_agent_id"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveGroupBookingsRQ/GroupInfo/@GroupCode"/>
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Grp_BookingBG/executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGInput/NclseaNcl_Wesb_Retrieve_Grp_Booking/p_groupid"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveGroupBookingsRQ/SelectedSailing/@ShipCode"/>
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Grp_BookingBG/executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGInput/NclseaNcl_Wesb_Retrieve_Grp_Booking/p_shipcode"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveGroupBookingsRQ/SelectedSailing/@VoyageID"/>
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Grp_BookingBG/executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGInput/NclseaNcl_Wesb_Retrieve_Grp_Booking/p_packageid"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveGroupBookingsRQ/@MoreDataEchoToken"/>
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Grp_BookingBG/executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGInput/NclseaNcl_Wesb_Retrieve_Grp_Booking/p_lastgrpidreturned"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveGroupBookingsRQ/@MaxResponses"/>
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Grp_BookingBG/executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGInput/NclseaNcl_Wesb_Retrieve_Grp_Booking/p_maxrecordsoutput"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

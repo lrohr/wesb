@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRetrieveAgency_Module/xslt/xsltGetPhone" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRetrieveAgency_Module/xslt/xsltGetPhone">
+    <input correlationContext="{http://NCL_CruiseRetrieveAgency_Module}appContext" message="{http://NCL_CruiseRetrieveAgency_Module/JDBCOutboundInterface}executeNclseaNcl_Wesb_Ar_Get_Agency_AddressBGResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRetrieveAgency_Module}appContext" message="{http://NCL_CruiseRetrieveAgency_Module/JDBCOutboundInterface}executeNclseaNcl_Wesb_Ar_Get_Agency_PhoneBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="xsltGetPhone.xml"/>
+    </imports>
+    <mappingDeclaration name="xsltGetPhone">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/logId"/>
+            <output path="context/correlation/logId"/>
+        </move>
+        <move>
+            <input path="context/correlation/errorCode"/>
+            <output path="context/correlation/errorCode"/>
+        </move>
+        <move>
+            <input path="context/correlation/errorText"/>
+            <output path="context/correlation/errorText"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveAgencyRQ"/>
+            <output path="context/correlation/NCL_CruiseRetrieveAgencyRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveAgencyRQ/AgencyInfo/RequestorID/@ID"/>
+            <output path="body/executeNclseaNcl_Wesb_Ar_Get_Agency_PhoneBG/executeNclseaNcl_Wesb_Ar_Get_Agency_PhoneBGInput/NclseaNcl_Wesb_Ar_Get_Agency_Phone/p_agencyid"/>
+        </move>
+        <foreach>
+            <input path="body/executeNclseaNcl_Wesb_Ar_Get_Agency_AddressBGResponse/executeNclseaNcl_Wesb_Ar_Get_Agency_AddressBGOutput/NclseaNcl_Wesb_Ar_Get_Agency_Address/p_cursor"/>
+            <output path="context/correlation/address/Get_AgencyAddressInfo/P_CURSOR"/>
+            <move>
+                <input path="agency_id"/>
+                <output path="AGENCY_ID"/>
+            </move>
+            <move>
+                <input path="seq_number"/>
+                <output path="SEQ_NUMBER"/>
+            </move>
+            <move>
+                <input path="address_type"/>
+                <output path="ADDRESS_TYPE"/>
+            </move>
+            <move>
+                <input path="address_line1"/>
+                <output path="ADDRESS_LINE1"/>
+            </move>
+            <move>
+                <input path="address_line2"/>
+                <output path="ADDRESS_LINE2"/>
+            </move>
+            <move>
+                <input path="address_city"/>
+                <output path="ADDRESS_CITY"/>
+            </move>
+            <move>
+                <input path="state_code"/>
+                <output path="STATE_CODE"/>
+            </move>
+            <move>
+                <input path="zip"/>
+                <output path="ZIP"/>
+            </move>
+            <move>
+                <input path="country_code"/>
+                <output path="COUNTRY_CODE"/>
+            </move>
+            <move>
+                <input path="is_address_mailing"/>
+                <output path="IS_ADDRESS_MAILING"/>
+            </move>
+            <move>
+                <input path="is_address_shipping"/>
+                <output path="IS_ADDRESS_SHIPPING"/>
+            </move>
+            <move>
+                <input path="comments"/>
+                <output path="COMMENTS"/>
+            </move>
+            <move>
+                <input path="agency_addr_id"/>
+                <output path="AGENCY_ADDR_ID"/>
+            </move>
+            <move>
+                <input path="address_line3"/>
+                <output path="ADDRESS_LINE3"/>
+            </move>
+            <move>
+                <input path="address_line4"/>
+                <output path="ADDRESS_LINE4"/>
+            </move>
+            <move>
+                <input path="address_essential"/>
+                <output path="ADDRESS_ESSENTIAL"/>
+            </move>
+        </foreach>
+        <foreach>
+            <input path="context/correlation/info/Get_Agency_Info/P_CURSOR"/>
+            <output path="context/correlation/info/Get_Agency_Info/P_CURSOR"/>
+            <move>
+                <input path="AGENCY_ID"/>
+                <output path="AGENCY_ID"/>
+            </move>
+            <move>
+                <input path="TAXPAYER_NUMBER"/>
+                <output path="TAXPAYER_NUMBER"/>
+            </move>
+            <move>
+                <input path="IATA_NUMBER"/>
+                <output path="IATA_NUMBER"/>
+            </move>
+            <move>
+                <input path="ARC_NUMBER"/>
+                <output path="ARC_NUMBER"/>
+            </move>
+            <move>
+                <input path="CLIA_NUMBER"/>
+                <output path="CLIA_NUMBER"/>
+            </move>
+            <move>
+                <input path="AGENCY_NAME"/>
+                <output path="AGENCY_NAME"/>
+            </move>
+            <move>
+                <input path="AGENCY_TYPE"/>
+                <output path="AGENCY_TYPE"/>
+            </move>
+            <move>
+                <input path="OFFICE_CODE"/>
+                <output path="OFFICE_CODE"/>
+            </move>
+            <move>
+                <input path="AGENCY_CLASSIFICATION_CODE"/>
+                <output path="AGENCY_CLASSIFICATION_CODE"/>
+            </move>
+            <move>
+                <input path="AGENCY_CLASSIFICATION_NAME"/>
+                <output path="AGENCY_CLASSIFICATION_NAME"/>
+            </move>
+            <move>
+                <input path="DRS_DELIVERY_PREF_PREKIT"/>
+                <output path="DRS_DELIVERY_PREF_PREKIT"/>
+            </move>
+            <move>
+                <input path="DRS_DELIVERY_PREF_FINAL"/>
+                <output path="DRS_DELIVERY_PREF_FINAL"/>
+            </move>
+        </foreach>
+    </mappingDeclaration>
+</mappingRoot>

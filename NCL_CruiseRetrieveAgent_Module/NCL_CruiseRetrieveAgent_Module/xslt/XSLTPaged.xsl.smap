@@ -1,0 +1,18 @@
+* SMAP
+XSLTPaged.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLTPaged.map
+/NCL_CruiseRetrieveAgent_Module/xslt/XSLTPaged.map
+*L
+5:108,6
+9:132,5
+2:84,6
+3:90,3
+4:102,6
+6:114,6
+8:126,6
+7:120,6
+1:56,17
+*E

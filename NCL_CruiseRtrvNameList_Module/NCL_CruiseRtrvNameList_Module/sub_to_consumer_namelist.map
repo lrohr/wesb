@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:NCL_CruiseRtrvNameListRQ="http://nclapi/schemas" xmlns:NclseaNcl_Wesb_Get_Consumer_Nam_ListBG="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_consumer_nam_listbg" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:sub_to_consumer_namelist="http://NCL_CruiseRtrvNameList_Module" targetNamespace="http://NCL_CruiseRtrvNameList_Module">
+  <map:name>sub_to_consumer_namelist</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="NCL_CruiseRtrvNameListRQ:NCL_CruiseRtrvNameListRQ" name="NCL_CruiseRtrvNameListRQ"/>
+  <map:outputBusinessObjectVariable businessObjectRef="NclseaNcl_Wesb_Get_Consumer_Nam_ListBG:NclseaNcl_Wesb_Get_Consumer_Nam_ListBG" name="NclseaNcl_Wesb_Get_Consumer_Nam_ListBG"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseRtrvNameListRQ" property="POS/Source[1]/@AgentSine"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Get_Consumer_Nam_ListBG" property="NclseaNcl_Wesb_Get_Consumer_Nam_List/p_clientid"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:set value="0">
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Get_Consumer_Nam_ListBG" property="NclseaNcl_Wesb_Get_Consumer_Nam_List/p_lastresidreturned"/>
+    </map:set>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:set value="9999">
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Get_Consumer_Nam_ListBG" property="NclseaNcl_Wesb_Get_Consumer_Nam_List/p_maxrecordsoutput"/>
+    </map:set>
+  </map:propertyMap>
+</map:businessObjectMap>

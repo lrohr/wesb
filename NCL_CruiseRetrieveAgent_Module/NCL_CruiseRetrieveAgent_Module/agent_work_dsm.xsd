@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2005 U (http://www.xmlspy.com) by XMLSPY 2005 Professional Ed. Release 3, Installed for 3 users (with SMP from 2005-04-15 to 2006-04-16) (NCL) -->
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+	<element name="Agent_work_dsm">
+		<complexType>
+			<sequence>
+				<element name="selDSM" minOccurs="0" maxOccurs="unbounded">
+					<complexType>
+						<sequence>
+							<element name="AGENT_ID" type="string" minOccurs="0"/>
+							<element name="LAST_NAME" type="string" minOccurs="0"/>
+							<element name="FIRST_NAME" type="string" minOccurs="0"/>
+							<element name="MIDDLE_NAME" type="string" minOccurs="0"/>
+							<element name="FULL_NAME" type="string" minOccurs="0"/>
+							<element name="SALUTATION" type="string" minOccurs="0"/>
+							<element name="TITLE" type="string" minOccurs="0"/>
+							<element name="SEX" type="string" minOccurs="0"/>
+							<element name="BIRTHDAY" type="string" minOccurs="0"/>
+							<element name="IATAN_NUMBER" type="string" minOccurs="0"/>
+							<element name="IATAN_COMPANY_NAME" type="string" minOccurs="0"/>
+							<element name="IATAN_HOLDER_NAME" type="string" minOccurs="0"/>
+							<element name="IATAN_COMPANY_NUMBER" type="string" minOccurs="0"/>
+							<element name="COMMENTS" type="string" minOccurs="0"/>
+							<element name="IATAN_EXPIRATION_DATE" type="string" minOccurs="0"/>
+							<element name="EMAIL" type="string" minOccurs="0"/>
+							<element name="IS_DISTRICT_SM" type="string" minOccurs="0"/>
+							<element name="IS_INCENTIVE_SM" type="string" minOccurs="0"/>
+							<element name="WEB_PASSWORD" type="string" minOccurs="0"/>
+							<element name="WEB_LOGIN_NAME" type="string" minOccurs="0"/>
+							<element name="WEB_LAST_LOGIN" type="string" minOccurs="0"/>
+							<element name="WEB_CANACCESAGENCYDATA" type="string" minOccurs="0"/>
+							<element name="ALLOW_WEB_ACCESS" type="string" minOccurs="0"/>
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

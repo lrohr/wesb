@@ -1,0 +1,12 @@
+* SMAP
+XSLT_skip_getnext_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLT_skip_getnext_req_1.map
+/NCL_CruiseRtrvNameList_Module/xslt/XSLT_skip_getnext_req_1.map
+*L
+1:55,17
+3:87,3
+2:83,4
+*E

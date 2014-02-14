@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRetrieveClient_Module/xslt/XSLTransformation4_req_2" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRetrieveClient_Module/xslt/XSLTransformation4_req_2">
+    <input correlationContext="{http://NCL_CruiseRetrieveClient_Module}App_Context" message="{http://TP_Logger/TP_Interface}TP_InsertUpdateRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRetrieveClient_Module}App_Context" message="{http://NCL_CruiseRetrieveClient_Module/JDBCImport2}executeNclseaNcl_Wesb_Get_Client_Prof_V1RequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <namespaces>
+        <namespace kind="extension" prefix="fn" uri="http://www.w3.org/2005/xpath-functions"/>
+    </namespaces>
+    <generation engine="xslt2"/>
+    <mappingDeclaration name="XSLTransformation4_req_2">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <function ref="fn:upper-case">
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ/UserLogin/@UserLoginName" var="UserLoginName"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1/executeNclseaNcl_Wesb_Get_Client_Prof_V1Input/p_webusername"/>
+            <param name="string" value="$UserLoginName"/>
+        </function>
+        <if>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ/ReservationID/@ID" var="ID"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1/executeNclseaNcl_Wesb_Get_Client_Prof_V1Input/p_resid"/>
+            <test lang="XPath">string-length($ID)  &gt; 0</test>
+            <move>
+                <input path="$ID/."/>
+                <output path="."/>
+            </move>
+        </if>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ/SelectedSailing/@ShipCode" var="ShipCode"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1/executeNclseaNcl_Wesb_Get_Client_Prof_V1Input/p_shipcode"/>
+            <test lang="XPath">string-length($ShipCode)   &gt;  0</test>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ/SelectedSailing/@Start" var="Start"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1/executeNclseaNcl_Wesb_Get_Client_Prof_V1Input/p_sailingdate"/>
+            <test lang="XPath">string-length($Start)   &gt;  0</test>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ/ClientInfo/@BirthDate" var="BirthDate"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1/executeNclseaNcl_Wesb_Get_Client_Prof_V1Input/p_dateofbirth"/>
+            <test lang="XPath">string-length($BirthDate)   &gt;  0</test>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ/ClientInfo/PersonName/GivenName[1]" var="GivenName"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1/executeNclseaNcl_Wesb_Get_Client_Prof_V1Input/p_firstname"/>
+            <test lang="XPath">string-length($GivenName)   &gt;  0</test>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ/ClientInfo/PersonName/Surname" var="Surname"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1/executeNclseaNcl_Wesb_Get_Client_Prof_V1Input/p_lastname"/>
+            <test lang="XPath">string-length($Surname)   &gt;  0</test>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ/ClientInfo/Address/PostalCode" var="PostalCode"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1/executeNclseaNcl_Wesb_Get_Client_Prof_V1Input/p_zipcode"/>
+            <test lang="XPath">string-length($PostalCode)   &gt;  0</test>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ/ClientInfo/Email/text()" var="value"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1/executeNclseaNcl_Wesb_Get_Client_Prof_V1Input/p_email"/>
+            <test lang="XPath">string-length($value)   &gt;  0</test>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ/ClientInfo/Telephone/@PhoneNumber" var="PhoneNumber"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1/executeNclseaNcl_Wesb_Get_Client_Prof_V1Input/p_phone"/>
+            <test lang="XPath">string-length($PhoneNumber)   &gt;  0</test>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ/LoyaltyInfo/@MembershipID" var="MembershipID"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_Prof_V1/executeNclseaNcl_Wesb_Get_Client_Prof_V1Input/p_clientid"/>
+            <test lang="XPath">string-length($MembershipID) &gt; 0</test>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

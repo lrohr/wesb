@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveAgency_Interface" xmlns:ns1_1="http://NCL_CruiseRetrieveAgency_Module/JDBCOutboundInterface" xmlns:ns1_2="http://E-Mail_Generic/E-Mail_Interface" xmlns:ns1_3="http://TP_Logger/TP_Interface" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="NCL_CruiseRetrieveAgency_Module" targetNamespace="http://NCL_CruiseRetrieveAgency_Module/NCL_CruiseRetrieveAgency_Module">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:NCL_CruiseRetrieveAgency_Interface"/>
+  </interfaces>
+  <references>
+    <reference name="JDBCOutboundInterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_1:JDBCOutboundInterface"/>
+    </reference>
+    <reference name="E-Mail_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_2:E-Mail_Interface"/>
+    </reference>
+    <reference name="TP_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_3:TP_Interface"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="Perform_NCL_CruiseRetrieveAgency" target="TP_InsertUpdate" sourcePortType="ns1:NCL_CruiseRetrieveAgency_Interface" targetReference="TP_InterfacePartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseRetrieveAgency" target="executeNclseaNcl_Wesb_Ar_Get_Agency_InfoBG" sourcePortType="ns1:NCL_CruiseRetrieveAgency_Interface" targetReference="JDBCOutboundInterfacePartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseRetrieveAgency" target="executeNclseaNcl_Wesb_Ar_Get_Agency_PhoneBG" sourcePortType="ns1:NCL_CruiseRetrieveAgency_Interface" targetReference="JDBCOutboundInterfacePartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseRetrieveAgency" target="executeNclseaNcl_Wesb_Ar_Get_Agency_EmailBG" sourcePortType="ns1:NCL_CruiseRetrieveAgency_Interface" targetReference="JDBCOutboundInterfacePartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseRetrieveAgency" target="executeNclseaNcl_Wesb_Ar_Get_Agency_AddressBG" sourcePortType="ns1:NCL_CruiseRetrieveAgency_Interface" targetReference="JDBCOutboundInterfacePartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseRetrieveAgency" target="executeNclseaNcl_Wesb_Ar_Get_Agc_Cont_PrfBG" sourcePortType="ns1:NCL_CruiseRetrieveAgency_Interface" targetReference="JDBCOutboundInterfacePartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseRetrieveAgency" target="TP_InsertUpdate" sourcePortType="ns1:NCL_CruiseRetrieveAgency_Interface" targetReference="TP_InterfacePartner"/>
+  <operationFlow medflow="NCL_CruiseRetrieveAgency_Module.medflow"/>
+</mfc:interfaceMediationFlow>

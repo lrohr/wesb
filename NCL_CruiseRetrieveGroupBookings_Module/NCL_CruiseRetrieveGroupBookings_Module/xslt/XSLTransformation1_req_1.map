@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRetrieveGroupBookings_Module/xslt/XSLTransformation1_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRetrieveGroupBookings_Module/xslt/XSLTransformation1_req_1">
+    <input correlationContext="{http://NCL_CruiseRetrieveGroupBookings_Module}App_context" message="{http://NCL_CruiseRetrieveGroupBookings_Module/DB_LOOKUP}executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRetrieveGroupBookings_Module}App_context" message="{http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveGroupBookings_Interface}Perform_NCL_CruiseRetrieveGroupBookingsResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLTransformation1_req_1.xml"/>
+        <import kind="xslt" location="XSLTransformation1_req_1_status.xsl"/>
+        <import kind="xslt" location="XSL_init_date_1.xsl"/>
+        <import kind="xslt" location="XSLT_sail_date_from.xsl"/>
+        <import kind="xslt" location="XSLTransformation1_req_1_custom.xsl"/>
+        <import kind="xslt" location="XSLTransformation1_req_1_success.xsl"/>
+    </imports>
+    <mappingDeclaration name="XSLTransformation1_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveGroupBookingsRQ"/>
+            <output path="context/correlation/NCL_CruiseRetrieveGroupBookingsRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <foreach>
+            <input path="body/executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGResponse/executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGOutput/NclseaNcl_Wesb_Retrieve_Grp_Booking/p_cursor"/>
+            <output path="body/Perform_NCL_CruiseRetrieveGroupBookingsResponse/NCL_CruiseRetrieveGroupBookingsRS/GroupsInfo/GroupInfo"/>
+            <move>
+                <input path="group_id"/>
+                <output path="@GroupCode"/>
+            </move>
+            <move>
+                <input path="agent_id"/>
+                <output path="AgentInfo/EmployeeInfo/@EmployeeId"/>
+            </move>
+            <move>
+                <input path="agency_id"/>
+                <output path="AgencyInfo/RequestorID/@ID"/>
+            </move>
+            <move>
+                <input path="group_type"/>
+                <output path="@GroupType"/>
+            </move>
+            <customFunction lang="xslt" location="XSLTransformation1_req_1_status.xsl" ref="Group_statusToGroupStatus">
+                <input path="group_status" var="group_status"/>
+                <output path="@GroupStatus"/>
+                <param name="group_status" value="$group_status"/>
+            </customFunction>
+            <customFunction lang="xslt" location="XSL_init_date_1.xsl" ref="Group_init_dateToGroupInitDate">
+                <input path="group_init_date" var="group_init_date"/>
+                <output path="@GroupInitDate"/>
+                <param name="group_init_date" value="$group_init_date"/>
+            </customFunction>
+            <move>
+                <input path="n_of_guests"/>
+                <output path="@NumberOfGuests"/>
+            </move>
+            <move>
+                <input path="office_code"/>
+                <output path="@OfficeCode"/>
+            </move>
+            <move>
+                <input path="first_name"/>
+                <output path="AgentInfo/PersonName/GivenName"/>
+            </move>
+            <move>
+                <input path="last_name"/>
+                <output path="AgentInfo/PersonName/Surname"/>
+            </move>
+            <move>
+                <input path="middle_name"/>
+                <output path="AgentInfo/PersonName/MiddleName"/>
+            </move>
+            <move>
+                <input path="title"/>
+                <output path="AgentInfo/PersonName/NameTitle"/>
+            </move>
+            <move>
+                <input path="phone_number"/>
+                <output path="AgentInfo/Telephone/@PhoneNumber"/>
+            </move>
+            <move>
+                <input path="phone_ext"/>
+                <output path="AgentInfo/Telephone/@Extension"/>
+            </move>
+            <move>
+                <input path="email"/>
+                <output path="AgentInfo/Email/text()"/>
+            </move>
+            <move>
+                <input path="contact_preference"/>
+                <output path="AgentInfo/ContactPreferences/@ContactPreference"/>
+            </move>
+            <move>
+                <input path="agent_location"/>
+                <output path="AgentInfo/@AgentLocation"/>
+            </move>
+            <move>
+                <input path="ship_code"/>
+                <output path="SelectedSailing/CruiseLine/@ShipCode"/>
+            </move>
+            <move>
+                <input path="package_id"/>
+                <output path="SelectedSailing/@VoyageID"/>
+            </move>
+            <customFunction lang="xslt" location="XSLT_sail_date_from.xsl" ref="Sail_date_fromToStart">
+                <input path="sail_date_from" var="sail_date_from"/>
+                <output path="SelectedSailing/@Start"/>
+                <param name="sail_date_from" value="$sail_date_from"/>
+            </customFunction>
+            <assign value="5">
+                <output path="AgencyInfo/RequestorID/@Type"/>
+            </assign>
+            <customFunction lang="xslt" location="XSLTransformation1_req_1_custom.xsl" ref="Ship_codeToShipName">
+                <input path="ship_code" var="ship_code"/>
+                <output path="SelectedSailing/CruiseLine/@ShipName"/>
+                <param name="ship_code" value="$ship_code"/>
+            </customFunction>
+            <move>
+                <input path="currency_code"/>
+                <output path="@CurrencyCode"/>
+            </move>
+            <move>
+                <input path="group_name"/>
+                <output path="@GroupName"/>
+            </move>
+            <assign value="AGENT">
+                <output path="AgentInfo/UserLogin/@UserType"/>
+            </assign>
+            <move>
+                <input path="web_login_name"/>
+                <output path="AgentInfo/UserLogin/@UserLoginName"/>
+            </move>
+            <assign value="2">
+                <output path="@DecimalPlaces"/>
+            </assign>
+            <move>
+                <input path="allocationexist"/>
+                <output path="@AllocationExist"/>
+            </move>
+        </foreach>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGResponse/executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGOutput/NclseaNcl_Wesb_Retrieve_Grp_Booking/p_errorcode" var="p_errorcode"/>
+            <output path="body/Perform_NCL_CruiseRetrieveGroupBookingsResponse/NCL_CruiseRetrieveGroupBookingsRS/Warnings/Warning[1]/@Code"/>
+            <test lang="XPath">string_length($p_errorcode) &gt; '0'</test>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGResponse/executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGOutput/NclseaNcl_Wesb_Retrieve_Grp_Booking/p_errormsg" var="p_errormsg"/>
+            <output path="body/Perform_NCL_CruiseRetrieveGroupBookingsResponse/NCL_CruiseRetrieveGroupBookingsRS/Warnings/Warning[1]/@ShortText"/>
+            <test lang="XPath">string-length ($p_errormsg) &gt; '0'</test>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGResponse/executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGOutput/NclseaNcl_Wesb_Retrieve_Grp_Booking/p_maxrecordsoutput"/>
+            <output path="body/Perform_NCL_CruiseRetrieveGroupBookingsResponse/NCL_CruiseRetrieveGroupBookingsRS/@MaxResponses"/>
+        </move>
+        <customFunction lang="xslt" location="XSLTransformation1_req_1_success.xsl" ref="ToSuccess">
+            <output path="body/Perform_NCL_CruiseRetrieveGroupBookingsResponse/NCL_CruiseRetrieveGroupBookingsRS/Success"/>
+        </customFunction>
+    </mappingDeclaration>
+</mappingRoot>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_dsm" xmlns:nclseancl_wesb_get_dsm="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_dsm" xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata" xmlns:nclseancl_wesb_get_dsmp_cursor="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_dsmp_cursor">
+<import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_dsmp_cursor" schemaLocation="NclseaNcl_Wesb_Get_DsmP_Cursor.xsd"/>
+<import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata" schemaLocation="JDBCASI.xsd"/>
+
+<annotation xml:space="preserve">
+<appinfo source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability" version="6.2.0.0"/>
+</appinfo>
+</annotation>
+
+<annotation xml:space="preserve">
+<appinfo source="commonj.connector.asi">
+<asi:annotationSet xmlns:asi="commonj.connector.asi" asiNSURI="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata"/>
+</appinfo>
+</annotation>
+<complexType name="NclseaNcl_Wesb_Get_Dsm">
+<annotation xml:space="preserve">
+<appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCBusinessObjectTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPName>NCLSEA.NCL_WESB_GET_DSM</jdbcasi:SPName>
+<jdbcasi:MaxNumOfRetRS>90</jdbcasi:MaxNumOfRetRS>
+<jdbcasi:ResultSet>true</jdbcasi:ResultSet>
+</jdbcasi:JDBCBusinessObjectTypeMetadata>
+</appinfo>
+</annotation>
+<sequence minOccurs="1" maxOccurs="1">
+<element name="p_agencyid" type="int" nillable="true" minOccurs="0" maxOccurs="1">
+<annotation xml:space="preserve">
+<appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>IP</jdbcasi:SPParameterType>
+<jdbcasi:DecimalScale>0</jdbcasi:DecimalScale>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+</element>
+<element name="p_errorcode" type="string" nillable="true" minOccurs="0" maxOccurs="1">
+<annotation xml:space="preserve">
+<appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>OP</jdbcasi:SPParameterType>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+</element>
+<element name="p_cursor" type="nclseancl_wesb_get_dsmp_cursor:NclseaNcl_Wesb_Get_DsmP_Cursor" nillable="true" minOccurs="0" maxOccurs="unbounded">
+<annotation xml:space="preserve">
+<appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SPParameterType>OP</jdbcasi:SPParameterType>
+<jdbcasi:ChildBOType>ResultSet</jdbcasi:ChildBOType>
+<jdbcasi:ChildBOTypeName></jdbcasi:ChildBOTypeName>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</appinfo>
+</annotation>
+</element>
+</sequence>
+</complexType>
+</schema>

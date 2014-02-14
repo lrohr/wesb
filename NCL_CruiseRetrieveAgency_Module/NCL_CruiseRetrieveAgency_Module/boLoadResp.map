@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:ServiceMessageObject="smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FNCL_CruiseRetrieveAgency_Module%257DappContext/message%3D%257Bhttp%253A%252F%252FNCL_WESB_Shared_Library%252FNCL_CruiseRetrieveAgency_Interface%257DPerform_NCL_CruiseRetrieveAgencyResponseMsg/xpath%3D%252F/namespace%3DBOMap/smo.xsd" xmlns:boLoadResp="http://NCL_CruiseRetrieveAgency_Module" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" targetNamespace="http://NCL_CruiseRetrieveAgency_Module">
+  <map:name>boLoadResp</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="ServiceMessageObject:ServiceMessageObject" name="ServiceMessageObject"/>
+  <map:outputBusinessObjectVariable businessObjectRef="ServiceMessageObject:ServiceMessageObject" name="ServiceMessageObject_1"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/@TransactionIdentifier"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/@TransactionIdentifier"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/Success"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/Success"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/AgencyInfo"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/Perform_NCL_CruiseRetrieveAgencyResponse/NCL_CruiseRetrieveAgencyRS/AgencyInfo"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/logId"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/logId"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="5">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/errorCode"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/errorCode"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="6">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseRetrieveAgencyRQ"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/NCL_CruiseRetrieveAgencyRQ"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="7">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/address"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/address"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="8">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/eamil"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/eamil"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="9">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/info"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/info"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="10">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/phone"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/phone"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="11">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/pref"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/pref"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

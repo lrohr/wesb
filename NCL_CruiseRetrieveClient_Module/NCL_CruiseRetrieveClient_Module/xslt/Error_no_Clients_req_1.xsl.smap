@@ -1,0 +1,17 @@
+* SMAP
+Error_no_Clients_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 Error_no_Clients_req_1.map
+/NCL_CruiseRetrieveClient_Module/xslt/Error_no_Clients_req_1.map
+*L
+4:111,6
+7:133,4
+5:117,9
+1:65,17
+8:137,3
+3:97,5
+6:129,4
+2:93,4
+*E

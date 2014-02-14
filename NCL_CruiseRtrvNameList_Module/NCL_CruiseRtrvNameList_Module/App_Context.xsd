@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://NCL_CruiseRtrvNameList_Module"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0="http://nclapi/schemas">
+	<xsd:import schemaLocation="NCL_CruiseRetrieveNameListRQ.xsd"
+		namespace="http://nclapi/schemas">
+	</xsd:import>
+	<xsd:complexType name="App_Context">
+		<xsd:sequence>
+			<xsd:element minOccurs="0"
+				ref="bons0:NCL_CruiseRtrvNameListRQ">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="LogID" type="xsd:string"></xsd:element>
+			<xsd:element minOccurs="0" name="ErrorCode"
+				type="xsd:string">
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

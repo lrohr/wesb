@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<body xmlns:httpsca="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:mq="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:p="http://nclapi/schemas" xmlns:smo="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:tns="http://NCL_WESB_Shared_Library/NCL_CruiseRtrvNameList_Interface" xmlns:tns1="http://www.w3.org/2005/08/addressing" xmlns:tns_1="wsdl.http://NCL_WESB_Shared_Library/NCL_CruiseRtrvNameList_Interface" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="foo.xsd" xsi:schemaLocation="wsdl.http://NCL_WESB_Shared_Library/NCL_CruiseRtrvNameList_Interface /name%3Dwsdl-body/correlationContext%3Dhttp%253A%252F%252FNCL_WESB_Shared_Library%252FNCL_CruiseRtrvNameList_Interface/message%3D%257Bhttp%253A%252F%252FNCL_WESB_Shared_Library%252FNCL_CruiseRtrvNameList_Interface%257DPerform_NCL_CruiseRtrvNameListResponseMsg/smo.xsd http://NCL_WESB_Shared_Library/NCL_CruiseRtrvNameList_Interface platform:/resource/NCL_WESB_Shared_Library/NCL_CruiseRtrvNameList_Interface.wsdl http://nclapi/schemas platform:/resource/NCL_WESB_Shared_Library/NCL_CruiseRtrvNameListRS.xsd http://www.ibm.com/websphere/sibx/smo/v6.0.1 platform:/plugin/com.ibm.ws.sibx.smo/smo.xsd http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0 platform:/plugin/com.ibm.ws.sibx.smo/smo-mq.xsd http://schemas.xmlsoap.org/ws/2004/08/addressing platform:/plugin/com.ibm.ws.sibx.smo/ws-addressing2004.xsd http://www.w3.org/2005/08/addressing platform:/plugin/com.ibm.ws.sibx.smo/ws-addr-10.xsd http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0 platform:/plugin/com.ibm.ws.sibx.smo/smo-http.xsd ">
+  <tns:Perform_NCL_CruiseRtrvNameListResponse>
+    <p:NCL_CruiseRtrvNameListRS AltLangID="EN" EchoToken="" MaxResponses="1" MoreDataEchoToken="" MoreIndicator="true" PrimaryLangID="EN" RetransmissionIndicator="true" SequenceNmbr="0" Target="Production" TimeStamp="2001-12-31T12:00:00" TransactionIdentifier="" TransactionStatusCode="Start" Version="0.0">
+      <p:Success/>
+      <p:Warnings>
+        <p:Warning Code="" DocURL="http://tempuri.org" Language="EN" RecordID="" ShortText="" Status="" Tag="" Type="">p:Warning</p:Warning>
+      </p:Warnings>
+      <p:GuestsInfo>
+        <p:GuestInfo Age="" BirthDate="" Gender="Male" GuestOccupation="" GuestRefNumber="" LoyalLevel="" LoyaltyMembershipID="" Nationality="">
+          <p:SailingInfo>
+            <p:SelectedSailing Duration="" End="" ListOfSailingDescriptionCode="" PortsOfCallQuantity="0" Start="" Status="" VoyageID="">
+              <p:CruiseLine ShipCode="" ShipName="" VendorCode="" VendorCodeContext="" VendorName=""/>
+              <p:Region RegionCode="" RegionName=""/>
+              <p:DeparturePort CodeContext="IATA" LocationCode="">p:DeparturePort</p:DeparturePort>
+              <p:ArrivalPort CodeContext="IATA" LocationCode="">p:ArrivalPort</p:ArrivalPort>
+            </p:SelectedSailing>
+            <p:InclusivePackageOption CruisePackageCode="" Duration="" End="" InclusiveIndicator="true" Start=""/>
+            <p:Currency Amount="0.0" CurrencyCode="" DecimalPlaces="0"/>
+            <p:SelectedCategory BerthedCategoryCode="" DeckName="" DeckNumber="" PricedCategoryCode="" WaitListIndicator="true">
+              <p:CabinAttributeFilters>
+                <p:CabinAttributeFilter CabinAttributeCode=""/>
+              </p:CabinAttributeFilters>
+              <p:SelectedCabin BedType="" CabinNumber="" CategoryLocation="Inside" DeckName="" DeckNumber="" DeclineIndicator="true" HeldIndicator="true" MaxOccupancy="0" PositionInShip="Aft" ReleaseDateTime="2001-12-31T12:00:00" ShipSide="Starboard" Status="">
+                <p:CabinConfiguration BedConfigurationCode=""/>
+                <p:MeasurementInfo Code="" Name="" UnitOfMeasure="" UnitOfMeasureCode="" UnitOfMeasureQuantity="0.0"/>
+                <p:Remark Language="EN" xsi:type="p:FreeTextType">p:Remark</p:Remark>
+                <p:CabinAttributes>
+                  <p:CabinAttribute CabinAttributeCode=""/>
+                </p:CabinAttributes>
+              </p:SelectedCabin>
+            </p:SelectedCategory>
+          </p:SailingInfo>
+          <p:ReservationID ID="" ID_Context="" Instance="" Status="" Type="" URL="http://tempuri.org">
+            <p:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p:CompanyNameType">p:CompanyName</p:CompanyName>
+          </p:ReservationID>
+          <p:EdocAvail>p:EdocAvail</p:EdocAvail>
+          <p:ApisFlag>p:ApisFlag</p:ApisFlag>
+          <p:NetDue>p:NetDue</p:NetDue>
+          <p:SailID>p:SailID</p:SailID>
+          <p:PersonName NameType="" ShareMarketInd="Yes" ShareSynchInd="Yes">
+            <p:NamePrefix>p:NamePrefix</p:NamePrefix>
+            <p:GivenName>p:GivenName</p:GivenName>
+            <p:MiddleName>p:MiddleName</p:MiddleName>
+            <p:SurnamePrefix>p:SurnamePrefix</p:SurnamePrefix>
+            <p:Surname>p:Surname</p:Surname>
+            <p:NameSuffix>p:NameSuffix</p:NameSuffix>
+            <p:NameTitle>p:NameTitle</p:NameTitle>
+          </p:PersonName>
+          <p:GroupInfo GroupCode=""/>
+        </p:GuestInfo>
+      </p:GuestsInfo>
+    </p:NCL_CruiseRtrvNameListRS>
+  </tns:Perform_NCL_CruiseRtrvNameListResponse>
+</body>

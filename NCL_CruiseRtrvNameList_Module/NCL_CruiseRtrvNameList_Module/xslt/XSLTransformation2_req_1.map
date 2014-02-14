@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRtrvNameList_Module/xslt/XSLTransformation2_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRtrvNameList_Module/xslt/XSLTransformation2_req_1">
+    <input correlationContext="{http://NCL_CruiseRtrvNameList_Module}App_Context" message="{http://TP_Logger/TP_Interface}TP_InsertUpdateRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRtrvNameList_Module}App_Context" message="{http://NCL_CruiseRtrvNameList_Module/DB_LOOKUP}executeNclseaNcl_Wesb_Retrieve_Name_ListBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLTransformation2_req_1.xml"/>
+    </imports>
+    <mappingDeclaration name="XSLTransformation2_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ"/>
+            <output path="context/correlation/NCL_CruiseRtrvNameListRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ/POS/Source[1]/RequestorID/@ID"/>
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Name_ListBG/executeNclseaNcl_Wesb_Retrieve_Name_ListBGInput/NclseaNcl_Wesb_Retrieve_Name_List/p_agencyid"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ/POS/Source[1]/@AgentSine"/>
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Name_ListBG/executeNclseaNcl_Wesb_Retrieve_Name_ListBGInput/NclseaNcl_Wesb_Retrieve_Name_List/p_agentid"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ/POS/Source[1]/BookingChannel/CompanyName/@Code"/>
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Name_ListBG/executeNclseaNcl_Wesb_Retrieve_Name_ListBGInput/NclseaNcl_Wesb_Retrieve_Name_List/p_gds"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ/GuestInfo/Surname"/>
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Name_ListBG/executeNclseaNcl_Wesb_Retrieve_Name_ListBGInput/NclseaNcl_Wesb_Retrieve_Name_List/p_lastname"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ/GuestInfo/GivenName[1]"/>
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Name_ListBG/executeNclseaNcl_Wesb_Retrieve_Name_ListBGInput/NclseaNcl_Wesb_Retrieve_Name_List/p_firstname"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ/SelectedSailing/@Start"/>
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Name_ListBG/executeNclseaNcl_Wesb_Retrieve_Name_ListBGInput/NclseaNcl_Wesb_Retrieve_Name_List/p_sailingdate"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ/SelectedSailing/@End"/>
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Name_ListBG/executeNclseaNcl_Wesb_Retrieve_Name_ListBGInput/NclseaNcl_Wesb_Retrieve_Name_List/p_sailingenddate"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ/SelectedSailing/@ShipCode"/>
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Name_ListBG/executeNclseaNcl_Wesb_Retrieve_Name_ListBGInput/NclseaNcl_Wesb_Retrieve_Name_List/p_shipcode"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ/GuestInfo/GroupInfo/@GroupCode"/>
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Name_ListBG/executeNclseaNcl_Wesb_Retrieve_Name_ListBGInput/NclseaNcl_Wesb_Retrieve_Name_List/p_groupid"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ/GuestInfo/LoyaltyInfo/@MembershipID"/>
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Name_ListBG/executeNclseaNcl_Wesb_Retrieve_Name_ListBGInput/NclseaNcl_Wesb_Retrieve_Name_List/p_clientid"/>
+        </move>
+        <assign value="0">
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Name_ListBG/executeNclseaNcl_Wesb_Retrieve_Name_ListBGInput/NclseaNcl_Wesb_Retrieve_Name_List/p_lastresidreturned"/>
+        </assign>
+        <assign value="9999">
+            <output path="body/executeNclseaNcl_Wesb_Retrieve_Name_ListBG/executeNclseaNcl_Wesb_Retrieve_Name_ListBGInput/NclseaNcl_Wesb_Retrieve_Name_List/p_maxrecordsoutput"/>
+        </assign>
+    </mappingDeclaration>
+</mappingRoot>

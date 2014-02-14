@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:NCL_CruiseRetrieveClientRS="http://nclapi/schemas" xmlns:NclseaNcl_Wesb_Get_Client_ProfileBG="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_profilebg" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:sub_tocontext="http://NCL_CruiseRetrieveClient_Module" targetNamespace="http://NCL_CruiseRetrieveClient_Module">
+  <map:name>sub_tocontext</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="NclseaNcl_Wesb_Get_Client_ProfileBG:NclseaNcl_Wesb_Get_Client_ProfileBG" name="NclseaNcl_Wesb_Get_Client_ProfileBG"/>
+  <map:outputBusinessObjectVariable businessObjectRef="NCL_CruiseRetrieveClientRS:NCL_CruiseRetrieveClientRS" name="NCL_CruiseRetrieveClientRS"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/birthday"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="ClientInfo/@BirthDate"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/citizenship"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="ClientInfo/@Nationality"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/client_id"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="ClientInfo/@LoyaltyMembershipID"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/email"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="ClientInfo/Email[1]/value()"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="5">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/first_name"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="ClientInfo/PersonName/GivenName[1]"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="6">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/last_name"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="ClientInfo/PersonName/Surname"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="7">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/middle_name"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="ClientInfo/PersonName/MiddleName[1]"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="8">
+    <map:custom>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/sex"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="ClientInfo/@Gender"/>
+      <map:javaCode>java.lang.String __NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_cursor1_sex = (java.lang.String)NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_cursor1_sex;&#xD;
+java.lang.String __NCL_CruiseRetrieveClientRS_ClientInfo_$aGender = (java.lang.String)NCL_CruiseRetrieveClientRS_ClientInfo_$aGender;&#xD;
+// Input NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_cursor[1]_sex is represented as NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_cursor1_sex&#xD;
+// Variable NCL_CruiseRetrieveClientRS_ClientInfo_@Gender is represented as NCL_CruiseRetrieveClientRS_ClientInfo_$aGender&#xD;
+try {
+	//java.lang.String __NCL_CruiseRetrieveClientRS_ClientInfo_$aGender = (java.lang.String)NCL_CruiseRetrieveClientRS_ClientInfo_$aGender;
+	java.lang.String __result__4 = &quot;M&quot;;
+	boolean __result__6 = __NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_cursor1_sex.equals(__result__4);
+	if (__result__6){
+		java.lang.String __result__9 = &quot;Male&quot;;
+		__NCL_CruiseRetrieveClientRS_ClientInfo_$aGender = __result__9;
+		NCL_CruiseRetrieveClientRS_ClientInfo_$aGender = __NCL_CruiseRetrieveClientRS_ClientInfo_$aGender;
+	}
+	else{
+		java.lang.String __result__12 = &quot;Female&quot;;
+		__NCL_CruiseRetrieveClientRS_ClientInfo_$aGender = __result__12;
+		NCL_CruiseRetrieveClientRS_ClientInfo_$aGender = __NCL_CruiseRetrieveClientRS_ClientInfo_$aGender;
+	}&#xD;
+}&#xD;
+catch(Exception e)&#xD;
+{&#xD;
+ NCL_CruiseRetrieveClientRS_ClientInfo_$aGender = &quot;Unknown&quot;;&#xD;
+} &#xD;
+finally {&#xD;
+// The specific type of variable NCL_CruiseRetrieveClientRS_ClientInfo_$aGender is java.lang.String&#xD;
+}&#xD;
+</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="9">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/web_login_name"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="UserLogin/@UserLoginName"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="10">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/address_line1"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="ClientInfo/Address[1]/AddressLine[1]"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="11">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/address_type"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="ClientInfo/Address[1]/@Type"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="12">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/country_code"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="ClientInfo/Address[1]/CountryName/@Code"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="13">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/zip"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="ClientInfo/Address[1]/PostalCode"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="14">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/state_code"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="ClientInfo/Address[1]/StateProv/@StateCode"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="15">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/phone_type"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="ClientInfo/Telephone[1]/@PhoneTechType"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="16">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/phone_number"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="ClientInfo/Telephone[1]/@PhoneNumber"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="17">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/occupation"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="ClientInfo/@GuestOccupation"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="18">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/client_type"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="LoyaltyInfo/@LoyalLevel"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="19">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/client_id"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="LoyaltyInfo/@MembershipID"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="20">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/address_city"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="ClientInfo/Address[1]/CityName"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="21">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/title"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="ClientInfo/PersonName/NamePrefix[1]"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="22">
+    <map:set value="CONSUMER">
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="UserLogin/@UserType"/>
+    </map:set>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="23">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/state_code"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="ClientInfo/Address[1]/StateProv/value()"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="24">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/client_type"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="LoyaltyInfo/@ProgramID"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="25">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/web_password"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="UserLogin/@Password"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="26">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/address_line2"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="ClientInfo/Address[1]/AddressLine[2]"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

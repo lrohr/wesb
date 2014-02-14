@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="JDBCImport1.wsdl" targetNamespace="http://NCL_CruiseRetrieveClient_Module/JDBCImport1" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_lat_get_client_data" xmlns:tns="http://NCL_CruiseRetrieveClient_Module/JDBCImport1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://NCL_CruiseRetrieveClient_Module/JDBCImport1">
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_lat_get_client_data" schemaLocation="NclseaNcl_Lat_Get_Client_Data.xsd"/>
+      <xsd:element name="executeNclseaNcl_Lat_Get_Client_Data">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Lat_Get_Client_DataInput" type="bons1:NclseaNcl_Lat_Get_Client_Data"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Lat_Get_Client_DataResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Lat_Get_Client_DataOutput" type="bons1:NclseaNcl_Lat_Get_Client_Data"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeNclseaNcl_Lat_Get_Client_DataRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Lat_Get_Client_Data" name="executeNclseaNcl_Lat_Get_Client_DataParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Lat_Get_Client_DataResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Lat_Get_Client_DataResponse" name="executeNclseaNcl_Lat_Get_Client_DataResult"/>
+  </wsdl:message>
+  <wsdl:portType name="JDBCImport1">
+    <wsdl:operation name="executeNclseaNcl_Lat_Get_Client_Data">
+      <wsdl:input message="tns:executeNclseaNcl_Lat_Get_Client_DataRequestMsg" name="executeNclseaNcl_Lat_Get_Client_DataRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Lat_Get_Client_DataResponseMsg" name="executeNclseaNcl_Lat_Get_Client_DataResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

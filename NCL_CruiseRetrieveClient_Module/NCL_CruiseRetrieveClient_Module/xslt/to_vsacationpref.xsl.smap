@@ -1,0 +1,23 @@
+* SMAP
+to_vsacationpref.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 to_vsacationpref.map
+/NCL_CruiseRetrieveClient_Module/xslt/to_vsacationpref.map
+*L
+12:139,6
+4:93,5
+3:89,4
+2:160,5
+13:123,6
+6:106,4
+11:133,3
+10:129,4
+8:114,4
+14:145,5
+7:110,4
+5:100,6
+1:61,17
+9:118,3
+*E

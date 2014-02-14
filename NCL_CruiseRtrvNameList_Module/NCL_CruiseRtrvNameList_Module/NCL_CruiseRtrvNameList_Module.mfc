@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://NCL_WESB_Shared_Library/NCL_CruiseRtrvNameList_Interface" xmlns:ns1_1="http://TP_Logger/TP_Interface" xmlns:ns1_2="http://E-Mail_Generic/E-Mail_Interface" xmlns:ns3="http://NCL_CruiseRtrvNameList_Module/DB_LOOKUP" xmlns:ns5="http://NCL_CruiseRtrvNameList_Module/JDBCImport" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="NCL_CruiseRtrvNameList_Module" targetNamespace="http://NCL_CruiseRtrvNameList_Module/NCL_CruiseRtrvNameList_Module">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:NCL_CruiseRtrvNameList_Interface"/>
+  </interfaces>
+  <references>
+    <reference name="TP_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_1:TP_Interface"/>
+    </reference>
+    <reference name="DB_LOOKUPPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns3:DB_LOOKUP"/>
+    </reference>
+    <reference name="E-Mail_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_2:E-Mail_Interface"/>
+    </reference>
+    <reference name="JDBCImportPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns5:JDBCImport"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="JDBCImport"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="Perform_NCL_CruiseRtrvNameList" target="TP_InsertUpdate" sourcePortType="ns1:NCL_CruiseRtrvNameList_Interface" targetReference="TP_InterfacePartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseRtrvNameList" target="executeNclseaNcl_Wesb_Get_Consumer_Nam_ListBG" sourcePortType="ns1:NCL_CruiseRtrvNameList_Interface" targetReference="DB_LOOKUPPartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseRtrvNameList" target="TP_InsertUpdate" sourcePortType="ns1:NCL_CruiseRtrvNameList_Interface" targetReference="TP_InterfacePartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseRtrvNameList" target="executeNclseaNcl_Wesb_Retrieve_Name_ListBG" sourcePortType="ns1:NCL_CruiseRtrvNameList_Interface" targetReference="DB_LOOKUPPartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseRtrvNameList" target="retrieveallgetNext" sourcePortType="ns1:NCL_CruiseRtrvNameList_Interface" targetReference="JDBCImportPartner"/>
+  <operationFlow medflow="NCL_CruiseRtrvNameList_Module.medflow"/>
+</mfc:interfaceMediationFlow>

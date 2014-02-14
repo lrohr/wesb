@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://NCL_CruiseRetrieveAgent_Module"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0="http://nclapi/schemas">
+	<xsd:import schemaLocation="agent_work_getAgent.xsd"></xsd:import>
+	<xsd:import schemaLocation="agent_work_agency.xsd"></xsd:import>
+	<xsd:import schemaLocation="NCL_CruiseRetrieveAgentRQ.xsd"
+		namespace="http://nclapi/schemas">
+	</xsd:import>
+	<xsd:complexType name="appContext">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="logId" type="xsd:string"></xsd:element>
+			<xsd:element minOccurs="0"
+				ref="bons0:NCL_CruiseRetrieveAgentRQ">
+			</xsd:element>
+			<xsd:element minOccurs="0" ref="Agent_work_agency"></xsd:element>
+
+			<xsd:element minOccurs="0" ref="agent_work_getAgent"></xsd:element>
+			<xsd:element minOccurs="0" name="error_code"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="errorText"
+				type="xsd:string">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

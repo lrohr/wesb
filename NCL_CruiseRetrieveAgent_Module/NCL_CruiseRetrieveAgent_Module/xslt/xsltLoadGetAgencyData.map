@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRetrieveAgent_Module/xslt/xsltLoadGetAgencyData" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRetrieveAgent_Module/xslt/xsltLoadGetAgencyData">
+    <input correlationContext="{http://NCL_CruiseRetrieveAgent_Module}appContext" message="{http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveAgent_Interface}Perform_NCL_CruiseRetrieveAgentResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRetrieveAgent_Module}appContext" message="{http://NCL_CruiseRetrieveAgent_Module/JDBCOutboundInterface}executeNclseaNcl_Wesb_Get_Agy_For_AgtreqRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="xsltLoadGetAgencyData.xml"/>
+    </imports>
+    <mappingDeclaration name="xsltLoadGetAgencyData">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/logId"/>
+            <output path="context/correlation/logId"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveAgentRQ"/>
+            <output path="context/correlation/NCL_CruiseRetrieveAgentRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/AGENCY_ID"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Agy_For_Agtreq/executeNclseaNcl_Wesb_Get_Agy_For_AgtreqInput/p_agencyid"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent"/>
+            <output path="context/correlation/agent_work_getAgent"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

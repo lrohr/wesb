@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRetrieveClient_Module/xslt/XSLTransformation1_req_2" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRetrieveClient_Module/xslt/XSLTransformation1_req_2">
+    <input correlationContext="{http://NCL_CruiseRetrieveClient_Module}App_Context" message="{http://NCL_CruiseRetrieveClient_Module/DB_Lookup}executeNclseaNcl_Wesb_Get_Client_ProfileBGResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRetrieveClient_Module}App_Context" message="{http://NCL_CruiseRetrieveClient_Module/DB_Lookup}executeNclseaNcl_Wesb_Get_Client_ProgramsBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLTransformation1_req_2.xml"/>
+        <import kind="java" location="com.ncl.utils.calendar.Calendar" namespace="xalan://com.ncl.utils.calendar.Calendar"/>
+    </imports>
+    <namespaces>
+        <namespace kind="extension" prefix="Calendar" uri="xalan://com.ncl.utils.calendar.Calendar"/>
+    </namespaces>
+    <mappingDeclaration name="XSLTransformation1_req_2">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <foreach>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_ProfileBGResponse/executeNclseaNcl_Wesb_Get_Client_ProfileBGOutput/NclseaNcl_Wesb_Get_Client_Profile/p_cursor"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/ClientInfo"/>
+            <move>
+                <input path="birthday"/>
+                <output path="@BirthDate"/>
+            </move>
+            <move>
+                <input path="citizenship"/>
+                <output path="@Nationality"/>
+            </move>
+            <move>
+                <input path="client_id"/>
+                <output path="@LoyaltyMembershipID"/>
+            </move>
+            <move>
+                <input path="email"/>
+                <output path="URL[1]/text()"/>
+            </move>
+            <move>
+                <input path="first_name"/>
+                <output path="PersonName/GivenName[1]"/>
+            </move>
+        </foreach>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_ProfileBGResponse/executeNclseaNcl_Wesb_Get_Client_ProfileBGOutput/NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/web_login_name"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/UserLogin/@UserLoginName"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_ProfileBGResponse/executeNclseaNcl_Wesb_Get_Client_ProfileBGOutput/NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/web_password"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS/UserLogin/@Password"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

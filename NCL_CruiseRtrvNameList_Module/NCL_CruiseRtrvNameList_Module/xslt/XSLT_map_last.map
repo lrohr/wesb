@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRtrvNameList_Module/xslt/XSLT_map_last" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRtrvNameList_Module/xslt/XSLT_map_last">
+    <input correlationContext="{http://NCL_CruiseRtrvNameList_Module}App_Context" message="{http://NCL_WESB_Shared_Library/NCL_CruiseRtrvNameList_Interface}Perform_NCL_CruiseRtrvNameListResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRtrvNameList_Module}App_Context" message="{http://NCL_WESB_Shared_Library/NCL_CruiseRtrvNameList_Interface}Perform_NCL_CruiseRtrvNameListResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLT_map_last.xml"/>
+        <import kind="xslt" location="XSLT_map_last_get_error_code.xsl"/>
+        <import kind="xslt" location="XSLT_map_last_Set_Error_Code.xsl"/>
+    </imports>
+    <mappingDeclaration name="XSLT_map_last">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseRtrvNameListRQ"/>
+            <output path="context/correlation/NCL_CruiseRtrvNameListRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="body/Perform_NCL_CruiseRtrvNameListResponse"/>
+            <output path="body/Perform_NCL_CruiseRtrvNameListResponse"/>
+        </move>
+        <customFunction lang="xslt" location="XSLT_map_last_get_error_code.xsl" ref="GuestInfoToErrorCode">
+            <input path="body/Perform_NCL_CruiseRtrvNameListResponse/NCL_CruiseRtrvNameListRS/GuestsInfo/GuestInfo" var="GuestInfo"/>
+            <param name="GuestInfo" value="$GuestInfo"/>
+        </customFunction>
+        <customFunction lang="xslt" location="XSLT_map_last_Set_Error_Code.xsl" ref="LoyaltyMembershipIDToErrorCode">
+            <input path="body/Perform_NCL_CruiseRtrvNameListResponse/NCL_CruiseRtrvNameListRS/GuestsInfo/GuestInfo[1]/@LoyaltyMembershipID" var="LoyaltyMembershipID"/>
+            <output path="context/correlation/ErrorCode"/>
+            <param name="LoyaltyMembershipID" value="$LoyaltyMembershipID"/>
+        </customFunction>
+    </mappingDeclaration>
+</mappingRoot>

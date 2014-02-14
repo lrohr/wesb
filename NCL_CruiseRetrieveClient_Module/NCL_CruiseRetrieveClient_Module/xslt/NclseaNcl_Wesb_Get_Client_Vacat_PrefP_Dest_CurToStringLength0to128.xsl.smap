@@ -1,0 +1,10 @@
+* SMAP
+NclseaNcl_Wesb_Get_Client_Vacat_PrefP_Dest_CurToStringLength0to128.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 NclseaNcl_Wesb_Get_Client_Vacat_PrefP_Dest_CurToStringLength0to128.map
+/NCL_CruiseRetrieveClient_Module/xslt/NclseaNcl_Wesb_Get_Client_Vacat_PrefP_Dest_CurToStringLength0to128.map
+*L
+1:39,2
+*E

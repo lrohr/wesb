@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRetrieveAgent_Module/xslt/XSLTPaged" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRetrieveAgent_Module/xslt/XSLTPaged">
+    <input correlationContext="{http://NCL_CruiseRetrieveAgent_Module}appContext" message="{http://TP_Logger/TP_Interface}TP_InsertUpdateRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRetrieveAgent_Module}appContext" message="{http://NCL_CruiseRetrieveAgent_Module/JDBCOutboundInterface}executeNclseaNcl_Wesb_Get_Agent_With_PagedRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLTPaged.xml"/>
+    </imports>
+    <mappingDeclaration name="XSLTPaged">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/logId"/>
+            <output path="context/correlation/logId"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveAgentRQ"/>
+            <output path="context/correlation/NCL_CruiseRetrieveAgentRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveAgentRQ/SearchBy"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Agent_With_Paged/executeNclseaNcl_Wesb_Get_Agent_With_PagedInput/p_searchby"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveAgentRQ/SearchValue"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Agent_With_Paged/executeNclseaNcl_Wesb_Get_Agent_With_PagedInput/p_searchvalue"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveAgentRQ/@MaxResponses"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Agent_With_Paged/executeNclseaNcl_Wesb_Get_Agent_With_PagedInput/p_maxnumber"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveAgentRQ/@MoreDataEchoToken"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Agent_With_Paged/executeNclseaNcl_Wesb_Get_Agent_With_PagedInput/p_startingnumber"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveAgentRQ/SortBy"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Agent_With_Paged/executeNclseaNcl_Wesb_Get_Agent_With_PagedInput/p_sortby"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveAgentRQ/SortDirection"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Agent_With_Paged/executeNclseaNcl_Wesb_Get_Agent_With_PagedInput/p_sortdirection"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

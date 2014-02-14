@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:NCL_CruiseRtrvNameListRQ="http://nclapi/schemas" xmlns:NclseaNcl_Wesb_Retrieve_Name_ListBG="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_retrieve_name_listbg" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:sub_to_retnamelist="http://NCL_CruiseRtrvNameList_Module" targetNamespace="http://NCL_CruiseRtrvNameList_Module">
+  <map:name>sub_to_retnamelist</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="NCL_CruiseRtrvNameListRQ:NCL_CruiseRtrvNameListRQ" name="NCL_CruiseRtrvNameListRQ"/>
+  <map:outputBusinessObjectVariable businessObjectRef="NclseaNcl_Wesb_Retrieve_Name_ListBG:NclseaNcl_Wesb_Retrieve_Name_ListBG" name="NclseaNcl_Wesb_Retrieve_Name_ListBG"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseRtrvNameListRQ" property="POS/Source[1]/RequestorID/@ID"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Retrieve_Name_ListBG" property="NclseaNcl_Wesb_Retrieve_Name_List/p_agencyid"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseRtrvNameListRQ" property="POS/Source[1]/RequestorID/CompanyName/@Code"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Retrieve_Name_ListBG" property="NclseaNcl_Wesb_Retrieve_Name_List/p_gds"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:custom>
+      <map:input businessObjectVariableRef="NCL_CruiseRtrvNameListRQ" property="GuestInfo/GroupInfo/@GroupCode"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Retrieve_Name_ListBG" property="NclseaNcl_Wesb_Retrieve_Name_List/p_groupid"/>
+      <map:javaCode>java.lang.String __NCL_CruiseRtrvNameListRQ_GuestInfo_GroupInfo_$aGroupCode = (java.lang.String)NCL_CruiseRtrvNameListRQ_GuestInfo_GroupInfo_$aGroupCode;&#xD;
+java.lang.Integer __NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_groupid = (java.lang.Integer)NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_groupid;&#xD;
+// Input NCL_CruiseRtrvNameListRQ_GuestInfo_GroupInfo_@GroupCode is represented as NCL_CruiseRtrvNameListRQ_GuestInfo_GroupInfo_$aGroupCode&#xD;
+// Input NCL_CruiseRtrvNameListRQ_GuestInfo_GroupInfo_@GroupCode is represented as NCL_CruiseRtrvNameListRQ_GuestInfo_GroupInfo_$aGroupCode&#xD;
+try {
+	//java.lang.Integer __NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_groupid = (java.lang.Integer)NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_groupid;
+	byte __result__7 = 1;
+	int __result__6 = __NCL_CruiseRtrvNameListRQ_GuestInfo_GroupInfo_$aGroupCode.length();
+	boolean __result__8;
+	{// greater than
+		__result__8 = __result__6 > __result__7;
+	}
+	if (__result__8){
+		int __result__12 = 0;
+		try {
+			__result__12 = java.lang.Integer.parseInt(__NCL_CruiseRtrvNameListRQ_GuestInfo_GroupInfo_$aGroupCode);
+		}
+		catch(java.lang.NumberFormatException ex){
+		}
+		__NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_groupid = new java.lang.Integer(__result__12);
+		NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_groupid = __NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_groupid;
+	}
+	else{
+	}&#xD;
+}&#xD;
+catch(Exception ex)&#xD;
+ {&#xD;
+   NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_groupid = 0;&#xD;
+ }  &#xD;
+finally {&#xD;
+// The specific type of variable NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_groupid is java.lang.Integer&#xD;
+}&#xD;
+</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:custom>
+      <map:input businessObjectVariableRef="NCL_CruiseRtrvNameListRQ" property="GuestInfo/Surname"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Retrieve_Name_ListBG" property="NclseaNcl_Wesb_Retrieve_Name_List/p_lastname"/>
+      <map:javaCode>java.lang.String __NCL_CruiseRtrvNameListRQ_GuestInfo_Surname = (java.lang.String)NCL_CruiseRtrvNameListRQ_GuestInfo_Surname;&#xD;
+java.lang.String __NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_lastname = (java.lang.String)NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_lastname;&#xD;
+try {
+	//java.lang.String __NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_lastname = (java.lang.String)NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_lastname;
+	int __result__5 = __NCL_CruiseRtrvNameListRQ_GuestInfo_Surname.length();
+	byte __result__3 = 1;
+	boolean __result__6;
+	{// greater than
+		__result__6 = __result__5 > __result__3;
+	}
+	if (__result__6){
+		__NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_lastname = __NCL_CruiseRtrvNameListRQ_GuestInfo_Surname;
+		NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_lastname = __NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_lastname;
+	}
+	else{
+	}&#xD;
+}&#xD;
+catch(Exception ex)&#xD;
+ {&#xD;
+  NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_lastname = &quot;&quot;;&#xD;
+ } &#xD;
+finally {&#xD;
+// The specific type of variable NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_lastname is java.lang.String&#xD;
+}&#xD;
+</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="5">
+    <map:set value="0">
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Retrieve_Name_ListBG" property="NclseaNcl_Wesb_Retrieve_Name_List/p_lastresidreturned"/>
+    </map:set>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="6">
+    <map:set value="9999">
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Retrieve_Name_ListBG" property="NclseaNcl_Wesb_Retrieve_Name_List/p_maxrecordsoutput"/>
+    </map:set>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="7">
+    <map:custom>
+      <map:input businessObjectVariableRef="NCL_CruiseRtrvNameListRQ" property="SelectedSailing/@ShipCode"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Retrieve_Name_ListBG" property="NclseaNcl_Wesb_Retrieve_Name_List/p_shipcode"/>
+      <map:javaCode>java.lang.String __NCL_CruiseRtrvNameListRQ_SelectedSailing_$aShipCode = (java.lang.String)NCL_CruiseRtrvNameListRQ_SelectedSailing_$aShipCode;&#xD;
+java.lang.String __NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_shipcode = (java.lang.String)NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_shipcode;&#xD;
+// Input NCL_CruiseRtrvNameListRQ_SelectedSailing_@ShipCode is represented as NCL_CruiseRtrvNameListRQ_SelectedSailing_$aShipCode&#xD;
+try {
+	//java.lang.String __NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_shipcode = (java.lang.String)NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_shipcode;
+	int __result__6 = __NCL_CruiseRtrvNameListRQ_SelectedSailing_$aShipCode.length();
+	byte __result__4 = 1;
+	boolean __result__7;
+	{// greater than
+		__result__7 = __result__6 > __result__4;
+	}
+	if (__result__7){
+		__NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_shipcode = __NCL_CruiseRtrvNameListRQ_SelectedSailing_$aShipCode;
+		NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_shipcode = __NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_shipcode;
+	}
+	else{
+	}&#xD;
+}&#xD;
+catch(Exception ex)&#xD;
+ {&#xD;
+  NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_shipcode = &quot;&quot;;&#xD;
+ } &#xD;
+finally {&#xD;
+// The specific type of variable NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_shipcode is java.lang.String&#xD;
+}&#xD;
+</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="8">
+    <map:custom>
+      <map:input businessObjectVariableRef="NCL_CruiseRtrvNameListRQ" property="SelectedSailing/@Start"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Retrieve_Name_ListBG" property="NclseaNcl_Wesb_Retrieve_Name_List/p_sailingdate"/>
+      <map:javaCode>java.lang.String __NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_sailingdate = (java.lang.String)NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_sailingdate;&#xD;
+// Input NCL_CruiseRtrvNameListRQ_SelectedSailing_@Start is represented as NCL_CruiseRtrvNameListRQ_SelectedSailing_$aStart&#xD;
+try {
+	//java.lang.String __NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_sailingdate = (java.lang.String)NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_sailingdate;
+	int __result__6 = ((java.lang.String)NCL_CruiseRtrvNameListRQ_SelectedSailing_$aStart).length();
+	byte __result__4 = 1;
+	boolean __result__7;
+	{// greater than
+		__result__7 = __result__6 > __result__4;
+	}
+	if (__result__7){
+		__NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_sailingdate = (java.lang.String)NCL_CruiseRtrvNameListRQ_SelectedSailing_$aStart;
+		NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_sailingdate = __NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_sailingdate;
+	}
+	else{
+	}&#xD;
+}&#xD;
+catch(Exception ex)&#xD;
+ {&#xD;
+  NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_sailingdate = &quot;&quot;;&#xD;
+ } &#xD;
+finally {&#xD;
+// The specific type of variable NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_sailingdate is java.lang.String&#xD;
+}&#xD;
+</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="9">
+    <map:custom>
+      <map:input businessObjectVariableRef="NCL_CruiseRtrvNameListRQ" property="SelectedSailing/@End"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Retrieve_Name_ListBG" property="NclseaNcl_Wesb_Retrieve_Name_List/p_sailingenddate"/>
+      <map:javaCode>java.lang.String __NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_sailingenddate = (java.lang.String)NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_sailingenddate;&#xD;
+// Input NCL_CruiseRtrvNameListRQ_SelectedSailing_@End is represented as NCL_CruiseRtrvNameListRQ_SelectedSailing_$aEnd&#xD;
+try {
+	//java.lang.String __NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_sailingenddate = (java.lang.String)NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_sailingenddate;
+	int __result__6 = ((java.lang.String)NCL_CruiseRtrvNameListRQ_SelectedSailing_$aEnd).length();
+	byte __result__4 = 1;
+	boolean __result__7;
+	{// greater than
+		__result__7 = __result__6 > __result__4;
+	}
+	if (__result__7){
+		__NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_sailingenddate = (java.lang.String)NCL_CruiseRtrvNameListRQ_SelectedSailing_$aEnd;
+		NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_sailingenddate = __NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_sailingenddate;
+	}
+	else{
+	}&#xD;
+}&#xD;
+catch(Exception ex)&#xD;
+ {&#xD;
+  NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_sailingenddate = &quot;&quot;;&#xD;
+ } &#xD;
+finally {&#xD;
+// The specific type of variable NclseaNcl_Wesb_Retrieve_Name_ListBG_NclseaNcl_Wesb_Retrieve_Name_List_p_sailingenddate is java.lang.String&#xD;
+}&#xD;
+</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+</map:businessObjectMap>

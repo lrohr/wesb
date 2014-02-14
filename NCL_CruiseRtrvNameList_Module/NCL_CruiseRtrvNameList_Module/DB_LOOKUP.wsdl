@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="DB_LOOKUP.wsdl" targetNamespace="http://NCL_CruiseRtrvNameList_Module/DB_LOOKUP" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_consumer_nam_listbg" xmlns:bons2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_retrieve_name_listbg" xmlns:tns="http://NCL_CruiseRtrvNameList_Module/DB_LOOKUP" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://NCL_CruiseRtrvNameList_Module/DB_LOOKUP">
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_retrieve_name_listbg" schemaLocation="NclseaNcl_Wesb_Retrieve_Name_ListBG.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_consumer_nam_listbg" schemaLocation="NclseaNcl_Wesb_Get_Consumer_Nam_ListBG.xsd"/>
+      <xsd:element name="executeNclseaNcl_Wesb_Get_Consumer_Nam_ListBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Get_Consumer_Nam_ListBGInput" type="bons1:NclseaNcl_Wesb_Get_Consumer_Nam_ListBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Get_Consumer_Nam_ListBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Get_Consumer_Nam_ListBGOutput" type="bons1:NclseaNcl_Wesb_Get_Consumer_Nam_ListBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Retrieve_Name_ListBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Retrieve_Name_ListBGInput" type="bons2:NclseaNcl_Wesb_Retrieve_Name_ListBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Retrieve_Name_ListBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Retrieve_Name_ListBGOutput" type="bons2:NclseaNcl_Wesb_Retrieve_Name_ListBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeNclseaNcl_Wesb_Get_Consumer_Nam_ListBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Get_Consumer_Nam_ListBG" name="executeNclseaNcl_Wesb_Get_Consumer_Nam_ListBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Get_Consumer_Nam_ListBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Get_Consumer_Nam_ListBGResponse" name="executeNclseaNcl_Wesb_Get_Consumer_Nam_ListBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Retrieve_Name_ListBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Retrieve_Name_ListBG" name="executeNclseaNcl_Wesb_Retrieve_Name_ListBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Retrieve_Name_ListBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Retrieve_Name_ListBGResponse" name="executeNclseaNcl_Wesb_Retrieve_Name_ListBGResult"/>
+  </wsdl:message>
+  <wsdl:portType name="DB_LOOKUP">
+    <wsdl:operation name="executeNclseaNcl_Wesb_Get_Consumer_Nam_ListBG">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Get_Consumer_Nam_ListBGRequestMsg" name="executeNclseaNcl_Wesb_Get_Consumer_Nam_ListBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Get_Consumer_Nam_ListBGResponseMsg" name="executeNclseaNcl_Wesb_Get_Consumer_Nam_ListBGResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="executeNclseaNcl_Wesb_Retrieve_Name_ListBG">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Retrieve_Name_ListBGRequestMsg" name="executeNclseaNcl_Wesb_Retrieve_Name_ListBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Retrieve_Name_ListBGResponseMsg" name="executeNclseaNcl_Wesb_Retrieve_Name_ListBGResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

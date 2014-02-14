@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:ServiceMessageObject="smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FNCL_CruiseRetrieveClient_Module%257DApp_Context/message%3D%257Bhttp%253A%252F%252Fversonix.com%252Fapi%252Fdefinitions%257DprocessEncryptDecryptRequest/xpath%3D%252F/namespace%3DBOMap/smo.xsd" xmlns:ServiceMessageObject_1="smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FNCL_CruiseRetrieveClient_Module%257DApp_Context/message%3D%257Bhttp%253A%252F%252FNCL_CruiseRetrieveClient_Module%252FDB_Lookup%257DexecuteNclseaNcl_Wesb_Get_Client_ProfileBGResponseMsg/xpath%3D%252F/namespace%3DBOMap/smo.xsd" xmlns:bo_toencrypt="http://NCL_CruiseRetrieveClient_Module" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" targetNamespace="http://NCL_CruiseRetrieveClient_Module">
+  <map:name>bo_toencrypt</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="ServiceMessageObject_1:ServiceMessageObject" name="ServiceMessageObject"/>
+  <map:outputBusinessObjectVariable businessObjectRef="ServiceMessageObject:ServiceMessageObject" name="ServiceMessageObject_1"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseRetrieveClientRQ"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/NCL_CruiseRetrieveClientRQ"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/LogID"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/LogID"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:submap submapName="bo_toencrypt:sub_tocontext">
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="body/executeNclseaNcl_Wesb_Get_Client_ProfileBGResponse/executeNclseaNcl_Wesb_Get_Client_ProfileBGOutput" variableName="NclseaNcl_Wesb_Get_Client_ProfileBG"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/NCL_CruiseRetrieveClientRS" variableName="NCL_CruiseRetrieveClientRS"/>
+    </map:submap>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:submap submapName="bo_toencrypt:sub_toencrypt">
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="body/executeNclseaNcl_Wesb_Get_Client_ProfileBGResponse/executeNclseaNcl_Wesb_Get_Client_ProfileBGOutput" variableName="NclseaNcl_Wesb_Get_Client_ProfileBG"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/processEncryptDecryptRequest" variableName="processEncryptDecryptRequest"/>
+    </map:submap>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="5">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/ClientID"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/ClientID"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

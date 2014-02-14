@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRetrieveAgency_Module/xslt/xsltGetAddress" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRetrieveAgency_Module/xslt/xsltGetAddress">
+    <input correlationContext="{http://NCL_CruiseRetrieveAgency_Module}appContext" message="{http://NCL_CruiseRetrieveAgency_Module/JDBCOutboundInterface}executeNclseaNcl_Wesb_Ar_Get_Agency_InfoBGResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRetrieveAgency_Module}appContext" message="{http://NCL_CruiseRetrieveAgency_Module/JDBCOutboundInterface}executeNclseaNcl_Wesb_Ar_Get_Agency_AddressBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="xsltGetAddress.xml"/>
+    </imports>
+    <mappingDeclaration name="xsltGetAddress">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Ar_Get_Agency_InfoBGResponse/executeNclseaNcl_Wesb_Ar_Get_Agency_InfoBGOutput/NclseaNcl_Wesb_Ar_Get_Agency_Info/p_errorcode"/>
+            <output path="context/correlation/errorCode"/>
+        </move>
+        <move>
+            <input path="context/correlation/logId"/>
+            <output path="context/correlation/logId"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveAgencyRQ"/>
+            <output path="context/correlation/NCL_CruiseRetrieveAgencyRQ"/>
+        </move>
+        <foreach>
+            <input path="body/executeNclseaNcl_Wesb_Ar_Get_Agency_InfoBGResponse/executeNclseaNcl_Wesb_Ar_Get_Agency_InfoBGOutput/NclseaNcl_Wesb_Ar_Get_Agency_Info/p_cursor"/>
+            <output path="context/correlation/info/Get_Agency_Info/P_CURSOR"/>
+            <move>
+                <input path="agency_id"/>
+                <output path="AGENCY_ID"/>
+            </move>
+            <move>
+                <input path="taxpayer_number"/>
+                <output path="TAXPAYER_NUMBER"/>
+            </move>
+            <move>
+                <input path="iata_number"/>
+                <output path="IATA_NUMBER"/>
+            </move>
+            <move>
+                <input path="arc_number"/>
+                <output path="ARC_NUMBER"/>
+            </move>
+            <move>
+                <input path="clia_number"/>
+                <output path="CLIA_NUMBER"/>
+            </move>
+            <move>
+                <input path="agency_name"/>
+                <output path="AGENCY_NAME"/>
+            </move>
+            <move>
+                <input path="agency_type"/>
+                <output path="AGENCY_TYPE"/>
+            </move>
+            <move>
+                <input path="office_code"/>
+                <output path="OFFICE_CODE"/>
+            </move>
+            <move>
+                <input path="agency_classification_code"/>
+                <output path="AGENCY_CLASSIFICATION_CODE"/>
+            </move>
+            <move>
+                <input path="agency_classification_name"/>
+                <output path="AGENCY_CLASSIFICATION_NAME"/>
+            </move>
+            <move>
+                <input path="drs_delivery_pref_prekit"/>
+                <output path="DRS_DELIVERY_PREF_PREKIT"/>
+            </move>
+            <move>
+                <input path="drs_delivery_pref_final"/>
+                <output path="DRS_DELIVERY_PREF_FINAL"/>
+            </move>
+        </foreach>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveAgencyRQ/AgencyInfo/RequestorID/@ID"/>
+            <output path="body/executeNclseaNcl_Wesb_Ar_Get_Agency_AddressBG/executeNclseaNcl_Wesb_Ar_Get_Agency_AddressBGInput/NclseaNcl_Wesb_Ar_Get_Agency_Address/p_agencyid"/>
+        </move>
+        <move>
+            <input path="context/correlation/errorCode"/>
+            <output path="context/correlation/errorCode"/>
+        </move>
+        <move>
+            <input path="context/correlation/errorText"/>
+            <output path="context/correlation/errorText"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

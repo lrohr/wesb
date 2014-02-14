@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveAgent_Interface" xmlns:ns1_1="http://NCL_WESB_Shared_Library/Encrypt_Decrypt_Interface" xmlns:ns1_2="http://E-Mail_Generic/E-Mail_Interface" xmlns:ns1_3="http://TP_Logger/TP_Interface" xmlns:ns2="http://NCL_CruiseRetrieveAgent_Module/JDBCOutboundInterface" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="NCL_CruiseRetrieveAgent_Module" targetNamespace="http://NCL_CruiseRetrieveAgent_Module/NCL_CruiseRetrieveAgent_Module">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:NCL_CruiseRetrieveAgent_Interface"/>
+  </interfaces>
+  <references>
+    <reference name="JDBCOutboundInterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns2:JDBCOutboundInterface"/>
+    </reference>
+    <reference name="Encrypt_Decrypt_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_1:Encrypt_Decrypt_Interface"/>
+    </reference>
+    <reference name="E-Mail_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_2:E-Mail_Interface"/>
+    </reference>
+    <reference name="TP_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_3:TP_Interface"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="Perform_NCL_CruiseRetrieveAgent" target="TP_InsertUpdate" sourcePortType="ns1:NCL_CruiseRetrieveAgent_Interface" targetReference="TP_InterfacePartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseRetrieveAgent" target="executeNclseaNcl_Wesb_Get_Agent_With_Paged" sourcePortType="ns1:NCL_CruiseRetrieveAgent_Interface" targetReference="JDBCOutboundInterfacePartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseRetrieveAgent" target="executeNclseaNcl_Wesb_Get_Agent_With_Paging" sourcePortType="ns1:NCL_CruiseRetrieveAgent_Interface" targetReference="JDBCOutboundInterfacePartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseRetrieveAgent" target="executeNclseaNcl_Wesb_Get_Agy_For_Agtreq" sourcePortType="ns1:NCL_CruiseRetrieveAgent_Interface" targetReference="JDBCOutboundInterfacePartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseRetrieveAgent" target="processEncryptDecrypt" sourcePortType="ns1:NCL_CruiseRetrieveAgent_Interface" targetReference="Encrypt_Decrypt_InterfacePartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseRetrieveAgent" target="TP_InsertUpdate" sourcePortType="ns1:NCL_CruiseRetrieveAgent_Interface" targetReference="TP_InterfacePartner"/>
+  <operationFlow medflow="NCL_CruiseRetrieveAgent_Module.medflow"/>
+</mfc:interfaceMediationFlow>

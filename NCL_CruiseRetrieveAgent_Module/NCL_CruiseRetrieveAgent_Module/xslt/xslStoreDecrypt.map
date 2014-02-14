@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRetrieveAgent_Module/xslt/xslStoreDecrypt" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRetrieveAgent_Module/xslt/xslStoreDecrypt">
+    <input correlationContext="{http://NCL_CruiseRetrieveAgent_Module}appContext" message="{http://NCL_WESB_Shared_Library/Encrypt_Decrypt_Interface}processEncryptDecryptResponse" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRetrieveAgent_Module}appContext" message="{http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveAgent_Interface}Perform_NCL_CruiseRetrieveAgentResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="xslStoreDecrypt.xml"/>
+    </imports>
+    <mappingDeclaration name="xslStoreDecrypt">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/logId"/>
+            <output path="context/correlation/logId"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveAgentRQ"/>
+            <output path="context/correlation/NCL_CruiseRetrieveAgentRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/Agent_work_agency"/>
+            <output path="context/correlation/Agent_work_agency"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_WEBUSERNAME"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_WEBUSERNAME"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_EMAIL"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_EMAIL"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_AGENCYID"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_AGENCYID"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/AGENT_ID"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/AGENT_ID"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/LAST_NAME"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/LAST_NAME"/>
+        </move>
+        <move>
+            <input path="body/processEncryptDecryptResponse/Encrypt_Decrypt/DecryptString"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/WEB_PASSWORD"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_MAXNUMBER"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_MAXNUMBER"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_STARTINGNUMBER"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_STARTINGNUMBER"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_TOTALCOUNT"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_TOTALCOUNT"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/FIRST_NAME"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/FIRST_NAME"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/MIDDLE_NAME"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/MIDDLE_NAME"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/FULL_NAME"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/FULL_NAME"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/SALUTATION"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/SALUTATION"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/TITLE"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/TITLE"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/SEX"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/SEX"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/BIRTHDAY"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/BIRTHDAY"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/IATAN_NUMBER"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/IATAN_NUMBER"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/IATAN_COMPANY_NAME"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/IATAN_COMPANY_NAME"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/IATAN_HOLDER_NAME"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/IATAN_HOLDER_NAME"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/IATAN_COMPANY_NUMBER"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/IATAN_COMPANY_NUMBER"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/COMMENTS"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/COMMENTS"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/IATAN_EXPIRATION_DATE"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/IATAN_EXPIRATION_DATE"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/EMAIL"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/EMAIL"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/IS_DISTRICT_SM"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/IS_DISTRICT_SM"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/IS_INCENTIVE_SM"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/IS_INCENTIVE_SM"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/WEB_LOGIN_NAME"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/WEB_LOGIN_NAME"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/WEB_LAST_LOGIN" var="WEB_LAST_LOGIN"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/WEB_LAST_LOGIN"/>
+            <test lang="XPath">string-length($WEB_LAST_LOGIN) = '1'</test>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/WEB_CANACCESAGENCYDATA"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/WEB_CANACCESAGENCYDATA"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/ALLOW_WEB_ACCESS"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/ALLOW_WEB_ACCESS"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/AGENCY_ID"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/AGENCY_ID"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/POSITION"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/POSITION"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/PHONE_NUMBER"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/PHONE_NUMBER"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/PHONE_EXT"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/PHONE_EXT"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/AGENT_LOCATION"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/AGENT_LOCATION"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/CONTACT_PREFERENCE"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/CONTACT_PREFERENCE"/>
+        </move>
+        <move>
+            <input path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/RNUM"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/RNUM"/>
+        </move>
+        <move>
+            <input path="body/processEncryptDecryptResponse/Encrypt_Decrypt/EncryptString"/>
+            <output path="context/correlation/agent_work_getAgent/spGetAgentInfo[1]/P_CURSOR[1]/EXTRA1"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

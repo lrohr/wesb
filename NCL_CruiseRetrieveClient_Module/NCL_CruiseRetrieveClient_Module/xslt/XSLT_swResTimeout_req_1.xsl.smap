@@ -1,0 +1,15 @@
+* SMAP
+XSLT_swResTimeout_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLT_swResTimeout_req_1.map
+/NCL_CruiseRetrieveClient_Module/xslt/XSLT_swResTimeout_req_1.map
+*L
+1:54,17
+2:78,3
+5:111,3
+6:95,9
+3:89,6
+4:107,4
+*E

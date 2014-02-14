@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRetrieveGroupBookings_Module/xslt/XSLTransformation4_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRetrieveGroupBookings_Module/xslt/XSLTransformation4_req_1">
+    <input correlationContext="{http://NCL_CruiseRetrieveGroupBookings_Module}App_context" message="{http://NCL_CruiseRetrieveGroupBookings_Module/DB_LOOKUP}executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRetrieveGroupBookings_Module}App_context" message="{http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveGroupBookings_Interface}Perform_NCL_CruiseRetrieveGroupBookingsResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xslt" location="XSLTransformation4_req_1_custom.xsl"/>
+    </imports>
+    <mappingDeclaration name="XSLTransformation4_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveGroupBookingsRQ"/>
+            <output path="context/correlation/NCL_CruiseRetrieveGroupBookingsRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveGroupBookingsRQ/@TransactionIdentifier"/>
+            <output path="body/Perform_NCL_CruiseRetrieveGroupBookingsResponse/NCL_CruiseRetrieveGroupBookingsRS/@TransactionIdentifier"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveGroupBookingsRQ/@Version"/>
+            <output path="body/Perform_NCL_CruiseRetrieveGroupBookingsResponse/NCL_CruiseRetrieveGroupBookingsRS/@Version"/>
+        </move>
+        <customFunction lang="xslt" location="XSLTransformation4_req_1_custom.xsl" ref="ToSuccess">
+            <output path="body/Perform_NCL_CruiseRetrieveGroupBookingsResponse/NCL_CruiseRetrieveGroupBookingsRS/Success"/>
+        </customFunction>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGResponse/executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGOutput/NclseaNcl_Wesb_Retrieve_Grp_Booking/p_errorcode"/>
+            <output path="body/Perform_NCL_CruiseRetrieveGroupBookingsResponse/NCL_CruiseRetrieveGroupBookingsRS/Warnings/Warning[1]/@Code"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGResponse/executeNclseaNcl_Wesb_Retrieve_Grp_BookingBGOutput/NclseaNcl_Wesb_Retrieve_Grp_Booking/p_errormsg"/>
+            <output path="body/Perform_NCL_CruiseRetrieveGroupBookingsResponse/NCL_CruiseRetrieveGroupBookingsRS/Warnings/Warning[1]/@ShortText"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

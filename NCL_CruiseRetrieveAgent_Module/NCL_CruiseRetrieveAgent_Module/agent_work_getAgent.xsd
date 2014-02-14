@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2005 U (http://www.xmlspy.com) by XMLSPY 2005 Professional Ed. Release 3, Installed for 3 users (with SMP from 2005-04-15 to 2006-04-16) (NCL) -->
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+	<element name="agent_work_getAgent">
+		<complexType>
+			<sequence>
+				<element name="spGetAgentInfo" minOccurs="0" maxOccurs="unbounded">
+					<complexType>
+						<sequence>
+							<element name="P_WEBUSERNAME" type="string" minOccurs="0"/>
+							<element name="P_EMAIL" type="string" minOccurs="0"/>
+							<element name="P_AGENCYID" type="string" minOccurs="0"/>
+							<element name="P_MAXNUMBER" type="string" minOccurs="0"/>
+							<element name="P_STARTINGNUMBER" type="string" minOccurs="0"/>
+							<element name="P_TOTALCOUNT" type="string" minOccurs="0"/>
+							<element name="EXTRA_1" type="string" minOccurs="0"/>
+							<element name="EXTRA_2" type="string" minOccurs="0"/>
+							<element name="EXTRA_3" type="string" minOccurs="0"/>
+							<element name="EXTRA_4" type="string" minOccurs="0"/>
+							<element name="EXTRA_5" type="string" minOccurs="0"/>
+							<element name="P_CURSOR" minOccurs="0" maxOccurs="unbounded">
+								<complexType>
+									<sequence>
+										<element name="AGENT_ID" type="string" minOccurs="0"/>
+										<element name="LAST_NAME" type="string" minOccurs="0"/>
+										<element name="FIRST_NAME" type="string" minOccurs="0"/>
+										<element name="MIDDLE_NAME" type="string" minOccurs="0"/>
+										<element name="FULL_NAME" type="string" minOccurs="0"/>
+										<element name="SALUTATION" type="string" minOccurs="0"/>
+										<element name="TITLE" type="string" minOccurs="0"/>
+										<element name="SEX" type="string" minOccurs="0"/>
+										<element name="BIRTHDAY" type="string" minOccurs="0"/>
+										<element name="IATAN_NUMBER" type="string" minOccurs="0"/>
+										<element name="IATAN_COMPANY_NAME" type="string" minOccurs="0"/>
+										<element name="IATAN_HOLDER_NAME" type="string" minOccurs="0"/>
+										<element name="IATAN_COMPANY_NUMBER" type="string" minOccurs="0"/>
+										<element name="COMMENTS" type="string" minOccurs="0"/>
+										<element name="IATAN_EXPIRATION_DATE" type="string" minOccurs="0"/>
+										<element name="EMAIL" type="string" minOccurs="0"/>
+										<element name="IS_DISTRICT_SM" type="string" minOccurs="0"/>
+										<element name="IS_INCENTIVE_SM" type="string" minOccurs="0"/>
+										<element name="WEB_PASSWORD" type="string" minOccurs="0"/>
+										<element name="WEB_LOGIN_NAME" type="string" minOccurs="0"/>
+										<element name="WEB_LAST_LOGIN" type="date" minOccurs="0"/>
+										<element name="WEB_CANACCESAGENCYDATA" type="string" minOccurs="0"/>
+										<element name="ALLOW_WEB_ACCESS" type="string" minOccurs="0"/>
+										<element name="AGENCY_ID" type="string" minOccurs="0"/>
+										<element name="POSITION" type="string" minOccurs="0"/>
+										<element name="PHONE_NUMBER" type="string" minOccurs="0"/>
+										<element name="PHONE_EXT" type="string" minOccurs="0"/>
+										<element name="AGENT_LOCATION" type="string" minOccurs="0"/>
+										<element name="CONTACT_PREFERENCE" type="string" minOccurs="0"/>
+										<element name="RNUM" type="string" minOccurs="0"/>
+										<element name="EXTRA1" type="string" minOccurs="0"/>
+										<element name="EXTRA2" type="string" minOccurs="0"/>
+										<element name="EXTRA3" type="string" minOccurs="0"/>
+										<element name="EXTRA4" type="string" minOccurs="0"/>
+										<element name="EXTRA5" type="string" minOccurs="0"/>
+									</sequence>
+								</complexType>
+							</element>
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

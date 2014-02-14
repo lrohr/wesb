@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://NCL_CruiseRetrieveAgency_Module"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0="http://nclapi/schemas">
+	<xsd:import schemaLocation="pref.xsd"></xsd:import>
+	<xsd:import schemaLocation="phone.xsd"></xsd:import>
+	<xsd:import schemaLocation="info.xsd"></xsd:import>
+	<xsd:import schemaLocation="email.xsd"></xsd:import>
+	<xsd:import schemaLocation="address.xsd"></xsd:import>
+	<xsd:import schemaLocation="NCL_CruiseRetrieveAgencyRQ.xsd"
+		namespace="http://nclapi/schemas">
+	</xsd:import>
+	<xsd:complexType name="appContext">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="logId" type="xsd:string"></xsd:element>
+			<xsd:element minOccurs="0" name="errorCode"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="errorText"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0"
+				ref="bons0:NCL_CruiseRetrieveAgencyRQ">
+			</xsd:element>
+			<xsd:element minOccurs="0" ref="address"></xsd:element>
+			<xsd:element minOccurs="0" ref="eamil"></xsd:element>
+			<xsd:element minOccurs="0" ref="info"></xsd:element>
+			<xsd:element minOccurs="0" ref="phone"></xsd:element>
+			<xsd:element minOccurs="0" ref="pref"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

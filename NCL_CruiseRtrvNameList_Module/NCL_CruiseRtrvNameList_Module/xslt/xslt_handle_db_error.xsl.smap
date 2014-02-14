@@ -1,0 +1,13 @@
+* SMAP
+xslt_handle_db_error.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 xslt_handle_db_error.map
+/NCL_CruiseRtrvNameList_Module/xslt/xslt_handle_db_error.map
+*L
+1:57,17
+4:95,3
+3:89,6
+2:85,4
+*E

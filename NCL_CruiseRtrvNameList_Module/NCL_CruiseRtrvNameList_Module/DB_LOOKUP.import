@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import displayName="DB_LOOKUP" name="DB_LOOKUP"
+    xmlns:EIS="http://www.ibm.com/xmlns/prod/websphere/scdl/eis/6.0.0"
+    xmlns:ns1="http://NCL_CruiseRtrvNameList_Module/DB_LOOKUP"
+    xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0"
+    xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interfaces>
+        <interface portType="ns1:DB_LOOKUP"
+            preferredInteractionStyle="sync" xsi:type="wsdl:WSDLPortType">
+            <scdl:interfaceQualifier value="false" xsi:type="scdl:JoinTransaction"/>
+        </interface>
+    </interfaces>
+    <esbBinding
+        dataBindingType="com.ibm.j2ca.jdbc.emd.databinding.JDBCDataBindingGenerator" xsi:type="EIS:EISImportBinding">
+        <resourceAdapter
+            name="NCL_CruiseRtrvNameList_ModuleApp.IBM WebSphere Adapter for JDBC"
+            type="com.ibm.j2ca.jdbc.JDBCResourceAdapter" version="7.5.0.1">
+            <properties>
+                <adapterID>001</adapterID>
+            </properties>
+        </resourceAdapter>
+        <connection
+            interactionType="com.ibm.j2ca.jdbc.JDBCInteractionSpec" type="com.ibm.j2ca.jdbc.JDBCManagedConnectionFactory">
+            <properties>
+                <adapterID>001</adapterID>
+                <dataSourceJNDIName>SEAWARE_JNDI</dataSourceJNDIName>
+                <databaseVendor>ORACLE</databaseVendor>
+                <returnDummyBOForSP>false</returnDummyBOForSP>
+                <XADataSourceJNDIName>SEAWARE_JNDI</XADataSourceJNDIName>
+                <connectionType>XADataSourceJNDI</connectionType>
+            </properties>
+        </connection>
+        <methodBinding
+            inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_get_consumer_nam_listbg.NclseaNcl_Wesb_Get_Consumer_Nam_ListBGDataBinding"
+            method="executeNclseaNcl_Wesb_Get_Consumer_Nam_ListBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_get_consumer_nam_listbg.NclseaNcl_Wesb_Get_Consumer_Nam_ListBGDataBinding">
+            <interaction>
+                <properties>
+                    <functionName>Execute</functionName>
+                </properties>
+            </interaction>
+        </methodBinding>
+        <methodBinding
+            inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_retrieve_name_listbg.NclseaNcl_Wesb_Retrieve_Name_ListBGDataBinding"
+            method="executeNclseaNcl_Wesb_Retrieve_Name_ListBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_retrieve_name_listbg.NclseaNcl_Wesb_Retrieve_Name_ListBGDataBinding">
+            <interaction>
+                <properties>
+                    <functionName>Execute</functionName>
+                </properties>
+            </interaction>
+        </methodBinding>
+    </esbBinding>
+</scdl:import>

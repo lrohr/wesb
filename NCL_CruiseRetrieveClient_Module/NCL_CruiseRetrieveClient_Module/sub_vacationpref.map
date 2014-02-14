@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:NCL_CruiseRetrieveClientRS="http://nclapi/schemas" xmlns:NclseaNcl_Wesb_Get_Client_Vacat_PrefBG="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_vacat_prefbg" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:sub_vacationpref="http://NCL_CruiseRetrieveClient_Module" targetNamespace="http://NCL_CruiseRetrieveClient_Module">
+  <map:name>sub_vacationpref</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="NclseaNcl_Wesb_Get_Client_Vacat_PrefBG:NclseaNcl_Wesb_Get_Client_Vacat_PrefBG" name="NclseaNcl_Wesb_Get_Client_Vacat_PrefBG"/>
+  <map:outputBusinessObjectVariable businessObjectRef="NCL_CruiseRetrieveClientRS:NCL_CruiseRetrieveClientRS" name="NCL_CruiseRetrieveClientRS"/>
+  <map:propertyMap executionOrder="1">
+    <map:custom>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_Vacat_PrefBG" property="NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_prefcruiselength"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="VacationPreference/@PreferredCruiseLength"/>
+      <map:javaCode>java.lang.String __NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_prefcruiselength = (java.lang.String)NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_prefcruiselength;&#xD;
+java.lang.String __NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredCruiseLength = (java.lang.String)NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredCruiseLength;&#xD;
+// Variable NCL_CruiseRetrieveClientRS_VacationPreference_@PreferredCruiseLength is represented as NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredCruiseLength&#xD;
+// Variable NCL_CruiseRetrieveClientRS_VacationPreference_@PreferredCruiseLength is represented as NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredCruiseLength&#xD;
+byte __result__5 = 1;&#xD;
+int __result__4 = __NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_prefcruiselength.length();&#xD;
+boolean __result__6;&#xD;
+{// greater than&#xD;
+	__result__6 = __result__4 > __result__5;&#xD;
+}&#xD;
+if (__result__6){&#xD;
+	__NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredCruiseLength = __NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_prefcruiselength;&#xD;
+	NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredCruiseLength = __NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredCruiseLength;&#xD;
+}&#xD;
+else{&#xD;
+	java.lang.String __result__12 = &quot;X&quot;;&#xD;
+	__NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredCruiseLength = __result__12;&#xD;
+	NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredCruiseLength = __NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredCruiseLength;&#xD;
+}&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_prefcruiselength&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Variable NCL_CruiseRetrieveClientRS_VacationPreference_@PreferredCruiseLength is represented as NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredCruiseLength&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Variable NCL_CruiseRetrieveClientRS_VacationPreference_@PreferredCruiseLength is represented as NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredCruiseLength&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_prefcruiselength&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.3/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;length&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;length&quot;>
+//    &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.2/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result>
+//      &lt;dataOutputs target=&quot;//@executableElements.5/@parameters.0&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;1&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.5/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;byte&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;greater than&quot; description=&quot;True if the value of the first input is greater than the value of the second input&quot; category=&quot;math&quot; template=&quot;&amp;lt;%return%> &amp;lt;%input1%> > &amp;lt;%input2%>;&quot;>
+//    &lt;parameters name=&quot;input1&quot; dataInputs=&quot;//@executableElements.3/@result/@dataOutputs.0&quot; displayName=&quot;input 1&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;input2&quot; dataInputs=&quot;//@executableElements.4/@dataOutputs.0&quot; displayName=&quot;input 2&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;result name=&quot;result&quot; displayName=&quot;result&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.6&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;boolean&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:BranchElement&quot; dataInputs=&quot;//@executableElements.5/@result/@dataOutputs.0&quot;>
+//    &lt;conditionalActivities>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_prefcruiselength&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.6/@conditionalActivities.0/@executableElements.1&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.6/@conditionalActivities.0/@executableElements.0/@dataOutputs.0&quot; value=&quot;NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredCruiseLength&quot; variable=&quot;true&quot;>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength0to128&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableGroups executableElements=&quot;//@executableElements.6/@conditionalActivities.0/@executableElements.0 //@executableElements.6/@conditionalActivities.0/@executableElements.1&quot;/>
+//      &lt;condition value=&quot;true&quot;/>
+//    &lt;/conditionalActivities>
+//    &lt;conditionalActivities>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;X&amp;quot;&quot; assignable=&quot;false&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.6/@conditionalActivities.1/@executableElements.1&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.6/@conditionalActivities.1/@executableElements.0/@dataOutputs.0&quot; value=&quot;NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredCruiseLength&quot; variable=&quot;true&quot;>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength0to128&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableGroups executableElements=&quot;//@executableElements.6/@conditionalActivities.1/@executableElements.0 //@executableElements.6/@conditionalActivities.1/@executableElements.1&quot;/>
+//      &lt;condition value=&quot;&quot;/>
+//    &lt;/conditionalActivities>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.1&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.2 //@executableElements.3 //@executableElements.4 //@executableElements.5 //@executableElements.6&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!4:6,1&#xD;
+//!SMAP!5:5,1&#xD;
+//!SMAP!6:7,4&#xD;
+//!SMAP!7:11,1&#xD;
+//!SMAP!10:12,2&#xD;
+//!SMAP!12:16,1&#xD;
+//!SMAP!13:17,2&#xD;
+//!SMAP!1000000:104,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:custom>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_Vacat_PrefBG" property="NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_future_cruise_plan"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="VacationPreference/@FutureCruisePlan"/>
+      <map:javaCode>java.lang.String __NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_future_cruise_plan = (java.lang.String)NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_future_cruise_plan;&#xD;
+java.lang.String __NCL_CruiseRetrieveClientRS_VacationPreference_$aFutureCruisePlan = (java.lang.String)NCL_CruiseRetrieveClientRS_VacationPreference_$aFutureCruisePlan;&#xD;
+// Variable NCL_CruiseRetrieveClientRS_VacationPreference_@FutureCruisePlan is represented as NCL_CruiseRetrieveClientRS_VacationPreference_$aFutureCruisePlan&#xD;
+byte __result__4 = 1;&#xD;
+int __result__3 = __NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_future_cruise_plan.length();&#xD;
+boolean __result__5;&#xD;
+{// greater than&#xD;
+	__result__5 = __result__3 > __result__4;&#xD;
+}&#xD;
+if (__result__5){&#xD;
+	__NCL_CruiseRetrieveClientRS_VacationPreference_$aFutureCruisePlan = __NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_future_cruise_plan;&#xD;
+	NCL_CruiseRetrieveClientRS_VacationPreference_$aFutureCruisePlan = __NCL_CruiseRetrieveClientRS_VacationPreference_$aFutureCruisePlan;&#xD;
+}&#xD;
+else{&#xD;
+}&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_future_cruise_plan&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Variable NCL_CruiseRetrieveClientRS_VacationPreference_@FutureCruisePlan is represented as NCL_CruiseRetrieveClientRS_VacationPreference_$aFutureCruisePlan&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_future_cruise_plan&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.2/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;length&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;length&quot;>
+//    &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.1/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result>
+//      &lt;dataOutputs target=&quot;//@executableElements.4/@parameters.0&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;1&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.4/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;byte&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;greater than&quot; description=&quot;True if the value of the first input is greater than the value of the second input&quot; category=&quot;math&quot; template=&quot;&amp;lt;%return%> &amp;lt;%input1%> > &amp;lt;%input2%>;&quot;>
+//    &lt;parameters name=&quot;input1&quot; dataInputs=&quot;//@executableElements.2/@result/@dataOutputs.0&quot; displayName=&quot;input 1&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;input2&quot; dataInputs=&quot;//@executableElements.3/@dataOutputs.0&quot; displayName=&quot;input 2&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;result name=&quot;result&quot; displayName=&quot;result&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.5&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;boolean&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:BranchElement&quot; dataInputs=&quot;//@executableElements.4/@result/@dataOutputs.0&quot;>
+//    &lt;conditionalActivities>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_future_cruise_plan&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.1&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.0/@dataOutputs.0&quot; value=&quot;NCL_CruiseRetrieveClientRS_VacationPreference_$aFutureCruisePlan&quot; variable=&quot;true&quot;>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength0to128&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableGroups executableElements=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.0 //@executableElements.5/@conditionalActivities.0/@executableElements.1&quot;/>
+//      &lt;condition value=&quot;true&quot;/>
+//    &lt;/conditionalActivities>
+//    &lt;conditionalActivities>
+//      &lt;condition value=&quot;&quot;/>
+//    &lt;/conditionalActivities>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.1 //@executableElements.2 //@executableElements.3 //@executableElements.4 //@executableElements.5&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!3:5,1&#xD;
+//!SMAP!4:4,1&#xD;
+//!SMAP!5:6,4&#xD;
+//!SMAP!6:10,1&#xD;
+//!SMAP!9:11,2&#xD;
+//!SMAP!1000000:86,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:custom>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_Vacat_PrefBG" property="NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_pref_cruise_time"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="VacationPreference/@PreferredCruiseTime"/>
+      <map:javaCode>java.lang.String __NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_pref_cruise_time = (java.lang.String)NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_pref_cruise_time;&#xD;
+java.lang.String __NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredCruiseTime = (java.lang.String)NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredCruiseTime;&#xD;
+// Variable NCL_CruiseRetrieveClientRS_VacationPreference_@PreferredCruiseTime is represented as NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredCruiseTime&#xD;
+byte __result__4 = 1;&#xD;
+int __result__3 = __NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_pref_cruise_time.length();&#xD;
+boolean __result__5;&#xD;
+{// greater than&#xD;
+	__result__5 = __result__3 > __result__4;&#xD;
+}&#xD;
+if (__result__5){&#xD;
+	__NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredCruiseTime = __NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_pref_cruise_time;&#xD;
+	NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredCruiseTime = __NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredCruiseTime;&#xD;
+}&#xD;
+else{&#xD;
+}&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_pref_cruise_time&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Variable NCL_CruiseRetrieveClientRS_VacationPreference_@PreferredCruiseTime is represented as NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredCruiseTime&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_pref_cruise_time&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.2/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;length&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;length&quot;>
+//    &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.1/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result>
+//      &lt;dataOutputs target=&quot;//@executableElements.4/@parameters.0&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;1&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.4/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;byte&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;greater than&quot; description=&quot;True if the value of the first input is greater than the value of the second input&quot; category=&quot;math&quot; template=&quot;&amp;lt;%return%> &amp;lt;%input1%> > &amp;lt;%input2%>;&quot;>
+//    &lt;parameters name=&quot;input1&quot; dataInputs=&quot;//@executableElements.2/@result/@dataOutputs.0&quot; displayName=&quot;input 1&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;input2&quot; dataInputs=&quot;//@executableElements.3/@dataOutputs.0&quot; displayName=&quot;input 2&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;result name=&quot;result&quot; displayName=&quot;result&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.5&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;boolean&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:BranchElement&quot; dataInputs=&quot;//@executableElements.4/@result/@dataOutputs.0&quot;>
+//    &lt;conditionalActivities>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_pref_cruise_time&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.1&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.0/@dataOutputs.0&quot; value=&quot;NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredCruiseTime&quot; variable=&quot;true&quot;>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength0to128&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableGroups executableElements=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.0 //@executableElements.5/@conditionalActivities.0/@executableElements.1&quot;/>
+//      &lt;condition value=&quot;true&quot;/>
+//    &lt;/conditionalActivities>
+//    &lt;conditionalActivities>
+//      &lt;condition value=&quot;&quot;/>
+//    &lt;/conditionalActivities>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.1 //@executableElements.2 //@executableElements.3 //@executableElements.4 //@executableElements.5&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!3:5,1&#xD;
+//!SMAP!4:4,1&#xD;
+//!SMAP!5:6,4&#xD;
+//!SMAP!6:10,1&#xD;
+//!SMAP!9:11,2&#xD;
+//!SMAP!1000000:86,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:custom>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_Vacat_PrefBG" property="NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_previously_cruised"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="VacationPreference/@PreviouslyCruised"/>
+      <map:javaCode>java.lang.String __NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_previously_cruised = (java.lang.String)NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_previously_cruised;&#xD;
+java.lang.String __NCL_CruiseRetrieveClientRS_VacationPreference_$aPreviouslyCruised = (java.lang.String)NCL_CruiseRetrieveClientRS_VacationPreference_$aPreviouslyCruised;&#xD;
+// Variable NCL_CruiseRetrieveClientRS_VacationPreference_@PreviouslyCruised is represented as NCL_CruiseRetrieveClientRS_VacationPreference_$aPreviouslyCruised&#xD;
+byte __result__4 = 1;&#xD;
+int __result__3 = __NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_previously_cruised.length();&#xD;
+boolean __result__5;&#xD;
+{// greater than&#xD;
+	__result__5 = __result__3 > __result__4;&#xD;
+}&#xD;
+if (__result__5){&#xD;
+	__NCL_CruiseRetrieveClientRS_VacationPreference_$aPreviouslyCruised = __NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_previously_cruised;&#xD;
+	NCL_CruiseRetrieveClientRS_VacationPreference_$aPreviouslyCruised = __NCL_CruiseRetrieveClientRS_VacationPreference_$aPreviouslyCruised;&#xD;
+}&#xD;
+else{&#xD;
+}&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_previously_cruised&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Variable NCL_CruiseRetrieveClientRS_VacationPreference_@PreviouslyCruised is represented as NCL_CruiseRetrieveClientRS_VacationPreference_$aPreviouslyCruised&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_previously_cruised&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.2/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;length&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;length&quot;>
+//    &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.1/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result>
+//      &lt;dataOutputs target=&quot;//@executableElements.4/@parameters.0&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;1&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.4/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;byte&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;greater than&quot; description=&quot;True if the value of the first input is greater than the value of the second input&quot; category=&quot;math&quot; template=&quot;&amp;lt;%return%> &amp;lt;%input1%> > &amp;lt;%input2%>;&quot;>
+//    &lt;parameters name=&quot;input1&quot; dataInputs=&quot;//@executableElements.2/@result/@dataOutputs.0&quot; displayName=&quot;input 1&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;input2&quot; dataInputs=&quot;//@executableElements.3/@dataOutputs.0&quot; displayName=&quot;input 2&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;result name=&quot;result&quot; displayName=&quot;result&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.5&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;boolean&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:BranchElement&quot; dataInputs=&quot;//@executableElements.4/@result/@dataOutputs.0&quot;>
+//    &lt;conditionalActivities>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_previously_cruised&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.1&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.0/@dataOutputs.0&quot; value=&quot;NCL_CruiseRetrieveClientRS_VacationPreference_$aPreviouslyCruised&quot; variable=&quot;true&quot;>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength0to32&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableGroups executableElements=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.0 //@executableElements.5/@conditionalActivities.0/@executableElements.1&quot;/>
+//      &lt;condition value=&quot;true&quot;/>
+//    &lt;/conditionalActivities>
+//    &lt;conditionalActivities>
+//      &lt;condition value=&quot;&quot;/>
+//    &lt;/conditionalActivities>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.1 //@executableElements.2 //@executableElements.3 //@executableElements.4 //@executableElements.5&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!3:5,1&#xD;
+//!SMAP!4:4,1&#xD;
+//!SMAP!5:6,4&#xD;
+//!SMAP!6:10,1&#xD;
+//!SMAP!9:11,2&#xD;
+//!SMAP!1000000:86,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="5">
+    <map:custom>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_Vacat_PrefBG" property="NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_previously_cruised_number"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="VacationPreference/@PreviouslyCruisedNumber"/>
+      <map:javaCode>java.lang.String __NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_previously_cruised_number = (java.lang.String)NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_previously_cruised_number;&#xD;
+java.lang.String __NCL_CruiseRetrieveClientRS_VacationPreference_$aPreviouslyCruisedNumber = (java.lang.String)NCL_CruiseRetrieveClientRS_VacationPreference_$aPreviouslyCruisedNumber;&#xD;
+// Variable NCL_CruiseRetrieveClientRS_VacationPreference_@PreviouslyCruisedNumber is represented as NCL_CruiseRetrieveClientRS_VacationPreference_$aPreviouslyCruisedNumber&#xD;
+byte __result__4 = 1;&#xD;
+int __result__3 = __NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_previously_cruised_number.length();&#xD;
+boolean __result__5;&#xD;
+{// greater than&#xD;
+	__result__5 = __result__3 > __result__4;&#xD;
+}&#xD;
+if (__result__5){&#xD;
+	__NCL_CruiseRetrieveClientRS_VacationPreference_$aPreviouslyCruisedNumber = __NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_previously_cruised_number;&#xD;
+	NCL_CruiseRetrieveClientRS_VacationPreference_$aPreviouslyCruisedNumber = __NCL_CruiseRetrieveClientRS_VacationPreference_$aPreviouslyCruisedNumber;&#xD;
+}&#xD;
+else{&#xD;
+}&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_previously_cruised_number&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Variable NCL_CruiseRetrieveClientRS_VacationPreference_@PreviouslyCruisedNumber is represented as NCL_CruiseRetrieveClientRS_VacationPreference_$aPreviouslyCruisedNumber&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_previously_cruised_number&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.2/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;length&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;length&quot;>
+//    &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.1/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result>
+//      &lt;dataOutputs target=&quot;//@executableElements.4/@parameters.0&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;1&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.4/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;byte&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;greater than&quot; description=&quot;True if the value of the first input is greater than the value of the second input&quot; category=&quot;math&quot; template=&quot;&amp;lt;%return%> &amp;lt;%input1%> > &amp;lt;%input2%>;&quot;>
+//    &lt;parameters name=&quot;input1&quot; dataInputs=&quot;//@executableElements.2/@result/@dataOutputs.0&quot; displayName=&quot;input 1&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;input2&quot; dataInputs=&quot;//@executableElements.3/@dataOutputs.0&quot; displayName=&quot;input 2&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;result name=&quot;result&quot; displayName=&quot;result&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.5&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;boolean&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:BranchElement&quot; dataInputs=&quot;//@executableElements.4/@result/@dataOutputs.0&quot;>
+//    &lt;conditionalActivities>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_previously_cruised_number&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.1&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.0/@dataOutputs.0&quot; value=&quot;NCL_CruiseRetrieveClientRS_VacationPreference_$aPreviouslyCruisedNumber&quot; variable=&quot;true&quot;>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength0to32&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableGroups executableElements=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.0 //@executableElements.5/@conditionalActivities.0/@executableElements.1&quot;/>
+//      &lt;condition value=&quot;true&quot;/>
+//    &lt;/conditionalActivities>
+//    &lt;conditionalActivities>
+//      &lt;condition value=&quot;&quot;/>
+//    &lt;/conditionalActivities>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.1 //@executableElements.2 //@executableElements.3 //@executableElements.4 //@executableElements.5&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!3:5,1&#xD;
+//!SMAP!4:4,1&#xD;
+//!SMAP!5:6,4&#xD;
+//!SMAP!6:10,1&#xD;
+//!SMAP!9:11,2&#xD;
+//!SMAP!1000000:86,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="6">
+    <map:custom>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_Vacat_PrefBG" property="NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_pref_booking_mode"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="VacationPreference/@PreferredBookingMode"/>
+      <map:javaCode>java.lang.String __NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_pref_booking_mode = (java.lang.String)NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_pref_booking_mode;&#xD;
+java.lang.String __NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredBookingMode = (java.lang.String)NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredBookingMode;&#xD;
+// Variable NCL_CruiseRetrieveClientRS_VacationPreference_@PreferredBookingMode is represented as NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredBookingMode&#xD;
+byte __result__4 = 1;&#xD;
+int __result__3 = __NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_pref_booking_mode.length();&#xD;
+boolean __result__5;&#xD;
+{// greater than&#xD;
+	__result__5 = __result__3 > __result__4;&#xD;
+}&#xD;
+if (__result__5){&#xD;
+	__NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredBookingMode = __NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_pref_booking_mode;&#xD;
+	NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredBookingMode = __NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredBookingMode;&#xD;
+}&#xD;
+else{&#xD;
+}&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_pref_booking_mode&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Variable NCL_CruiseRetrieveClientRS_VacationPreference_@PreferredBookingMode is represented as NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredBookingMode&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_pref_booking_mode&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.2/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;length&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;length&quot;>
+//    &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.1/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result>
+//      &lt;dataOutputs target=&quot;//@executableElements.4/@parameters.0&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;1&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.4/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;byte&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;greater than&quot; description=&quot;True if the value of the first input is greater than the value of the second input&quot; category=&quot;math&quot; template=&quot;&amp;lt;%return%> &amp;lt;%input1%> > &amp;lt;%input2%>;&quot;>
+//    &lt;parameters name=&quot;input1&quot; dataInputs=&quot;//@executableElements.2/@result/@dataOutputs.0&quot; displayName=&quot;input 1&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;input2&quot; dataInputs=&quot;//@executableElements.3/@dataOutputs.0&quot; displayName=&quot;input 2&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;result name=&quot;result&quot; displayName=&quot;result&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.5&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;boolean&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:BranchElement&quot; dataInputs=&quot;//@executableElements.4/@result/@dataOutputs.0&quot;>
+//    &lt;conditionalActivities>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NclseaNcl_Wesb_Get_Client_Vacat_PrefBG_NclseaNcl_Wesb_Get_Client_Vacat_Pref_p_pref_booking_mode&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.1&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.0/@dataOutputs.0&quot; value=&quot;NCL_CruiseRetrieveClientRS_VacationPreference_$aPreferredBookingMode&quot; variable=&quot;true&quot;>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength0to128&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableGroups executableElements=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.0 //@executableElements.5/@conditionalActivities.0/@executableElements.1&quot;/>
+//      &lt;condition value=&quot;true&quot;/>
+//    &lt;/conditionalActivities>
+//    &lt;conditionalActivities>
+//      &lt;condition value=&quot;&quot;/>
+//    &lt;/conditionalActivities>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.1 //@executableElements.2 //@executableElements.3 //@executableElements.4 //@executableElements.5&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!3:5,1&#xD;
+//!SMAP!4:4,1&#xD;
+//!SMAP!5:6,4&#xD;
+//!SMAP!6:10,1&#xD;
+//!SMAP!9:11,2&#xD;
+//!SMAP!1000000:86,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="7">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_Vacat_PrefBG" property="NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_dest_cur[1]/desired_destination"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="VacationPreference/DesiredDestination[1]"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="8">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_Vacat_PrefBG" property="NclseaNcl_Wesb_Get_Client_Vacat_Pref/p_prev_crus_cur[1]/previous_cruise_line"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRetrieveClientRS" property="VacationPreference/PreviousCruiseLines[1]"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

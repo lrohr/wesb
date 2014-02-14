@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:NCL_CruiseRetrieveGroupBookingsRQ="http://nclapi/schemas" xmlns:NclseaNcl_Wesb_Retrieve_Grp_BookingBG="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_retrieve_grp_bookingbg" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:sub_ret_grpbooking="http://NCL_CruiseRetrieveGroupBookings_Module" targetNamespace="http://NCL_CruiseRetrieveGroupBookings_Module">
+  <map:name>sub_ret_grpbooking</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="NCL_CruiseRetrieveGroupBookingsRQ:NCL_CruiseRetrieveGroupBookingsRQ" name="NCL_CruiseRetrieveGroupBookingsRQ"/>
+  <map:outputBusinessObjectVariable businessObjectRef="NclseaNcl_Wesb_Retrieve_Grp_BookingBG:NclseaNcl_Wesb_Retrieve_Grp_BookingBG" name="NclseaNcl_Wesb_Retrieve_Grp_BookingBG"/>
+  <map:propertyMap executionOrder="1">
+    <map:custom>
+      <map:input businessObjectVariableRef="NCL_CruiseRetrieveGroupBookingsRQ" property="GroupInfo/@GroupCode"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Retrieve_Grp_BookingBG" property="NclseaNcl_Wesb_Retrieve_Grp_Booking/p_groupid"/>
+      <map:javaCode>java.lang.String __NCL_CruiseRetrieveGroupBookingsRQ_GroupInfo_$aGroupCode = (java.lang.String)NCL_CruiseRetrieveGroupBookingsRQ_GroupInfo_$aGroupCode;&#xD;
+java.lang.Integer __NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_groupid = (java.lang.Integer)NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_groupid;&#xD;
+// Input NCL_CruiseRetrieveGroupBookingsRQ_GroupInfo_@GroupCode is represented as NCL_CruiseRetrieveGroupBookingsRQ_GroupInfo_$aGroupCode&#xD;
+try {
+	//java.lang.Integer __NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_groupid = (java.lang.Integer)NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_groupid;
+	int __result__6 = __NCL_CruiseRetrieveGroupBookingsRQ_GroupInfo_$aGroupCode.length();
+	byte __result__4 = 0;
+	boolean __result__7;
+	{// greater than
+		__result__7 = __result__6 > __result__4;
+	}
+	if (__result__7){
+		int __result__11 = 0;
+		try {
+			__result__11 = java.lang.Integer.parseInt(__NCL_CruiseRetrieveGroupBookingsRQ_GroupInfo_$aGroupCode);
+		}
+		catch(java.lang.NumberFormatException ex){
+		}
+		__NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_groupid = new java.lang.Integer(__result__11);
+		NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_groupid = __NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_groupid;
+	}
+	else{
+	}&#xD;
+}&#xD;
+catch(Exception e)&#xD;
+ {&#xD;
+  NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_groupid = &quot;&quot;;&#xD;
+ } &#xD;
+finally {&#xD;
+// The specific type of variable NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_groupid is java.lang.Integer&#xD;
+}&#xD;
+</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:custom>
+      <map:input businessObjectVariableRef="NCL_CruiseRetrieveGroupBookingsRQ" property="SelectedSailing/@VoyageID"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Retrieve_Grp_BookingBG" property="NclseaNcl_Wesb_Retrieve_Grp_Booking/p_packageid"/>
+      <map:javaCode>java.lang.String __NCL_CruiseRetrieveGroupBookingsRQ_SelectedSailing_$aVoyageID = (java.lang.String)NCL_CruiseRetrieveGroupBookingsRQ_SelectedSailing_$aVoyageID;&#xD;
+java.lang.Integer __NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_packageid = (java.lang.Integer)NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_packageid;&#xD;
+// Input NCL_CruiseRetrieveGroupBookingsRQ_SelectedSailing_@VoyageID is represented as NCL_CruiseRetrieveGroupBookingsRQ_SelectedSailing_$aVoyageID&#xD;
+try {
+	//java.lang.Integer __NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_packageid = (java.lang.Integer)NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_packageid;
+	int __result__6 = __NCL_CruiseRetrieveGroupBookingsRQ_SelectedSailing_$aVoyageID.length();
+	byte __result__4 = 1;
+	boolean __result__7;
+	{// greater than
+		__result__7 = __result__6 > __result__4;
+	}
+	if (__result__7){
+		int __result__11 = 0;
+		try {
+			__result__11 = java.lang.Integer.parseInt(__NCL_CruiseRetrieveGroupBookingsRQ_SelectedSailing_$aVoyageID);
+		}
+		catch(java.lang.NumberFormatException ex){
+		}
+		__NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_packageid = new java.lang.Integer(__result__11);
+		NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_packageid = __NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_packageid;
+	}
+	else{
+	}&#xD;
+}&#xD;
+catch(Exception e)&#xD;
+{&#xD;
+NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_packageid = &quot;&quot;;&#xD;
+} &#xD;
+finally {&#xD;
+// The specific type of variable NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_packageid is java.lang.Integer&#xD;
+}&#xD;
+</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:custom>
+      <map:input businessObjectVariableRef="NCL_CruiseRetrieveGroupBookingsRQ" property="SelectedSailing/@ShipCode"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Retrieve_Grp_BookingBG" property="NclseaNcl_Wesb_Retrieve_Grp_Booking/p_shipcode"/>
+      <map:javaCode>java.lang.String __NCL_CruiseRetrieveGroupBookingsRQ_SelectedSailing_$aShipCode = (java.lang.String)NCL_CruiseRetrieveGroupBookingsRQ_SelectedSailing_$aShipCode;&#xD;
+java.lang.String __NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_shipcode = (java.lang.String)NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_shipcode;&#xD;
+// Input NCL_CruiseRetrieveGroupBookingsRQ_SelectedSailing_@ShipCode is represented as NCL_CruiseRetrieveGroupBookingsRQ_SelectedSailing_$aShipCode&#xD;
+try {
+	//java.lang.String __NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_shipcode = (java.lang.String)NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_shipcode;
+	int __result__6 = __NCL_CruiseRetrieveGroupBookingsRQ_SelectedSailing_$aShipCode.length();
+	byte __result__4 = 1;
+	boolean __result__7;
+	{// greater than
+		__result__7 = __result__6 > __result__4;
+	}
+	if (__result__7){
+		__NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_shipcode = __NCL_CruiseRetrieveGroupBookingsRQ_SelectedSailing_$aShipCode;
+		NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_shipcode = __NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_shipcode;
+	}
+	else{
+	}&#xD;
+}&#xD;
+catch(Exception ex)&#xD;
+{&#xD;
+ 	NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_shipcode = &quot;&quot;;&#xD;
+}&#xD;
+finally {&#xD;
+// The specific type of variable NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_shipcode is java.lang.String&#xD;
+}&#xD;
+</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseRetrieveGroupBookingsRQ" property="POS/Source[1]/RequestorID/@ID"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Retrieve_Grp_BookingBG" property="NclseaNcl_Wesb_Retrieve_Grp_Booking/p_agencyid"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="5">
+    <map:custom>
+      <map:input businessObjectVariableRef="NCL_CruiseRetrieveGroupBookingsRQ" property="POS/Source[1]/@AgentSine"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Retrieve_Grp_BookingBG" property="NclseaNcl_Wesb_Retrieve_Grp_Booking/p_agent_id"/>
+      <map:javaCode>java.lang.String __NCL_CruiseRetrieveGroupBookingsRQ_POS_Source1_$aAgentSine = (java.lang.String)NCL_CruiseRetrieveGroupBookingsRQ_POS_Source1_$aAgentSine;&#xD;
+java.lang.Integer __NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_agent_id = (java.lang.Integer)NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_agent_id;&#xD;
+// Input NCL_CruiseRetrieveGroupBookingsRQ_POS_Source[1]_@AgentSine is represented as NCL_CruiseRetrieveGroupBookingsRQ_POS_Source1_$aAgentSine&#xD;
+try {
+	//java.lang.Integer __NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_agent_id = (java.lang.Integer)NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_agent_id;
+	int __result__6 = __NCL_CruiseRetrieveGroupBookingsRQ_POS_Source1_$aAgentSine.length();
+	byte __result__4 = 1;
+	boolean __result__7;
+	{// greater than
+		__result__7 = __result__6 > __result__4;
+	}
+	if (__result__7){
+		int __result__11 = 0;
+		try {
+			__result__11 = java.lang.Integer.parseInt(__NCL_CruiseRetrieveGroupBookingsRQ_POS_Source1_$aAgentSine);
+		}
+		catch(java.lang.NumberFormatException ex){
+		}
+		__NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_agent_id = new java.lang.Integer(__result__11);
+		NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_agent_id = __NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_agent_id;
+	}
+	else{
+	}&#xD;
+}&#xD;
+catch(Exception e)&#xD;
+{&#xD;
+ NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_agent_id = &quot;&quot;;&#xD;
+} &#xD;
+finally {&#xD;
+// The specific type of variable NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_agent_id is java.lang.Integer&#xD;
+}&#xD;
+</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="6">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseRetrieveGroupBookingsRQ" property="@MaxResponses"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Retrieve_Grp_BookingBG" property="NclseaNcl_Wesb_Retrieve_Grp_Booking/p_maxrecordsoutput"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="7">
+    <map:custom>
+      <map:input businessObjectVariableRef="NCL_CruiseRetrieveGroupBookingsRQ" property="@MoreDataEchoToken"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Retrieve_Grp_BookingBG" property="NclseaNcl_Wesb_Retrieve_Grp_Booking/p_lastgrpidreturned"/>
+      <map:javaCode>java.lang.String __NCL_CruiseRetrieveGroupBookingsRQ_$aMoreDataEchoToken = (java.lang.String)NCL_CruiseRetrieveGroupBookingsRQ_$aMoreDataEchoToken;&#xD;
+java.lang.Integer __NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_lastgrpidreturned = (java.lang.Integer)NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_lastgrpidreturned;&#xD;
+// Input NCL_CruiseRetrieveGroupBookingsRQ_@MoreDataEchoToken is represented as NCL_CruiseRetrieveGroupBookingsRQ_$aMoreDataEchoToken&#xD;
+// Input NCL_CruiseRetrieveGroupBookingsRQ_@MoreDataEchoToken is represented as NCL_CruiseRetrieveGroupBookingsRQ_$aMoreDataEchoToken&#xD;
+try {
+	//java.lang.Integer __NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_lastgrpidreturned = (java.lang.Integer)NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_lastgrpidreturned;
+	byte __result__7 = 0;
+	int __result__6 = __NCL_CruiseRetrieveGroupBookingsRQ_$aMoreDataEchoToken.length();
+	boolean __result__8;
+	{// greater than
+		__result__8 = __result__6 > __result__7;
+	}
+	if (__result__8){
+		int __result__12 = 0;
+		try {
+			__result__12 = java.lang.Integer.parseInt(__NCL_CruiseRetrieveGroupBookingsRQ_$aMoreDataEchoToken);
+		}
+		catch(java.lang.NumberFormatException ex){
+		}
+		__NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_lastgrpidreturned = new java.lang.Integer(__result__12);
+		NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_lastgrpidreturned = __NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_lastgrpidreturned;
+	}
+	else{
+		byte __result__17 = 0;
+		__NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_lastgrpidreturned = new java.lang.Integer(__result__17);
+		NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_lastgrpidreturned = __NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_lastgrpidreturned;
+	}&#xD;
+}&#xD;
+catch(Exception ex)&#xD;
+{&#xD;
+ NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_lastgrpidreturned = 0;&#xD;
+} &#xD;
+finally {&#xD;
+// The specific type of variable NclseaNcl_Wesb_Retrieve_Grp_BookingBG_NclseaNcl_Wesb_Retrieve_Grp_Booking_p_lastgrpidreturned is java.lang.Integer&#xD;
+}&#xD;
+</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+</map:businessObjectMap>

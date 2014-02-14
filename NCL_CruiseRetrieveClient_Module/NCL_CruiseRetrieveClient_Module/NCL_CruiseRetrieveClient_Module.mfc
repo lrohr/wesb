@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mediationFlow xmlns="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlow" xmlns:JDBCImport1="http://NCL_CruiseRetrieveClient_Module/JDBCImport1" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:mfcex="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlowExtension" xmlns:ns1="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveClient_Interface" xmlns:ns1_1="http://E-Mail_Generic/E-Mail_Interface" xmlns:ns1_2="http://TP_Logger/TP_Interface" xmlns:ns1_3="http://versonix.com/api/definitions" xmlns:ns4="http://NCL_CruiseRetrieveClient_Module/DB_Lookup" xmlns:ns5="http://NCL_WESB_Shared_Library/Encrypt_Decrypt_Interface" xmlns:ns7="http://NCL_CruiseRetrieveClient_Module/JDBCImport" xmlns:ns9="http://NCL_CruiseRetrieveClient_Module/JDBCImport2" name="NCL_CruiseRetrieveClient_Module" targetNamespace="http://NCL_CruiseRetrieveClient_Module/NCL_CruiseRetrieveClient_Module">
+  <import location="NCL_CruiseRetrieveClient_Interface.wsdl" namespace="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveClient_Interface"/>
+  <import location="E-Mail_Interface.wsdl" namespace="http://E-Mail_Generic/E-Mail_Interface"/>
+  <import location="TP_Interface.wsdl" namespace="http://TP_Logger/TP_Interface"/>
+  <import location="DB_Lookup.wsdl" namespace="http://NCL_CruiseRetrieveClient_Module/DB_Lookup"/>
+  <import location="swApiWsdl.wsdl" namespace="http://versonix.com/api/definitions"/>
+  <import location="JDBCImport1.wsdl" namespace="http://NCL_CruiseRetrieveClient_Module/JDBCImport1"/>
+  <import location="JDBCImport.wsdl" namespace="http://NCL_CruiseRetrieveClient_Module/JDBCImport"/>
+  <import location="Encrypt_Decrypt_Interface.wsdl" namespace="http://NCL_WESB_Shared_Library/Encrypt_Decrypt_Interface"/>
+  <import location="JDBCImport2.wsdl" namespace="http://NCL_CruiseRetrieveClient_Module/JDBCImport2"/>
+  <promotedProperty description="Encrypt_decrypt timeout " name="ReqLogger.asyncTimeout" group="NCL_CruiseRetrieveClient_Module.NCL_CruiseRetrieveClient_Module" value="2"/>
+  <reference name="E-Mail_InterfacePartner" portType="ns1_1:E-Mail_Interface"/>
+  <reference name="TP_InterfacePartner" portType="ns1_2:TP_Interface"/>
+  <reference name="DB_LookupPartner" portType="ns4:DB_Lookup"/>
+  <reference name="SwApiPartner" portType="ns1_3:SwApi"/>
+  <reference name="JDBCImport1Partner" portType="JDBCImport1:JDBCImport1"/>
+  <reference name="JDBCImportPartner" portType="ns7:JDBCImport"/>
+  <reference name="Encrypt_Decrypt_InterfacePartner" portType="ns5:Encrypt_Decrypt_Interface"/>
+  <reference name="JDBCImport2Partner" portType="ns9:JDBCImport2"/>
+  <interface portType="ns1:NCL_CruiseRetrieveClient_Interface">
+    <operation name="Perform_NCL_CruiseRetrieveClient">
+      <requestFlow mfcex:autoLayout="false">
+        <node displayName="Perform_NCL_CruiseRetrieveClient : NCL_CruiseRetrieveClient_Interface" name="NCL_CruiseRetrieveClient_Interface_Perform_NCL_CruiseRetrieveClient_Input" type="Input" mfcex:x="1" mfcex:y="385">
+          <property name="correlationContext" value="{http://NCL_CruiseRetrieveClient_Module}App_Context"/>
+          <outputTerminal type="ns1:Perform_NCL_CruiseRetrieveClientRequestMsg">
+            <wire targetNode="xslt_loadGetnext"/>
+          </outputTerminal>
+        </node>
+        <node displayName="Perform_NCL_CruiseRetrieveClient : NCL_CruiseRetrieveClient_Interface" name="NCL_CruiseRetrieveClient_Interface_Perform_NCL_CruiseRetrieveClient_InputResponse" type="InputResponse" mfcex:x="4517" mfcex:y="233">
+          <inputTerminal type="ns1:Perform_NCL_CruiseRetrieveClientResponseMsg"/>
+        </node>
+        <node name="ReqLogger" type="ServiceInvoke" mfcex:x="949" mfcex:y="507">
+          <property name="referenceName" value="TP_InterfacePartner"/>
+          <property name="operationName" value="TP_InsertUpdate"/>
+          <property name="asyncTimeout" promotedPropertyGroup="NCL_CruiseRetrieveClient_Module.NCL_CruiseRetrieveClient_Module" promotedPropertyName="ReqLogger.asyncTimeout"/>
+          <inputTerminal type="ns1_2:TP_InsertUpdateRequestMsg"/>
+          <outputTerminal type="ns1_2:TP_InsertUpdateResponseMsg">
+            <wire targetNode="Stop1"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns1_2:TP_InsertUpdateRequestMsg">
+            <wire targetNode="Stop1"/>
+          </outputTerminal>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="TP_InsertUpdate_DB_ErrorsMsg" type="ns1_2:TP_InsertUpdate_DB_ErrorsMsg">
+            <wire targetNode="Stop1"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Stop1"/>
+          </failTerminal>
+        </node>
+        <node name="to_GetProfile" type="BOMapper" mfcex:x="1088" mfcex:y="370">
+          <property name="root" value="/"/>
+          <property name="mappingFile" value="to_getclprofile.map"/>
+          <inputTerminal/>
+          <outputTerminal type="ns4:executeNclseaNcl_Wesb_Get_Client_ProfileBGRequestMsg">
+            <wire targetNode="GetCLient_profile"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="GetCLient_profile" type="ServiceInvoke" mfcex:x="1316" mfcex:y="274">
+          <property name="referenceName" value="DB_LookupPartner"/>
+          <property name="operationName" value="executeNclseaNcl_Wesb_Get_Client_ProfileBG"/>
+          <inputTerminal type="ns4:executeNclseaNcl_Wesb_Get_Client_ProfileBGRequestMsg"/>
+          <outputTerminal type="ns4:executeNclseaNcl_Wesb_Get_Client_ProfileBGResponseMsg">
+            <wire targetNode="TestClients"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns4:executeNclseaNcl_Wesb_Get_Client_ProfileBGRequestMsg">
+            <wire targetNode="XSLT_err_5"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="XSLT_ErrorReadClient"/>
+          </failTerminal>
+        </node>
+        <node name="Stop1" type="Stop" mfcex:x="1090" mfcex:y="598">
+          <inputTerminal type="XMLSchema:anyType"/>
+        </node>
+        <node name="XSLT_getVacationPref" type="XSLTransformation" mfcex:x="3221" mfcex:y="239">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/to_vsacationpref.xsl"/>
+          <property name="XMXMap" value="xslt/to_vsacationpref.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns4:executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGRequestMsg">
+            <wire targetNode="DB_GetVacPref"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="DB_GetVacPref" type="ServiceInvoke" mfcex:x="3347" mfcex:y="229">
+          <property name="referenceName" value="DB_LookupPartner"/>
+          <property name="operationName" value="executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBG"/>
+          <inputTerminal type="ns4:executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGRequestMsg"/>
+          <outputTerminal type="ns4:executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponseMsg">
+            <wire targetNode="XSLT_storeVacPref"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns4:executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGRequestMsg">
+            <wire targetNode="Fail9"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Fail10"/>
+          </failTerminal>
+        </node>
+        <node name="BOBuild_resp2" type="BOMapper" mfcex:x="3510" mfcex:y="731">
+          <property name="root" value="/"/>
+          <property name="mappingFile" value="to_resplogger.map"/>
+          <inputTerminal/>
+          <outputTerminal type="ns1_2:TP_InsertUpdateRequestMsg">
+            <wire targetNode="RespLogger"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Stop4"/>
+          </failTerminal>
+        </node>
+        <node name="RespLogger" type="ServiceInvoke" mfcex:x="3779" mfcex:y="663">
+          <property name="referenceName" value="TP_InterfacePartner"/>
+          <property name="operationName" value="TP_InsertUpdate"/>
+          <inputTerminal type="ns1_2:TP_InsertUpdateRequestMsg"/>
+          <outputTerminal type="ns1_2:TP_InsertUpdateResponseMsg">
+            <wire targetNode="Stop2"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns1_2:TP_InsertUpdateRequestMsg">
+            <wire targetNode="Stop2"/>
+          </outputTerminal>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="TP_InsertUpdate_DB_ErrorsMsg" type="ns1_2:TP_InsertUpdate_DB_ErrorsMsg">
+            <wire targetNode="Stop2"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Stop2"/>
+          </failTerminal>
+        </node>
+        <node name="bo_toencrypt" type="BOMapper" mfcex:x="1755" mfcex:y="254">
+          <property name="root" value="/"/>
+          <property name="mappingFile" value="bo_toencrypt.map"/>
+          <inputTerminal/>
+          <outputTerminal type="ns1_3:processEncryptDecryptRequest">
+            <wire targetNode="xslt_loadGetLatData"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLT_storeVacPref" type="XSLTransformation" mfcex:x="3443" mfcex:y="235">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation3_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation3_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal/>
+          <outputTerminal type="ns1:Perform_NCL_CruiseRetrieveClientResponseMsg">
+            <wire targetNode="XSLT_getClientPref"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Fail11"/>
+          </failTerminal>
+        </node>
+        <node name="BOMapper7" type="BOMapper" mfcex:x="3841" mfcex:y="488">
+          <property name="root" value="/"/>
+          <property name="mappingFile" value="bo_toerr_resp.map"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns1:Perform_NCL_CruiseRetrieveClientResponseMsg"/>
+          <failTerminal/>
+        </node>
+        <node name="BO_BuildResp1" type="BOMapper" mfcex:x="3516" mfcex:y="598">
+          <property name="root" value="/"/>
+          <property name="mappingFile" value="bo_toerr_log.map"/>
+          <inputTerminal/>
+          <outputTerminal type="ns1_2:TP_InsertUpdateRequestMsg">
+            <wire targetNode="RespLogger"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Stop3"/>
+          </failTerminal>
+        </node>
+        <node name="DB_GetClientPgm" type="ServiceInvoke" mfcex:x="3677" mfcex:y="229">
+          <property name="referenceName" value="DB_LookupPartner"/>
+          <property name="operationName" value="executeNclseaNcl_Wesb_Get_Client_ProgramsBG"/>
+          <inputTerminal type="ns4:executeNclseaNcl_Wesb_Get_Client_ProgramsBGRequestMsg"/>
+          <outputTerminal type="ns4:executeNclseaNcl_Wesb_Get_Client_ProgramsBGResponseMsg">
+            <wire targetNode="XSLT_StoreClinetPref"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns4:executeNclseaNcl_Wesb_Get_Client_ProgramsBGRequestMsg">
+            <wire targetNode="XSLT_err_14"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="XSLT_err_13"/>
+          </failTerminal>
+        </node>
+        <node name="XSLT_StoreClinetPref" type="XSLTransformation" mfcex:x="3835" mfcex:y="227">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation4_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation4_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal/>
+          <outputTerminal type="ns1:Perform_NCL_CruiseRetrieveClientResponseMsg">
+            <wire targetNode="XSLT_BuildResp"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Fail13"/>
+          </failTerminal>
+        </node>
+        <node name="XSLT_getClientPref" type="XSLTransformation" mfcex:x="3547" mfcex:y="234">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation1_req_4.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation1_req_4.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal/>
+          <outputTerminal type="ns4:executeNclseaNcl_Wesb_Get_Client_ProgramsBGRequestMsg">
+            <wire targetNode="DB_GetClientPgm"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Fail12"/>
+          </failTerminal>
+        </node>
+        <node name="XSLT_BuildResp" type="XSLTransformation" mfcex:x="4027" mfcex:y="233">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation5_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation5_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal/>
+          <outputTerminal type="ns1:Perform_NCL_CruiseRetrieveClientResponseMsg">
+            <wire targetNode="NCL_CruiseRetrieveClient_Interface_Perform_NCL_CruiseRetrieveClient_InputResponse"/>
+            <wire targetNode="BOBuild_resp2"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Fail14"/>
+          </failTerminal>
+        </node>
+        <node name="TestClients" type="MessageFilter" mfcex:x="1550" mfcex:y="280">
+          <table name="filters">
+            <row>
+              <property name="pattern" value="count(/body/executeNclseaNcl_Wesb_Get_Client_ProfileBGResponse/executeNclseaNcl_Wesb_Get_Client_ProfileBGOutput/NclseaNcl_Wesb_Get_Client_Profile/p_cursor)>0"/>
+              <property name="terminalName" value="match3"/>
+            </row>
+          </table>
+          <inputTerminal/>
+          <outputTerminal name="default">
+            <wire targetNode="Error_no_Clients"/>
+          </outputTerminal>
+          <outputTerminal displayName="got_clients" name="match3">
+            <wire targetNode="bo_toencrypt"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Fail6"/>
+          </failTerminal>
+        </node>
+        <node name="Error_no_Clients" type="XSLTransformation" mfcex:x="1836" mfcex:y="349">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/Error_no_Clients_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/Error_no_Clients_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns1:Perform_NCL_CruiseRetrieveClientResponseMsg">
+            <wire targetNode="NCL_CruiseRetrieveClient_Interface_Perform_NCL_CruiseRetrieveClient_InputResponse"/>
+            <wire targetNode="BO_BuildResp1"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Stop13"/>
+          </failTerminal>
+        </node>
+        <node name="Stop2" type="Stop" mfcex:x="3869" mfcex:y="776">
+          <inputTerminal type="XMLSchema:anyType"/>
+        </node>
+        <node name="XSLT_ErrorReadClient" type="XSLTransformation" mfcex:x="1474" mfcex:y="429">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation6_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation6_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns4:executeNclseaNcl_Wesb_Get_Client_ProfileBGResponseMsg">
+            <wire targetNode="XSLTransformation2"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Stop12"/>
+          </failTerminal>
+        </node>
+        <node name="DB_GetLatitudeData" type="ServiceInvoke" mfcex:x="1971" mfcex:y="167">
+          <property name="referenceName" value="JDBCImport1Partner"/>
+          <property name="operationName" value="executeNclseaNcl_Lat_Get_Client_Data"/>
+          <inputTerminal type="JDBCImport1:executeNclseaNcl_Lat_Get_Client_DataRequestMsg"/>
+          <outputTerminal type="JDBCImport1:executeNclseaNcl_Lat_Get_Client_DataResponseMsg">
+            <wire targetNode="XSLT_StoreLat"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="JDBCImport1:executeNclseaNcl_Lat_Get_Client_DataRequestMsg">
+            <wire targetNode="XSLT_db_lat_err"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="XSLT_ErrorReadingLat"/>
+          </failTerminal>
+        </node>
+        <node name="xslt_loadGetLatData" type="XSLTransformation" mfcex:x="1864" mfcex:y="201">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/xslt_loadGetLatData_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/xslt_loadGetLatData_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal/>
+          <outputTerminal type="JDBCImport1:executeNclseaNcl_Lat_Get_Client_DataRequestMsg">
+            <wire targetNode="DB_GetLatitudeData"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Fail7"/>
+          </failTerminal>
+        </node>
+        <node name="XSLT_StoreLat" type="XSLTransformation" mfcex:x="2152" mfcex:y="131">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLT_StoreLatData.xsl"/>
+          <property name="XMXMap" value="xslt/XSLT_StoreLatData.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal/>
+          <outputTerminal type="ns1_3:processEncryptDecryptRequest">
+            <wire targetNode="MessageFilter3"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Fail8"/>
+          </failTerminal>
+        </node>
+        <node name="XSLT_ErrorReadingLat" type="XSLTransformation" mfcex:x="2097" mfcex:y="237">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation8_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation8_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal/>
+          <outputTerminal type="ns1_3:processEncryptDecryptRequest">
+            <wire targetNode="MessageFilter3"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Stop14"/>
+          </failTerminal>
+        </node>
+        <node name="Seaware_Down" type="XSLTransformation" mfcex:x="3226" mfcex:y="330">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/Seaware_Down_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/Seaware_Down_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns1:Perform_NCL_CruiseRetrieveClientResponseMsg">
+            <wire targetNode="XSLT_BuildResp"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Stop15"/>
+          </failTerminal>
+        </node>
+        <node name="DB_Getnext" type="ServiceInvoke" mfcex:x="465" mfcex:y="356">
+          <property name="referenceName" value="JDBCImportPartner"/>
+          <property name="operationName" value="retrieveallgetNext"/>
+          <inputTerminal type="ns7:retrieveallgetNextRequestMsg"/>
+          <outputTerminal type="ns7:retrieveallgetNextResponseMsg">
+            <wire targetNode="XSLT_storeGetnext"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns7:retrieveallgetNextRequestMsg">
+            <wire targetNode="Fail2"/>
+          </outputTerminal>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="retrieveallgetNextRecordNotFoundFaultMsg" type="ns7:retrieveallgetNextRecordNotFoundFaultMsg">
+            <wire targetNode="Fail2"/>
+          </outputTerminal>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="retrieveallgetNextMatchesExceededLimitFaultMsg" type="ns7:retrieveallgetNextMatchesExceededLimitFaultMsg">
+            <wire targetNode="Fail2"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Fail2"/>
+          </failTerminal>
+        </node>
+        <node name="xslt_loadGetnext" type="XSLTransformation" mfcex:x="322" mfcex:y="369">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/xslt_loadGetnext_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/xslt_loadGetnext_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal/>
+          <outputTerminal type="ns7:retrieveallgetNextRequestMsg">
+            <wire targetNode="DB_Getnext"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Fail1"/>
+          </failTerminal>
+        </node>
+        <node name="XSLT_storeGetnext" type="XSLTransformation" mfcex:x="558" mfcex:y="353">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLT_retrieveNextVal.xsl"/>
+          <property name="XMXMap" value="xslt/XSLT_retrieveNextVal.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal/>
+          <outputTerminal type="ns1_2:TP_InsertUpdateRequestMsg">
+            <wire targetNode="BO_buildLoger"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Fail3"/>
+          </failTerminal>
+        </node>
+        <node name="BO_buildLoger" type="BOMapper" mfcex:x="733" mfcex:y="355">
+          <property name="root" value="/"/>
+          <property name="mappingFile" value="bo_loadLogger.map"/>
+          <inputTerminal/>
+          <outputTerminal type="ns1_2:TP_InsertUpdateRequestMsg">
+            <wire targetNode="ReqLogger"/>
+            <wire targetNode="MessageFilter2"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Fail4"/>
+          </failTerminal>
+        </node>
+        <node name="Stop3" type="Stop" mfcex:x="3606" mfcex:y="647">
+          <inputTerminal/>
+        </node>
+        <node name="Stop4" type="Stop" mfcex:x="3652" mfcex:y="775">
+          <inputTerminal/>
+        </node>
+        <node name="XSLT_err_5" type="XSLTransformation" mfcex:x="1561" mfcex:y="599">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLT_err_5_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLT_err_5_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns1:Perform_NCL_CruiseRetrieveClientResponseMsg">
+            <wire targetNode="NCL_CruiseRetrieveClient_Interface_Perform_NCL_CruiseRetrieveClient_InputResponse"/>
+            <wire targetNode="BOBuild_resp2"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Stop10"/>
+          </failTerminal>
+        </node>
+        <node name="Stop10" type="Stop" mfcex:x="1671" mfcex:y="674">
+          <inputTerminal/>
+        </node>
+        <node name="Stop12" type="Stop" mfcex:x="1628" mfcex:y="506">
+          <inputTerminal/>
+        </node>
+        <node name="Stop13" type="Stop" mfcex:x="1956" mfcex:y="445">
+          <inputTerminal/>
+        </node>
+        <node name="Stop14" type="Stop" mfcex:x="2202" mfcex:y="444">
+          <inputTerminal/>
+        </node>
+        <node name="Stop15" type="Stop" mfcex:x="3329" mfcex:y="407">
+          <inputTerminal/>
+        </node>
+        <node name="XSLT_swResTimeout" type="XSLTransformation" mfcex:x="3206" mfcex:y="404">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLT_swResTimeout_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLT_swResTimeout_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns1:Perform_NCL_CruiseRetrieveClientResponseMsg">
+            <wire targetNode="NCL_CruiseRetrieveClient_Interface_Perform_NCL_CruiseRetrieveClient_InputResponse"/>
+            <wire targetNode="XSLTransformation2"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Stop18"/>
+          </failTerminal>
+        </node>
+        <node name="Stop17" type="Stop" mfcex:x="2988" mfcex:y="481">
+          <inputTerminal/>
+        </node>
+        <node name="Stop18" type="Stop" mfcex:x="3354" mfcex:y="492">
+          <inputTerminal/>
+        </node>
+        <node name="XSLT_db_lat_err" type="XSLTransformation" mfcex:x="2178" mfcex:y="506">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLT_db_lat_err_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLT_db_lat_err_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal/>
+          <outputTerminal type="ns1:Perform_NCL_CruiseRetrieveClientResponseMsg">
+            <wire targetNode="NCL_CruiseRetrieveClient_Interface_Perform_NCL_CruiseRetrieveClient_InputResponse"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLT_err_13" type="XSLTransformation" mfcex:x="3069" mfcex:y="504">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLT_err_13_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLT_err_13_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal/>
+          <outputTerminal type="ns1:Perform_NCL_CruiseRetrieveClientResponseMsg">
+            <wire targetNode="NCL_CruiseRetrieveClient_Interface_Perform_NCL_CruiseRetrieveClient_InputResponse"/>
+            <wire targetNode="BOBuild_resp2"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Stop24"/>
+          </failTerminal>
+        </node>
+        <node name="Stop24" type="Stop" mfcex:x="3214" mfcex:y="553">
+          <inputTerminal/>
+        </node>
+        <node name="XSLT_err_14" type="XSLTransformation" mfcex:x="3062" mfcex:y="594">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation1_req_10.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation1_req_10.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal/>
+          <outputTerminal type="ns1:Perform_NCL_CruiseRetrieveClientResponseMsg">
+            <wire targetNode="NCL_CruiseRetrieveClient_Interface_Perform_NCL_CruiseRetrieveClient_InputResponse"/>
+            <wire targetNode="BOBuild_resp2"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Stop25"/>
+          </failTerminal>
+        </node>
+        <node name="Stop25" type="Stop" mfcex:x="3195" mfcex:y="644">
+          <inputTerminal/>
+        </node>
+        <node name="Encruypt_decrypt" type="ServiceInvoke" mfcex:x="2797" mfcex:y="231">
+          <property name="referenceName" value="Encrypt_Decrypt_InterfacePartner"/>
+          <property name="operationName" value="processEncryptDecrypt"/>
+          <inputTerminal type="ns5:processEncryptDecryptRequest"/>
+          <outputTerminal type="ns5:processEncryptDecryptResponse">
+            <wire targetNode="XSLTransformation3"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns5:processEncryptDecryptRequest">
+            <wire targetNode="XSLT_swResTimeout"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Seaware_Down"/>
+          </failTerminal>
+        </node>
+        <node name="XSLTransformation1" type="XSLTransformation" mfcex:x="2665" mfcex:y="230">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation1_req_11.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation1_req_11.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1_3:processEncryptDecryptRequest"/>
+          <outputTerminal type="ns5:processEncryptDecryptRequest">
+            <wire targetNode="Encruypt_decrypt"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLT_buildGetClinet_profile" type="XSLTransformation" mfcex:x="1004" mfcex:y="284">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation2_req_2.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation2_req_2.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1_2:TP_InsertUpdateRequestMsg"/>
+          <outputTerminal type="ns4:executeNclseaNcl_Wesb_Get_Client_ProfileBGRequestMsg">
+            <wire targetNode="GetCLient_profile"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Fail5"/>
+          </failTerminal>
+        </node>
+        <node name="XSLTransformation3" type="XSLTransformation" mfcex:x="2898" mfcex:y="226">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation3_req_2.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation3_req_2.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns5:processEncryptDecryptResponse"/>
+          <outputTerminal type="ns1_3:processEncryptDecryptResponse">
+            <wire targetNode="XSLT_getVacationPref"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="Fail1" type="Fail" mfcex:x="452" mfcex:y="502">
+          <property name="errorMessage" value="fail term xslt_loadGetnext"/>
+          <inputTerminal/>
+        </node>
+        <node name="Fail2" type="Fail" mfcex:x="560" mfcex:y="518">
+          <property name="errorMessage" value="fail and error term DB_Getnext"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+        </node>
+        <node name="Fail3" type="Fail" mfcex:x="664" mfcex:y="512">
+          <property name="errorMessage" value="fail term xslt_storeGetnext"/>
+          <inputTerminal/>
+        </node>
+        <node name="Fail4" type="Fail" mfcex:x="820" mfcex:y="522">
+          <property name="errorMessage" value="fril term from BO_guildLogger"/>
+          <inputTerminal/>
+        </node>
+        <node name="Fail5" type="Fail" mfcex:x="1164" mfcex:y="513">
+          <property name="errorMessage" value="fail term xslt_buildGetClient_prof"/>
+          <inputTerminal/>
+        </node>
+        <node name="Fail6" type="Fail" mfcex:x="1731" mfcex:y="404">
+          <property name="errorMessage" value="fail term TestClients"/>
+          <inputTerminal/>
+        </node>
+        <node name="Fail7" type="Fail" mfcex:x="2036" mfcex:y="346">
+          <property name="errorMessage" value="fail term xslt_loadGetLatData"/>
+          <inputTerminal/>
+        </node>
+        <node name="Fail8" type="Fail" mfcex:x="2257" mfcex:y="153">
+          <property name="errorMessage" value="fail term xslt_StoreLat"/>
+          <inputTerminal/>
+        </node>
+        <node name="Fail9" type="Fail" mfcex:x="3440" mfcex:y="353">
+          <property name="errorMessage" value="timeout db_GetVacPref"/>
+          <inputTerminal/>
+        </node>
+        <node name="Fail10" type="Fail" mfcex:x="3453" mfcex:y="433">
+          <property name="errorMessage" value="fail pin db_getVacPref"/>
+          <inputTerminal/>
+        </node>
+        <node name="Fail11" type="Fail" mfcex:x="3564" mfcex:y="374">
+          <property name="errorMessage" value="fail term from xslt_storeVacPerf"/>
+          <inputTerminal/>
+        </node>
+        <node name="Fail12" type="Fail" mfcex:x="3695" mfcex:y="465">
+          <property name="errorMessage" value="fail term xslt_getClinetPerf"/>
+          <inputTerminal/>
+        </node>
+        <node name="Fail13" type="Fail" mfcex:x="3980" mfcex:y="404">
+          <property name="errorMessage" value="fail term xslt_StoreClientPref"/>
+          <inputTerminal/>
+        </node>
+        <node name="Fail14" type="Fail" mfcex:x="4152" mfcex:y="400">
+          <property name="errorMessage" value="fail term xslt_buildResp"/>
+          <inputTerminal/>
+        </node>
+        <node name="GetClient_Profile_Sabre" type="ServiceInvoke" mfcex:x="1313" mfcex:y="121">
+          <property name="referenceName" value="JDBCImport2Partner"/>
+          <property name="operationName" value="executeNclseaNcl_Wesb_Get_Client_Prof_V1"/>
+          <inputTerminal type="ns9:executeNclseaNcl_Wesb_Get_Client_Prof_V1RequestMsg"/>
+          <outputTerminal type="ns9:executeNclseaNcl_Wesb_Get_Client_Prof_V1ResponseMsg">
+            <wire targetNode="MessageFilter1"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns9:executeNclseaNcl_Wesb_Get_Client_Prof_V1RequestMsg">
+            <wire targetNode="XSLT_err_5"/>
+          </outputTerminal>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="executeNclseaNcl_Wesb_Get_Client_Prof_V1UniqueConstraintFaultMsg" type="ns9:executeNclseaNcl_Wesb_Get_Client_Prof_V1UniqueConstraintFaultMsg">
+            <wire targetNode="XSLT_err_5"/>
+          </outputTerminal>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="executeNclseaNcl_Wesb_Get_Client_Prof_V1IntegrityConstraintFaultMsg" type="ns9:executeNclseaNcl_Wesb_Get_Client_Prof_V1IntegrityConstraintFaultMsg">
+            <wire targetNode="XSLT_err_5"/>
+          </outputTerminal>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="executeNclseaNcl_Wesb_Get_Client_Prof_V1RecordNotFoundFaultMsg" type="ns9:executeNclseaNcl_Wesb_Get_Client_Prof_V1RecordNotFoundFaultMsg">
+            <wire targetNode="XSLT_err_5"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="XSLT_ErrorReadClient"/>
+          </failTerminal>
+        </node>
+        <node name="MessageFilter1" type="MessageFilter" mfcex:x="1497" mfcex:y="122">
+          <table name="filters">
+            <row>
+              <property name="pattern" value="count(/body/executeNclseaNcl_Wesb_Get_Client_Prof_V1Response/executeNclseaNcl_Wesb_Get_Client_Prof_V1Output/p_cursor) > 0"/>
+              <property name="terminalName" value="match3"/>
+            </row>
+          </table>
+          <inputTerminal/>
+          <outputTerminal name="default">
+            <wire targetNode="Error_no_Clients"/>
+          </outputTerminal>
+          <outputTerminal displayName="got_clients" name="match3">
+            <wire targetNode="XSLT_toencrypt"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Fail6"/>
+          </failTerminal>
+        </node>
+        <node name="XSLT_toencrypt" type="XSLTransformation" mfcex:x="1737" mfcex:y="117">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLT_toencrypt_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLT_toencrypt_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns9:executeNclseaNcl_Wesb_Get_Client_Prof_V1ResponseMsg"/>
+          <outputTerminal type="ns1_3:processEncryptDecryptRequest">
+            <wire targetNode="xslt_loadGetLatData"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLTransformation4" type="XSLTransformation" mfcex:x="1037" mfcex:y="132">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation4_req_2.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation4_req_2.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1_2:TP_InsertUpdateRequestMsg"/>
+          <outputTerminal type="ns9:executeNclseaNcl_Wesb_Get_Client_Prof_V1RequestMsg">
+            <wire targetNode="GetClient_Profile_Sabre"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="MessageFilter2" type="MessageFilter" mfcex:x="896" mfcex:y="217">
+          <table name="filters">
+            <row>
+              <property name="pattern" value="substring(/context/correlation/NCL_CruiseRetrieveClientRQ/POS/Source/BookingChannel/CompanyName/@Code, 1,6) = 'NCLWEB'"/>
+              <property name="terminalName" value="match2"/>
+            </row>
+            <row>
+              <property name="pattern" value="substring(/context/correlation/NCL_CruiseRetrieveClientRQ/POS/Source/BookingChannel/CompanyName/@Code, 1,6) != 'NCLWEB'"/>
+              <property name="terminalName" value="match3"/>
+            </row>
+          </table>
+          <inputTerminal/>
+          <outputTerminal name="default"/>
+          <outputTerminal displayName="NCLWEB" name="match2">
+            <wire targetNode="XSLT_buildGetClinet_profile"/>
+          </outputTerminal>
+          <outputTerminal displayName="NOT_NCLWEB" name="match3">
+            <wire targetNode="XSLTransformation4"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="MessageFilter3" type="MessageFilter" mfcex:x="2410" mfcex:y="168">
+          <table name="filters">
+            <row>
+              <property name="pattern" value="string-length(/context/correlation/NCL_CruiseRetrieveClientRS/UserLogin/@Password)> '0'"/>
+              <property name="terminalName" value="match2"/>
+            </row>
+          </table>
+          <inputTerminal/>
+          <outputTerminal name="default">
+            <wire targetNode="XSLT_getVacationPref"/>
+          </outputTerminal>
+          <outputTerminal displayName="gotPassword" name="match2">
+            <wire targetNode="XSLTransformation1"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLTransformation2" type="XSLTransformation" mfcex:x="3708" mfcex:y="371">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation2_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation2_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns1:Perform_NCL_CruiseRetrieveClientResponseMsg">
+            <wire targetNode="BO_BuildResp1"/>
+            <wire targetNode="NCL_CruiseRetrieveClient_Interface_Perform_NCL_CruiseRetrieveClient_InputResponse"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </requestFlow>
+      <errorFlow>
+        <node displayName="Perform_NCL_CruiseRetrieveClient : NCL_CruiseRetrieveClient_Interface" name="NCL_CruiseRetrieveClient_Interface_Perform_NCL_CruiseRetrieveClient_ErrorInput" type="ErrorInput">
+          <outputTerminal name="catchAll" type="XMLSchema:anyType"/>
+        </node>
+        <node displayName="Perform_NCL_CruiseRetrieveClient : NCL_CruiseRetrieveClient_Interface" name="NCL_CruiseRetrieveClient_Interface_Perform_NCL_CruiseRetrieveClient_InputResponse" type="InputResponse">
+          <inputTerminal type="ns1:Perform_NCL_CruiseRetrieveClientResponseMsg"/>
+        </node>
+      </errorFlow>
+    </operation>
+  </interface>
+</mediationFlow>

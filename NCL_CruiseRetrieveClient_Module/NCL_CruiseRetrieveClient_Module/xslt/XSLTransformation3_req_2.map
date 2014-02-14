@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRetrieveClient_Module/xslt/XSLTransformation3_req_2" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRetrieveClient_Module/xslt/XSLTransformation3_req_2">
+    <input correlationContext="{http://NCL_CruiseRetrieveClient_Module}App_Context" message="{http://NCL_WESB_Shared_Library/Encrypt_Decrypt_Interface}processEncryptDecryptResponse" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRetrieveClient_Module}App_Context" message="{http://versonix.com/api/definitions}processEncryptDecryptResponse" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <mappingDeclaration name="XSLTransformation3_req_2">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="body/processEncryptDecryptResponse/Encrypt_Decrypt/Action"/>
+            <output path="body/processEncryptDecryptResponse/Encrypt_Decrypt/Action"/>
+        </move>
+        <move>
+            <input path="body/processEncryptDecryptResponse/Encrypt_Decrypt/EncryptString"/>
+            <output path="body/processEncryptDecryptResponse/Encrypt_Decrypt/EncryptString"/>
+        </move>
+        <move>
+            <input path="body/processEncryptDecryptResponse/Encrypt_Decrypt/DecryptString"/>
+            <output path="body/processEncryptDecryptResponse/Encrypt_Decrypt/DecryptString"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRQ"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRetrieveClientRS"/>
+            <output path="context/correlation/NCL_CruiseRetrieveClientRS"/>
+        </move>
+        <move>
+            <input path="body/processEncryptDecryptResponse/Encrypt_Decrypt/DecryptString"/>
+            <output path="context/correlation/DecriptedPassword"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

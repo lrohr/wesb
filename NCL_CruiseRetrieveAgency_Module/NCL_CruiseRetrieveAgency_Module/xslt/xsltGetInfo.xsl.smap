@@ -1,0 +1,16 @@
+* SMAP
+xsltGetInfo.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 xsltGetInfo.map
+/NCL_CruiseRetrieveAgency_Module/xslt/xsltGetInfo.map
+*L
+7:116,3
+6:112,4
+5:106,6
+4:100,6
+2:129,5
+3:94,6
+1:66,17
+*E

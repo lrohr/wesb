@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:ServiceMessageObject="smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FNCL_CruiseRetrieveGroupBookings_Module%257DApp_context/message%3D%257Bhttp%253A%252F%252FNCL_WESB_Shared_Library%252FNCL_CruiseRetrieveGroupBookings_Interface%257DPerform_NCL_CruiseRetrieveGroupBookingsResponseMsg/xpath%3D%252F/namespace%3DBOMap/smo.xsd" xmlns:bo_to_resp="http://NCL_CruiseRetrieveGroupBookings_Module" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" targetNamespace="http://NCL_CruiseRetrieveGroupBookings_Module">
+  <map:name>bo_to_resp</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="ServiceMessageObject:ServiceMessageObject" name="ServiceMessageObject"/>
+  <map:outputBusinessObjectVariable businessObjectRef="ServiceMessageObject:ServiceMessageObject" name="ServiceMessageObject_1"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseRetrieveGroupBookingsRQ/@Version"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/Perform_NCL_CruiseRetrieveGroupBookingsResponse/NCL_CruiseRetrieveGroupBookingsRS/@Version"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseRetrieveGroupBookingsRQ/@TransactionIdentifier"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/Perform_NCL_CruiseRetrieveGroupBookingsResponse/NCL_CruiseRetrieveGroupBookingsRS/@TransactionIdentifier"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/LogID"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/LogID"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="body/Perform_NCL_CruiseRetrieveGroupBookingsResponse/NCL_CruiseRetrieveGroupBookingsRS/Success"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/Perform_NCL_CruiseRetrieveGroupBookingsResponse/NCL_CruiseRetrieveGroupBookingsRS/Success"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="5">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="body/Perform_NCL_CruiseRetrieveGroupBookingsResponse/NCL_CruiseRetrieveGroupBookingsRS/GroupsInfo"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/Perform_NCL_CruiseRetrieveGroupBookingsResponse/NCL_CruiseRetrieveGroupBookingsRS/GroupsInfo"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="6">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="body/Perform_NCL_CruiseRetrieveGroupBookingsResponse/NCL_CruiseRetrieveGroupBookingsRS/Warnings/Warning[1]/@Code"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/Perform_NCL_CruiseRetrieveGroupBookingsResponse/NCL_CruiseRetrieveGroupBookingsRS/Warnings/Warning[1]/@Code"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="7">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="body/Perform_NCL_CruiseRetrieveGroupBookingsResponse/NCL_CruiseRetrieveGroupBookingsRS/Warnings/Warning[1]/@ShortText"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/Perform_NCL_CruiseRetrieveGroupBookingsResponse/NCL_CruiseRetrieveGroupBookingsRS/Warnings/Warning[1]/@ShortText"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="8">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseRetrieveGroupBookingsRQ/@MaxResponses"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/Perform_NCL_CruiseRetrieveGroupBookingsResponse/NCL_CruiseRetrieveGroupBookingsRS/@MaxResponses"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="9">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseRetrieveGroupBookingsRQ/@MoreIndicator"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/Perform_NCL_CruiseRetrieveGroupBookingsResponse/NCL_CruiseRetrieveGroupBookingsRS/@MoreDataEchoToken"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

@@ -1,0 +1,15 @@
+* SMAP
+xslt_load_consumer.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 xslt_load_consumer.map
+/NCL_CruiseRtrvNameList_Module/xslt/xslt_load_consumer.map
+*L
+3:94,5
+1:62,17
+6:115,10
+2:90,4
+4:109,6
+5:125,9
+*E

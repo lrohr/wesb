@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="DB_Lookup.wsdl" targetNamespace="http://NCL_CruiseRetrieveClient_Module/DB_Lookup" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_profilebg" xmlns:bons2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_programsbg" xmlns:bons3="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_vacat_prefbg" xmlns:tns="http://NCL_CruiseRetrieveClient_Module/DB_Lookup" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://NCL_CruiseRetrieveClient_Module/DB_Lookup">
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_programsbg" schemaLocation="NclseaNcl_Wesb_Get_Client_ProgramsBG.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_profilebg" schemaLocation="NclseaNcl_Wesb_Get_Client_ProfileBG.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_vacat_prefbg" schemaLocation="NclseaNcl_Wesb_Get_Client_Vacat_PrefBG.xsd"/>
+      <xsd:element name="executeNclseaNcl_Wesb_Get_Client_ProfileBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Get_Client_ProfileBGInput" type="bons1:NclseaNcl_Wesb_Get_Client_ProfileBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Get_Client_ProfileBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Get_Client_ProfileBGOutput" type="bons1:NclseaNcl_Wesb_Get_Client_ProfileBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Get_Client_ProgramsBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Get_Client_ProgramsBGInput" type="bons2:NclseaNcl_Wesb_Get_Client_ProgramsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Get_Client_ProgramsBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Get_Client_ProgramsBGOutput" type="bons2:NclseaNcl_Wesb_Get_Client_ProgramsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGInput" type="bons3:NclseaNcl_Wesb_Get_Client_Vacat_PrefBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGOutput" type="bons3:NclseaNcl_Wesb_Get_Client_Vacat_PrefBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeNclseaNcl_Wesb_Get_Client_ProfileBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Get_Client_ProfileBG" name="executeNclseaNcl_Wesb_Get_Client_ProfileBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Get_Client_ProfileBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Get_Client_ProfileBGResponse" name="executeNclseaNcl_Wesb_Get_Client_ProfileBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Get_Client_ProgramsBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Get_Client_ProgramsBG" name="executeNclseaNcl_Wesb_Get_Client_ProgramsBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Get_Client_ProgramsBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Get_Client_ProgramsBGResponse" name="executeNclseaNcl_Wesb_Get_Client_ProgramsBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBG" name="executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse" name="executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResult"/>
+  </wsdl:message>
+  <wsdl:portType name="DB_Lookup">
+    <wsdl:operation name="executeNclseaNcl_Wesb_Get_Client_ProfileBG">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Get_Client_ProfileBGRequestMsg" name="executeNclseaNcl_Wesb_Get_Client_ProfileBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Get_Client_ProfileBGResponseMsg" name="executeNclseaNcl_Wesb_Get_Client_ProfileBGResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="executeNclseaNcl_Wesb_Get_Client_ProgramsBG">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Get_Client_ProgramsBGRequestMsg" name="executeNclseaNcl_Wesb_Get_Client_ProgramsBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Get_Client_ProgramsBGResponseMsg" name="executeNclseaNcl_Wesb_Get_Client_ProgramsBGResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBG">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGRequestMsg" name="executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponseMsg" name="executeNclseaNcl_Wesb_Get_Client_Vacat_PrefBGResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,10 @@
+* SMAP
+XSL_handle_warning.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSL_handle_warning.map
+/NCL_CruiseRtrvNameList_Module/xslt/XSL_handle_warning.map
+*L
+1:47,17
+*E

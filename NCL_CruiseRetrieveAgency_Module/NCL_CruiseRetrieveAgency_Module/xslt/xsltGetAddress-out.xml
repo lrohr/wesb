@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<io20:smo xmlns:io20="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:io25="http://www.w3.org/2005/08/addressing" xmlns:io24="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agc_cont_prf" xmlns:io22="http://NCL_CruiseRetrieveAgency_Module/JDBCOutboundInterface" xmlns:io23="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0" xmlns:io21="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:io19="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_addressbg" xmlns:io18="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_addressp_cursor" xmlns:io17="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_address" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:io16="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_phonebg" xmlns:io15="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_phonep_cursor" xmlns:io14="http://NCL_CruiseRetrieveAgency_Module" xmlns:io13="http://nclapi/schemas" xmlns:io12="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:io11="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_phone" xmlns:io10="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:io8="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_infobg" xmlns:io9="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_infop_cursor" xmlns:io6="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_emailbg" xmlns:io7="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_emailp_cursor" xmlns:io5="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_info" xmlns:io3="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_email" xmlns:io4="wsdl.http://NCL_CruiseRetrieveAgency_Module/JDBCOutboundInterface" xmlns:io="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agc_cont_prfbg" xmlns:io2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agc_cont_prfp_cursor">
+  <context>
+    <correlation>
+      <logId>logId</logId>
+      <errorCode>p_errorcode</errorCode>
+      <errorCode>errorCode</errorCode>
+      <errorText>errorText</errorText>
+      <p1:NCL_CruiseRetrieveAgencyRQ xmlns:p1="http://nclapi/schemas" xmlns:httpsca="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:mq="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:nclseancl_wesb_ar_get_agc_cont_prf="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agc_cont_prf" xmlns:nclseancl_wesb_ar_get_agc_cont_prfp_cursor="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agc_cont_prfp_cursor" xmlns:nclseancl_wesb_ar_get_agency_address="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_address" xmlns:nclseancl_wesb_ar_get_agency_addressp_cursor="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_addressp_cursor" xmlns:nclseancl_wesb_ar_get_agency_email="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_email" xmlns:nclseancl_wesb_ar_get_agency_emailp_cursor="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_emailp_cursor" xmlns:nclseancl_wesb_ar_get_agency_info="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_info" xmlns:nclseancl_wesb_ar_get_agency_infop_cursor="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_infop_cursor" xmlns:nclseancl_wesb_ar_get_agency_phone="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_phone" xmlns:nclseancl_wesb_ar_get_agency_phonep_cursor="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_phonep_cursor" xmlns:p="http://NCL_CruiseRetrieveAgency_Module" xmlns:p2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_infobg" xmlns:p3="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0" xmlns:p4="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_phonebg" xmlns:p5="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_emailbg" xmlns:p6="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agency_addressbg" xmlns:p7="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_ar_get_agc_cont_prfbg" xmlns:tns="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:tns1="http://NCL_CruiseRetrieveAgency_Module/JDBCOutboundInterface" xmlns:tns2="http://www.w3.org/2005/08/addressing" xmlns:tns_1="wsdl.http://NCL_CruiseRetrieveAgency_Module/JDBCOutboundInterface" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" AltLangID="EN" EchoToken="" MaxResponses="1" MoreDataEchoToken="" MoreIndicator="true" PrimaryLangID="EN" RetransmissionIndicator="true" SequenceNmbr="0" Target="Production" TimeStamp="2001-12-31T12:00:00" TransactionIdentifier="" TransactionStatusCode="Start" Version="0.0">
+        <p1:POS>
+          <p1:Source AgentDutyCode="" AgentSine="" AirlineVendorID="" AirportCode="" ERSP_UserID="" FirstDepartPoint="" ISOCountry="" ISOCurrency="" PseudoCityCode="" TerminalID="">
+            <p1:RequestorID ID="" ID_Context="" Instance="" MessagePassword="" Type="" URL="http://tempuri.org">
+              <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+            </p1:RequestorID>
+            <p1:Position Altitude="" AltitudeUnitOfMeasureCode="" Latitude="" Longitude=""/>
+            <p1:BookingChannel Primary="true" Type="">
+              <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+            </p1:BookingChannel>
+          </p1:Source>
+        </p1:POS>
+        <p1:AgencyInfo ARCNumber="" AgencyClassificationCode="" AgencyClassificationName="" AgencyType="" AgentDutyCode="" AgentSine="" AirlineVendorID="" AirportCode="" BusinessType="" CLIANumber="" CompanyType="" ERSP_UserID="" FirstDepartPoint="" IATANumber="" ISOCountry="" ISOCurrency="" IdentificationNumber="" LegalName="" OfficeCode="" PseudoCityCode="" TerminalID="" Website="">
+          <p1:RequestorID ID="" ID_Context="" Instance="" MessagePassword="" Type="" URL="http://tempuri.org">
+            <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+          </p1:RequestorID>
+          <p1:Position Altitude="" AltitudeUnitOfMeasureCode="" Latitude="" Longitude=""/>
+          <p1:BookingChannel Primary="true" Type="">
+            <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+          </p1:BookingChannel>
+          <p1:Telephone AreaCityCode="" CountryAccessCode="" DefaultInd="false" Extension="" FormattedInd="false" PIN="" PhoneLocationType="" PhoneNumber="" PhoneTechType="" PhoneUseType="" RPH="" ShareMarketInd="Yes" ShareSynchInd="Yes"/>
+          <p1:Address DefaultInd="false" FormattedInd="false" RPH="" ShareMarketInd="Yes" ShareSynchInd="Yes" Type="" UseType="">
+            <p1:StreetNmbr PO_Box="" RuralRouteNmbr="" StreetDirection="" StreetNmbrSuffix="">p1:StreetNmbr</p1:StreetNmbr>
+            <p1:BldgRoom>p1:BldgRoom</p1:BldgRoom>
+            <p1:AddressLine>p1:AddressLine</p1:AddressLine>
+            <p1:CityName>p1:CityName</p1:CityName>
+            <p1:PostalCode>p1:PostalCode</p1:PostalCode>
+            <p1:County>p1:County</p1:County>
+            <p1:StateProv StateCode="">p1:StateProv</p1:StateProv>
+            <p1:CountryName Code="">p1:CountryName</p1:CountryName>
+          </p1:Address>
+          <p1:Email DefaultInd="false" EmailType="" RPH="" ShareMarketInd="Yes" ShareSynchInd="Yes">p1:Email</p1:Email>
+          <p1:ContactPreferences ContactPreference=""/>
+        </p1:AgencyInfo>
+      </p1:NCL_CruiseRetrieveAgencyRQ>
+      <info>
+        <Get_Agency_Info>
+          <P_CURSOR>
+            <AGENCY_ID>0.0</AGENCY_ID>
+            <TAXPAYER_NUMBER>taxpayer_number</TAXPAYER_NUMBER>
+            <IATA_NUMBER>iata_number</IATA_NUMBER>
+            <ARC_NUMBER>arc_number</ARC_NUMBER>
+            <CLIA_NUMBER>clia_number</CLIA_NUMBER>
+            <AGENCY_NAME>agency_name</AGENCY_NAME>
+            <AGENCY_TYPE>agency_type</AGENCY_TYPE>
+            <OFFICE_CODE>office_code</OFFICE_CODE>
+            <AGENCY_CLASSIFICATION_CODE>agency_classification_code</AGENCY_CLASSIFICATION_CODE>
+            <AGENCY_CLASSIFICATION_NAME>agency_classification_name</AGENCY_CLASSIFICATION_NAME>
+            <DRS_DELIVERY_PREF_PREKIT>drs_delivery_pref_prekit</DRS_DELIVERY_PREF_PREKIT>
+            <DRS_DELIVERY_PREF_FINAL>drs_delivery_pref_final</DRS_DELIVERY_PREF_FINAL>
+          </P_CURSOR>
+        </Get_Agency_Info>
+      </info>
+    </correlation>
+  </context>
+  <body>
+    <io22:executeNclseaNcl_Wesb_Ar_Get_Agency_AddressBG>
+      <io22:executeNclseaNcl_Wesb_Ar_Get_Agency_AddressBGInput>
+        <NclseaNcl_Wesb_Ar_Get_Agency_Address>
+          <p_agencyid/>
+        </NclseaNcl_Wesb_Ar_Get_Agency_Address>
+      </io22:executeNclseaNcl_Wesb_Ar_Get_Agency_AddressBGInput>
+    </io22:executeNclseaNcl_Wesb_Ar_Get_Agency_AddressBG>
+  </body>
+</io20:smo>
