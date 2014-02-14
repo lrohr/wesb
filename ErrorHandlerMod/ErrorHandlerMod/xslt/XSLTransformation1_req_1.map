@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://ErrorHandlerMod/xslt/XSLTransformation1_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://ErrorHandlerMod/xslt/XSLTransformation1_req_1">
+    <input correlationContext="" message="{http://NCL_WESB_Shared_Library/ErrorHandlerInterface}handleAndGetResponseRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/body"/>
+    <output correlationContext="" message="{http://E-Mail_Generic/E-Mail_Interface}Send_Email1RequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/body"/>
+    <imports>
+        <import kind="xml" location="XSLTransformation1_req_1.xml"/>
+        <import kind="java" location="com.ncl.wesb.ErrorHandlerUtils" namespace="xalan://com.ncl.wesb.ErrorHandlerUtils"/>
+    </imports>
+    <namespaces>
+        <namespace kind="extension" prefix="ErrorHandlerUtils" uri="xalan://com.ncl.wesb.ErrorHandlerUtils"/>
+    </namespaces>
+    <mappingDeclaration name="XSLTransformation1_req_1">
+        <input path="body"/>
+        <output path="body"/>
+        <assign value="esbteam@ncl.com">
+            <output path="Send_Email1/To"/>
+        </assign>
+        <assign value="WESB Exception">
+            <output path="Send_Email1/Subject"/>
+        </assign>
+        <customFunction lang="java" ref="ErrorHandlerUtils:getEmailBody">
+            <input path="handleAndGetResponse/error" var="error"/>
+            <output path="Send_Email1/Content"/>
+            <param name="errorBO" value="$error"/>
+        </customFunction>
+    </mappingDeclaration>
+</mappingRoot>

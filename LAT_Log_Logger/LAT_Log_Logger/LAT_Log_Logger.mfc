@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:EmailServiceImport="http://LAT_Log_Logger/EmailServiceImport" xmlns:JDBCImport="http://LAT_Log_Logger/JDBCImport" xmlns:LAT_Log_Interface="http://LAT_Log_Logger/LAT_Log_Interface" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="LAT_Log_Logger" targetNamespace="http://LAT_Log_Logger/LAT_Log_Logger">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="LAT_Log_Interface:LAT_Log_Interface"/>
+  </interfaces>
+  <references>
+    <reference name="JDBCImportPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="JDBCImport:JDBCImport"/>
+    </reference>
+    <reference name="EmailServiceImportPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="EmailServiceImport:EmailServiceImport"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="LAT_Log_InsertUpdate" target="sendSimpleAlertEmail" sourcePortType="LAT_Log_Interface:LAT_Log_Interface" targetReference="EmailServiceImportPartner"/>
+  <extendedOperationBinding source="LAT_Log_InsertUpdate" target="executeNclseaNcl_Lat_Insert_Log" sourcePortType="LAT_Log_Interface:LAT_Log_Interface" targetReference="JDBCImportPartner"/>
+  <extendedOperationBinding source="LAT_Log_InsertUpdate" target="executeNclseaNcl_Lat_Update_Log" sourcePortType="LAT_Log_Interface:LAT_Log_Interface" targetReference="JDBCImportPartner"/>
+  <operationFlow medflow="LAT_Log_Logger.medflow"/>
+</mfc:interfaceMediationFlow>

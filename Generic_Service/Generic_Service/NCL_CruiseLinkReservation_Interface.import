@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Binding="http://NCL_WESB_Shared_Library/NCL_CruiseLinkReservation_Interface/Binding" xmlns:ns1="http://NCL_WESB_Shared_Library/NCL_CruiseLinkReservation_Interface" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:webservice="http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="NCL_CruiseLinkReservation_Interface" name="NCL_CruiseLinkReservation_Interface">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:NCL_CruiseLinkReservation_Interface">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="false"/>
+    </interface>
+  </interfaces>
+  <esbBinding xsi:type="webservice:WebServiceImportBinding" endpoint="http://localhost:9080/NCL_CruiseLinkReservation_ModuleWeb/sca/NCL_CruiseLinkReservation_InterfaceExport1" port="Binding:NCL_CruiseLinkReservation_InterfaceExport1_NCL_CruiseLinkReservation_InterfaceHttpPort" service="Binding:NCL_CruiseLinkReservation_InterfaceExport1_NCL_CruiseLinkReservation_InterfaceHttpService"/>
+</scdl:import>

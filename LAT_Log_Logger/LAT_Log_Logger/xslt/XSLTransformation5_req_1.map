@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://LAT_Log_Logger/xslt/XSLTransformation5_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://LAT_Log_Logger/xslt/XSLTransformation5_req_1">
+    <input correlationContext="" message="{http://LAT_Log_Logger/JDBCImport}executeNclseaNcl_Lat_Update_LogRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="" message="{http://LAT_Log_Logger/EmailServiceImport}sendSimpleAlertEmailRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLTransformation5_req_1.xml"/>
+    </imports>
+    <mappingDeclaration name="XSLTransformation5_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <assign value="esbteam@ncl.com">
+            <output path="body/sendSimpleAlertEmail/sendSimpleAlertEmailInput/To"/>
+        </assign>
+        <assign value="esbmon@ncl.com">
+            <output path="body/sendSimpleAlertEmail/sendSimpleAlertEmailInput/From"/>
+        </assign>
+        <assign value="Lat Logger Update Error">
+            <output path="body/sendSimpleAlertEmail/sendSimpleAlertEmailInput/Subject"/>
+        </assign>
+        <function ref="concat">
+            <input path="context/failInfo/failureString" var="failureString"/>
+            <input path="body/executeNclseaNcl_Lat_Update_Log/executeNclseaNcl_Lat_Update_LogInput/record_id" var="record_id"/>
+            <output path="body/sendSimpleAlertEmail/sendSimpleAlertEmailInput/mailContent"/>
+            <property key="defaultDelimiter" value="  :  "/>
+        </function>
+    </mappingDeclaration>
+</mappingRoot>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://LAT_Log_Logger/xslt/XSLTransformation1_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://LAT_Log_Logger/xslt/XSLTransformation1_req_1">
+    <input correlationContext="" message="{http://LAT_Log_Logger/LAT_Log_Interface}LAT_Log_InsertUpdateRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/body"/>
+    <output correlationContext="" message="{http://LAT_Log_Logger/JDBCImport}executeNclseaNcl_Lat_Insert_LogRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/body"/>
+    <imports>
+        <import kind="xml" location="XSLTransformation1_req_1.xml"/>
+    </imports>
+    <mappingDeclaration name="XSLTransformation1_req_1">
+        <input path="body"/>
+        <output path="body"/>
+        <move>
+            <input path="LAT_Log_InsertUpdate/RECORD_ID"/>
+            <output path="executeNclseaNcl_Lat_Insert_Log/executeNclseaNcl_Lat_Insert_LogInput/record_id"/>
+        </move>
+        <move>
+            <input path="LAT_Log_InsertUpdate/SOURCE_CD"/>
+            <output path="executeNclseaNcl_Lat_Insert_Log/executeNclseaNcl_Lat_Insert_LogInput/source"/>
+        </move>
+        <move>
+            <input path="LAT_Log_InsertUpdate/REQUEST_TS"/>
+            <output path="executeNclseaNcl_Lat_Insert_Log/executeNclseaNcl_Lat_Insert_LogInput/request_ts"/>
+        </move>
+        <move>
+            <input path="LAT_Log_InsertUpdate/REQUEST_TYPE_CD"/>
+            <output path="executeNclseaNcl_Lat_Insert_Log/executeNclseaNcl_Lat_Insert_LogInput/request_type"/>
+        </move>
+        <move>
+            <input path="LAT_Log_InsertUpdate/XML"/>
+            <output path="executeNclseaNcl_Lat_Insert_Log/executeNclseaNcl_Lat_Insert_LogInput/request_msg"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

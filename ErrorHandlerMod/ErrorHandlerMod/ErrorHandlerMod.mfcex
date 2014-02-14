@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:extensionmodel="http:///extensionmodel.ecore" xmlns:model="http:///com/ibm/wbit/sib/mediation/ui/ext/model" xmlns:sb="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+  <extensionmodel:ExtensionMap namespace="http:///com/ibm/wbit/sib/mediation/ui/ext/model">
+    <extensions>
+      <extendedObject href="ErrorHandlerMod.mfc#//@interfaceMediationFlow"/>
+      <extensionObject xsi:type="model:MediationFlowUIExtension" saveAsMultipleFiles="false">
+        <messageFlowUI autoLayout="false" id="{http://NCL_WESB_Shared_Library/ErrorHandlerInterface}ErrorHandlerInterface:handleAndGetResponse::request"/>
+      </extensionObject>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+  <extensionmodel:ExtensionMap namespace="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+    <extensions>
+      <extendedObject href="ErrorHandlerMod.mfc#//@interfaceMediationFlow"/>
+      <extensionObject xsi:type="sb:StickyDocument">
+        <stickyBoard id="{http://NCL_WESB_Shared_Library/ErrorHandlerInterface}ErrorHandlerInterface:handleAndGetResponse::request">
+          <stickyNote body="The fail terminal for handlerGenericErrorAndGetResponse &#xA;is never fired (we don't fire it in the code) so we don't have&#xA;to wire it to anything.">
+            <bounds x="738" y="183"/>
+            <association>
+              <target href="ErrorHandlerMod.medflow#MediationFlowLogicalPath:composite:root^composite:%7Bhttp%3A%2F%2FNCL_WESB_Shared_Library%2FErrorHandlerInterface%7DErrorHandlerInterface%3AhandleAndGetResponse%3A%3Arequest^node:handleGenericErrorAndGetResponse"/>
+            </association>
+          </stickyNote>
+        </stickyBoard>
+      </extensionObject>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+</xmi:XMI>

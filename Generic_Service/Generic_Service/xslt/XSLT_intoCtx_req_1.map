@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://Generic_Service/xslt/XSLT_intoCtx_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://Generic_Service/xslt/XSLT_intoCtx_req_1">
+    <input correlationContext="{http://Generic_Service}App_Context" message="{http://Generic_Service/Generic}Request_ResponseRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://Generic_Service}App_Context" message="{http://Generic_Service/EmailServiceImport}sendSimpleAlertEmailRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLT_intoCtx_req_1.xml"/>
+    </imports>
+    <mappingDeclaration name="XSLT_intoCtx_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <assign value="esbteam@ncl.com">
+            <output path="body/sendSimpleAlertEmail/sendSimpleAlertEmailInput/To"/>
+        </assign>
+        <assign value="esbmon@ncl.com">
+            <output path="body/sendSimpleAlertEmail/sendSimpleAlertEmailInput/From"/>
+        </assign>
+        <assign value="Error in to Ctx">
+            <output path="body/sendSimpleAlertEmail/sendSimpleAlertEmailInput/Subject"/>
+        </assign>
+        <function ref="concat">
+            <input path="context/failInfo/failureString" var="failureString"/>
+            <input path="body/Request_Response/message" var="message"/>
+            <output path="body/sendSimpleAlertEmail/sendSimpleAlertEmailInput/mailContent"/>
+            <property key="prefix" value=" :"/>
+            <property key="defaultDelimiter" value=" :"/>
+            <property key="postfix" value=" :"/>
+        </function>
+        <move>
+            <input path="context/failInfo/@lang"/>
+            <output path="context/correlation/failinfo_lang"/>
+        </move>
+        <move>
+            <input path="context/failInfo/failureString"/>
+            <output path="context/correlation/fainInfo_failureString"/>
+        </move>
+        <move>
+            <input path="context/failInfo/origin"/>
+            <output path="context/correlation/failInfo_Origin"/>
+        </move>
+        <move>
+            <input path="body/Request_Response/message"/>
+            <output path="context/correlation/request"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

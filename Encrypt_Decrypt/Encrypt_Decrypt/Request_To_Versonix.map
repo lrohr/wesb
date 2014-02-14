@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:Request_To_Versonix="http://Encrypt_Decrypt" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:processEncryptDecryptRequest="smo://smo/name%3Dwsdl-body/message%3D%257Bhttp%253A%252F%252Fversonix.com%252Fapi%252Fdefinitions%257DprocessEncryptDecryptRequest/xpath%3D%252Fbody/namespace%3DBOMap/smo.xsd" xmlns:processEncryptDecryptRequest_1="smo://smo/name%3Dwsdl-body/message%3D%257Bhttp%253A%252F%252FNCL_WESB_Shared_Library%252FEncrypt_Decrypt_Interface%257DprocessEncryptDecryptRequest/xpath%3D%252Fbody/namespace%3DBOMap/smo.xsd" targetNamespace="http://Encrypt_Decrypt">
+  <map:name>Request_To_Versonix</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="processEncryptDecryptRequest_1:processEncryptDecryptRequest" name="processEncryptDecryptRequest"/>
+  <map:outputBusinessObjectVariable businessObjectRef="processEncryptDecryptRequest:processEncryptDecryptRequest" name="processEncryptDecryptRequest_1"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="processEncryptDecryptRequest" property="processEncryptDecryptRequest/Encrypt_Decrypt/Action"/>
+      <map:output businessObjectVariableRef="processEncryptDecryptRequest_1" property="processEncryptDecryptRequest/Encrypt_Decrypt/Action"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="processEncryptDecryptRequest" property="processEncryptDecryptRequest/Encrypt_Decrypt/EncryptString"/>
+      <map:output businessObjectVariableRef="processEncryptDecryptRequest_1" property="processEncryptDecryptRequest/Encrypt_Decrypt/EncryptString"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:move>
+      <map:input businessObjectVariableRef="processEncryptDecryptRequest" property="processEncryptDecryptRequest/Encrypt_Decrypt/DecryptString"/>
+      <map:output businessObjectVariableRef="processEncryptDecryptRequest_1" property="processEncryptDecryptRequest/Encrypt_Decrypt/DecryptString"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

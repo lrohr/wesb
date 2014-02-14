@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Binding="http://Generic_Service/Generic/Binding" xmlns:ns1="http://Generic_Service/Generic" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:webservice="http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="GenericExport" name="GenericExport" target="Generic_Service">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:NCL_WESB_Generic_ReqRsp"/>
+  </interfaces>
+  <esbBinding xsi:type="webservice:WebServiceExportBinding" userContextPropagationEnabled="false" port="Binding:GenericExport_GenericHttpPort" service="Binding:GenericExport1_GenericHttpService"/>
+</scdl:export>

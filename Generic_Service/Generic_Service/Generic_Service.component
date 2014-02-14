@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0" xmlns:ns1="http://Generic_Service/Generic" xmlns:ns10="http://NCL_WESB_Shared_Library/NCL_CruiseCreateAgency_Interface" xmlns:ns11="http://NCL_WESB_Shared_Library/NCL_CruiseCreateAgent_Interface" xmlns:ns12="http://NCL_WESB_Shared_Library/NCL_CruiseCreateClient_Interface" xmlns:ns13="http://NCL_WESB_Shared_Library/NCL_CruiseFitConfirmation_Interface" xmlns:ns14="http://NCL_WESB_Shared_Library/NCL_CruiseGroupAccountingWorkup_Interface" xmlns:ns15="http://NCL_WESB_Shared_Library/NCL_CruiseGroupContract_Interface" xmlns:ns16="http://NCL_WESB_Shared_Library/NCL_CruiseLinkReservation_Interface" xmlns:ns17="http://NCL_WESB_Shared_Library/NCL_CruiseRegisterWebAccess_Interface" xmlns:ns18="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveAgency_Interface" xmlns:ns19="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveAgent_Interface" xmlns:ns2="http://NCL_Shared_Library/RetrieveNameList" xmlns:ns20="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveClient_Interface" xmlns:ns21="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveGroupBookings_Interface" xmlns:ns22="http://NCL_WESB_Shared_Library/NCL_CruiseRtrvNameList_Interface" xmlns:ns23="http://NCL_WESB_Shared_Library/ErrorHandlerInterface" xmlns:ns24="http://NCL_WESB_Shared_Library/NCL_LATITUDES_CLIENT_JRN_Interface" xmlns:ns25="http://NCL_WESB_Shared_Library/NCL_LATITUDES_POINTS_LOOKUP_Interface" xmlns:ns26="http://NCL_WESB_Shared_Library/NCL_LATITUDES_CLIENT_POINTS_TRG_Interface" xmlns:ns27="http://Generic_Service/EmailServiceImport" xmlns:ns3="http://NCL_Shared_Library/get_CheckBookingStatus" xmlns:ns4="http://Generic_Service/JDBCOutboundInterface" xmlns:ns5="http://NCL_Shared_Library/intuserauthenticate" xmlns:ns6="http://NCL_WESB_Shared_Library/NCL_CruiseUserAuthentication_Interface" xmlns:ns7="http://NCL_WESB_Shared_Library/NCL_CruiseBookingPayment_Interface" xmlns:ns8="http://NCL_WESB_Shared_Library/NCL_CruiseBookPackages_Interface" xmlns:ns9="http://NCL_WESB_Shared_Library/NCL_CruiseCheckBookingStatus_Interface" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="Generic_Service" name="Generic_Service">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:NCL_WESB_Generic_ReqRsp">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="true"/>
+    </interface>
+  </interfaces>
+  <references>
+    <reference name="NCL_CruiseUserAuthentication_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns6:NCL_CruiseUserAuthentication_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseUserAuthentication_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseBookingPayment_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns7:NCL_CruiseBookingPayment_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseBookingPayment_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseBookPackages_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns8:NCL_CruiseBookPackages_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseBookPackages_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseCheckBookingStatus_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns9:NCL_CruiseCheckBookingStatus_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseCheckBookingStatus_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseCreateAgency_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns10:NCL_CruiseCreateAgency_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseCreateAgency_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseCreateAgent_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns11:NCL_CruiseCreateAgent_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseCreateAgent_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseCreateClient_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns12:NCL_CruiseCreateClient_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseCreateClient_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseFitConfirmation_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns13:NCL_CruiseFitConfirmation_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseFitConfirmation_InterfaceImport1"/>
+    </reference>
+    <reference name="NCL_CruiseGroupAccountingWorkup_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns14:NCL_CruiseGroupAccountingWorkup_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseGroupAccountingWorkup_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseGroupContract_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns15:NCL_CruiseGroupContract_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseGroupContract_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseLinkReservation_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns16:NCL_CruiseLinkReservation_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseLinkReservation_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseRegisterWebAccess_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns17:NCL_CruiseRegisterWebAccess_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseRegisterWebAccess_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseRetrieveAgency_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns18:NCL_CruiseRetrieveAgency_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseRetrieveAgency_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseRetrieveAgent_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns19:NCL_CruiseRetrieveAgent_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseRetrieveAgent_InterfaceImport1"/>
+    </reference>
+    <reference name="NCL_CruiseRetrieveClient_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns20:NCL_CruiseRetrieveClient_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseRetrieveClient_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseRetrieveGroupBookings_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns21:NCL_CruiseRetrieveGroupBookings_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseRetrieveGroupBookings_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseRtrvNameList_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns22:NCL_CruiseRtrvNameList_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseRtrvNameList_Interface"/>
+    </reference>
+    <reference name="ErrorHandlerInterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns23:ErrorHandlerInterface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="ErrorHandlerImport"/>
+    </reference>
+    <reference name="NCL_LATITUDES_CLIENT_JRN_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns24:NCL_LATITUDES_CLIENT_JRN_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_LATITUDES_CLIENT_JRN_Interface"/>
+    </reference>
+    <reference name="NCL_LATITUDES_POINTS_LOOKUP_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns25:NCL_LATITUDES_POINTS_LOOKUP_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_LATITUDES_POINTS_LOOKUP_Interface"/>
+    </reference>
+    <reference name="NCL_LATITUDES_CLIENT_POINTS_TRG_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns26:NCL_LATITUDES_CLIENT_POINTS_TRG_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_LATITUDES_CLIENT_POINTS_TRG_Interface"/>
+    </reference>
+    <reference name="EmailServiceImportPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns27:EmailServiceImport"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="EmailServiceImport"/>
+    </reference>
+  </references>
+  <implementation xsi:type="mfc:MediationFlowImplementation" mfcFile="Generic_Service.mfc">
+    <scdl:implementationQualifier xsi:type="scdl:Transaction" value="global"/>
+  </implementation>
+</scdl:component>

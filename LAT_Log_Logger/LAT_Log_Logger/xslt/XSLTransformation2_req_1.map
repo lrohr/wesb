@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://LAT_Log_Logger/xslt/XSLTransformation2_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://LAT_Log_Logger/xslt/XSLTransformation2_req_1">
+    <input correlationContext="" message="{http://LAT_Log_Logger/LAT_Log_Interface}LAT_Log_InsertUpdateRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/body"/>
+    <output correlationContext="" message="{http://LAT_Log_Logger/JDBCImport}executeNclseaNcl_Lat_Update_LogRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/body"/>
+    <imports>
+        <import kind="xml" location="XSLTransformation2_req_1.xml"/>
+        <import kind="xslt" location="XSLTransformation2_req_1_custom.xsl"/>
+    </imports>
+    <mappingDeclaration name="XSLTransformation2_req_1">
+        <input path="body"/>
+        <output path="body"/>
+        <move>
+            <input path="LAT_Log_InsertUpdate/RESPONSE_TS"/>
+            <output path="executeNclseaNcl_Lat_Update_Log/executeNclseaNcl_Lat_Update_LogInput/response_ts"/>
+        </move>
+        <customFunction lang="xslt" location="XSLTransformation2_req_1_custom.xsl" ref="XMLToResponse_msg">
+            <input path="LAT_Log_InsertUpdate/XML" var="XML"/>
+            <output path="executeNclseaNcl_Lat_Update_Log/executeNclseaNcl_Lat_Update_LogInput/response_msg"/>
+            <param name="XML" value="$XML"/>
+        </customFunction>
+        <move>
+            <input path="LAT_Log_InsertUpdate/RECORD_ID"/>
+            <output path="executeNclseaNcl_Lat_Update_Log/executeNclseaNcl_Lat_Update_LogInput/record_id"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

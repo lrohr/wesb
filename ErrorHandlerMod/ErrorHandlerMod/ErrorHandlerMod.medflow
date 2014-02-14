@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:BOMapper.mednode="mednode://mednodes/BOMapper.mednode/BOMapper" xmlns:CustomMediation.mednode="mednode://mednodes/CustomMediation.mednode/CustomMediation" xmlns:ErrorHandlerMod.medflow="ErrorHandlerMod.medflow" xmlns:EventEmitter.mednode="mednode://mednodes/EventEmitter.mednode/EventEmitter" xmlns:Input.mednode="mednode://mednodes/Input.mednode/Input" xmlns:InputResponse.mednode="mednode://mednodes/InputResponse.mednode/InputResponse" xmlns:ServiceInvoke.mednode="mednode://mednodes/ServiceInvoke.mednode/ServiceInvoke" xmlns:Stop.mednode="mednode://mednodes/Stop.mednode/Stop" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow2="http://www.ibm.com/2006/eflow" xmlns:type="http://www.ibm.com/2006/eflow/type" xmlns:utility="http://www.ibm.com/2006/eflow/utility" name="root" nsURI="ErrorHandlerMod.medflow" nsPrefix="ErrorHandlerMod.medflow">
+  <eClassifiers xmi:type="eflow2:FCMComposite" name="root_I_2">
+    <eSuperTypes href="http://www.ibm.com/2006/eflow#//FCMBlock"/>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.name" name="name" lowerBound="1" defaultValueLiteral="">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <composition>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_1">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://NCL_WESB_Shared_Library/ErrorHandlerInterface}handleAndGetResponseRequestMsg"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_2">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://NCL_WESB_Shared_Library/ErrorHandlerInterface}handleAndGetResponseResponseMsg"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_3">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://E-Mail_Generic/E-Mail_Interface}Send_Email1RequestMsg"/>
+        </elements>
+      </type>
+      <nodes xmi:type="Input.mednode:Input" xmi:id="Input_1" name="ErrorHandlerInterface_handleAndGetResponse_Input">
+        <location x="10" y="212"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_1"/>
+        <translation xmi:type="utility:ConstantString" string="handleAndGetResponse : ErrorHandlerInterface"/>
+      </nodes>
+      <nodes xmi:type="InputResponse.mednode:InputResponse" xmi:id="InputResponse_1" name="ErrorHandlerInterface_handleAndGetResponse_InputResponse">
+        <location x="520" y="20"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_2"/>
+        <translation xmi:type="utility:ConstantString" string="handleAndGetResponse : ErrorHandlerInterface"/>
+      </nodes>
+      <nodes xmi:type="EventEmitter.mednode:EventEmitter" xmi:id="EventEmitter_1" name="EventEmitter1" label="ErrorHandlerMod_ErrorHandlerMod_EventEmitter1_Req" root="/">
+        <location x="205" y="104"/>
+        <outTerminals terminalNodeID="OutTerminal.out" type="CompositeType_1"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_1"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_1"/>
+        <translation xmi:type="utility:ConstantString" string="EventEmitter1"/>
+      </nodes>
+      <nodes xmi:type="ServiceInvoke.mednode:ServiceInvoke" xmi:id="ServiceInvoke_1" name="sendEmail" referenceName="E-Mail_InterfacePartner" operationName="Send_Email1">
+        <location x="328" y="212"/>
+        <outTerminals terminalNodeID="OutTerminal.timeout" explicitType="true" type="CompositeType_3"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_3"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_3"/>
+        <translation xmi:type="utility:ConstantString" string="sendEmail"/>
+      </nodes>
+      <nodes xmi:type="Stop.mednode:Stop" xmi:id="Stop_1" name="Stop1">
+        <location x="480" y="206"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_3"/>
+        <translation xmi:type="utility:ConstantString" string="Stop1"/>
+      </nodes>
+      <nodes xmi:type="BOMapper.mednode:BOMapper" xmi:id="BOMapper_1" name="BOMapper2" root="/body" mappingFile="errorToEmailBOMap.map">
+        <location x="209" y="212"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_3"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_1"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_1"/>
+        <translation xmi:type="utility:ConstantString" string="BOMapper2"/>
+      </nodes>
+      <nodes xmi:type="CustomMediation.mednode:CustomMediation" xmi:id="CustomMediation_1" name="handleGenericErrorAndGetResponse" javaCode="commonj.sdo.DataObject __smo = (commonj.sdo.DataObject)smo;&#xD;&#xA;java.lang.String __result__3 = &quot;An error occurred!&quot;;&#xD;&#xA;java.lang.String __result__2 = __smo.getDataObject(&quot;body&quot;).getDataObject(&quot;handleAndGetResponse&quot;).getDataObject(&quot;error&quot;).getString(&quot;inputString&quot;);&#xD;&#xA;com.ibm.websphere.sibx.smobo.ServiceMessageObject __result__4 = com.ncl.wesb.ErrorHandlerUtils.createErrorHandlerResponseSMO(__result__2, __result__3);&#xD;&#xA;out.fire(__result__4);&#xD;&#xA;&#xA;//@generated:com.ibm.wbit.activity.ui&#xA;//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>&#xA;//  &lt;parameters name=&quot;inputTerminal&quot;>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;com.ibm.wsspi.sibx.mediation.InputTerminal&quot;/>&#xA;//  &lt;/parameters>&#xA;//  &lt;parameters name=&quot;smo&quot; objectType=&quot;true&quot;>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;ServiceMessageObject&quot; namespace=&quot;http://www.ibm.com/websphere/sibx/smo/v6.0.1&quot;/>&#xA;//  &lt;/parameters>&#xA;//  &lt;exceptions>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;com.ibm.wsspi.sibx.mediation.MediationBusinessException&quot;/>&#xA;//  &lt;/exceptions>&#xA;//  &lt;exceptions>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;com.ibm.wsspi.sibx.mediation.MediationConfigurationException&quot;/>&#xA;//  &lt;/exceptions>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;out&quot; variable=&quot;true&quot;>&#xA;//    &lt;dataOutputs target=&quot;//@executableElements.4/@parameters.0&quot;/>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;com.ibm.wsspi.sibx.mediation.OutputTerminal&quot;/>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;smo.body.handleAndGetResponse.error.inputString&quot; field=&quot;true&quot;>&#xA;//    &lt;dataOutputs target=&quot;//@executableElements.3/@parameters.0&quot;/>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot; nillable=&quot;false&quot;/>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;An error occurred!&amp;quot;&quot; assignable=&quot;false&quot;>&#xA;//    &lt;dataOutputs target=&quot;//@executableElements.3/@parameters.1&quot;/>&#xA;//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;createErrorHandlerResponseSMO&quot; category=&quot;com.ncl.wesb.ErrorHandlerUtils&quot; className=&quot;com.ncl.wesb.ErrorHandlerUtils&quot; static=&quot;true&quot; memberName=&quot;createErrorHandlerResponseSMO&quot;>&#xA;//    &lt;parameters name=&quot;requestXmlStr&quot; dataInputs=&quot;//@executableElements.1/@dataOutputs.0&quot;>&#xA;//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>&#xA;//    &lt;/parameters>&#xA;//    &lt;parameters name=&quot;warningMsg&quot; dataInputs=&quot;//@executableElements.2/@dataOutputs.0&quot;>&#xA;//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>&#xA;//    &lt;/parameters>&#xA;//    &lt;result>&#xA;//      &lt;dataOutputs target=&quot;//@executableElements.4/@parameters.1&quot;/>&#xA;//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;com.ibm.websphere.sibx.smobo.ServiceMessageObject&quot;/>&#xA;//    &lt;/result>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;fire&quot; category=&quot;com.ibm.wsspi.sibx.mediation.OutputTerminal&quot; className=&quot;com.ibm.wsspi.sibx.mediation.OutputTerminal&quot; memberName=&quot;fire&quot;>&#xA;//    &lt;parameters name=&quot;OutputTerminal&quot; dataInputs=&quot;//@executableElements.0/@dataOutputs.0&quot;>&#xA;//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;com.ibm.wsspi.sibx.mediation.OutputTerminal&quot;/>&#xA;//    &lt;/parameters>&#xA;//    &lt;parameters name=&quot;smo&quot; dataInputs=&quot;//@executableElements.3/@result/@dataOutputs.0&quot;>&#xA;//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;ServiceMessageObject&quot; namespace=&quot;http://www.ibm.com/websphere/sibx/smo/v6.0.1&quot; nillable=&quot;false&quot;/>&#xA;//    &lt;/parameters>&#xA;//  &lt;/executableElements>&#xA;//  &lt;executableGroups executableElements=&quot;//@executableElements.0 //@executableElements.1 //@executableElements.2 //@executableElements.3 //@executableElements.4&quot;/>&#xA;//&lt;/com.ibm.wbit.activity:CompositeActivity>&#xA;//@generated:end&#xA;//!SMAP!*S WBIACTDBG&#xD;&#xA;//!SMAP!*L&#xD;&#xA;//!SMAP!2:3,1&#xD;&#xA;//!SMAP!3:2,1&#xD;&#xA;//!SMAP!4:4,1&#xD;&#xA;//!SMAP!5:5,1&#xD;&#xA;//!SMAP!1000000:64,1" javaClass="sca.component.mediation.java.Custom1259536982343" version="6.1.0">
+        <location x="299" y="20"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_1"/>
+        <outTerminals terminalNodeID="OutTerminal.dynamic:out:out" dynamic="true" label="out" longDescription="" type="CompositeType_2"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_1"/>
+        <translation xmi:type="utility:ConstantString" string="handleGenericErrorAndGetResponse"/>
+      </nodes>
+      <nodes xmi:type="Stop.mednode:Stop" xmi:id="Stop_2" name="Stop2">
+        <location x="328" y="116"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_1"/>
+        <translation xmi:type="utility:ConstantString" string="Stop2"/>
+      </nodes>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_1" targetNode="EventEmitter_1" sourceNode="Input_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_2" targetNode="BOMapper_1" sourceNode="Input_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_3" targetNode="CustomMediation_1" sourceNode="EventEmitter_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_4" targetNode="Stop_2" sourceNode="EventEmitter_1" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_5" targetNode="Stop_1" sourceNode="ServiceInvoke_1" sourceTerminalName="OutTerminal.timeout" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_6" targetNode="Stop_1" sourceNode="ServiceInvoke_1" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_7" targetNode="ServiceInvoke_1" sourceNode="BOMapper_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_8" targetNode="InputResponse_1" sourceNode="CustomMediation_1" sourceTerminalName="OutTerminal.dynamic:out:out" targetTerminalName="InTerminal.in"/>
+    </composition>
+    <propertyOrganizer>
+      <propertyDescriptor groupName="basic" describedAttribute="Property.name"/>
+    </propertyOrganizer>
+  </eClassifiers>
+  <eClassifiers xmi:type="eflow2:FCMComposite" name="root">
+    <eSuperTypes href="http://www.ibm.com/2006/eflow#//FCMBlock"/>
+    <composition>
+      <nodes xmi:type="ErrorHandlerMod.medflow:root_I_2" xmi:id="root_I_2_1" name="{http://NCL_WESB_Shared_Library/ErrorHandlerInterface}ErrorHandlerInterface:handleAndGetResponse::request"/>
+    </composition>
+    <propertyOrganizer/>
+  </eClassifiers>
+</ecore:EPackage>

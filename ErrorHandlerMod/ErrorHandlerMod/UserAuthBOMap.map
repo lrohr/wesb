@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:UserAuthBOMap="http://ErrorHandlerMod" xmlns:handleAndGetResponseRequestMsg="smo://smo/name%3Dwsdl-body/message%3D%257Bhttp%253A%252F%252FNCL_WESB_Shared_Library%252FErrorHandlerInterface%257DhandleAndGetResponseRequestMsg/xpath%3D%252Fbody/namespace%3DBOMap/types%3D%252Fbody%252FhandleAndGetResponse%252Ferror%252Finput%253D%257Bhttp%253A%252F%252Fnclapi%252Fschemas%257DNCL_CruiseUserAuthenticationRQ/smo.xsd" xmlns:handleAndGetResponseResponseMsg="smo://smo/name%3Dwsdl-body/message%3D%257Bhttp%253A%252F%252FNCL_WESB_Shared_Library%252FErrorHandlerInterface%257DhandleAndGetResponseResponseMsg/xpath%3D%252Fbody/namespace%3DBOMap/smo.xsd" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" targetNamespace="http://ErrorHandlerMod">
+  <map:name>UserAuthBOMap</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="handleAndGetResponseRequestMsg:handleAndGetResponseRequestMsg" name="handleAndGetResponseRequestMsg"/>
+  <map:outputBusinessObjectVariable businessObjectRef="handleAndGetResponseResponseMsg:handleAndGetResponseResponseMsg" name="handleAndGetResponseResponseMsg"/>
+  <map:propertyMap executionOrder="1">
+    <map:custom>
+      <map:input businessObjectVariableRef="handleAndGetResponseRequestMsg" property="handleAndGetResponse/error/input/@TransactionIdentifier"/>
+      <map:input businessObjectVariableRef="handleAndGetResponseRequestMsg" property="handleAndGetResponse/error/failureString"/>
+      <map:input businessObjectVariableRef="handleAndGetResponseRequestMsg" property="handleAndGetResponse/error/origin"/>
+      <map:input businessObjectVariableRef="handleAndGetResponseRequestMsg" property="handleAndGetResponse/error/primitive"/>
+      <map:output businessObjectVariableRef="handleAndGetResponseResponseMsg" property="handleAndGetResponseResponse/response"/>
+      <map:javaCode>java.lang.String __handleAndGetResponseRequestMsg_handleAndGetResponse_error_input_$aTransactionIdentifier = (java.lang.String)handleAndGetResponseRequestMsg_handleAndGetResponse_error_input_$aTransactionIdentifier;&#xD;
+java.lang.String __handleAndGetResponseRequestMsg_handleAndGetResponse_error_failureString = (java.lang.String)handleAndGetResponseRequestMsg_handleAndGetResponse_error_failureString;&#xD;
+java.lang.String __handleAndGetResponseRequestMsg_handleAndGetResponse_error_origin = (java.lang.String)handleAndGetResponseRequestMsg_handleAndGetResponse_error_origin;&#xD;
+java.lang.String __handleAndGetResponseRequestMsg_handleAndGetResponse_error_primitive = (java.lang.String)handleAndGetResponseRequestMsg_handleAndGetResponse_error_primitive;&#xD;
+commonj.sdo.DataObject __handleAndGetResponseResponseMsg_handleAndGetResponseResponse_response = (commonj.sdo.DataObject)handleAndGetResponseResponseMsg_handleAndGetResponseResponse_response;&#xD;
+java.lang.String __result__2 = &quot;An Error Occurred!&quot;;&#xD;
+commonj.sdo.DataObject __result__3 = com.ncl.wesb.ErrorHandlerUtils.createUserAuthenticationResponseBO(__handleAndGetResponseRequestMsg_handleAndGetResponse_error_input_$aTransactionIdentifier, __result__2);&#xD;
+__handleAndGetResponseResponseMsg_handleAndGetResponseResponse_response = __result__3;&#xD;
+handleAndGetResponseResponseMsg_handleAndGetResponseResponse_response = __handleAndGetResponseResponseMsg_handleAndGetResponseResponse_response;&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;handleAndGetResponseRequestMsg_handleAndGetResponse_error_input_$aTransactionIdentifier&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength1to32&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//  &lt;/parameters>
+//  &lt;parameters name=&quot;handleAndGetResponseRequestMsg_handleAndGetResponse_error_failureString&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/parameters>
+//  &lt;parameters name=&quot;handleAndGetResponseRequestMsg_handleAndGetResponse_error_origin&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/parameters>
+//  &lt;parameters name=&quot;handleAndGetResponseRequestMsg_handleAndGetResponse_error_primitive&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;handleAndGetResponseRequestMsg_handleAndGetResponse_error_input_$aTransactionIdentifier&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.2/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength1to32&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;An Error Occurred!&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.2/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;createUserAuthenticationResponseBO&quot; category=&quot;com.ncl.wesb.ErrorHandlerUtils&quot; className=&quot;com.ncl.wesb.ErrorHandlerUtils&quot; static=&quot;true&quot; memberName=&quot;createUserAuthenticationResponseBO&quot;>
+//    &lt;parameters name=&quot;transactionID&quot; dataInputs=&quot;//@executableElements.0/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;warningMsg&quot; dataInputs=&quot;//@executableElements.1/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result>
+//      &lt;dataOutputs target=&quot;//@executableElements.3&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;commonj.sdo.DataObject&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.2/@result/@dataOutputs.0&quot; value=&quot;handleAndGetResponseResponseMsg_handleAndGetResponseResponse_response&quot; variable=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;commonj.sdo.DataObject&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0 //@executableElements.1 //@executableElements.2 //@executableElements.3&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!2:6,1&#xD;
+//!SMAP!3:7,1&#xD;
+//!SMAP!4:8,2&#xD;
+//!SMAP!1000000:61,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+</map:businessObjectMap>

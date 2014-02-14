@@ -1,0 +1,13 @@
+* SMAP
+XSLTransformation1_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLTransformation1_req_1.map
+/ErrorHandlerMod/xslt/XSLTransformation1_req_1.map
+*L
+4:85,5
+1:50,17
+3:81,4
+2:77,4
+*E

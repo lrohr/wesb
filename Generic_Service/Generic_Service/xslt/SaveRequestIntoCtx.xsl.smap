@@ -1,0 +1,12 @@
+* SMAP
+SaveRequestIntoCtx.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 SaveRequestIntoCtx.map
+/Generic_Service/xslt/SaveRequestIntoCtx.map
+*L
+3:83,3
+1:47,17
+2:75,5
+*E

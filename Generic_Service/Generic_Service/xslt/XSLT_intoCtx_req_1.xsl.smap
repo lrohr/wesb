@@ -1,0 +1,18 @@
+* SMAP
+XSLT_intoCtx_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLT_intoCtx_req_1.map
+/Generic_Service/xslt/XSLT_intoCtx_req_1.map
+*L
+1:51,17
+9:79,6
+8:97,5
+4:119,4
+3:115,4
+5:123,5
+6:85,6
+2:111,4
+7:91,6
+*E

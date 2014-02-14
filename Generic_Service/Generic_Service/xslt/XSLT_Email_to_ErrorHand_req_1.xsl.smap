@@ -1,0 +1,17 @@
+* SMAP
+XSLT_Email_to_ErrorHand_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLT_Email_to_ErrorHand_req_1.map
+/Generic_Service/xslt/XSLT_Email_to_ErrorHand_req_1.map
+*L
+1:51,17
+2:79,6
+8:115,3
+4:91,6
+3:85,6
+5:97,5
+6:105,6
+7:111,4
+*E

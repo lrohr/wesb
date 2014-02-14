@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="Generic" targetNamespace="http://Generic_Service/Generic" xmlns:tns="http://Generic_Service/Generic" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://Generic_Service/Generic">
+      <xsd:element name="Request_Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="message" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Request_ResponseResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="message" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="Request_ResponseRequestMsg">
+    <wsdl:part element="tns:Request_Response" name="Request_ResponseParameters"/>
+  </wsdl:message>
+    <wsdl:message name="Request_ResponseResponseMsg">
+    <wsdl:part element="tns:Request_ResponseResponse" name="Request_ResponseResult"/>
+  </wsdl:message>
+    <wsdl:portType name="NCL_WESB_Generic_ReqRsp">
+    <wsdl:operation name="Request_Response">
+      <wsdl:input message="tns:Request_ResponseRequestMsg" name="Request_ResponseRequest"/>
+      <wsdl:output message="tns:Request_ResponseResponseMsg" name="Request_ResponseResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

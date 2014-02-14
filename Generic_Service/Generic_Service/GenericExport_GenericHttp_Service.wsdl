@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="GenericExport1_GenericHttp_Service" targetNamespace="http://Generic_Service/Generic/Binding" xmlns:Port_0="http://Generic_Service/Generic" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:this="http://Generic_Service/Generic/Binding" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="NCL_WESB_Generic_ReqRsp.wsdl" namespace="http://Generic_Service/Generic"/>
+  <wsdl:binding name="GenericExport1_GenericHttpBinding" type="Port_0:NCL_WESB_Generic_ReqRsp">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Request_Response">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="Request_ResponseRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="Request_ResponseResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GenericExport1_GenericHttpService">
+    <wsdl:port binding="this:GenericExport1_GenericHttpBinding" name="GenericExport_GenericHttpPort">
+      <soap:address location="http://localhost:9080/Generic_ServiceWeb/sca/GenericExport"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

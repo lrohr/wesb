@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://NCL_WESB_Shared_Library/ErrorHandlerInterface" xmlns:ns2="http://E-Mail_Generic/E-Mail_Interface" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="ErrorHandlerMod" targetNamespace="http://ErrorHandlerMod/ErrorHandlerMod">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:ErrorHandlerInterface"/>
+  </interfaces>
+  <references>
+    <reference name="E-Mail_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns2:E-Mail_Interface"/>
+    </reference>
+  </references>
+  <operationFlow medflow="ErrorHandlerMod.medflow"/>
+</mfc:interfaceMediationFlow>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.wbit.wiring.ui.ext.model="http:///com/ibm/wbit/wiring/ui/ext/model.ecore" xmlns:extensionmodel="http:///extensionmodel.ecore" xmlns:sb="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+  <extensionmodel:ExtensionMap xmi:id="ExtensionMap_1243540804956" namespace="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0">
+    <extensions xmi:id="Extension_1243540804957">
+      <extendedObject href="sca.module#//@module"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ModuleExtension" xmi:id="ModuleExtension_1243540804956" autoLayout="true"/>
+    </extensions>
+    <extensions xmi:id="Extension_1243540804973">
+      <extendedObject href="GenericExport.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" xmi:id="ExportExtension_1243540804972" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0}WebServiceExportBinding" unknown="false" visible="true" x="30" y="780" bound="true"/>
+    </extensions>
+    <extensions xmi:id="Extension_1259607648015">
+      <extendedObject href="NCL_CruiseUserAuthentication_Interface.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1259607648015" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}ImportBinding" unknown="false" visible="true" x="452" y="30"/>
+    </extensions>
+    <extensions xmi:id="Extension_1259607648016">
+      <extendedObject href="NCL_CruiseCreateAgent_Interface.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1259607648016" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0}WebServiceImportBinding" unknown="false" visible="true" x="482" y="375"/>
+    </extensions>
+    <extensions xmi:id="Extension_1259607648017">
+      <extendedObject href="NCL_CruiseLinkReservation_Interface.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1259607648017" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0}WebServiceImportBinding" unknown="false" visible="true" x="468" y="720"/>
+    </extensions>
+    <extensions xmi:id="Extension_1259607648018">
+      <extendedObject href="NCL_CruiseCheckBookingStatus_Interface.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1259607648018" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0}WebServiceImportBinding" unknown="false" visible="true" x="447" y="237"/>
+    </extensions>
+    <extensions xmi:id="Extension_1259607648019">
+      <extendedObject href="NCL_CruiseRtrvNameList_Interface.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1259607648019" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}ImportBinding" unknown="false" visible="true" x="480" y="1134"/>
+    </extensions>
+    <extensions xmi:id="Extension_1259607648021">
+      <extendedObject href="NCL_CruiseRetrieveClient_Interface.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1259607648021" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}ImportBinding" unknown="false" visible="true" x="476" y="996"/>
+    </extensions>
+    <extensions xmi:id="Extension_1259607648022">
+      <extendedObject href="NCL_CruiseBookingPayment_Interface.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1259607648031" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0}WebServiceImportBinding" unknown="false" visible="true" x="465" y="99"/>
+    </extensions>
+    <extensions xmi:id="Extension_1259607648031">
+      <extendedObject href="NCL_CruiseCreateAgency_Interface.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1259607648032" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0}WebServiceImportBinding" unknown="false" visible="true" x="475" y="306"/>
+    </extensions>
+    <extensions xmi:id="Extension_1259607648032">
+      <extendedObject href="Generic_Service.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1259607648033" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0}MediationFlowImplementation" unknown="false" visible="true" x="179" y="617"/>
+    </extensions>
+    <extensions xmi:id="Extension_1259607648033">
+      <extendedObject href="NCL_CruiseGroupContract_Interface.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1259607648034" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0}WebServiceImportBinding" unknown="false" visible="true" x="473" y="651"/>
+    </extensions>
+    <extensions xmi:id="Extension_1259607648034">
+      <extendedObject href="NCL_CruiseBookPackages_Interface.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1259607648035" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0}WebServiceImportBinding" unknown="false" visible="true" x="476" y="168"/>
+    </extensions>
+    <extensions xmi:id="Extension_1259607648035">
+      <extendedObject href="NCL_CruiseRegisterWebAccess_Interface.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1259607648036" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0}WebServiceImportBinding" unknown="false" visible="true" x="449" y="789"/>
+    </extensions>
+    <extensions xmi:id="Extension_1259607648036">
+      <extendedObject href="NCL_CruiseRetrieveAgency_Interface.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1259607648037" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0}WebServiceImportBinding" unknown="false" visible="true" x="467" y="858"/>
+    </extensions>
+    <extensions xmi:id="Extension_1259607648037">
+      <extendedObject href="NCL_CruiseGroupAccountingWorkup_Interface.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1259607648038" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0}WebServiceImportBinding" unknown="false" visible="true" x="425" y="582"/>
+    </extensions>
+    <extensions xmi:id="Extension_1259607648038">
+      <extendedObject href="NCL_CruiseCreateClient_Interface.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1259607648039" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0}WebServiceImportBinding" unknown="false" visible="true" x="484" y="444"/>
+    </extensions>
+    <extensions xmi:id="Extension_1259607648039">
+      <extendedObject href="NCL_CruiseRetrieveGroupBookings_Interface.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1259607648040" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0}WebServiceImportBinding" unknown="false" visible="true" x="432" y="1065"/>
+    </extensions>
+    <extensions xmi:id="Extension_1259607648040">
+      <extendedObject href="NCL_CruiseRetrieveAgent_InterfaceImport1.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1259607648041" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}ImportBinding" unknown="false" visible="true" x="436" y="927"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ErrorHandlerImport.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}SCAImportBinding" unknown="false" visible="true" x="557" y="1203"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="NCL_LATITUDES_CLIENT_JRN_Interface.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0}WebServiceImportBinding" unknown="false" visible="true" x="454" y="1272"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="NCL_LATITUDES_POINTS_LOOKUP_Interface.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0}WebServiceImportBinding" unknown="false" visible="true" x="431" y="1341"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="NCL_LATITUDES_CLIENT_POINTS_TRG_Interface.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0}WebServiceImportBinding" unknown="false" visible="true" x="410" y="1410"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="EmailServiceImport.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/eis/6.0.0}EISImportBinding" unknown="false" visible="true" x="559" y="1479"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="NCL_CruiseFitConfirmation_InterfaceImport1.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0}WebServiceImportBinding" unknown="false" visible="true" x="433" y="513"/>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+  <extensionmodel:ExtensionMap xmi:id="ExtensionMap_1243540804972" namespace="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+    <extensions xmi:id="Extension_1243540804975">
+      <extendedObject href="sca.module#//@module"/>
+      <extensionObject xsi:type="sb:StickyDocument" xmi:id="StickyDocument_1243540804972">
+        <stickyBoard xmi:id="StickyBoard_1243540804972" id="default"/>
+      </extensionObject>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+</xmi:XMI>

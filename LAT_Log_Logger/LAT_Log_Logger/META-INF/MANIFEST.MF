@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Class-Path: NCL_WESB_Shared_Library.jar 
+ CWYBC_JDBC.rar 
+ CWYEM_EMail.rar
+Created-By: 1.5.0 (IBM Corporation)
+

@@ -1,0 +1,18 @@
+* SMAP
+XSLT_RouteDefault_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLT_RouteDefault_req_1.map
+/Generic_Service/xslt/XSLT_RouteDefault_req_1.map
+*L
+3:84,6
+5:96,5
+7:114,4
+8:118,4
+1:50,17
+2:78,6
+6:110,4
+4:90,6
+9:122,5
+*E

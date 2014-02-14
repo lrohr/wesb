@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:Versonix_To_Response="http://Encrypt_Decrypt" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:processEncryptDecryptResponse="smo://smo/name%3Dwsdl-body/message%3D%257Bhttp%253A%252F%252FNCL_WESB_Shared_Library%252FEncrypt_Decrypt_Interface%257DprocessEncryptDecryptResponse/xpath%3D%252Fbody/namespace%3DBOMap/smo.xsd" xmlns:processEncryptDecryptResponse_1="smo://smo/name%3Dwsdl-body/message%3D%257Bhttp%253A%252F%252Fversonix.com%252Fapi%252Fdefinitions%257DprocessEncryptDecryptResponse/xpath%3D%252Fbody/namespace%3DBOMap/smo.xsd" targetNamespace="http://Encrypt_Decrypt">
+  <map:name>Versonix_To_Response</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="processEncryptDecryptResponse_1:processEncryptDecryptResponse" name="processEncryptDecryptResponse"/>
+  <map:outputBusinessObjectVariable businessObjectRef="processEncryptDecryptResponse:processEncryptDecryptResponse" name="processEncryptDecryptResponse_1"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="processEncryptDecryptResponse" property="processEncryptDecryptResponse/Encrypt_Decrypt/Action"/>
+      <map:output businessObjectVariableRef="processEncryptDecryptResponse_1" property="processEncryptDecryptResponse/Encrypt_Decrypt/Action"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="processEncryptDecryptResponse" property="processEncryptDecryptResponse/Encrypt_Decrypt/EncryptString"/>
+      <map:output businessObjectVariableRef="processEncryptDecryptResponse_1" property="processEncryptDecryptResponse/Encrypt_Decrypt/EncryptString"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:move>
+      <map:input businessObjectVariableRef="processEncryptDecryptResponse" property="processEncryptDecryptResponse/Encrypt_Decrypt/DecryptString"/>
+      <map:output businessObjectVariableRef="processEncryptDecryptResponse_1" property="processEncryptDecryptResponse/Encrypt_Decrypt/DecryptString"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

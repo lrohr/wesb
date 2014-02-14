@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="JDBCImport.wsdl" targetNamespace="http://LAT_Log_Logger/JDBCImport" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_lat_insert_log" xmlns:bons2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_lat_update_log" xmlns:tns="http://LAT_Log_Logger/JDBCImport" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://LAT_Log_Logger/JDBCImport">
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_lat_insert_log" schemaLocation="NclseaNcl_Lat_Insert_Log.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_lat_update_log" schemaLocation="NclseaNcl_Lat_Update_Log.xsd"/>
+      <xsd:element name="executeNclseaNcl_Lat_Insert_Log">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Lat_Insert_LogInput" type="bons1:NclseaNcl_Lat_Insert_Log"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Lat_Insert_LogResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Lat_Insert_LogOutput" type="bons1:NclseaNcl_Lat_Insert_Log"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Lat_Update_Log">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Lat_Update_LogInput" type="bons2:NclseaNcl_Lat_Update_Log"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Lat_Update_LogResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Lat_Update_LogOutput" type="bons2:NclseaNcl_Lat_Update_Log"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeNclseaNcl_Lat_Insert_LogRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Lat_Insert_Log" name="executeNclseaNcl_Lat_Insert_LogParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Lat_Insert_LogResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Lat_Insert_LogResponse" name="executeNclseaNcl_Lat_Insert_LogResult"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Lat_Update_LogRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Lat_Update_Log" name="executeNclseaNcl_Lat_Update_LogParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Lat_Update_LogResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Lat_Update_LogResponse" name="executeNclseaNcl_Lat_Update_LogResult"/>
+  </wsdl:message>
+  <wsdl:portType name="JDBCImport">
+    <wsdl:operation name="executeNclseaNcl_Lat_Insert_Log">
+      <wsdl:input message="tns:executeNclseaNcl_Lat_Insert_LogRequestMsg" name="executeNclseaNcl_Lat_Insert_LogRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Lat_Insert_LogResponseMsg" name="executeNclseaNcl_Lat_Insert_LogResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="executeNclseaNcl_Lat_Update_Log">
+      <wsdl:input message="tns:executeNclseaNcl_Lat_Update_LogRequestMsg" name="executeNclseaNcl_Lat_Update_LogRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Lat_Update_LogResponseMsg" name="executeNclseaNcl_Lat_Update_LogResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Input.mednode="mednode://mednodes/Input.mednode/Input" xmlns:InputFault.mednode="mednode://mednodes/InputFault.mednode/InputFault" xmlns:InputResponse.mednode="mednode://mednodes/InputResponse.mednode/InputResponse" xmlns:LAT_Log_Logger.medflow="LAT_Log_Logger.medflow" xmlns:MessageFilter.mednode="mednode://mednodes/MessageFilter.mednode/MessageFilter" xmlns:ServiceInvoke.mednode="mednode://mednodes/ServiceInvoke.mednode/ServiceInvoke" xmlns:Stop.mednode="mednode://mednodes/Stop.mednode/Stop" xmlns:XSLTransformation.mednode="mednode://mednodes/XSLTransformation.mednode/XSLTransformation" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow2="http://www.ibm.com/2006/eflow" xmlns:type="http://www.ibm.com/2006/eflow/type" xmlns:utility="http://www.ibm.com/2006/eflow/utility" name="LAT_Log_Logger" nsURI="LAT_Log_Logger.medflow" nsPrefix="LAT_Log_Logger.medflow">
+  <eClassifiers xmi:type="eflow2:FCMComposite" name="LAT_Log_Logger_I_2">
+    <eSuperTypes href="http://www.ibm.com/2006/eflow#//FCMBlock"/>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.name" name="name" lowerBound="1" defaultValueLiteral="">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <composition>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_1">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://LAT_Log_Logger/LAT_Log_Interface}LAT_Log_InsertUpdateRequestMsg"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_2">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://LAT_Log_Logger/LAT_Log_Interface}LAT_Log_InsertUpdateResponseMsg"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_3">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://LAT_Log_Logger/LAT_Log_Interface}LAT_Log_InsertUpdate_DB_ErrorsMsg"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_4">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://LAT_Log_Logger/EmailServiceImport}sendSimpleAlertEmailRequestMsg"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_5">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://LAT_Log_Logger/JDBCImport}executeNclseaNcl_Lat_Insert_LogRequestMsg"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_6">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://LAT_Log_Logger/JDBCImport}executeNclseaNcl_Lat_Insert_LogResponseMsg"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_7">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://LAT_Log_Logger/JDBCImport}executeNclseaNcl_Lat_Update_LogRequestMsg"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_8">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://LAT_Log_Logger/JDBCImport}executeNclseaNcl_Lat_Update_LogResponseMsg"/>
+        </elements>
+      </type>
+      <type xmi:type="type:AnyType" xmi:id="AnyType_1"/>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_9">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://www.w3.org/2001/XMLSchema}anyType"/>
+        </elements>
+      </type>
+      <nodes xmi:type="Input.mednode:Input" xmi:id="Input_1" name="LAT_Log_Interface_LAT_Log_InsertUpdate_Input">
+        <location x="118" y="268"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_1"/>
+        <translation xmi:type="utility:ConstantString" string="LAT_Log_InsertUpdate : LAT_Log_Interface"/>
+      </nodes>
+      <nodes xmi:type="InputResponse.mednode:InputResponse" xmi:id="InputResponse_1" name="LAT_Log_Interface_LAT_Log_InsertUpdate_InputResponse">
+        <location x="2004" y="196"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_2"/>
+        <translation xmi:type="utility:ConstantString" string="LAT_Log_InsertUpdate : LAT_Log_Interface"/>
+      </nodes>
+      <nodes xmi:type="InputFault.mednode:InputFault" xmi:id="InputFault_1" name="LAT_Log_Interface_LAT_Log_InsertUpdate_InputFault">
+        <location x="2024" y="356"/>
+        <inTerminals terminalNodeID="InTerminal.dynamic:in:LAT_Log_InsertUpdate_DB_ErrorsMsg" dynamic="true" explicitType="true" label="LAT_Log_InsertUpdate_DB_ErrorsMsg" longDescription="" type="CompositeType_3"/>
+        <translation xmi:type="utility:ConstantString" string="LAT_Log_InsertUpdate : LAT_Log_Interface"/>
+      </nodes>
+      <nodes xmi:type="ServiceInvoke.mednode:ServiceInvoke" xmi:id="ServiceInvoke_1" name="Email" referenceName="EmailServiceImportPartner" operationName="sendSimpleAlertEmail">
+        <location x="980" y="174"/>
+        <outTerminals terminalNodeID="OutTerminal.timeout" explicitType="true" type="CompositeType_4"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_4"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_4"/>
+        <translation xmi:type="utility:ConstantString" string="Email"/>
+      </nodes>
+      <nodes xmi:type="ServiceInvoke.mednode:ServiceInvoke" xmi:id="ServiceInvoke_2" name="DB_Insert" referenceName="JDBCImportPartner" operationName="executeNclseaNcl_Lat_Insert_Log">
+        <location x="572" y="181"/>
+        <outTerminals terminalNodeID="OutTerminal.timeout" explicitType="true" type="CompositeType_5"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_5"/>
+        <outTerminals terminalNodeID="OutTerminal.dynamic:out:out" dynamic="true" explicitType="true" label="out" longDescription="" type="CompositeType_6"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_5"/>
+        <translation xmi:type="utility:ConstantString" string="DB_Insert"/>
+      </nodes>
+      <nodes xmi:type="ServiceInvoke.mednode:ServiceInvoke" xmi:id="ServiceInvoke_3" name="DB_Update" referenceName="JDBCImportPartner" operationName="executeNclseaNcl_Lat_Update_Log">
+        <location x="583" y="316"/>
+        <outTerminals terminalNodeID="OutTerminal.timeout" explicitType="true" type="CompositeType_7"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_7"/>
+        <outTerminals terminalNodeID="OutTerminal.dynamic:out:out" dynamic="true" explicitType="true" label="out" longDescription="" type="CompositeType_8"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_7"/>
+        <translation xmi:type="utility:ConstantString" string="DB_Update"/>
+      </nodes>
+      <nodes xmi:type="MessageFilter.mednode:MessageFilter" xmi:id="MessageFilter_1" name="MessageFilter1" filters.pattern="%2Fbody%2FLAT_Log_InsertUpdate%2FOPERATION_TYPE%3D+%27INSERT%27^%2Fbody%2FLAT_Log_InsertUpdate%2FOPERATION_TYPE%3D%27UPDATE%27" filters.terminalName="match2^match3">
+        <location x="312" y="268"/>
+        <outTerminals terminalNodeID="OutTerminal.default" type="CompositeType_1"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_1"/>
+        <outTerminals terminalNodeID="OutTerminal.dynamic:match:match2" dynamic="true" label="insert" longDescription="" type="CompositeType_1"/>
+        <outTerminals terminalNodeID="OutTerminal.dynamic:match:match3" dynamic="true" label="update" longDescription="" type="CompositeType_1"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_1"/>
+        <translation xmi:type="utility:ConstantString" string="MessageFilter1"/>
+      </nodes>
+      <nodes xmi:type="XSLTransformation.mednode:XSLTransformation" xmi:id="XSLTransformation_1" name="XSLTransformation1" root="/body" XSLTransform="xslt/XSLTransformation1_req_1.xsl" XMXMap="xslt/XSLTransformation1_req_1.map" SMOVersion="SMO61">
+        <location x="442" y="181"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_5"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_1"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_1"/>
+        <translation xmi:type="utility:ConstantString" string="XSLTransformation1"/>
+      </nodes>
+      <nodes xmi:type="XSLTransformation.mednode:XSLTransformation" xmi:id="XSLTransformation_2" name="XSLTransformation2" root="/body" XSLTransform="xslt/XSLTransformation2_req_1.xsl" XMXMap="xslt/XSLTransformation2_req_1.map" SMOVersion="SMO61">
+        <location x="442" y="317"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_7"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_1"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_1"/>
+        <translation xmi:type="utility:ConstantString" string="XSLTransformation2"/>
+      </nodes>
+      <nodes xmi:type="XSLTransformation.mednode:XSLTransformation" xmi:id="XSLTransformation_3" name="XSLTransformation3" root="/" XSLTransform="xslt/XSLTransformation3_req_1.xsl" XMXMap="xslt/XSLTransformation3_req_1.map" SMOVersion="SMO61">
+        <location x="331" y="98"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_4"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="AnyType_1"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="AnyType_1"/>
+        <translation xmi:type="utility:ConstantString" string="XSLTransformation3"/>
+      </nodes>
+      <nodes xmi:type="XSLTransformation.mednode:XSLTransformation" xmi:id="XSLTransformation_4" name="XSLTransformation4" root="/" XSLTransform="xslt/XSLTransformation4_req_1.xsl" XMXMap="xslt/XSLTransformation4_req_1.map" SMOVersion="SMO61">
+        <location x="681" y="227"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_4"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_5"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_5"/>
+        <translation xmi:type="utility:ConstantString" string="XSLTransformation4"/>
+      </nodes>
+      <nodes xmi:type="Stop.mednode:Stop" xmi:id="Stop_1" name="Stop1">
+        <location x="689" y="107"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_9"/>
+        <translation xmi:type="utility:ConstantString" string="Stop1"/>
+      </nodes>
+      <nodes xmi:type="XSLTransformation.mednode:XSLTransformation" xmi:id="XSLTransformation_5" name="XSLTransformation5" root="/" XSLTransform="xslt/XSLTransformation5_req_1.xsl" XMXMap="xslt/XSLTransformation5_req_1.map" SMOVersion="SMO61">
+        <location x="692" y="380"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_4"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_7"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_7"/>
+        <translation xmi:type="utility:ConstantString" string="XSLTransformation5"/>
+      </nodes>
+      <nodes xmi:type="Stop.mednode:Stop" xmi:id="Stop_2" name="Stop3">
+        <location x="728" y="318"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_9"/>
+        <translation xmi:type="utility:ConstantString" string="Stop3"/>
+      </nodes>
+      <nodes xmi:type="Stop.mednode:Stop" xmi:id="Stop_3" name="Stop4">
+        <location x="1102" y="220"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_4"/>
+        <translation xmi:type="utility:ConstantString" string="Stop4"/>
+      </nodes>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_1" targetNode="MessageFilter_1" sourceNode="Input_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_2" targetNode="Stop_3" sourceNode="ServiceInvoke_1" sourceTerminalName="OutTerminal.timeout" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_3" targetNode="Stop_3" sourceNode="ServiceInvoke_1" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_4" targetNode="Stop_1" sourceNode="ServiceInvoke_2" sourceTerminalName="OutTerminal.dynamic:out:out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_5" targetNode="Stop_1" sourceNode="ServiceInvoke_2" sourceTerminalName="OutTerminal.timeout" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_6" targetNode="XSLTransformation_4" sourceNode="ServiceInvoke_2" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_7" targetNode="Stop_2" sourceNode="ServiceInvoke_3" sourceTerminalName="OutTerminal.dynamic:out:out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_8" targetNode="Stop_2" sourceNode="ServiceInvoke_3" sourceTerminalName="OutTerminal.timeout" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_9" targetNode="XSLTransformation_5" sourceNode="ServiceInvoke_3" sourceTerminalName="OutTerminal.Failure" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_10" targetNode="XSLTransformation_1" sourceNode="MessageFilter_1" sourceTerminalName="OutTerminal.dynamic:match:match2" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_11" targetNode="XSLTransformation_2" sourceNode="MessageFilter_1" sourceTerminalName="OutTerminal.dynamic:match:match3" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_12" targetNode="ServiceInvoke_2" sourceNode="XSLTransformation_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_13" targetNode="ServiceInvoke_3" sourceNode="XSLTransformation_2" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_14" targetNode="ServiceInvoke_1" sourceNode="XSLTransformation_3" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_15" targetNode="ServiceInvoke_1" sourceNode="XSLTransformation_4" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_16" targetNode="ServiceInvoke_1" sourceNode="XSLTransformation_5" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+    </composition>
+    <propertyOrganizer>
+      <propertyDescriptor groupName="basic" describedAttribute="Property.name"/>
+    </propertyOrganizer>
+  </eClassifiers>
+  <eClassifiers xmi:type="eflow2:FCMComposite" name="LAT_Log_Logger">
+    <eSuperTypes href="http://www.ibm.com/2006/eflow#//FCMBlock"/>
+    <composition>
+      <nodes xmi:type="LAT_Log_Logger.medflow:LAT_Log_Logger_I_2" xmi:id="LAT_Log_Logger_I_2_1" name="{http://LAT_Log_Logger/LAT_Log_Interface}LAT_Log_Interface:LAT_Log_InsertUpdate::request"/>
+    </composition>
+    <propertyOrganizer/>
+  </eClassifiers>
+</ecore:EPackage>

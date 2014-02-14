@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:JDBCOutboundInterface="http://Generic_Service/JDBCOutboundInterface" xmlns:NCL_LATITUDES_CLIENT_JRN_Interface="http://NCL_WESB_Shared_Library/NCL_LATITUDES_CLIENT_JRN_Interface" xmlns:NCL_LATITUDES_CLIENT_POINTS_TRG_Interface="http://NCL_WESB_Shared_Library/NCL_LATITUDES_CLIENT_POINTS_TRG_Interface" xmlns:NCL_LATITUDES_POINTS_LOOKUP_Interface="http://NCL_WESB_Shared_Library/NCL_LATITUDES_POINTS_LOOKUP_Interface" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://Generic_Service/Generic" xmlns:ns1_1="http://NCL_WESB_Shared_Library/NCL_CruiseUserAuthentication_Interface" xmlns:ns1_10="http://NCL_WESB_Shared_Library/NCL_CruiseGroupContract_Interface" xmlns:ns1_11="http://NCL_WESB_Shared_Library/NCL_CruiseLinkReservation_Interface" xmlns:ns1_12="http://NCL_WESB_Shared_Library/NCL_CruiseRegisterWebAccess_Interface" xmlns:ns1_13="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveAgency_Interface" xmlns:ns1_14="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveAgent_Interface" xmlns:ns1_15="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveClient_Interface" xmlns:ns1_16="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveGroupBookings_Interface" xmlns:ns1_17="http://NCL_WESB_Shared_Library/NCL_CruiseRtrvNameList_Interface" xmlns:ns1_18="http://NCL_WESB_Shared_Library/ErrorHandlerInterface" xmlns:ns1_2="http://NCL_WESB_Shared_Library/NCL_CruiseBookingPayment_Interface" xmlns:ns1_3="http://NCL_WESB_Shared_Library/NCL_CruiseBookPackages_Interface" xmlns:ns1_4="http://NCL_WESB_Shared_Library/NCL_CruiseCheckBookingStatus_Interface" xmlns:ns1_5="http://NCL_WESB_Shared_Library/NCL_CruiseCreateAgency_Interface" xmlns:ns1_6="http://NCL_WESB_Shared_Library/NCL_CruiseCreateAgent_Interface" xmlns:ns1_7="http://NCL_WESB_Shared_Library/NCL_CruiseCreateClient_Interface" xmlns:ns1_8="http://NCL_WESB_Shared_Library/NCL_CruiseFitConfirmation_Interface" xmlns:ns1_9="http://NCL_WESB_Shared_Library/NCL_CruiseGroupAccountingWorkup_Interface" xmlns:ns2="http://NCL_Shared_Library/RetrieveNameList" xmlns:ns27="http://Generic_Service/EmailServiceImport" xmlns:ns3="http://NCL_Shared_Library/get_CheckBookingStatus" xmlns:ns5="http://NCL_Shared_Library/intuserauthenticate" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="Generic_Service" targetNamespace="http://Generic_Service/Generic_Service">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:NCL_WESB_Generic_ReqRsp"/>
+  </interfaces>
+  <references>
+    <reference name="NCL_CruiseUserAuthentication_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_1:NCL_CruiseUserAuthentication_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseUserAuthentication_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseBookingPayment_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_2:NCL_CruiseBookingPayment_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseBookingPayment_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseBookPackages_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_3:NCL_CruiseBookPackages_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseBookPackages_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseCheckBookingStatus_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_4:NCL_CruiseCheckBookingStatus_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseCheckBookingStatus_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseCreateAgency_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_5:NCL_CruiseCreateAgency_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseCreateAgency_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseCreateAgent_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_6:NCL_CruiseCreateAgent_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseCreateAgent_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseCreateClient_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_7:NCL_CruiseCreateClient_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseCreateClient_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseFitConfirmation_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_8:NCL_CruiseFitConfirmation_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseFitConfirmation_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseGroupAccountingWorkup_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_9:NCL_CruiseGroupAccountingWorkup_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseGroupAccountingWorkup_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseGroupContract_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_10:NCL_CruiseGroupContract_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseGroupContract_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseLinkReservation_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_11:NCL_CruiseLinkReservation_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseLinkReservation_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseRegisterWebAccess_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_12:NCL_CruiseRegisterWebAccess_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseRegisterWebAccess_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseRetrieveAgency_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_13:NCL_CruiseRetrieveAgency_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseRetrieveAgency_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseRetrieveAgent_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_14:NCL_CruiseRetrieveAgent_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseRetrieveAgent_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseRetrieveClient_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_15:NCL_CruiseRetrieveClient_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseRetrieveClient_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseRetrieveGroupBookings_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_16:NCL_CruiseRetrieveGroupBookings_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseRetrieveGroupBookings_Interface"/>
+    </reference>
+    <reference name="NCL_CruiseRtrvNameList_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_17:NCL_CruiseRtrvNameList_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NCL_CruiseRtrvNameList_Interface"/>
+    </reference>
+    <reference name="ErrorHandlerInterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_18:ErrorHandlerInterface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="ErrorHandlerImport"/>
+    </reference>
+    <reference name="NCL_LATITUDES_CLIENT_JRN_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="NCL_LATITUDES_CLIENT_JRN_Interface:NCL_LATITUDES_CLIENT_JRN_Interface"/>
+    </reference>
+    <reference name="NCL_LATITUDES_POINTS_LOOKUP_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="NCL_LATITUDES_POINTS_LOOKUP_Interface:NCL_LATITUDES_POINTS_LOOKUP_Interface"/>
+    </reference>
+    <reference name="NCL_LATITUDES_CLIENT_POINTS_TRG_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="NCL_LATITUDES_CLIENT_POINTS_TRG_Interface:NCL_LATITUDES_CLIENT_POINTS_TRG_Interface"/>
+    </reference>
+    <reference name="EmailServiceImportPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns27:EmailServiceImport"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="EmailServiceImport"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="Request_Response" target="Perform_NCL_CruiseUserAuthentication" sourcePortType="ns1:NCL_WESB_Generic_ReqRsp" targetReference="NCL_CruiseUserAuthentication_InterfacePartner"/>
+  <extendedOperationBinding source="Request_Response" target="Perform_NCL_CruiseBookingPayment" sourcePortType="ns1:NCL_WESB_Generic_ReqRsp" targetReference="NCL_CruiseBookingPayment_InterfacePartner"/>
+  <extendedOperationBinding source="Request_Response" target="Perform_NCL_CruiseBookPackages" sourcePortType="ns1:NCL_WESB_Generic_ReqRsp" targetReference="NCL_CruiseBookPackages_InterfacePartner"/>
+  <extendedOperationBinding source="Request_Response" target="Perform_NCL_CruiseCheckBookingStatus" sourcePortType="ns1:NCL_WESB_Generic_ReqRsp" targetReference="NCL_CruiseCheckBookingStatus_InterfacePartner"/>
+  <extendedOperationBinding source="Request_Response" target="Perform_NCL_CruiseCreateAgency" sourcePortType="ns1:NCL_WESB_Generic_ReqRsp" targetReference="NCL_CruiseCreateAgency_InterfacePartner"/>
+  <extendedOperationBinding source="Request_Response" target="Perform_NCL_CruiseCreateAgent" sourcePortType="ns1:NCL_WESB_Generic_ReqRsp" targetReference="NCL_CruiseCreateAgent_InterfacePartner"/>
+  <extendedOperationBinding source="Request_Response" target="Perform_NCL_CruiseCreateClient" sourcePortType="ns1:NCL_WESB_Generic_ReqRsp" targetReference="NCL_CruiseCreateClient_InterfacePartner"/>
+  <extendedOperationBinding source="Request_Response" target="Perform_NCL_CruiseFitConfirmation" sourcePortType="ns1:NCL_WESB_Generic_ReqRsp" targetReference="NCL_CruiseFitConfirmation_InterfacePartner"/>
+  <extendedOperationBinding source="Request_Response" target="Perform_NCL_CruiseGroupAccountingWorkup" sourcePortType="ns1:NCL_WESB_Generic_ReqRsp" targetReference="NCL_CruiseGroupAccountingWorkup_InterfacePartner"/>
+  <extendedOperationBinding source="Request_Response" target="Perform_NCL_CruiseGroupContract" sourcePortType="ns1:NCL_WESB_Generic_ReqRsp" targetReference="NCL_CruiseGroupContract_InterfacePartner"/>
+  <extendedOperationBinding source="Request_Response" target="Perform_NCL_CruiseLinkReservation" sourcePortType="ns1:NCL_WESB_Generic_ReqRsp" targetReference="NCL_CruiseLinkReservation_InterfacePartner"/>
+  <extendedOperationBinding source="Request_Response" target="Perform_NCL_CruiseRegisterWebAccess" sourcePortType="ns1:NCL_WESB_Generic_ReqRsp" targetReference="NCL_CruiseRegisterWebAccess_InterfacePartner"/>
+  <extendedOperationBinding source="Request_Response" target="Perform_NCL_CruiseRetrieveAgency" sourcePortType="ns1:NCL_WESB_Generic_ReqRsp" targetReference="NCL_CruiseRetrieveAgency_InterfacePartner"/>
+  <extendedOperationBinding source="Request_Response" target="Perform_NCL_CruiseRetrieveAgent" sourcePortType="ns1:NCL_WESB_Generic_ReqRsp" targetReference="NCL_CruiseRetrieveAgent_InterfacePartner"/>
+  <extendedOperationBinding source="Request_Response" target="Perform_NCL_CruiseRetrieveClient" sourcePortType="ns1:NCL_WESB_Generic_ReqRsp" targetReference="NCL_CruiseRetrieveClient_InterfacePartner"/>
+  <extendedOperationBinding source="Request_Response" target="Perform_NCL_CruiseRetrieveGroupBookings" sourcePortType="ns1:NCL_WESB_Generic_ReqRsp" targetReference="NCL_CruiseRetrieveGroupBookings_InterfacePartner"/>
+  <extendedOperationBinding source="Request_Response" target="Perform_NCL_CruiseRtrvNameList" sourcePortType="ns1:NCL_WESB_Generic_ReqRsp" targetReference="NCL_CruiseRtrvNameList_InterfacePartner"/>
+  <extendedOperationBinding source="Request_Response" target="Perform_NCL_LATITUDES_CLIENT_JRN" sourcePortType="ns1:NCL_WESB_Generic_ReqRsp" targetReference="NCL_LATITUDES_CLIENT_JRN_InterfacePartner"/>
+  <extendedOperationBinding source="Request_Response" target="Perform_NCL_LATITUDES_POINTS_LOOKUP" sourcePortType="ns1:NCL_WESB_Generic_ReqRsp" targetReference="NCL_LATITUDES_POINTS_LOOKUP_InterfacePartner"/>
+  <extendedOperationBinding source="Request_Response" target="Perform_NCL_LATITUDES_CLIENT_POINTS_TRG" sourcePortType="ns1:NCL_WESB_Generic_ReqRsp" targetReference="NCL_LATITUDES_CLIENT_POINTS_TRG_InterfacePartner"/>
+  <extendedOperationBinding source="Request_Response" target="sendSimpleAlertEmail" sourcePortType="ns1:NCL_WESB_Generic_ReqRsp" targetReference="EmailServiceImportPartner"/>
+  <extendedOperationBinding source="Request_Response" target="handleAndGetResponse" sourcePortType="ns1:NCL_WESB_Generic_ReqRsp" targetReference="ErrorHandlerInterfacePartner"/>
+  <operationFlow medflow="Generic_Service.medflow"/>
+</mfc:interfaceMediationFlow>

@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:Send_Email1RequestMsg="smo://smo/name%3Dwsdl-body/message%3D%257Bhttp%253A%252F%252FE-Mail_Generic%252FE-Mail_Interface%257DSend_Email1RequestMsg/xpath%3D%252Fbody/namespace%3DBOMap/smo.xsd" xmlns:errorToEmailBOMap="http://ErrorHandlerMod" xmlns:handleAndGetResponseRequestMsg="smo://smo/name%3Dwsdl-body/message%3D%257Bhttp%253A%252F%252FNCL_WESB_Shared_Library%252FErrorHandlerInterface%257DhandleAndGetResponseRequestMsg/xpath%3D%252Fbody/namespace%3DBOMap/smo.xsd" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" targetNamespace="http://ErrorHandlerMod">
+  <map:name>errorToEmailBOMap</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="handleAndGetResponseRequestMsg:handleAndGetResponseRequestMsg" name="handleAndGetResponseRequestMsg"/>
+  <map:outputBusinessObjectVariable businessObjectRef="Send_Email1RequestMsg:Send_Email1RequestMsg" name="Send_Email1RequestMsg"/>
+  <map:propertyMap executionOrder="1">
+    <map:custom>
+      <map:input businessObjectVariableRef="handleAndGetResponseRequestMsg" property="handleAndGetResponse/error"/>
+      <map:output businessObjectVariableRef="Send_Email1RequestMsg" property="Send_Email1/Content"/>
+      <map:javaCode>commonj.sdo.DataObject __handleAndGetResponseRequestMsg_handleAndGetResponse_error = (commonj.sdo.DataObject)handleAndGetResponseRequestMsg_handleAndGetResponse_error;&#xD;
+java.lang.String __Send_Email1RequestMsg_Send_Email1_Content = (java.lang.String)Send_Email1RequestMsg_Send_Email1_Content;&#xD;
+java.lang.String __result__2 = com.ncl.wesb.ErrorHandlerUtils.getEmailBody(__handleAndGetResponseRequestMsg_handleAndGetResponse_error);&#xD;
+java.lang.String STR = __result__2;&#xD;
+java.lang.String __result__5 = &quot;CardNumber=&quot;;&#xD;
+int __result__6 = STR.indexOf(__result__5);&#xD;
+int STR_loc = __result__6;&#xD;
+int __result__9 = STR.length();&#xD;
+int STR_length = __result__9;&#xD;
+byte __result__12 = 20;&#xD;
+double __result__13;&#xD;
+{// add&#xD;
+	__result__13 = STR_loc + __result__12;&#xD;
+}&#xD;
+double STR_ix1 = __result__13;&#xD;
+byte __result__16 = 9;&#xD;
+double __result__17;&#xD;
+{// add&#xD;
+	__result__17 = STR_ix1 + __result__16;&#xD;
+}&#xD;
+double STR_ix2 = __result__17;&#xD;
+byte __result__20 = -1;&#xD;
+boolean __result__21;&#xD;
+{// equal to&#xD;
+	__result__21 = STR_loc == __result__20;&#xD;
+}&#xD;
+if (__result__21){&#xD;
+	__Send_Email1RequestMsg_Send_Email1_Content = STR;&#xD;
+	Send_Email1RequestMsg_Send_Email1_Content = __Send_Email1RequestMsg_Send_Email1_Content;&#xD;
+}&#xD;
+else{&#xD;
+	java.lang.String __result__35 = STR.substring((int)STR_ix2);&#xD;
+	java.lang.String __result__31 = &quot;*********&quot;;&#xD;
+	byte __result__28 = 1;&#xD;
+	java.lang.String __result__30 = STR.substring(__result__28, (int)STR_ix1);&#xD;
+	java.lang.String __result__32 = __result__30.concat(__result__31);&#xD;
+	java.lang.String __result__36 = __result__32.concat(__result__35);&#xD;
+	__Send_Email1RequestMsg_Send_Email1_Content = __result__36;&#xD;
+	Send_Email1RequestMsg_Send_Email1_Content = __Send_Email1RequestMsg_Send_Email1_Content;&#xD;
+}&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;handleAndGetResponseRequestMsg_handleAndGetResponse_error&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;ErrorHandlerBO&quot; namespace=&quot;http://NCL_WESB_Shared_Library&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;handleAndGetResponseRequestMsg_handleAndGetResponse_error&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.1/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;ErrorHandlerBO&quot; namespace=&quot;http://NCL_WESB_Shared_Library&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;getEmailBody&quot; category=&quot;com.ncl.wesb.ErrorHandlerUtils&quot; className=&quot;com.ncl.wesb.ErrorHandlerUtils&quot; static=&quot;true&quot; memberName=&quot;getEmailBody&quot;>
+//    &lt;parameters name=&quot;errorBO&quot; dataInputs=&quot;//@executableElements.0/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;commonj.sdo.DataObject&quot;/>
+//    &lt;/parameters>
+//    &lt;result>
+//      &lt;dataOutputs target=&quot;//@executableElements.2&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.1/@result/@dataOutputs.0&quot; value=&quot;STR&quot; localVariable=&quot;//@localVariables.0&quot; variable=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;STR&quot; localVariable=&quot;//@localVariables.0&quot; variable=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.5/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;CardNumber=&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.5/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;indexOf&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;indexOf&quot;>
+//    &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.3/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;string&quot; dataInputs=&quot;//@executableElements.4/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result>
+//      &lt;dataOutputs target=&quot;//@executableElements.6&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.5/@result/@dataOutputs.0&quot; value=&quot;STR_loc&quot; localVariable=&quot;//@localVariables.1&quot; variable=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;STR&quot; localVariable=&quot;//@localVariables.0&quot; variable=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.8/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;length&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;length&quot;>
+//    &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.7/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result>
+//      &lt;dataOutputs target=&quot;//@executableElements.9&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.8/@result/@dataOutputs.0&quot; value=&quot;STR_length&quot; localVariable=&quot;//@localVariables.2&quot; variable=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;STR_loc&quot; localVariable=&quot;//@localVariables.1&quot; variable=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.12/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;20&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.12/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;byte&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;add&quot; description=&quot;The sum of two numbers&quot; category=&quot;math&quot; template=&quot;&amp;lt;%return%> &amp;lt;%input1%> + &amp;lt;%input2%>;&quot;>
+//    &lt;parameters name=&quot;input1&quot; dataInputs=&quot;//@executableElements.10/@dataOutputs.0&quot; displayName=&quot;input 1&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;input2&quot; dataInputs=&quot;//@executableElements.11/@dataOutputs.0&quot; displayName=&quot;input 2&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;result name=&quot;sum&quot; displayName=&quot;sum of inputs&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.13&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.12/@result/@dataOutputs.0&quot; value=&quot;STR_ix1&quot; localVariable=&quot;//@localVariables.3&quot; variable=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;STR_ix1&quot; localVariable=&quot;//@localVariables.3&quot; variable=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.16/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;9&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.16/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;byte&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;add&quot; description=&quot;The sum of two numbers&quot; category=&quot;math&quot; template=&quot;&amp;lt;%return%> &amp;lt;%input1%> + &amp;lt;%input2%>;&quot;>
+//    &lt;parameters name=&quot;input1&quot; dataInputs=&quot;//@executableElements.14/@dataOutputs.0&quot; displayName=&quot;input 1&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;input2&quot; dataInputs=&quot;//@executableElements.15/@dataOutputs.0&quot; displayName=&quot;input 2&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;result name=&quot;sum&quot; displayName=&quot;sum of inputs&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.17&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.16/@result/@dataOutputs.0&quot; value=&quot;STR_ix2&quot; localVariable=&quot;//@localVariables.4&quot; variable=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;STR_loc&quot; localVariable=&quot;//@localVariables.1&quot; variable=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.20/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;-1&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.20/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;byte&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;equal to&quot; description=&quot;True if the value of the first input is equal to the value of the second input&quot; category=&quot;math&quot; template=&quot;&amp;lt;%return%> &amp;lt;%input1%> == &amp;lt;%input2%>;&quot;>
+//    &lt;parameters name=&quot;input1&quot; dataInputs=&quot;//@executableElements.18/@dataOutputs.0&quot; displayName=&quot;input 1&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;input2&quot; dataInputs=&quot;//@executableElements.19/@dataOutputs.0&quot; displayName=&quot;input 2&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;result name=&quot;result&quot; displayName=&quot;result&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.21&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;boolean&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:BranchElement&quot; dataInputs=&quot;//@executableElements.20/@result/@dataOutputs.0&quot;>
+//    &lt;conditionalActivities>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;STR&quot; localVariable=&quot;//@localVariables.0&quot; variable=&quot;true&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.21/@conditionalActivities.0/@executableElements.1&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.21/@conditionalActivities.0/@executableElements.0/@dataOutputs.0&quot; value=&quot;Send_Email1RequestMsg_Send_Email1_Content&quot; variable=&quot;true&quot;>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableGroups executableElements=&quot;//@executableElements.21/@conditionalActivities.0/@executableElements.0 //@executableElements.21/@conditionalActivities.0/@executableElements.1&quot;/>
+//      &lt;condition value=&quot;true&quot;/>
+//    &lt;/conditionalActivities>
+//    &lt;conditionalActivities>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;STR&quot; localVariable=&quot;//@localVariables.0&quot; variable=&quot;true&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.21/@conditionalActivities.1/@executableElements.3/@parameters.0&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;1&quot; assignable=&quot;false&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.21/@conditionalActivities.1/@executableElements.3/@parameters.1&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;byte&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;STR_ix1&quot; localVariable=&quot;//@localVariables.3&quot; variable=&quot;true&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.21/@conditionalActivities.1/@executableElements.3/@parameters.2&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;substring&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;substring&quot;>
+//        &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.21/@conditionalActivities.1/@executableElements.0/@dataOutputs.0&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//        &lt;/parameters>
+//        &lt;parameters name=&quot;start&quot; dataInputs=&quot;//@executableElements.21/@conditionalActivities.1/@executableElements.1/@dataOutputs.0&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//        &lt;/parameters>
+//        &lt;parameters name=&quot;end&quot; dataInputs=&quot;//@executableElements.21/@conditionalActivities.1/@executableElements.2/@dataOutputs.0&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//        &lt;/parameters>
+//        &lt;result>
+//          &lt;dataOutputs target=&quot;//@executableElements.21/@conditionalActivities.1/@executableElements.5/@parameters.0&quot;/>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//        &lt;/result>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;*********&amp;quot;&quot; assignable=&quot;false&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.21/@conditionalActivities.1/@executableElements.5/@parameters.1&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;concat&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;concat&quot;>
+//        &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.21/@conditionalActivities.1/@executableElements.3/@result/@dataOutputs.0&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//        &lt;/parameters>
+//        &lt;parameters name=&quot;string&quot; dataInputs=&quot;//@executableElements.21/@conditionalActivities.1/@executableElements.4/@dataOutputs.0&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//        &lt;/parameters>
+//        &lt;result>
+//          &lt;dataOutputs target=&quot;//@executableElements.21/@conditionalActivities.1/@executableElements.9/@parameters.0&quot;/>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//        &lt;/result>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;STR&quot; localVariable=&quot;//@localVariables.0&quot; variable=&quot;true&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.21/@conditionalActivities.1/@executableElements.8/@parameters.0&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;STR_ix2&quot; localVariable=&quot;//@localVariables.4&quot; variable=&quot;true&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.21/@conditionalActivities.1/@executableElements.8/@parameters.1&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;substring&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;substring&quot;>
+//        &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.21/@conditionalActivities.1/@executableElements.6/@dataOutputs.0&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//        &lt;/parameters>
+//        &lt;parameters name=&quot;start&quot; dataInputs=&quot;//@executableElements.21/@conditionalActivities.1/@executableElements.7/@dataOutputs.0&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//        &lt;/parameters>
+//        &lt;result>
+//          &lt;dataOutputs target=&quot;//@executableElements.21/@conditionalActivities.1/@executableElements.9/@parameters.1&quot;/>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//        &lt;/result>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;concat&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;concat&quot;>
+//        &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.21/@conditionalActivities.1/@executableElements.5/@result/@dataOutputs.0&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//        &lt;/parameters>
+//        &lt;parameters name=&quot;string&quot; dataInputs=&quot;//@executableElements.21/@conditionalActivities.1/@executableElements.8/@result/@dataOutputs.0&quot;>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//        &lt;/parameters>
+//        &lt;result>
+//          &lt;dataOutputs target=&quot;//@executableElements.21/@conditionalActivities.1/@executableElements.10&quot;/>
+//          &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//        &lt;/result>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.21/@conditionalActivities.1/@executableElements.9/@result/@dataOutputs.0&quot; value=&quot;Send_Email1RequestMsg_Send_Email1_Content&quot; variable=&quot;true&quot;>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableGroups executableElements=&quot;//@executableElements.21/@conditionalActivities.1/@executableElements.0 //@executableElements.21/@conditionalActivities.1/@executableElements.1 //@executableElements.21/@conditionalActivities.1/@executableElements.2 //@executableElements.21/@conditionalActivities.1/@executableElements.3 //@executableElements.21/@conditionalActivities.1/@executableElements.4 //@executableElements.21/@conditionalActivities.1/@executableElements.5 //@executableElements.21/@conditionalActivities.1/@executableElements.6 //@executableElements.21/@conditionalActivities.1/@executableElements.7 //@executableElements.21/@conditionalActivities.1/@executableElements.8 //@executableElements.21/@conditionalActivities.1/@executableElements.9 //@executableElements.21/@conditionalActivities.1/@executableElements.10&quot;/>
+//      &lt;condition value=&quot;&quot;/>
+//    &lt;/conditionalActivities>
+//  &lt;/executableElements>
+//  &lt;localVariables name=&quot;STR&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//  &lt;/localVariables>
+//  &lt;localVariables name=&quot;STR_loc&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//  &lt;/localVariables>
+//  &lt;localVariables name=&quot;STR_length&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//  &lt;/localVariables>
+//  &lt;localVariables name=&quot;STR_ix1&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//  &lt;/localVariables>
+//  &lt;localVariables name=&quot;STR_ix2&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//  &lt;/localVariables>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0 //@executableElements.1 //@executableElements.2&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.3 //@executableElements.4 //@executableElements.5 //@executableElements.6&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.7 //@executableElements.8 //@executableElements.9&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.10 //@executableElements.11 //@executableElements.12 //@executableElements.13&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.14 //@executableElements.15 //@executableElements.16 //@executableElements.17&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.18 //@executableElements.19 //@executableElements.20 //@executableElements.21&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!2:3,1&#xD;
+//!SMAP!3:4,1&#xD;
+//!SMAP!5:5,1&#xD;
+//!SMAP!6:6,1&#xD;
+//!SMAP!7:7,1&#xD;
+//!SMAP!9:8,1&#xD;
+//!SMAP!10:9,1&#xD;
+//!SMAP!12:10,1&#xD;
+//!SMAP!13:11,4&#xD;
+//!SMAP!14:15,1&#xD;
+//!SMAP!16:16,1&#xD;
+//!SMAP!17:17,4&#xD;
+//!SMAP!18:21,1&#xD;
+//!SMAP!20:22,1&#xD;
+//!SMAP!21:23,4&#xD;
+//!SMAP!22:27,1&#xD;
+//!SMAP!25:28,2&#xD;
+//!SMAP!28:34,1&#xD;
+//!SMAP!30:35,1&#xD;
+//!SMAP!31:33,1&#xD;
+//!SMAP!32:36,1&#xD;
+//!SMAP!35:32,1&#xD;
+//!SMAP!36:37,1&#xD;
+//!SMAP!37:38,2&#xD;
+//!SMAP!1000000:317,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:set value="esbteam@ncl.com">
+      <map:output businessObjectVariableRef="Send_Email1RequestMsg" property="Send_Email1/To"/>
+    </map:set>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:set value="WESB Error logged">
+      <map:output businessObjectVariableRef="Send_Email1RequestMsg" property="Send_Email1/Subject"/>
+    </map:set>
+  </map:propertyMap>
+</map:businessObjectMap>

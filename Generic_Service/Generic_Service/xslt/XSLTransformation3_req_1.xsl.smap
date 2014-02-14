@@ -1,0 +1,14 @@
+* SMAP
+XSLTransformation3_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLTransformation3_req_1.map
+/Generic_Service/xslt/XSLTransformation3_req_1.map
+*L
+3:83,4
+4:87,4
+5:91,5
+2:79,4
+1:50,17
+*E

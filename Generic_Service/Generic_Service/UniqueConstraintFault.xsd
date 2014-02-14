@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com/ibm/j2ca/fault/afcfault" xmlns:basefault="http://com/ibm/j2ca/fault">
+<import namespace="http://com/ibm/j2ca/fault" schemaLocation="WBIFault.xsd"/>
+
+<annotation xml:space="preserve">
+<appinfo source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability" version="6.2.0.0"/>
+</appinfo>
+</annotation>
+
+<annotation xml:space="preserve">
+<appinfo source="commonj.connector.asi">
+<asi:annotationSet xmlns:asi="commonj.connector.asi" asiNSURI=""/>
+</appinfo>
+</annotation>
+<complexType name="UniqueConstraintFault">
+<annotation xml:space="preserve">
+
+
+</annotation>
+<complexContent>
+<extension base="basefault:WBIFault">
+<sequence minOccurs="1" maxOccurs="1">
+</sequence>
+</extension>
+</complexContent>
+</complexType>
+</schema>
