@@ -1,0 +1,16 @@
+* SMAP
+XSLTransformation4_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLTransformation4_req_1.map
+/NCL_CruiseRegisterWebAccess_Module/xslt/XSLTransformation4_req_1.map
+*L
+1:50,17
+7:94,5
+2:82,6
+4:112,5
+5:108,4
+6:88,6
+3:78,4
+*E

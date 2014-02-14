@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Class-Path: NCL_Utils.jar 
+ NCL_WESB_Shared_Library.jar 
+ CWYBC_JDBC.rar 
+ copiedjars/NCL_Utils/NCL_Utils.jar
+Created-By: 1.5.0 (IBM Corporation)
+

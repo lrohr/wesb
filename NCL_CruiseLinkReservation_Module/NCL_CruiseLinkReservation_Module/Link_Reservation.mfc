@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:E-Mail_Interface="http://E-Mail_Generic/E-Mail_Interface" xmlns:JDBCImport="http://NCL_CruiseLinkReservation_Module/JDBCImport" xmlns:JDBCImport1="http://NCL_CruiseLinkReservation_Module/JDBCImport1" xmlns:NCL_CruiseLinkReservation_Interface="http://NCL_WESB_Shared_Library/NCL_CruiseLinkReservation_Interface" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://Link_Reservation/DB_LinkReservation" xmlns:ns1_1="http://TP_Logger/TP_Interface" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="Link_Reservation" targetNamespace="http://Link_Reservation/Link_Reservation">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="NCL_CruiseLinkReservation_Interface:NCL_CruiseLinkReservation_Interface"/>
+  </interfaces>
+  <references>
+    <reference name="DB_LinkReservationPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1:DB_LinkReservation"/>
+    </reference>
+    <reference name="E-Mail_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="E-Mail_Interface:E-Mail_Interface"/>
+    </reference>
+    <reference name="TP_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_1:TP_Interface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="TP_InterfaceImport1"/>
+    </reference>
+    <reference name="JDBCImportPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="JDBCImport:JDBCImport"/>
+    </reference>
+    <reference name="JDBCImport1Partner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="JDBCImport1:JDBCImport1"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="Perform_NCL_CruiseLinkReservation" target="TP_InsertUpdate" sourcePortType="NCL_CruiseLinkReservation_Interface:NCL_CruiseLinkReservation_Interface" targetReference="TP_InterfacePartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseLinkReservation" target="executeNclseaNcl_Wesb_Get_Client_ProfileBG" sourcePortType="NCL_CruiseLinkReservation_Interface:NCL_CruiseLinkReservation_Interface" targetReference="DB_LinkReservationPartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseLinkReservation" target="TP_InsertUpdate" sourcePortType="NCL_CruiseLinkReservation_Interface:NCL_CruiseLinkReservation_Interface" targetReference="TP_InterfacePartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseLinkReservation" target="executeSeaSw_EntitymergeU46clientmergeduplicate" sourcePortType="NCL_CruiseLinkReservation_Interface:NCL_CruiseLinkReservation_Interface" targetReference="JDBCImportPartner"/>
+  <extendedOperationBinding source="Perform_NCL_CruiseLinkReservation" target="executeSeaSw_EntitymergeU46clientmergeduplicateextended" sourcePortType="NCL_CruiseLinkReservation_Interface:NCL_CruiseLinkReservation_Interface" targetReference="JDBCImport1Partner"/>
+  <operationFlow medflow="Link_Reservation.medflow"/>
+</mfc:interfaceMediationFlow>

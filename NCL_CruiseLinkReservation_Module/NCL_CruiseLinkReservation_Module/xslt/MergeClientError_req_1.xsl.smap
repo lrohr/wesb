@@ -1,0 +1,16 @@
+* SMAP
+MergeClientError_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 MergeClientError_req_1.map
+/NCL_CruiseLinkReservation_Module/xslt/MergeClientError_req_1.map
+*L
+4:101,6
+1:55,17
+5:107,9
+3:87,5
+2:83,4
+7:123,3
+6:119,4
+*E

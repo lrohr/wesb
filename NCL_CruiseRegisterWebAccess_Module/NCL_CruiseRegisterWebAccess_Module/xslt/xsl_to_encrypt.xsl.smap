@@ -1,0 +1,14 @@
+* SMAP
+xsl_to_encrypt.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 xsl_to_encrypt.map
+/NCL_CruiseRegisterWebAccess_Module/xslt/xsl_to_encrypt.map
+*L
+2:84,4
+4:100,3
+5:94,6
+1:56,17
+3:88,6
+*E

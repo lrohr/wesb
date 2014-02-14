@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://Link_Reservation/xslt/ce_toresp" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://Link_Reservation/xslt/ce_toresp">
+    <input correlationContext="{http://Link_Reservation}app_context" message="{http://Link_Reservation/DB_LinkReservation}executeNclseaNcl_Wesb_Get_Client_ProfileBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://Link_Reservation}app_context" message="{http://NCL_WESB_Shared_Library/NCL_CruiseLinkReservation_Interface}Perform_NCL_CruiseLinkReservationResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="ce_toresp.xml"/>
+        <import kind="xslt" location="XSLTransformation5_req_2_success.xsl"/>
+    </imports>
+    <mappingDeclaration name="ce_toresp">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <assign value="Error during database execution">
+            <output path="body/Perform_NCL_CruiseLinkReservationResponse/NCL_CruiseLinkReservationRS/Warnings/Warning[1]/@ShortText"/>
+        </assign>
+        <customFunction lang="xslt" location="XSLTransformation5_req_2_success.xsl" ref="LogIDToSuccess">
+            <input path="context/correlation/LogID" var="LogID"/>
+            <output path="body/Perform_NCL_CruiseLinkReservationResponse/NCL_CruiseLinkReservationRS/Success"/>
+            <param name="LogID" value="$LogID"/>
+        </customFunction>
+        <assign value="9915">
+            <output path="body/Perform_NCL_CruiseLinkReservationResponse/NCL_CruiseLinkReservationRS/Warnings/Warning/@Code"/>
+        </assign>
+        <move>
+            <input path="context/correlation/NCL_CruiseLinkReservationRQ"/>
+            <output path="context/correlation/NCL_CruiseLinkReservationRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseLinkReservationRQ/@TransactionIdentifier"/>
+            <output path="body/Perform_NCL_CruiseLinkReservationResponse/NCL_CruiseLinkReservationRS/@TransactionIdentifier"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

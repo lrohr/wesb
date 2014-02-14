@@ -1,0 +1,17 @@
+* SMAP
+XSL_error_9922.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSL_error_9922.map
+/NCL_CruiseRegisterWebAccess_Module/xslt/XSL_error_9922.map
+*L
+4:105,6
+7:125,3
+1:59,17
+6:121,4
+5:117,4
+2:91,5
+8:111,3
+3:87,4
+*E

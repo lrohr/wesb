@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseLinkReservation_Module/xslt/XSLTransformation5_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseLinkReservation_Module/xslt/XSLTransformation5_req_1">
+    <input correlationContext="{http://Link_Reservation}app_context" message="{http://NCL_CruiseLinkReservation_Module/JDBCImport}executeSeaSw_EntitymergeU46clientmergeduplicateResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/body"/>
+    <output correlationContext="{http://Link_Reservation}app_context" message="{http://NCL_WESB_Shared_Library/NCL_CruiseLinkReservation_Interface}Perform_NCL_CruiseLinkReservationResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/body"/>
+    <imports>
+        <import kind="xml" location="XSLTransformation5_req_1.xml"/>
+    </imports>
+    <mappingDeclaration name="XSLTransformation5_req_1">
+        <input path="body"/>
+        <output path="body"/>
+    </mappingDeclaration>
+</mappingRoot>

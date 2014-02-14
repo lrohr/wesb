@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseLinkReservation_Module/xslt/buildError9915" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseLinkReservation_Module/xslt/buildError9915">
+    <input correlationContext="{http://Link_Reservation}app_context" message="{http://Link_Reservation/DB_LinkReservation}executeNclseaNcl_Wesb_Create_Client_LinkBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://Link_Reservation}app_context" message="{http://NCL_WESB_Shared_Library/NCL_CruiseLinkReservation_Interface}Perform_NCL_CruiseLinkReservationResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="buildError9915.xml"/>
+        <import kind="xslt" location="buildError9915_custom.xsl"/>
+    </imports>
+    <mappingDeclaration name="buildError9915">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseLinkReservationRQ/@TransactionIdentifier"/>
+            <output path="body/Perform_NCL_CruiseLinkReservationResponse/NCL_CruiseLinkReservationRS/@TransactionIdentifier"/>
+        </move>
+        <assign value="9917">
+            <output path="body/Perform_NCL_CruiseLinkReservationResponse/NCL_CruiseLinkReservationRS/Warnings/Warning/@Code"/>
+        </assign>
+        <customFunction lang="xslt" location="buildError9915_custom.xsl" ref="ToSuccess">
+            <output path="body/Perform_NCL_CruiseLinkReservationResponse/NCL_CruiseLinkReservationRS/Success"/>
+        </customFunction>
+        <assign value="Reservation Not Found">
+            <output path="body/Perform_NCL_CruiseLinkReservationResponse/NCL_CruiseLinkReservationRS/Warnings/Warning/@ShortText"/>
+        </assign>
+        <move>
+            <input path="context/correlation/NCL_CruiseLinkReservationRQ"/>
+            <output path="context/correlation/NCL_CruiseLinkReservationRQ"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

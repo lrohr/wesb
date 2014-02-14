@@ -1,0 +1,12 @@
+* SMAP
+xsltLoadClientMerdge.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 xsltLoadClientMerdge.map
+/NCL_CruiseLinkReservation_Module/xslt/xsltLoadClientMerdge.map
+*L
+3:86,6
+1:57,17
+2:92,5
+*E

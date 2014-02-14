@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://NCL_CruiseRegisterWebAccess_Module"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0="http://nclapi/schemas">
+	<xsd:import schemaLocation="NCL_CruiseRegisterWebAccessRQ.xsd"
+		namespace="http://nclapi/schemas">
+	</xsd:import>
+	<xsd:complexType name="app_context">
+		<xsd:sequence>
+			<xsd:element minOccurs="0"
+				ref="bons0:NCL_CruiseRegisterWebAccessRQ">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="LogID" type="xsd:string"></xsd:element>
+			<xsd:element minOccurs="0" name="ErrorCode"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="Agency_ID"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="EncString"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="DecString"
+				type="xsd:string">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

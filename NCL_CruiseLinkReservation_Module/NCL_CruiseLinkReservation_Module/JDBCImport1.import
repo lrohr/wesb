@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import displayName="JDBCImport1" name="JDBCImport1"
+    xmlns:EIS="http://www.ibm.com/xmlns/prod/websphere/scdl/eis/6.0.0"
+    xmlns:ns1="http://NCL_CruiseLinkReservation_Module/JDBCImport1"
+    xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0"
+    xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <interfaces>
+        <interface portType="ns1:JDBCImport1"
+            preferredInteractionStyle="sync" xsi:type="wsdl:WSDLPortType">
+            <scdl:interfaceQualifier value="false" xsi:type="scdl:JoinTransaction"/>
+        </interface>
+    </interfaces>
+    <esbBinding
+        dataBindingType="com.ibm.j2ca.jdbc.emd.databinding.JDBCDataBindingGenerator" xsi:type="EIS:EISImportBinding">
+        <resourceAdapter
+            name="NCL_CruiseLinkReservation_ModuleApp.IBM WebSphere Adapter for JDBC"
+            type="com.ibm.j2ca.jdbc.JDBCResourceAdapter" version="7.5.0.1">
+            <properties>
+                <adapterID>001</adapterID>
+            </properties>
+        </resourceAdapter>
+        <connection
+            interactionType="com.ibm.j2ca.jdbc.JDBCInteractionSpec" type="com.ibm.j2ca.jdbc.JDBCManagedConnectionFactory">
+            <properties>
+                <adapterID>001</adapterID>
+                <dataSourceJNDIName>SEAWARE_JNDI</dataSourceJNDIName>
+                <databaseVendor>ORACLE</databaseVendor>
+                <returnDummyBOForSP>false</returnDummyBOForSP>
+                <XADataSourceJNDIName>SEAWARE_JNDI</XADataSourceJNDIName>
+                <connectionType>XADataSourceJNDI</connectionType>
+            </properties>
+        </connection>
+        <methodBinding
+            inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.seasw_entitymergeu46clientmergeduplicateextended.SeaSw_EntitymergeU46clientmergeduplicateextendedDataBinding"
+            method="executeSeaSw_EntitymergeU46clientmergeduplicateextended" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.seasw_entitymergeu46clientmergeduplicateextended.SeaSw_EntitymergeU46clientmergeduplicateextendedDataBinding">
+            <interaction>
+                <properties>
+                    <functionName>Execute</functionName>
+                </properties>
+            </interaction>
+        </methodBinding>
+    </esbBinding>
+</scdl:import>

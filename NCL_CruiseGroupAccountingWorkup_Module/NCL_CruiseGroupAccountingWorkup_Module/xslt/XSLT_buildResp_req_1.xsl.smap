@@ -1,0 +1,16 @@
+* SMAP
+XSLT_buildResp_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLT_buildResp_req_1.map
+/NCL_CruiseGroupAccountingWorkup_Module/xslt/XSLT_buildResp_req_1.map
+*L
+5:109,6
+4:95,5
+2:89,6
+3:85,4
+6:115,4
+7:119,3
+1:57,17
+*E

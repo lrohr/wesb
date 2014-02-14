@@ -1,0 +1,16 @@
+* SMAP
+ce_toresp.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 ce_toresp.map
+/NCL_CruiseLinkReservation_Module/xslt/ce_toresp.map
+*L
+6:92,5
+5:88,4
+7:106,6
+1:60,17
+4:124,4
+3:112,9
+2:128,3
+*E

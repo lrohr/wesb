@@ -1,0 +1,16 @@
+* SMAP
+Error_9924_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 Error_9924_req_1.map
+/NCL_CruiseRegisterWebAccess_Module/xslt/Error_9924_req_1.map
+*L
+7:121,3
+3:87,4
+6:117,4
+5:111,3
+4:105,6
+1:59,17
+2:91,5
+*E

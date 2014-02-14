@@ -1,0 +1,23 @@
+* SMAP
+XSLT_load_create.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLT_load_create.map
+/NCL_CruiseRegisterWebAccess_Module/xslt/XSLT_load_create.map
+*L
+9:142,4
+6:118,6
+11:152,6
+8:130,6
+4:87,6
+2:83,4
+10:146,6
+12:158,3
+1:55,17
+7:124,6
+3:108,4
+5:112,6
+13:93,5
+14:136,6
+*E

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<io2:smo xmlns:io2="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:io15="http://www.w3.org/2005/08/addressing" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:io14="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0" xmlns:io13="http://Link_Reservation" xmlns:io10="http://nclapi/schemas" xmlns:io9="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:io11="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_profilep_cursor" xmlns:io12="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_profilebg" xmlns:io8="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:io7="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_profile" xmlns:io6="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:io5="wsdl.http://Link_Reservation/DB_LinkReservation" xmlns:io4="http://Link_Reservation/DB_LinkReservation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:io3="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_client_linkbg" xmlns:io="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_client_link">
+  <context>
+    <correlation>
+      <p1:NCL_CruiseLinkReservationRQ xmlns:p1="http://nclapi/schemas" xmlns:httpsca="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:mq="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:nclseancl_wesb_create_client_link="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_client_link" xmlns:nclseancl_wesb_get_client_profile="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_profile" xmlns:nclseancl_wesb_get_client_profilep_cursor="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_profilep_cursor" xmlns:p="http://Link_Reservation" xmlns:p2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_profilebg" xmlns:p3="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0" xmlns:p4="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_client_linkbg" xmlns:tns="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:tns1="http://Link_Reservation/DB_LinkReservation" xmlns:tns2="http://www.w3.org/2005/08/addressing" xmlns:tns_1="wsdl.http://Link_Reservation/DB_LinkReservation" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" AltLangID="EN" EchoToken="" PrimaryLangID="EN" RetransmissionIndicator="true" SequenceNmbr="0" Target="Production" TimeStamp="2001-12-31T12:00:00" TransactionIdentifier="" TransactionStatusCode="Start" Version="0.0">
+        <p1:POS>
+          <p1:Source AgentDutyCode="" AgentSine="" AirlineVendorID="" AirportCode="" ERSP_UserID="" FirstDepartPoint="" ISOCountry="" ISOCurrency="" PseudoCityCode="" TerminalID="">
+            <p1:RequestorID ID="" ID_Context="" Instance="" MessagePassword="" Type="" URL="http://tempuri.org">
+              <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+            </p1:RequestorID>
+            <p1:Position Altitude="" AltitudeUnitOfMeasureCode="" Latitude="" Longitude=""/>
+            <p1:BookingChannel Primary="true" Type="">
+              <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+            </p1:BookingChannel>
+          </p1:Source>
+        </p1:POS>
+        <p1:ReservationID ID="" ID_Context="" Instance="" Type="" URL="http://tempuri.org">
+          <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+        </p1:ReservationID>
+        <p1:SelectedSailing Duration="" End="" ShipCode="" ShipName="" Start="" Status="" VendorCode="" VendorCodeContext="" VendorName="" VoyageID=""/>
+        <p1:ClientInfo Age="0" BirthDate="2001-01-01" Gender="Male" GuestOccupation="" GuestRefNumber="0" LoyalLevel="" LoyaltyMembershipID="" Nationality="">
+          <p1:PersonName NameType="" ShareMarketInd="Yes" ShareSynchInd="Yes">
+            <p1:NamePrefix>p1:NamePrefix</p1:NamePrefix>
+            <p1:GivenName>p1:GivenName</p1:GivenName>
+            <p1:MiddleName>p1:MiddleName</p1:MiddleName>
+            <p1:SurnamePrefix>p1:SurnamePrefix</p1:SurnamePrefix>
+            <p1:Surname>p1:Surname</p1:Surname>
+            <p1:NameSuffix>p1:NameSuffix</p1:NameSuffix>
+            <p1:NameTitle>p1:NameTitle</p1:NameTitle>
+          </p1:PersonName>
+          <p1:Address DefaultInd="false" FormattedInd="false" RPH="" ShareMarketInd="Yes" ShareSynchInd="Yes" Type="" UseType="">
+            <p1:StreetNmbr PO_Box="" RuralRouteNmbr="" StreetDirection="" StreetNmbrSuffix="">p1:StreetNmbr</p1:StreetNmbr>
+            <p1:BldgRoom>p1:BldgRoom</p1:BldgRoom>
+            <p1:AddressLine>p1:AddressLine</p1:AddressLine>
+            <p1:CityName>p1:CityName</p1:CityName>
+            <p1:PostalCode>p1:PostalCode</p1:PostalCode>
+            <p1:County>p1:County</p1:County>
+            <p1:StateProv StateCode="">p1:StateProv</p1:StateProv>
+            <p1:CountryName Code="">p1:CountryName</p1:CountryName>
+          </p1:Address>
+          <p1:Email DefaultInd="false" EmailType="" RPH="" ShareMarketInd="Yes" ShareSynchInd="Yes">p1:Email</p1:Email>
+        </p1:ClientInfo>
+        <p1:UserLogin Password="" UserLoginName="" UserType=""/>
+      </p1:NCL_CruiseLinkReservationRQ>
+      <LogID>LogID</LogID>
+    </correlation>
+  </context>
+  <body>
+    <io4:executeNclseaNcl_Wesb_Create_Client_LinkBG>
+      <io4:executeNclseaNcl_Wesb_Create_Client_LinkBGInput>
+        <NclseaNcl_Wesb_Create_Client_Link>
+          <p_clientid>0</p_clientid>
+          <p_user_name>web_login_name</p_user_name>
+          <p_user_name_incoming/>
+        </NclseaNcl_Wesb_Create_Client_Link>
+      </io4:executeNclseaNcl_Wesb_Create_Client_LinkBGInput>
+    </io4:executeNclseaNcl_Wesb_Create_Client_LinkBG>
+  </body>
+</io2:smo>

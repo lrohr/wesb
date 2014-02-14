@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<io:smo xmlns:io="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:out3="wsdl.http://NCL_CruiseGroupContract_Module/JDBCOutboundInterface" xmlns:io7="http://www.w3.org/2005/08/addressing" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:io6="http://NCL_CruiseGroupContract_Module" xmlns:io4="http://nclapi/schemas" xmlns:io5="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:out2="http://NCL_CruiseGroupContract_Module/JDBCOutboundInterface" xmlns:out="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_group_contract" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:io3="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:io2="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0">
+  <context>
+    <correlation>
+      <p1:NCL_CruiseGroupContractRQ xmlns:p1="http://nclapi/schemas" xmlns:bons1="http://TP_Logger" xmlns:httpsca="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:mq="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:p="http://NCL_CruiseGroupContract_Module" xmlns:tns="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:tns1="http://TP_Logger/TP_Interface" xmlns:tns2="http://www.w3.org/2005/08/addressing" xmlns:tns_1="wsdl.http://TP_Logger/TP_Interface" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" AltLangID="EN" EchoToken="" MaxResponses="1" MoreDataEchoToken="" MoreIndicator="true" PrimaryLangID="EN" RetransmissionIndicator="true" SequenceNmbr="0" Target="Production" TimeStamp="2001-12-31T12:00:00" TransactionIdentifier="" TransactionStatusCode="Start" Version="0.0">
+        <p1:POS>
+          <p1:Source AgentDutyCode="" AgentSine="" AirlineVendorID="" AirportCode="" ERSP_UserID="" FirstDepartPoint="" ISOCountry="" ISOCurrency="" PseudoCityCode="" TerminalID="">
+            <p1:RequestorID ID="" ID_Context="" Instance="" MessagePassword="" Type="" URL="http://tempuri.org">
+              <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+            </p1:RequestorID>
+            <p1:Position Altitude="" AltitudeUnitOfMeasureCode="" Latitude="" Longitude=""/>
+            <p1:BookingChannel Primary="true" Type="">
+              <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+            </p1:BookingChannel>
+          </p1:Source>
+        </p1:POS>
+        <p1:Email DefaultInd="false" EmailType="" RPH="" ShareMarketInd="Yes" ShareSynchInd="Yes">p1:Email</p1:Email>
+        <p1:GroupInfo GroupCode="0"/>
+      </p1:NCL_CruiseGroupContractRQ>
+      <logID>logID</logID>
+    </correlation>
+  </context>
+  <body>
+    <out2:executeNclseaNcl_Wesb_Group_Contract>
+      <out2:executeNclseaNcl_Wesb_Group_ContractInput>
+        <p_group_id>0</p_group_id>
+        <p_email>p1:Email</p_email>
+      </out2:executeNclseaNcl_Wesb_Group_ContractInput>
+    </out2:executeNclseaNcl_Wesb_Group_Contract>
+  </body>
+</io:smo>

@@ -1,0 +1,16 @@
+* SMAP
+To_store_Link_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 To_store_Link_req_1.map
+/NCL_CruiseLinkReservation_Module/xslt/To_store_Link_req_1.map
+*L
+4:133,5
+1:54,17
+6:86,6
+5:82,4
+7:92,5
+3:120,13
+2:107,13
+*E

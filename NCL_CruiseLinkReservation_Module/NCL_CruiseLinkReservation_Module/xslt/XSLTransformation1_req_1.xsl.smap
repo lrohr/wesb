@@ -1,0 +1,17 @@
+* SMAP
+XSLTransformation1_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLTransformation1_req_1.map
+/NCL_CruiseLinkReservation_Module/xslt/XSLTransformation1_req_1.map
+*L
+6:109,6
+5:115,13
+4:95,5
+8:132,3
+7:128,4
+1:57,17
+3:89,6
+2:85,4
+*E

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://Link_Reservation/xslt/To_store_Link_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://Link_Reservation/xslt/To_store_Link_req_1">
+    <input correlationContext="{http://Link_Reservation}app_context" message="{http://Link_Reservation/DB_LinkReservation}executeNclseaNcl_Wesb_Get_Client_ProfileBGResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://Link_Reservation}app_context" message="{http://Link_Reservation/DB_LinkReservation}executeNclseaNcl_Wesb_Create_Client_LinkBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="To_store_Link_req_1.xml"/>
+    </imports>
+    <mappingDeclaration name="To_store_Link_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_ProfileBGResponse/executeNclseaNcl_Wesb_Get_Client_ProfileBGOutput/NclseaNcl_Wesb_Get_Client_Profile/p_clientid"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_LinkBG/executeNclseaNcl_Wesb_Create_Client_LinkBGInput/NclseaNcl_Wesb_Create_Client_Link/p_clientid"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_ProfileBGResponse/executeNclseaNcl_Wesb_Get_Client_ProfileBGOutput/NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/web_login_name"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_LinkBG/executeNclseaNcl_Wesb_Create_Client_LinkBGInput/NclseaNcl_Wesb_Create_Client_Link/p_user_name"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseLinkReservationRQ/UserLogin/@UserLoginName"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_Client_LinkBG/executeNclseaNcl_Wesb_Create_Client_LinkBGInput/NclseaNcl_Wesb_Create_Client_Link/p_user_name_incoming"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseLinkReservationRQ"/>
+            <output path="context/correlation/NCL_CruiseLinkReservationRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="body/executeNclseaNcl_Wesb_Get_Client_ProfileBGResponse/executeNclseaNcl_Wesb_Get_Client_ProfileBGOutput/NclseaNcl_Wesb_Get_Client_Profile/p_cursor[1]/client_id"/>
+            <output path="context/correlation/Error_code"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

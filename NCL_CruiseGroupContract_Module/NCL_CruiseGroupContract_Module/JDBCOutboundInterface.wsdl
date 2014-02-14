@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="JDBCOutboundInterface.wsdl" targetNamespace="http://NCL_CruiseGroupContract_Module/JDBCOutboundInterface" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_group_contract" xmlns:tns="http://NCL_CruiseGroupContract_Module/JDBCOutboundInterface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://NCL_CruiseGroupContract_Module/JDBCOutboundInterface">
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_group_contract" schemaLocation="NclseaNcl_Wesb_Group_Contract.xsd"/>
+      <xsd:element name="executeNclseaNcl_Wesb_Group_Contract">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Group_ContractInput" type="bons1:NclseaNcl_Wesb_Group_Contract"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Group_ContractResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Group_ContractOutput" type="bons1:NclseaNcl_Wesb_Group_Contract"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeNclseaNcl_Wesb_Group_ContractRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Group_Contract" name="executeNclseaNcl_Wesb_Group_ContractParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Group_ContractResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Group_ContractResponse" name="executeNclseaNcl_Wesb_Group_ContractResult"/>
+  </wsdl:message>
+  <wsdl:portType name="JDBCOutboundInterface">
+    <wsdl:operation name="executeNclseaNcl_Wesb_Group_Contract">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Group_ContractRequestMsg" name="executeNclseaNcl_Wesb_Group_ContractRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Group_ContractResponseMsg" name="executeNclseaNcl_Wesb_Group_ContractResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

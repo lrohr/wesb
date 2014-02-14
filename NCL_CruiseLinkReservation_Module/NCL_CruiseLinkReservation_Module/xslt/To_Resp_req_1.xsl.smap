@@ -1,0 +1,10 @@
+* SMAP
+To_Resp_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 To_Resp_req_1.map
+/NCL_CruiseLinkReservation_Module/xslt/To_Resp_req_1.map
+*L
+1:56,17
+*E

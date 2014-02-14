@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="DB_LinkReservation.wsdl" targetNamespace="http://Link_Reservation/DB_LinkReservation" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_profilebg" xmlns:bons2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_client_linkbg" xmlns:tns="http://Link_Reservation/DB_LinkReservation" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://Link_Reservation/DB_LinkReservation">
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_profilebg" schemaLocation="NclseaNcl_Wesb_Get_Client_ProfileBG.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_client_linkbg" schemaLocation="NclseaNcl_Wesb_Create_Client_LinkBG.xsd"/>
+      <xsd:element name="executeNclseaNcl_Wesb_Get_Client_ProfileBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Get_Client_ProfileBGInput" type="bons1:NclseaNcl_Wesb_Get_Client_ProfileBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Get_Client_ProfileBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Get_Client_ProfileBGOutput" type="bons1:NclseaNcl_Wesb_Get_Client_ProfileBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Create_Client_LinkBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Create_Client_LinkBGInput" type="bons2:NclseaNcl_Wesb_Create_Client_LinkBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Create_Client_LinkBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Create_Client_LinkBGOutput" type="bons2:NclseaNcl_Wesb_Create_Client_LinkBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeNclseaNcl_Wesb_Get_Client_ProfileBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Get_Client_ProfileBG" name="executeNclseaNcl_Wesb_Get_Client_ProfileBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Get_Client_ProfileBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Get_Client_ProfileBGResponse" name="executeNclseaNcl_Wesb_Get_Client_ProfileBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Create_Client_LinkBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Create_Client_LinkBG" name="executeNclseaNcl_Wesb_Create_Client_LinkBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Create_Client_LinkBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Create_Client_LinkBGResponse" name="executeNclseaNcl_Wesb_Create_Client_LinkBGResult"/>
+  </wsdl:message>
+  <wsdl:portType name="DB_LinkReservation">
+    <wsdl:operation name="executeNclseaNcl_Wesb_Get_Client_ProfileBG">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Get_Client_ProfileBGRequestMsg" name="executeNclseaNcl_Wesb_Get_Client_ProfileBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Get_Client_ProfileBGResponseMsg" name="executeNclseaNcl_Wesb_Get_Client_ProfileBGResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="executeNclseaNcl_Wesb_Create_Client_LinkBG">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Create_Client_LinkBGRequestMsg" name="executeNclseaNcl_Wesb_Create_Client_LinkBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Create_Client_LinkBGResponseMsg" name="executeNclseaNcl_Wesb_Create_Client_LinkBGResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

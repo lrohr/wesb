@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:NCL_CruiseLinkReservationRS="http://nclapi/schemas" xmlns:NclseaNcl_Wesb_Create_Client_LinkBG="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_client_linkbg" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:sub_resp="http://Link_Reservation" targetNamespace="http://Link_Reservation">
+  <map:name>sub_resp</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="NclseaNcl_Wesb_Create_Client_LinkBG:NclseaNcl_Wesb_Create_Client_LinkBG" name="NclseaNcl_Wesb_Create_Client_LinkBG"/>
+  <map:outputBusinessObjectVariable businessObjectRef="NCL_CruiseLinkReservationRS:NCL_CruiseLinkReservationRS" name="NCL_CruiseLinkReservationRS"/>
+  <map:propertyMap executionOrder="1">
+    <map:custom>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_LinkBG" property="NclseaNcl_Wesb_Create_Client_Link/p_error_code"/>
+      <map:output businessObjectVariableRef="NCL_CruiseLinkReservationRS" property="Warnings/Warning"/>
+      <map:javaCode>java.lang.String __NclseaNcl_Wesb_Create_Client_LinkBG_NclseaNcl_Wesb_Create_Client_Link_p_error_code = (java.lang.String)NclseaNcl_Wesb_Create_Client_LinkBG_NclseaNcl_Wesb_Create_Client_Link_p_error_code;&#xD;
+java.util.List __NCL_CruiseLinkReservationRS_Warnings_Warning = (java.util.List)NCL_CruiseLinkReservationRS_Warnings_Warning;&#xD;
+// Variable NCL_CruiseLinkReservationRS_Warnings_Warning[1] is represented as NCL_CruiseLinkReservationRS_Warnings_Warning1&#xD;
+// Variable NCL_CruiseLinkReservationRS_Warnings_Warning_@Code is represented as NCL_CruiseLinkReservationRS_xsd$cchoice0_xsd$csequence0_Warnings_Warning1_$aCode&#xD;
+// Variable NCL_CruiseLinkReservationRS_Warnings_Warning[1] is represented as NCL_CruiseLinkReservationRS_Warnings_Warning1&#xD;
+java.lang.String __result__4 = &quot;0&quot;;&#xD;
+boolean __result__5 = __NclseaNcl_Wesb_Create_Client_LinkBG_NclseaNcl_Wesb_Create_Client_Link_p_error_code.equals(__result__4);&#xD;
+if (__result__5){&#xD;
+	java.lang.Object __result__8 = null;&#xD;
+	commonj.sdo.DataObject NCL_CruiseLinkReservationRS_Warnings_Warning1 = (commonj.sdo.DataObject)__result__8;&#xD;
+}&#xD;
+else{&#xD;
+	java.lang.String NCL_CruiseLinkReservationRS_xsd$cchoice0_xsd$csequence0_Warnings_Warning1_$aCode = __NclseaNcl_Wesb_Create_Client_LinkBG_NclseaNcl_Wesb_Create_Client_Link_p_error_code;&#xD;
+}&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;NclseaNcl_Wesb_Create_Client_LinkBG_NclseaNcl_Wesb_Create_Client_Link_p_error_code&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Variable NCL_CruiseLinkReservationRS_Warnings_Warning[1] is represented as NCL_CruiseLinkReservationRS_Warnings_Warning1&amp;#xD;&amp;#xA;Variable NCL_CruiseLinkReservationRS_Warnings_Warning_@Code is represented as NCL_CruiseLinkReservationRS_xsd$cchoice0_xsd$csequence0_Warnings_Warning1_$aCode&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Variable NCL_CruiseLinkReservationRS_Warnings_Warning[1] is represented as NCL_CruiseLinkReservationRS_Warnings_Warning1&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NclseaNcl_Wesb_Create_Client_LinkBG_NclseaNcl_Wesb_Create_Client_Link_p_error_code&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.4/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;0&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.4/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;equals&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;equals&quot;>
+//    &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.2/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;object&quot; dataInputs=&quot;//@executableElements.3/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Object&quot;/>
+//    &lt;/parameters>
+//    &lt;result>
+//      &lt;dataOutputs target=&quot;//@executableElements.5&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;boolean&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:BranchElement&quot; dataInputs=&quot;//@executableElements.4/@result/@dataOutputs.0&quot;>
+//    &lt;conditionalActivities>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;null&quot; assignable=&quot;false&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.1&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Object&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.0/@dataOutputs.0&quot; value=&quot;NCL_CruiseLinkReservationRS_Warnings_Warning1&quot; localVariable=&quot;//@executableElements.5/@conditionalActivities.0/@localVariables.0&quot; variable=&quot;true&quot;>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;WarningType&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//      &lt;/executableElements>
+//      &lt;localVariables name=&quot;NCL_CruiseLinkReservationRS_Warnings_Warning1&quot;>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;WarningType&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//      &lt;/localVariables>
+//      &lt;executableGroups executableElements=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.0 //@executableElements.5/@conditionalActivities.0/@executableElements.1&quot;/>
+//      &lt;condition value=&quot;true&quot;/>
+//    &lt;/conditionalActivities>
+//    &lt;conditionalActivities>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NclseaNcl_Wesb_Create_Client_LinkBG_NclseaNcl_Wesb_Create_Client_Link_p_error_code&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.5/@conditionalActivities.1/@executableElements.1&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.5/@conditionalActivities.1/@executableElements.0/@dataOutputs.0&quot; value=&quot;NCL_CruiseLinkReservationRS_xsd$cchoice0_xsd$csequence0_Warnings_Warning1_$aCode&quot; localVariable=&quot;//@executableElements.5/@conditionalActivities.1/@localVariables.0&quot; variable=&quot;true&quot;>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;OTA_CodeType&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//      &lt;/executableElements>
+//      &lt;localVariables name=&quot;NCL_CruiseLinkReservationRS_xsd$cchoice0_xsd$csequence0_Warnings_Warning1_$aCode&quot;>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;OTA_CodeType&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//      &lt;/localVariables>
+//      &lt;executableGroups executableElements=&quot;//@executableElements.5/@conditionalActivities.1/@executableElements.0 //@executableElements.5/@conditionalActivities.1/@executableElements.1&quot;/>
+//      &lt;condition value=&quot;&quot;/>
+//    &lt;/conditionalActivities>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.1&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.2 //@executableElements.3 //@executableElements.4 //@executableElements.5&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!4:6,1&#xD;
+//!SMAP!5:7,1&#xD;
+//!SMAP!6:8,1&#xD;
+//!SMAP!8:9,1&#xD;
+//!SMAP!9:10,1&#xD;
+//!SMAP!12:13,1&#xD;
+//!SMAP!1000000:95,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:customAssignment>
+      <map:output businessObjectVariableRef="NCL_CruiseLinkReservationRS" property="Success"/>
+      <map:javaCode>commonj.sdo.DataObject __NCL_CruiseLinkReservationRS_Success = (commonj.sdo.DataObject)NCL_CruiseLinkReservationRS_Success;&#xD;
+commonj.sdo.DataObject __result__1;&#xD;
+{// create SuccessType&#xD;
+	com.ibm.websphere.bo.BOFactory factory = 
+	   (com.ibm.websphere.bo.BOFactory) new com.ibm.websphere.sca.ServiceManager().locateService(&quot;com/ibm/websphere/bo/BOFactory&quot;);
+	 __result__1 = factory.create(null,&quot;SuccessType&quot;);&#xD;
+}&#xD;
+__NCL_CruiseLinkReservationRS_Success = __result__1;&#xD;
+NCL_CruiseLinkReservationRS_Success = __NCL_CruiseLinkReservationRS_Success;&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;create SuccessType&quot; description=&quot;create a new SuccessType {[null]}&quot; category=&quot;SCA and BO services&quot; template=&quot;com.ibm.websphere.bo.BOFactory factory = &amp;#xA;   (com.ibm.websphere.bo.BOFactory) new com.ibm.websphere.sca.ServiceManager().locateService(&amp;quot;com/ibm/websphere/bo/BOFactory&amp;quot;);&amp;#xA; &amp;lt;%return%> factory.create(null,&amp;quot;SuccessType&amp;quot;);&quot;>
+//    &lt;result>
+//      &lt;dataOutputs target=&quot;//@executableElements.1&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;SuccessType&quot; namespace=&quot;[null]&quot; nillable=&quot;false&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.0/@result/@dataOutputs.0&quot; value=&quot;NCL_CruiseLinkReservationRS_Success&quot; variable=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;SuccessType&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0 //@executableElements.1&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!1:2,6&#xD;
+//!SMAP!2:8,2&#xD;
+//!SMAP!1000000:34,1</map:javaCode>
+    </map:customAssignment>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:custom>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Create_Client_LinkBG" property="NclseaNcl_Wesb_Create_Client_Link/p_error_code"/>
+      <map:output businessObjectVariableRef="NCL_CruiseLinkReservationRS" property="Warnings/Warning[1]/@Code"/>
+      <map:javaCode>java.lang.String __NclseaNcl_Wesb_Create_Client_LinkBG_NclseaNcl_Wesb_Create_Client_Link_p_error_code = (java.lang.String)NclseaNcl_Wesb_Create_Client_LinkBG_NclseaNcl_Wesb_Create_Client_Link_p_error_code;&#xD;
+java.lang.String __NCL_CruiseLinkReservationRS_Warnings_Warning1_$aCode = (java.lang.String)NCL_CruiseLinkReservationRS_Warnings_Warning1_$aCode;&#xD;
+// Variable NCL_CruiseLinkReservationRS_Warnings_Warning[1]_@Code is represented as NCL_CruiseLinkReservationRS_Warnings_Warning1_$aCode&#xD;
+byte __result__4 = 1;&#xD;
+int __result__3 = __NclseaNcl_Wesb_Create_Client_LinkBG_NclseaNcl_Wesb_Create_Client_Link_p_error_code.length();&#xD;
+boolean __result__5;&#xD;
+{// greater than&#xD;
+	__result__5 = __result__3 > __result__4;&#xD;
+}&#xD;
+if (__result__5){&#xD;
+	__NCL_CruiseLinkReservationRS_Warnings_Warning1_$aCode = __NclseaNcl_Wesb_Create_Client_LinkBG_NclseaNcl_Wesb_Create_Client_Link_p_error_code;&#xD;
+	NCL_CruiseLinkReservationRS_Warnings_Warning1_$aCode = __NCL_CruiseLinkReservationRS_Warnings_Warning1_$aCode;&#xD;
+}&#xD;
+else{&#xD;
+}&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;NclseaNcl_Wesb_Create_Client_LinkBG_NclseaNcl_Wesb_Create_Client_Link_p_error_code&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Variable NCL_CruiseLinkReservationRS_Warnings_Warning[1]_@Code is represented as NCL_CruiseLinkReservationRS_Warnings_Warning1_$aCode&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NclseaNcl_Wesb_Create_Client_LinkBG_NclseaNcl_Wesb_Create_Client_Link_p_error_code&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.2/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;length&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;length&quot;>
+//    &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.1/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result>
+//      &lt;dataOutputs target=&quot;//@executableElements.4/@parameters.0&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;1&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.4/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;byte&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;greater than&quot; description=&quot;True if the value of the first input is greater than the value of the second input&quot; category=&quot;math&quot; template=&quot;&amp;lt;%return%> &amp;lt;%input1%> > &amp;lt;%input2%>;&quot;>
+//    &lt;parameters name=&quot;input1&quot; dataInputs=&quot;//@executableElements.2/@result/@dataOutputs.0&quot; displayName=&quot;input 1&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;input2&quot; dataInputs=&quot;//@executableElements.3/@dataOutputs.0&quot; displayName=&quot;input 2&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/parameters>
+//    &lt;result name=&quot;result&quot; displayName=&quot;result&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.5&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;boolean&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:BranchElement&quot; dataInputs=&quot;//@executableElements.4/@result/@dataOutputs.0&quot;>
+//    &lt;conditionalActivities>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NclseaNcl_Wesb_Create_Client_LinkBG_NclseaNcl_Wesb_Create_Client_Link_p_error_code&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//        &lt;dataOutputs target=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.1&quot;/>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.0/@dataOutputs.0&quot; value=&quot;NCL_CruiseLinkReservationRS_Warnings_Warning1_$aCode&quot; variable=&quot;true&quot;>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;OTA_CodeType&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//      &lt;/executableElements>
+//      &lt;executableGroups executableElements=&quot;//@executableElements.5/@conditionalActivities.0/@executableElements.0 //@executableElements.5/@conditionalActivities.0/@executableElements.1&quot;/>
+//      &lt;condition value=&quot;true&quot;/>
+//    &lt;/conditionalActivities>
+//    &lt;conditionalActivities>
+//      &lt;condition value=&quot;&quot;/>
+//    &lt;/conditionalActivities>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.1 //@executableElements.2 //@executableElements.3 //@executableElements.4 //@executableElements.5&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!3:5,1&#xD;
+//!SMAP!4:4,1&#xD;
+//!SMAP!5:6,4&#xD;
+//!SMAP!6:10,1&#xD;
+//!SMAP!9:11,2&#xD;
+//!SMAP!1000000:86,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+</map:businessObjectMap>

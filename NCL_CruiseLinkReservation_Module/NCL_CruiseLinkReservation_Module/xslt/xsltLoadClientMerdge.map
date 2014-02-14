@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseLinkReservation_Module/xslt/xsltLoadClientMerdge" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseLinkReservation_Module/xslt/xsltLoadClientMerdge">
+    <input correlationContext="{http://Link_Reservation}app_context" message="{http://Link_Reservation/DB_LinkReservation}executeNclseaNcl_Wesb_Create_Client_LinkBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://Link_Reservation}app_context" message="{http://NCL_CruiseLinkReservation_Module/JDBCImport}executeSeaSw_EntitymergeU46clientmergeduplicateRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="xsltLoadClientMerdge.xml"/>
+    </imports>
+    <mappingDeclaration name="xsltLoadClientMerdge">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/Error_code"/>
+            <output path="body/executeSeaSw_EntitymergeU46clientmergeduplicate/executeSeaSw_EntitymergeU46clientmergeduplicateInput/p_duplclientid"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseLinkReservationRQ/ClientInfo/@LoyaltyMembershipID"/>
+            <output path="body/executeSeaSw_EntitymergeU46clientmergeduplicate/executeSeaSw_EntitymergeU46clientmergeduplicateInput/p_mainclientid"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

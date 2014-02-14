@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<io:smo xmlns:io="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:io7="http://www.w3.org/2005/08/addressing" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:io5="http://nclapi/schemas" xmlns:io6="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:io4="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:io3="http://NCL_CruiseRegisterWebAccess_Module" xmlns:out2="wsdl.http://versonix.com/api/definitions" xmlns:io2="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:out="http://versonix.com/api/schemas">
+  <context>
+    <correlation>
+      <p1:NCL_CruiseRegisterWebAccessRQ xmlns:p1="http://nclapi/schemas" xmlns:httpsca="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:mq="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:nclseancl_wesb_create_agent="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_agent" xmlns:nclseancl_wesb_register_agcy_lookup="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_register_agcy_lookup" xmlns:p="http://NCL_CruiseRegisterWebAccess_Module" xmlns:p2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_agentbg" xmlns:p3="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0" xmlns:p4="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_register_agcy_lookupbg" xmlns:tns="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:tns1="http://NCL_CruiseRegisterWebAccess_Module/DB_LOOKUP" xmlns:tns2="http://www.w3.org/2005/08/addressing" xmlns:tns_1="wsdl.http://NCL_CruiseRegisterWebAccess_Module/DB_LOOKUP" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" AltLangID="EN" EchoToken="" PrimaryLangID="EN" RetransmissionIndicator="true" SequenceNmbr="0" Target="Production" TimeStamp="2001-12-31T12:00:00" TransactionIdentifier="" TransactionStatusCode="Start" Version="0.0">
+        <p1:POS>
+          <p1:Source AgentDutyCode="" AgentSine="" AirlineVendorID="" AirportCode="" ERSP_UserID="" FirstDepartPoint="" ISOCountry="" ISOCurrency="" PseudoCityCode="" TerminalID="">
+            <p1:RequestorID ID="" ID_Context="" Instance="" MessagePassword="" Type="" URL="http://tempuri.org">
+              <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+            </p1:RequestorID>
+            <p1:Position Altitude="" AltitudeUnitOfMeasureCode="" Latitude="" Longitude=""/>
+            <p1:BookingChannel Primary="true" Type="">
+              <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+            </p1:BookingChannel>
+          </p1:Source>
+        </p1:POS>
+        <p1:AgencyLookup IdentificationNumber="">
+          <p1:Telephone AreaCityCode="" CountryAccessCode="" DefaultInd="false" Extension="" FormattedInd="false" PIN="" PhoneLocationType="" PhoneNumber="" PhoneTechType="" PhoneUseType="" RPH="" ShareMarketInd="Yes" ShareSynchInd="Yes"/>
+          <p1:Address DefaultInd="false" FormattedInd="false" RPH="" ShareMarketInd="Yes" ShareSynchInd="Yes" Type="" UseType="">
+            <p1:StreetNmbr PO_Box="" RuralRouteNmbr="" StreetDirection="" StreetNmbrSuffix="">p1:StreetNmbr</p1:StreetNmbr>
+            <p1:BldgRoom>p1:BldgRoom</p1:BldgRoom>
+            <p1:AddressLine>p1:AddressLine</p1:AddressLine>
+            <p1:CityName>p1:CityName</p1:CityName>
+            <p1:PostalCode>p1:PostalCode</p1:PostalCode>
+            <p1:County>p1:County</p1:County>
+            <p1:StateProv StateCode="">p1:StateProv</p1:StateProv>
+            <p1:CountryName Code="">p1:CountryName</p1:CountryName>
+          </p1:Address>
+        </p1:AgencyLookup>
+        <p1:AgentInfo ContactType="" DefaultInd="false" EmergencyFlag="false" RPH="" Relation="" ShareMarketInd="Yes" ShareSynchInd="Yes">
+          <p1:PersonName NameType="" ShareMarketInd="Yes" ShareSynchInd="Yes">
+            <p1:NamePrefix>p1:NamePrefix</p1:NamePrefix>
+            <p1:GivenName>p1:GivenName</p1:GivenName>
+            <p1:MiddleName>p1:MiddleName</p1:MiddleName>
+            <p1:SurnamePrefix>p1:SurnamePrefix</p1:SurnamePrefix>
+            <p1:Surname>p1:Surname</p1:Surname>
+            <p1:NameSuffix>p1:NameSuffix</p1:NameSuffix>
+            <p1:NameTitle>p1:NameTitle</p1:NameTitle>
+          </p1:PersonName>
+          <p1:Telephone AreaCityCode="" CountryAccessCode="" DefaultInd="false" Extension="" FormattedInd="false" PIN="" PhoneLocationType="" PhoneNumber="" PhoneTechType="" PhoneUseType="" RPH="" ShareMarketInd="Yes" ShareSynchInd="Yes"/>
+          <p1:Address DefaultInd="false" FormattedInd="false" RPH="" ShareMarketInd="Yes" ShareSynchInd="Yes" Type="" UseType="">
+            <p1:StreetNmbr PO_Box="" RuralRouteNmbr="" StreetDirection="" StreetNmbrSuffix="">p1:StreetNmbr</p1:StreetNmbr>
+            <p1:BldgRoom>p1:BldgRoom</p1:BldgRoom>
+            <p1:AddressLine>p1:AddressLine</p1:AddressLine>
+            <p1:CityName>p1:CityName</p1:CityName>
+            <p1:PostalCode>p1:PostalCode</p1:PostalCode>
+            <p1:County>p1:County</p1:County>
+            <p1:StateProv StateCode="">p1:StateProv</p1:StateProv>
+            <p1:CountryName Code="">p1:CountryName</p1:CountryName>
+          </p1:Address>
+          <p1:Email DefaultInd="false" EmailType="" RPH="" ShareMarketInd="Yes" ShareSynchInd="Yes">p1:Email</p1:Email>
+          <p1:URL DefaultInd="false" ShareMarketInd="Yes" ShareSynchInd="Yes" Type="">http://tempuri.org</p1:URL>
+          <p1:CompanyName Code="" CodeContext="" CompanyShortName="" TravelSector="" xsi:type="p1:CompanyNameType">p1:CompanyName</p1:CompanyName>
+          <p1:EmployeeInfo EmployeeId="" EmployeeLevel="" EmployeeStatus="" EmployeeTitle="">p1:EmployeeInfo</p1:EmployeeInfo>
+          <p1:ContactPreferences ContactPreference=""/>
+        </p1:AgentInfo>
+        <p1:UserLogin Password="" UserLoginName="" UserType=""/>
+        <p1:TPA_Extensions/>
+      </p1:NCL_CruiseRegisterWebAccessRQ>
+      <LogID>LogID</LogID>
+      <Agency_ID>0</Agency_ID>
+    </correlation>
+  </context>
+  <body>
+    <out:processEncryptDecryptRequest>
+      <out:Encrypt_Decrypt>
+        <out:Action>ENCRYPT</out:Action>
+        <out:DecryptString>buizatizu</out:DecryptString>
+      </out:Encrypt_Decrypt>
+    </out:processEncryptDecryptRequest>
+  </body>
+</io:smo>

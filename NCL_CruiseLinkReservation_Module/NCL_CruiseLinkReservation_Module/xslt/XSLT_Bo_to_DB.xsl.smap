@@ -1,0 +1,16 @@
+* SMAP
+XSLT_Bo_to_DB.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLT_Bo_to_DB.map
+/NCL_CruiseLinkReservation_Module/xslt/XSLT_Bo_to_DB.map
+*L
+2:84,4
+1:56,17
+4:107,6
+5:103,4
+6:119,5
+7:113,6
+3:88,5
+*E

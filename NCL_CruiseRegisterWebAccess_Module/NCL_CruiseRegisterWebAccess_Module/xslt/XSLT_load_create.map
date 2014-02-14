@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRegisterWebAccess_Module/xslt/XSLT_load_create" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRegisterWebAccess_Module/xslt/XSLT_load_create">
+    <input correlationContext="{http://NCL_CruiseRegisterWebAccess_Module}app_context" message="{http://versonix.com/api/definitions}processEncryptDecryptResponse" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRegisterWebAccess_Module}app_context" message="{http://NCL_CruiseRegisterWebAccess_Module/DB_LOOKUP}executeNclseaNcl_Wesb_Create_AgentBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLT_load_create.xml"/>
+    </imports>
+    <mappingDeclaration name="XSLT_load_create">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseRegisterWebAccessRQ"/>
+            <output path="context/correlation/NCL_CruiseRegisterWebAccessRQ"/>
+        </move>
+        <assign value="A">
+            <output path="body/executeNclseaNcl_Wesb_Create_AgentBG/executeNclseaNcl_Wesb_Create_AgentBGInput/NclseaNcl_Wesb_Create_Agent/p_action"/>
+        </assign>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="context/correlation/Agency_ID"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_AgentBG/executeNclseaNcl_Wesb_Create_AgentBGInput/NclseaNcl_Wesb_Create_Agent/p_agencyid"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRegisterWebAccessRQ/AgentInfo/PersonName/GivenName[1]"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_AgentBG/executeNclseaNcl_Wesb_Create_AgentBGInput/NclseaNcl_Wesb_Create_Agent/p_agent_first"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRegisterWebAccessRQ/AgentInfo/PersonName/Surname"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_AgentBG/executeNclseaNcl_Wesb_Create_AgentBGInput/NclseaNcl_Wesb_Create_Agent/p_agent_last"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRegisterWebAccessRQ/UserLogin/@UserLoginName"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_AgentBG/executeNclseaNcl_Wesb_Create_AgentBGInput/NclseaNcl_Wesb_Create_Agent/p_username"/>
+        </move>
+        <assign value="ADMINISTRATOR">
+            <output path="body/executeNclseaNcl_Wesb_Create_AgentBG/executeNclseaNcl_Wesb_Create_AgentBGInput/NclseaNcl_Wesb_Create_Agent/p_role"/>
+        </assign>
+        <move>
+            <input path="context/correlation/NCL_CruiseRegisterWebAccessRQ/AgentInfo/Email[1]/text()"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_AgentBG/executeNclseaNcl_Wesb_Create_AgentBGInput/NclseaNcl_Wesb_Create_Agent/p_email"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRegisterWebAccessRQ/AgentInfo/Telephone[1]/@PhoneNumber"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_AgentBG/executeNclseaNcl_Wesb_Create_AgentBGInput/NclseaNcl_Wesb_Create_Agent/p_phone"/>
+        </move>
+        <assign value="Y">
+            <output path="body/executeNclseaNcl_Wesb_Create_AgentBG/executeNclseaNcl_Wesb_Create_AgentBGInput/NclseaNcl_Wesb_Create_Agent/p_can_access"/>
+        </assign>
+        <move>
+            <input path="context/correlation/DecString"/>
+            <output path="context/correlation/ErrorCode"/>
+        </move>
+        <move>
+            <input path="context/correlation/EncString"/>
+            <output path="body/executeNclseaNcl_Wesb_Create_AgentBG/executeNclseaNcl_Wesb_Create_AgentBGInput/NclseaNcl_Wesb_Create_Agent/p_password"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

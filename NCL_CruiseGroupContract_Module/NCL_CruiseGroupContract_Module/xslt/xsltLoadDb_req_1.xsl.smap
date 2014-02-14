@@ -1,0 +1,14 @@
+* SMAP
+xsltLoadDb_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 xsltLoadDb_req_1.map
+/NCL_CruiseGroupContract_Module/xslt/xsltLoadDb_req_1.map
+*L
+3:83,5
+2:79,4
+1:51,17
+5:97,6
+4:103,5
+*E

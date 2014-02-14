@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:NCL_CruiseGroupAccountingWorkupRQ="http://nclapi/schemas" xmlns:NclseaNcl_Wesb_Group_Acctg_WsBG="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_group_acctg_wsbg" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:sub_insertfax="http://NCL_CruiseGroupAccountingWorkup_Module" targetNamespace="http://NCL_CruiseGroupAccountingWorkup_Module">
+  <map:name>sub_insertfax</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="NCL_CruiseGroupAccountingWorkupRQ:NCL_CruiseGroupAccountingWorkupRQ" name="NCL_CruiseGroupAccountingWorkupRQ"/>
+  <map:outputBusinessObjectVariable businessObjectRef="NclseaNcl_Wesb_Group_Acctg_WsBG:NclseaNcl_Wesb_Group_Acctg_WsBG" name="NclseaNcl_Wesb_Group_Acctg_WsBG"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseGroupAccountingWorkupRQ" property="GroupInfo/@GroupCode"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Group_Acctg_WsBG" property="NclseaNcl_Wesb_Group_Acctg_Ws/p_group_id"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseGroupAccountingWorkupRQ" property="Email/value()"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Group_Acctg_WsBG" property="NclseaNcl_Wesb_Group_Acctg_Ws/p_email"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

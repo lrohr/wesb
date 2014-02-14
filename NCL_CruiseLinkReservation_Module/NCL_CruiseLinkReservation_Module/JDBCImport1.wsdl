@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="JDBCImport1.wsdl" targetNamespace="http://NCL_CruiseLinkReservation_Module/JDBCImport1" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/seasw_entitymergeu46clientmergeduplicateextended" xmlns:tns="http://NCL_CruiseLinkReservation_Module/JDBCImport1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://NCL_CruiseLinkReservation_Module/JDBCImport1">
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/seasw_entitymergeu46clientmergeduplicateextended" schemaLocation="SeaSw_EntitymergeU46clientmergeduplicateextended.xsd"/>
+      <xsd:element name="executeSeaSw_EntitymergeU46clientmergeduplicateextended">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeSeaSw_EntitymergeU46clientmergeduplicateextendedInput" type="bons1:SeaSw_EntitymergeU46clientmergeduplicateextended"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeSeaSw_EntitymergeU46clientmergeduplicateextendedResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeSeaSw_EntitymergeU46clientmergeduplicateextendedOutput" type="bons1:SeaSw_EntitymergeU46clientmergeduplicateextended"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeSeaSw_EntitymergeU46clientmergeduplicateextendedRequestMsg">
+    <wsdl:part element="tns:executeSeaSw_EntitymergeU46clientmergeduplicateextended" name="executeSeaSw_EntitymergeU46clientmergeduplicateextendedParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeSeaSw_EntitymergeU46clientmergeduplicateextendedResponseMsg">
+    <wsdl:part element="tns:executeSeaSw_EntitymergeU46clientmergeduplicateextendedResponse" name="executeSeaSw_EntitymergeU46clientmergeduplicateextendedResult"/>
+  </wsdl:message>
+  <wsdl:portType name="JDBCImport1">
+    <wsdl:operation name="executeSeaSw_EntitymergeU46clientmergeduplicateextended">
+      <wsdl:input message="tns:executeSeaSw_EntitymergeU46clientmergeduplicateextendedRequestMsg" name="executeSeaSw_EntitymergeU46clientmergeduplicateextendedRequest"/>
+      <wsdl:output message="tns:executeSeaSw_EntitymergeU46clientmergeduplicateextendedResponseMsg" name="executeSeaSw_EntitymergeU46clientmergeduplicateextendedResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

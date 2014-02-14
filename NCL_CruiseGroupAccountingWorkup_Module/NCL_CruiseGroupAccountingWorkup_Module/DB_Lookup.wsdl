@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="DB_Lookup.wsdl" targetNamespace="http://NCL_CruiseGroupAccountingWorkup_Module/DB_Lookup" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_group_acctg_wsbg" xmlns:tns="http://NCL_CruiseGroupAccountingWorkup_Module/DB_Lookup" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://NCL_CruiseGroupAccountingWorkup_Module/DB_Lookup">
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_group_acctg_wsbg" schemaLocation="NclseaNcl_Wesb_Group_Acctg_WsBG.xsd"/>
+      <xsd:element name="executeNclseaNcl_Wesb_Group_Acctg_WsBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Group_Acctg_WsBGInput" type="bons1:NclseaNcl_Wesb_Group_Acctg_WsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Group_Acctg_WsBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Group_Acctg_WsBGOutput" type="bons1:NclseaNcl_Wesb_Group_Acctg_WsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeNclseaNcl_Wesb_Group_Acctg_WsBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Group_Acctg_WsBG" name="executeNclseaNcl_Wesb_Group_Acctg_WsBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Group_Acctg_WsBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Group_Acctg_WsBGResponse" name="executeNclseaNcl_Wesb_Group_Acctg_WsBGResult"/>
+  </wsdl:message>
+  <wsdl:portType name="DB_Lookup">
+    <wsdl:operation name="executeNclseaNcl_Wesb_Group_Acctg_WsBG">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Group_Acctg_WsBGRequestMsg" name="executeNclseaNcl_Wesb_Group_Acctg_WsBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Group_Acctg_WsBGResponseMsg" name="executeNclseaNcl_Wesb_Group_Acctg_WsBGResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

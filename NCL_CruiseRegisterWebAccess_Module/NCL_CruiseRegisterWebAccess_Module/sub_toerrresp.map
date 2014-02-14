@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:NCL_CruiseRegisterWebAccessRS="http://nclapi/schemas" xmlns:NclseaNcl_Wesb_Create_AgentBG="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_create_agentbg" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:sub_toerrresp="http://NCL_CruiseRegisterWebAccess_Module" targetNamespace="http://NCL_CruiseRegisterWebAccess_Module">
+  <map:name>sub_toerrresp</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="NclseaNcl_Wesb_Create_AgentBG:NclseaNcl_Wesb_Create_AgentBG" name="NclseaNcl_Wesb_Create_AgentBG"/>
+  <map:outputBusinessObjectVariable businessObjectRef="NCL_CruiseRegisterWebAccessRS:NCL_CruiseRegisterWebAccessRS" name="NCL_CruiseRegisterWebAccessRS"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Create_AgentBG" property="NclseaNcl_Wesb_Create_Agent/p_errorcode"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRegisterWebAccessRS" property="Warnings/Warning[1]/@Code"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="NclseaNcl_Wesb_Create_AgentBG" property="NclseaNcl_Wesb_Create_Agent/p_errormsg"/>
+      <map:output businessObjectVariableRef="NCL_CruiseRegisterWebAccessRS" property="Warnings/Warning[1]/@ShortText"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

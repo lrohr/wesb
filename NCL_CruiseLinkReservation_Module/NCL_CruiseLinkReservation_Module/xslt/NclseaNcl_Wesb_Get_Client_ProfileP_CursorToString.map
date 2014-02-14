@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseLinkReservation_Module/xslt/NclseaNcl_Wesb_Get_Client_ProfileP_CursorToString" domainID="com.ibm.ccl.mapping.codegen.xslt.domain" targetNamespace="http://NCL_CruiseLinkReservation_Module/xslt/NclseaNcl_Wesb_Get_Client_ProfileP_CursorToString">
+   <input path="../NclseaNcl_Wesb_Get_Client_ProfileP_Cursor.xsd"/>
+   <mappingDeclaration name="NclseaNcl_Wesb_Get_Client_ProfileP_CursorToString">
+       <input path="type('NclseaNcl_Wesb_Get_Client_ProfileP_Cursor')"/>
+   </mappingDeclaration>
+</mappingRoot>

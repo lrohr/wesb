@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:NCL_CruiseLinkReservationRQ="http://nclapi/schemas" xmlns:NclseaNcl_Wesb_Get_Client_ProfileBG="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_get_client_profilebg" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:sub_todb="http://Link_Reservation" targetNamespace="http://Link_Reservation">
+  <map:name>sub_todb</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="NCL_CruiseLinkReservationRQ:NCL_CruiseLinkReservationRQ" name="NCL_CruiseLinkReservationRQ"/>
+  <map:outputBusinessObjectVariable businessObjectRef="NclseaNcl_Wesb_Get_Client_ProfileBG:NclseaNcl_Wesb_Get_Client_ProfileBG" name="NclseaNcl_Wesb_Get_Client_ProfileBG"/>
+  <map:propertyMap executionOrder="1">
+    <map:set value="BOOKING_INFO_ONLY">
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_option"/>
+    </map:set>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:custom>
+      <map:input businessObjectVariableRef="NCL_CruiseLinkReservationRQ" property="UserLogin/@UserLoginName"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_webusername"/>
+      <map:javaCode>java.lang.String __NCL_CruiseLinkReservationRQ_UserLogin_$aUserLoginName = (java.lang.String)NCL_CruiseLinkReservationRQ_UserLogin_$aUserLoginName;&#xD;
+java.lang.String __NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_webusername = (java.lang.String)NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_webusername;&#xD;
+// Input NCL_CruiseLinkReservationRQ_UserLogin_@UserLoginName is represented as NCL_CruiseLinkReservationRQ_UserLogin_$aUserLoginName&#xD;
+java.lang.String __result__3 = __NCL_CruiseLinkReservationRQ_UserLogin_$aUserLoginName.toUpperCase();&#xD;
+__NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_webusername = __result__3;&#xD;
+NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_webusername = __NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_webusername;&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;NCL_CruiseLinkReservationRQ_UserLogin_$aUserLoginName&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength1to64&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;/**/Input NCL_CruiseLinkReservationRQ_UserLogin_@UserLoginName is represented as NCL_CruiseLinkReservationRQ_UserLogin_$aUserLoginName&amp;#xD;&amp;#xA;&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;NCL_CruiseLinkReservationRQ_UserLogin_$aUserLoginName&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.2/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;StringLength1to64&quot; namespace=&quot;http://nclapi/schemas&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:JavaActivity&quot; name=&quot;toUpperCase&quot; category=&quot;java.lang.String&quot; className=&quot;java.lang.String&quot; memberName=&quot;toUpperCase&quot;>
+//    &lt;parameters name=&quot;String&quot; dataInputs=&quot;//@executableElements.1/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result>
+//      &lt;dataOutputs target=&quot;//@executableElements.3&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.2/@result/@dataOutputs.0&quot; value=&quot;NclseaNcl_Wesb_Get_Client_ProfileBG_NclseaNcl_Wesb_Get_Client_Profile_p_webusername&quot; variable=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0&quot;/>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.1 //@executableElements.2 //@executableElements.3&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!3:4,1&#xD;
+//!SMAP!4:5,2&#xD;
+//!SMAP!1000000:45,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseLinkReservationRQ" property="ReservationID/@ID"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_resid"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseLinkReservationRQ" property="ClientInfo/PersonName/Surname"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_lastname"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="5">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseLinkReservationRQ" property="ClientInfo/PersonName/GivenName[1]"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_firstname"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="6">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseLinkReservationRQ" property="SelectedSailing/@ShipCode"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_shipcode"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="7">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseLinkReservationRQ" property="ClientInfo/@LoyaltyMembershipID"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_clientid"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="8">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseLinkReservationRQ" property="ClientInfo/@BirthDate"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_dateofbirth"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="9">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseLinkReservationRQ" property="ClientInfo/Address/PostalCode"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_zipcode"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="10">
+    <map:move>
+      <map:input businessObjectVariableRef="NCL_CruiseLinkReservationRQ" property="ClientInfo/Email/value()"/>
+      <map:output businessObjectVariableRef="NclseaNcl_Wesb_Get_Client_ProfileBG" property="NclseaNcl_Wesb_Get_Client_Profile/p_email"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

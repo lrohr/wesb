@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<io:smo xmlns:io="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:io7="http://www.w3.org/2005/08/addressing" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:io6="http://Link_Reservation" xmlns:out2="http://NCL_WESB_Shared_Library/NCL_CruiseLinkReservation_Interface" xmlns:io4="http://nclapi/schemas" xmlns:io5="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:io3="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:io2="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:out="wsdl.http://NCL_WESB_Shared_Library/NCL_CruiseLinkReservation_Interface">
+  <body>
+    <out2:Perform_NCL_CruiseLinkReservationResponse>
+      <io4:NCL_CruiseLinkReservationRS>
+        <io4:Success/>
+        <io4:Warnings>
+          <io4:Warning ShortText="Error during database execution"/>
+        </io4:Warnings>
+      </io4:NCL_CruiseLinkReservationRS>
+    </out2:Perform_NCL_CruiseLinkReservationResponse>
+  </body>
+</io:smo>

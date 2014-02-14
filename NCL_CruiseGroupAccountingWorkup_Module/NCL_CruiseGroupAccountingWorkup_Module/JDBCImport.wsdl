@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="JDBCImport" targetNamespace="http://NCL_CruiseGroupAccountingWorkup_Module/JDBCImport" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_group_acctg_ws" xmlns:bons2="http://com/ibm/j2ca/fault/afcfault" xmlns:tns="http://NCL_CruiseGroupAccountingWorkup_Module/JDBCImport" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://com/ibm/j2ca/fault/afcfault" xmlns:tns="http://com/ibm/j2ca/fault/afcfault">
+      <xsd:include schemaLocation="UniqueConstraintFault.xsd"/>
+      <xsd:include schemaLocation="RecordNotFoundFault.xsd"/>
+      <xsd:include schemaLocation="IntegrityConstraintFault.xsd"/>
+    </xsd:schema>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://NCL_CruiseGroupAccountingWorkup_Module/JDBCImport" xmlns:bons4="http://com/ibm/j2ca/fault/afcfault">
+      <xsd:import namespace="http://com/ibm/j2ca/fault/afcfault"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_wesb_group_acctg_ws" schemaLocation="NclseaNcl_Wesb_Group_Acctg_Ws.xsd"/>
+      <xsd:element name="executeNclseaNcl_Wesb_Group_Acctg_Ws">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Group_Acctg_WsInput" type="bons1:NclseaNcl_Wesb_Group_Acctg_Ws"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Wesb_Group_Acctg_WsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Wesb_Group_Acctg_WsOutput" type="bons1:NclseaNcl_Wesb_Group_Acctg_Ws"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UniqueConstraintFault_element" nillable="true" type="bons4:UniqueConstraintFault"/>
+      <xsd:element name="IntegrityConstraintFault_element" nillable="true" type="bons4:IntegrityConstraintFault"/>
+      <xsd:element name="RecordNotFoundFault_element" nillable="true" type="bons4:RecordNotFoundFault"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeNclseaNcl_Wesb_Group_Acctg_WsRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Group_Acctg_Ws" name="executeNclseaNcl_Wesb_Group_Acctg_WsParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Group_Acctg_WsResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Wesb_Group_Acctg_WsResponse" name="executeNclseaNcl_Wesb_Group_Acctg_WsResult"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Group_Acctg_WsUniqueConstraintFaultMsg">
+    <wsdl:part element="tns:UniqueConstraintFault_element" name="UniqueConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Group_Acctg_WsIntegrityConstraintFaultMsg">
+    <wsdl:part element="tns:IntegrityConstraintFault_element" name="IntegrityConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Wesb_Group_Acctg_WsRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:portType name="JDBCImport">
+    <wsdl:operation name="executeNclseaNcl_Wesb_Group_Acctg_Ws">
+      <wsdl:input message="tns:executeNclseaNcl_Wesb_Group_Acctg_WsRequestMsg" name="executeNclseaNcl_Wesb_Group_Acctg_WsRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Wesb_Group_Acctg_WsResponseMsg" name="executeNclseaNcl_Wesb_Group_Acctg_WsResponse"/>
+      <wsdl:fault message="tns:executeNclseaNcl_Wesb_Group_Acctg_WsUniqueConstraintFaultMsg" name="UNIQUECONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:executeNclseaNcl_Wesb_Group_Acctg_WsIntegrityConstraintFaultMsg" name="INTEGRITY_CONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:executeNclseaNcl_Wesb_Group_Acctg_WsRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,16 @@
+* SMAP
+No_Data_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 No_Data_req_1.map
+/NCL_CruiseLinkReservation_Module/xslt/No_Data_req_1.map
+*L
+1:60,17
+5:124,4
+6:128,3
+4:106,6
+7:112,9
+3:92,5
+2:88,4
+*E

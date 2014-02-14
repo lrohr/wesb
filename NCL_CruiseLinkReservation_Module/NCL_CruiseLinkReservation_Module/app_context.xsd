@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://Link_Reservation"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0="http://nclapi/schemas">
+	<xsd:import schemaLocation="NCL_CruiseLinkReservationRQ.xsd"
+		namespace="http://nclapi/schemas">
+	</xsd:import>
+	<xsd:complexType name="app_context">
+		<xsd:sequence>
+			<xsd:element minOccurs="0"
+				ref="bons0:NCL_CruiseLinkReservationRQ">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="LogID" type="xsd:string"></xsd:element>
+			<xsd:element minOccurs="0" name="Error_code"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="Dup_clientId"
+				type="xsd:string">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

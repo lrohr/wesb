@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseGroupContract_Module/xslt/xsltLoadDb_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseGroupContract_Module/xslt/xsltLoadDb_req_1">
+    <input correlationContext="{http://NCL_CruiseGroupContract_Module}appContext" message="{http://TP_Logger/TP_Interface}TP_InsertUpdateRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseGroupContract_Module}appContext" message="{http://NCL_CruiseGroupContract_Module/JDBCOutboundInterface}executeNclseaNcl_Wesb_Group_ContractRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="xsltLoadDb_req_1.xml"/>
+    </imports>
+    <mappingDeclaration name="xsltLoadDb_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseGroupContractRQ"/>
+            <output path="context/correlation/NCL_CruiseGroupContractRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/logID"/>
+            <output path="context/correlation/logID"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseGroupContractRQ/Email/text()"/>
+            <output path="body/executeNclseaNcl_Wesb_Group_Contract/executeNclseaNcl_Wesb_Group_ContractInput/p_email"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseGroupContractRQ/GroupInfo/@GroupCode"/>
+            <output path="body/executeNclseaNcl_Wesb_Group_Contract/executeNclseaNcl_Wesb_Group_ContractInput/p_group_id"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

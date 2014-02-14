@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseRegisterWebAccess_Module/xslt/Error_9923_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseRegisterWebAccess_Module/xslt/Error_9923_req_1">
+    <input correlationContext="{http://NCL_CruiseRegisterWebAccess_Module}app_context" message="{http://NCL_CruiseRegisterWebAccess_Module/DB_LOOKUP}executeNclseaNcl_Wesb_Register_Agcy_LookupBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseRegisterWebAccess_Module}app_context" message="{http://NCL_WESB_Shared_Library/NCL_CruiseRegisterWebAccess_Interface}Perform_NCL_CruiseRegisterWebAccessResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xslt" location="Error_9923_req_1_custom.xsl"/>
+    </imports>
+    <mappingDeclaration name="Error_9923_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseRegisterWebAccessRQ"/>
+            <output path="context/correlation/NCL_CruiseRegisterWebAccessRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="context/correlation/ErrorCode"/>
+            <output path="context/correlation/ErrorCode"/>
+        </move>
+        <move>
+            <input path="context/correlation/Agency_ID"/>
+            <output path="context/correlation/Agency_ID"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseRegisterWebAccessRQ/@TransactionIdentifier"/>
+            <output path="body/Perform_NCL_CruiseRegisterWebAccessResponse/NCL_CruiseRegisterWebAccessRS/@TransactionIdentifier"/>
+        </move>
+        <customFunction lang="xslt" location="Error_9923_req_1_custom.xsl" ref="ToSuccess">
+            <output path="body/Perform_NCL_CruiseRegisterWebAccessResponse/NCL_CruiseRegisterWebAccessRS/Success"/>
+        </customFunction>
+        <assign value="9923">
+            <output path="body/Perform_NCL_CruiseRegisterWebAccessResponse/NCL_CruiseRegisterWebAccessRS/Warnings/Warning/@Code"/>
+        </assign>
+        <assign value="Agency lookup timeout">
+            <output path="body/Perform_NCL_CruiseRegisterWebAccessResponse/NCL_CruiseRegisterWebAccessRS/Warnings/Warning/@ShortText"/>
+        </assign>
+    </mappingDeclaration>
+</mappingRoot>

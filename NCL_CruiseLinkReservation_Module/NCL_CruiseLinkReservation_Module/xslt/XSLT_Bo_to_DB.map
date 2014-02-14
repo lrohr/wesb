@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseLinkReservation_Module/xslt/XSLT_Bo_to_DB" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseLinkReservation_Module/xslt/XSLT_Bo_to_DB">
+    <input correlationContext="{http://Link_Reservation}app_context" message="{http://TP_Logger/TP_Interface}TP_InsertUpdateRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://Link_Reservation}app_context" message="{http://Link_Reservation/DB_LinkReservation}executeNclseaNcl_Wesb_Get_Client_ProfileBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLT_Bo_to_DB.xml"/>
+    </imports>
+    <mappingDeclaration name="XSLT_Bo_to_DB">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseLinkReservationRQ"/>
+            <output path="context/correlation/NCL_CruiseLinkReservationRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogID"/>
+            <output path="context/correlation/LogID"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseLinkReservationRQ/ReservationID/@ID"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_ProfileBG/executeNclseaNcl_Wesb_Get_Client_ProfileBGInput/NclseaNcl_Wesb_Get_Client_Profile/p_resid"/>
+        </move>
+        <assign value="BOOKING_INFO_ONLY">
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_ProfileBG/executeNclseaNcl_Wesb_Get_Client_ProfileBGInput/NclseaNcl_Wesb_Get_Client_Profile/p_option"/>
+        </assign>
+        <move>
+            <input path="context/correlation/NCL_CruiseLinkReservationRQ/ClientInfo/PersonName/GivenName[1]"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_ProfileBG/executeNclseaNcl_Wesb_Get_Client_ProfileBGInput/NclseaNcl_Wesb_Get_Client_Profile/p_firstname"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseLinkReservationRQ/ClientInfo/PersonName/Surname"/>
+            <output path="body/executeNclseaNcl_Wesb_Get_Client_ProfileBG/executeNclseaNcl_Wesb_Get_Client_ProfileBGInput/NclseaNcl_Wesb_Get_Client_Profile/p_lastname"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

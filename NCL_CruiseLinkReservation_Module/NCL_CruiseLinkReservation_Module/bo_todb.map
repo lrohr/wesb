@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:ServiceMessageObject="smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FLink_Reservation%257Dapp_context/message%3D%257Bhttp%253A%252F%252FLink_Reservation%252FDB_LinkReservation%257DexecuteNclseaNcl_Wesb_Get_Client_ProfileBGRequestMsg/xpath%3D%252F/namespace%3DBOMap/smo.xsd" xmlns:ServiceMessageObject_1="smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FLink_Reservation%257Dapp_context/message%3D%257Bhttp%253A%252F%252FTP_Logger%252FTP_Interface%257DTP_InsertUpdateRequestMsg/xpath%3D%252F/namespace%3DBOMap/smo.xsd" xmlns:bo_todb="http://Link_Reservation" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" targetNamespace="http://Link_Reservation">
+  <map:name>bo_todb</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="ServiceMessageObject_1:ServiceMessageObject" name="ServiceMessageObject"/>
+  <map:outputBusinessObjectVariable businessObjectRef="ServiceMessageObject:ServiceMessageObject" name="ServiceMessageObject_1"/>
+  <map:propertyMap executionOrder="1">
+    <map:submap submapName="bo_todb:sub_todb">
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseLinkReservationRQ" variableName="NCL_CruiseLinkReservationRQ"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/executeNclseaNcl_Wesb_Get_Client_ProfileBG/executeNclseaNcl_Wesb_Get_Client_ProfileBGInput" variableName="NclseaNcl_Wesb_Get_Client_ProfileBG"/>
+    </map:submap>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/LogID"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/LogID"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_CruiseLinkReservationRQ"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/NCL_CruiseLinkReservationRQ"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:set value="a123">
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/Error_code"/>
+    </map:set>
+  </map:propertyMap>
+</map:businessObjectMap>
