@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://TP_Logger/xslt/loadUpdate_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://TP_Logger/xslt/loadUpdate_req_1">
+    <input correlationContext="{http://TP_Logger}appContext" message="{http://TP_Logger/TP_Interface}TP_InsertUpdateRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://TP_Logger}appContext" message="{http://TP_Logger/JDBCOutboundInterface}executeNclseaNcl_Esb_Update_Tp_LogBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <mappingDeclaration name="loadUpdate_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/RECORD_ID"/>
+            <output path="body/executeNclseaNcl_Esb_Update_Tp_LogBG/executeNclseaNcl_Esb_Update_Tp_LogBGInput/NclseaNcl_Esb_Update_Tp_Log/record_id"/>
+        </move>
+        <move>
+            <input path="context/correlation/RESPONSE_TS"/>
+            <output path="body/executeNclseaNcl_Esb_Update_Tp_LogBG/executeNclseaNcl_Esb_Update_Tp_LogBGInput/NclseaNcl_Esb_Update_Tp_Log/response_ts"/>
+        </move>
+        <move>
+            <input path="context/correlation/RESPONSE_TYPE_CD"/>
+            <output path="body/executeNclseaNcl_Esb_Update_Tp_LogBG/executeNclseaNcl_Esb_Update_Tp_LogBGInput/NclseaNcl_Esb_Update_Tp_Log/response_type"/>
+        </move>
+        <move>
+            <input path="context/correlation/XML"/>
+            <output path="body/executeNclseaNcl_Esb_Update_Tp_LogBG/executeNclseaNcl_Esb_Update_Tp_LogBGInput/NclseaNcl_Esb_Update_Tp_Log/response_msg"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:DummyBO_To_Out="http://TP_Logger" xmlns:TP_InsertUpdateResponseMsg="smo://smo/name%3Dwsdl-body/message%3D%257Bhttp%253A%252F%252FTP_Logger%252FTP_Interface%257DTP_InsertUpdateResponseMsg/xpath%3D%252Fbody/namespace%3DBOMap/smo.xsd" xmlns:executeNclseaNcl_Esb_Insert_Tp_LogBGResponseMsg="smo://smo/name%3Dwsdl-body/message%3D%257Bhttp%253A%252F%252FTP_Logger%252FJDBCOutboundInterface%257DexecuteNclseaNcl_Esb_Insert_Tp_LogBGResponseMsg/xpath%3D%252Fbody/namespace%3DBOMap/smo.xsd" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" targetNamespace="http://TP_Logger">
+  <map:name>DummyBO_To_Out</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="executeNclseaNcl_Esb_Insert_Tp_LogBGResponseMsg:executeNclseaNcl_Esb_Insert_Tp_LogBGResponseMsg" name="executeNclseaNcl_Esb_Insert_Tp_LogBGResponseMsg"/>
+  <map:outputBusinessObjectVariable businessObjectRef="TP_InsertUpdateResponseMsg:TP_InsertUpdateResponseMsg" name="TP_InsertUpdateResponseMsg"/>
+  <map:propertyMap executionOrder="1">
+    <map:customAssignment>
+      <map:output businessObjectVariableRef="TP_InsertUpdateResponseMsg" property="TP_InsertUpdateResponse"/>
+      <map:javaCode>commonj.sdo.DataObject __TP_InsertUpdateResponseMsg = (commonj.sdo.DataObject)TP_InsertUpdateResponseMsg;&#xD;
+commonj.sdo.DataObject __result__1;&#xD;
+{// create TP_InsertUpdateResponse&#xD;
+	com.ibm.websphere.bo.BOFactory factory = 
+	   (com.ibm.websphere.bo.BOFactory) new com.ibm.websphere.sca.ServiceManager().locateService(&quot;com/ibm/websphere/bo/BOFactory&quot;);
+	 __result__1 = factory.createByElement(&quot;http://TP_Logger/TP_Interface&quot;,&quot;TP_InsertUpdateResponse&quot;);&#xD;
+}&#xD;
+__TP_InsertUpdateResponseMsg = __result__1;&#xD;
+TP_InsertUpdateResponseMsg = __TP_InsertUpdateResponseMsg;&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;create TP_InsertUpdateResponse&quot; description=&quot;create a new TP_InsertUpdateResponse {http://TP_Logger/TP_Interface}&quot; category=&quot;SCA and BO services&quot; template=&quot;com.ibm.websphere.bo.BOFactory factory = &amp;#xA;   (com.ibm.websphere.bo.BOFactory) new com.ibm.websphere.sca.ServiceManager().locateService(&amp;quot;com/ibm/websphere/bo/BOFactory&amp;quot;);&amp;#xA; &amp;lt;%return%> factory.createByElement(&amp;quot;http://TP_Logger/TP_Interface&amp;quot;,&amp;quot;TP_InsertUpdateResponse&amp;quot;);&quot;>
+//    &lt;result>
+//      &lt;dataOutputs target=&quot;//@executableElements.1&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;TP_InsertUpdateResponse&quot; namespace=&quot;http://TP_Logger/TP_Interface&quot; nillable=&quot;false&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.0/@result/@dataOutputs.0&quot; value=&quot;TP_InsertUpdateResponseMsg&quot; variable=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;TP_InsertUpdateResponseMsg&quot; namespace=&quot;smo://smo/name%3Dwsdl-body/message%3D%257Bhttp%253A%252F%252FTP_Logger%252FTP_Interface%257DTP_InsertUpdateResponseMsg/xpath%3D%252Fbody/namespace%3DBOMap/smo.xsd&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0 //@executableElements.1&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!1:2,6&#xD;
+//!SMAP!2:8,2&#xD;
+//!SMAP!1000000:34,1</map:javaCode>
+    </map:customAssignment>
+  </map:propertyMap>
+</map:businessObjectMap>

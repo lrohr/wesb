@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="JDBCImport" targetNamespace="http://NCL_LATITUDES_CLIENT_POINTS_TRG_Module/JDBCImport" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_lat_insert_trg" xmlns:bons2="http://com/ibm/j2ca/fault/afcfault" xmlns:tns="http://NCL_LATITUDES_CLIENT_POINTS_TRG_Module/JDBCImport" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://com/ibm/j2ca/fault/afcfault" xmlns:tns="http://com/ibm/j2ca/fault/afcfault">
+      <xsd:include schemaLocation="UniqueConstraintFault.xsd"/>
+      <xsd:include schemaLocation="RecordNotFoundFault.xsd"/>
+      <xsd:include schemaLocation="IntegrityConstraintFault.xsd"/>
+    </xsd:schema>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://NCL_LATITUDES_CLIENT_POINTS_TRG_Module/JDBCImport" xmlns:bons4="http://com/ibm/j2ca/fault/afcfault">
+      <xsd:import namespace="http://com/ibm/j2ca/fault/afcfault"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_lat_insert_trg" schemaLocation="NclseaNcl_Lat_Insert_Trg.xsd"/>
+      <xsd:element name="executeNclseaNcl_Lat_Insert_Trg">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Lat_Insert_TrgInput" type="bons1:NclseaNcl_Lat_Insert_Trg"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Lat_Insert_TrgResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Lat_Insert_TrgOutput" type="bons1:NclseaNcl_Lat_Insert_Trg"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UniqueConstraintFault_element" nillable="true" type="bons4:UniqueConstraintFault"/>
+      <xsd:element name="IntegrityConstraintFault_element" nillable="true" type="bons4:IntegrityConstraintFault"/>
+      <xsd:element name="RecordNotFoundFault_element" nillable="true" type="bons4:RecordNotFoundFault"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeNclseaNcl_Lat_Insert_TrgRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Lat_Insert_Trg" name="executeNclseaNcl_Lat_Insert_TrgParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Lat_Insert_TrgResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Lat_Insert_TrgResponse" name="executeNclseaNcl_Lat_Insert_TrgResult"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Lat_Insert_TrgUniqueConstraintFaultMsg">
+    <wsdl:part element="tns:UniqueConstraintFault_element" name="UniqueConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Lat_Insert_TrgIntegrityConstraintFaultMsg">
+    <wsdl:part element="tns:IntegrityConstraintFault_element" name="IntegrityConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Lat_Insert_TrgRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:portType name="JDBCImport">
+    <wsdl:operation name="executeNclseaNcl_Lat_Insert_Trg">
+      <wsdl:input message="tns:executeNclseaNcl_Lat_Insert_TrgRequestMsg" name="executeNclseaNcl_Lat_Insert_TrgRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Lat_Insert_TrgResponseMsg" name="executeNclseaNcl_Lat_Insert_TrgResponse"/>
+      <wsdl:fault message="tns:executeNclseaNcl_Lat_Insert_TrgUniqueConstraintFaultMsg" name="UNIQUECONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:executeNclseaNcl_Lat_Insert_TrgIntegrityConstraintFaultMsg" name="INTEGRITY_CONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:executeNclseaNcl_Lat_Insert_TrgRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

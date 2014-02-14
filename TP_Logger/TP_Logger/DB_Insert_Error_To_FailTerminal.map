@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:DB_Insert_Error_To_FailTerminal="http://TP_Logger" xmlns:ServiceMessageObject="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252FTP_Logger%252FTP_Interface%257DTP_InsertUpdate_DB_ErrorsMsg/xpath%3D%252F/namespace%3DBOMap/smo.xsd" xmlns:ServiceMessageObject_1="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252FTP_Logger%252FJDBCOutboundInterface%257DexecuteNclseaNcl_Esb_Insert_Tp_LogBGRequestMsg/xpath%3D%252F/namespace%3DBOMap/smo.xsd" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" targetNamespace="http://TP_Logger">
+  <map:name>DB_Insert_Error_To_FailTerminal</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="ServiceMessageObject_1:ServiceMessageObject" name="ServiceMessageObject"/>
+  <map:outputBusinessObjectVariable businessObjectRef="ServiceMessageObject:ServiceMessageObject" name="ServiceMessageObject_1"/>
+  <map:propertyMap executionOrder="1">
+    <map:custom>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="body/executeNclseaNcl_Esb_Insert_Tp_LogBG/executeNclseaNcl_Esb_Insert_Tp_LogBGInput"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/string_element"/>
+      <map:javaCode>commonj.sdo.DataObject __ServiceMessageObject_body_executeNclseaNcl_Esb_Insert_Tp_LogBG_executeNclseaNcl_Esb_Insert_Tp_LogBGInput = (commonj.sdo.DataObject)ServiceMessageObject_body_executeNclseaNcl_Esb_Insert_Tp_LogBG_executeNclseaNcl_Esb_Insert_Tp_LogBGInput;&#xD;
+java.lang.String __ServiceMessageObject_1_body_string_element = (java.lang.String)ServiceMessageObject_1_body_string_element;&#xD;
+java.lang.String __result__3 = &quot;NclseaNcl_Esb_Insert_Tp_LogBG&quot;;&#xD;
+java.lang.String __result__2 = &quot;http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_esb_insert_tp_logbg&quot;;&#xD;
+java.lang.String __result__4 = null;&#xD;
+try {&#xD;
+	{// create XML string from BO&#xD;
+		byte[] C_START = new byte[] {'&lt;', '!', '[', 'C', 'D', 'A', 'T', 'A', '['};
+		byte[] C_END = new byte[] {']', ']', '>'};
+		String encoding = &quot;UTF-8&quot;;
+		String Cstart = new String(C_START, encoding);
+		String Cend = new String(C_END, encoding);
+		java.io.ByteArrayOutputStream outStream = new java.io.ByteArrayOutputStream();
+		com.ibm.websphere.bo.BOXMLSerializer boXMLSerializer = (com.ibm.websphere.bo.BOXMLSerializer) com.ibm.websphere.sca.ServiceManager.INSTANCE.locateService(&quot;com/ibm/websphere/bo/BOXMLSerializer&quot;);
+		boXMLSerializer.writeDataObject(__ServiceMessageObject_body_executeNclseaNcl_Esb_Insert_Tp_LogBG_executeNclseaNcl_Esb_Insert_Tp_LogBGInput, __result__2, __result__3, outStream);
+		__result__4 = Cstart + outStream.toString(encoding) + Cend;&#xD;
+	}&#xD;
+}&#xD;
+catch(java.io.IOException ex){&#xD;
+}&#xD;
+__ServiceMessageObject_1_body_string_element = __result__4;&#xD;
+ServiceMessageObject_1_body_string_element = __ServiceMessageObject_1_body_string_element;&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;ServiceMessageObject_body_executeNclseaNcl_Esb_Insert_Tp_LogBG_executeNclseaNcl_Esb_Insert_Tp_LogBGInput&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;NclseaNcl_Esb_Insert_Tp_LogBG&quot; namespace=&quot;http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_esb_insert_tp_logbg&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;ServiceMessageObject_body_executeNclseaNcl_Esb_Insert_Tp_LogBG_executeNclseaNcl_Esb_Insert_Tp_LogBGInput&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.3/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;NclseaNcl_Esb_Insert_Tp_LogBG&quot; namespace=&quot;http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_esb_insert_tp_logbg&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_esb_insert_tp_logbg&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.3/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;NclseaNcl_Esb_Insert_Tp_LogBG&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.3/@parameters.2&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;create XML string from BO&quot; description=&quot;create XML embedded in a string from BO&quot; category=&quot;SCA and BO services&quot; template=&quot;byte[] C_START = new byte[] {'&amp;lt;', '!', '[', 'C', 'D', 'A', 'T', 'A', '['};&amp;#xA;byte[] C_END = new byte[] {']', ']', '>'};&amp;#xA;String encoding = &amp;quot;UTF-8&amp;quot;;&amp;#xA;String Cstart = new String(C_START, encoding);&amp;#xA;String Cend = new String(C_END, encoding);&amp;#xA;java.io.ByteArrayOutputStream outStream = new java.io.ByteArrayOutputStream();&amp;#xA;com.ibm.websphere.bo.BOXMLSerializer boXMLSerializer = (com.ibm.websphere.bo.BOXMLSerializer) com.ibm.websphere.sca.ServiceManager.INSTANCE.locateService(&amp;quot;com/ibm/websphere/bo/BOXMLSerializer&amp;quot;);&amp;#xA;boXMLSerializer.writeDataObject(&amp;lt;%bo%>, &amp;lt;%namespace%>, &amp;lt;%name%>, outStream);&amp;#xA;&amp;lt;%return%> Cstart + outStream.toString(encoding) + Cend;&quot;>
+//    &lt;parameters name=&quot;bo&quot; dataInputs=&quot;//@executableElements.0/@dataOutputs.0&quot; displayName=&quot;BO&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;commonj.sdo.DataObject&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;namespace&quot; dataInputs=&quot;//@executableElements.1/@dataOutputs.0&quot; displayName=&quot;namespace&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;name&quot; dataInputs=&quot;//@executableElements.2/@dataOutputs.0&quot; displayName=&quot;name&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result name=&quot;xmlStr&quot; displayName=&quot;string&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.5&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/result>
+//    &lt;exceptions>
+//      &lt;dataOutputs target=&quot;//@executableElements.4/@parameters.0&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.io.IOException&quot;/>
+//    &lt;/exceptions>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:ExceptionHandler&quot; name=&quot;Exception Handler&quot;>
+//    &lt;parameters name=&quot;ex&quot; dataInputs=&quot;//@executableElements.3/@exceptions.0/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.io.IOException&quot;/>
+//    &lt;/parameters>
+//    &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;ex&quot; variable=&quot;true&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.io.IOException&quot;/>
+//    &lt;/executableElements>
+//    &lt;executableGroups executableElements=&quot;//@executableElements.4/@executableElements.0&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.3/@result/@dataOutputs.0&quot; value=&quot;ServiceMessageObject_1_body_string_element&quot; variable=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0 //@executableElements.1 //@executableElements.2 //@executableElements.3 //@executableElements.4 //@executableElements.5&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!2:4,1&#xD;
+//!SMAP!3:3,1&#xD;
+//!SMAP!4:7,12&#xD;
+//!SMAP!7:21,2&#xD;
+//!SMAP!1000000:86,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+</map:businessObjectMap>

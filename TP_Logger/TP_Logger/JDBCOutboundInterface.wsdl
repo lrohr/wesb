@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="JDBCOutboundInterface.wsdl" targetNamespace="http://TP_Logger/JDBCOutboundInterface" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_esb_insert_tp_logbg" xmlns:bons2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_esb_update_tp_logbg" xmlns:tns="http://TP_Logger/JDBCOutboundInterface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://TP_Logger/JDBCOutboundInterface">
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_esb_insert_tp_logbg" schemaLocation="NclseaNcl_Esb_Insert_Tp_LogBG.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_esb_update_tp_logbg" schemaLocation="NclseaNcl_Esb_Update_Tp_LogBG.xsd"/>
+      <xsd:element name="executeNclseaNcl_Esb_Insert_Tp_LogBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Esb_Insert_Tp_LogBGInput" type="bons1:NclseaNcl_Esb_Insert_Tp_LogBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Esb_Insert_Tp_LogBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Esb_Insert_Tp_LogBGOutput" type="bons1:NclseaNcl_Esb_Insert_Tp_LogBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Esb_Update_Tp_LogBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Esb_Update_Tp_LogBGInput" type="bons2:NclseaNcl_Esb_Update_Tp_LogBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Esb_Update_Tp_LogBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Esb_Update_Tp_LogBGOutput" type="bons2:NclseaNcl_Esb_Update_Tp_LogBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeNclseaNcl_Esb_Insert_Tp_LogBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Esb_Insert_Tp_LogBG" name="executeNclseaNcl_Esb_Insert_Tp_LogBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Esb_Insert_Tp_LogBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Esb_Insert_Tp_LogBGResponse" name="executeNclseaNcl_Esb_Insert_Tp_LogBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Esb_Update_Tp_LogBGRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Esb_Update_Tp_LogBG" name="executeNclseaNcl_Esb_Update_Tp_LogBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Esb_Update_Tp_LogBGResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Esb_Update_Tp_LogBGResponse" name="executeNclseaNcl_Esb_Update_Tp_LogBGResult"/>
+  </wsdl:message>
+  <wsdl:portType name="JDBCOutboundInterface">
+    <wsdl:operation name="executeNclseaNcl_Esb_Insert_Tp_LogBG">
+      <wsdl:input message="tns:executeNclseaNcl_Esb_Insert_Tp_LogBGRequestMsg" name="executeNclseaNcl_Esb_Insert_Tp_LogBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Esb_Insert_Tp_LogBGResponseMsg" name="executeNclseaNcl_Esb_Insert_Tp_LogBGResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="executeNclseaNcl_Esb_Update_Tp_LogBG">
+      <wsdl:input message="tns:executeNclseaNcl_Esb_Update_Tp_LogBGRequestMsg" name="executeNclseaNcl_Esb_Update_Tp_LogBGRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Esb_Update_Tp_LogBGResponseMsg" name="executeNclseaNcl_Esb_Update_Tp_LogBGResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

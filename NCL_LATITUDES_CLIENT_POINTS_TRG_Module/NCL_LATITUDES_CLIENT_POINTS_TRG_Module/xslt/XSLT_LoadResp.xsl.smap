@@ -1,0 +1,11 @@
+* SMAP
+XSLT_LoadResp.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLT_LoadResp.map
+/NCL_LATITUDES_CLIENT_POINTS_TRG_Module/xslt/XSLT_LoadResp.map
+*L
+1:49,17
+2:77,1
+*E

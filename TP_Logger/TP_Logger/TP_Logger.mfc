@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mediationFlow xmlns="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlow" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:mfcex="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlowExtension" xmlns:ns1="http://TP_Logger/TP_Interface" xmlns:ns1_1="http://TP_Logger/JDBCOutboundInterface" xmlns:ns1_3="http://TP_Logger/EmailServiceImport" name="TP_Logger" targetNamespace="http://TP_Logger/TP_Logger">
+  <import location="TP_Interface.wsdl" namespace="http://TP_Logger/TP_Interface"/>
+  <import location="JDBCOutboundInterface.wsdl" namespace="http://TP_Logger/JDBCOutboundInterface"/>
+  <import location="EmailServiceImport.wsdl" namespace="http://TP_Logger/EmailServiceImport"/>
+  <reference name="JDBCOutboundInterfacePartner" portType="ns1_1:JDBCOutboundInterface"/>
+  <reference name="EmailServiceImportPartner" portType="ns1_3:EmailServiceImport"/>
+  <interface portType="ns1:TP_Interface">
+    <operation name="TP_InsertUpdate">
+      <requestFlow mfcex:autoLayout="false">
+        <node displayName="TP_InsertUpdate : TP_Interface" name="TP_Interface_TP_InsertUpdate_Input" type="Input" mfcex:x="10" mfcex:y="92">
+          <property name="correlationContext" value="{http://TP_Logger}appContext"/>
+          <outputTerminal type="ns1:TP_InsertUpdateRequestMsg">
+            <wire targetNode="XSLTransformation2"/>
+          </outputTerminal>
+        </node>
+        <node displayName="executeNclseaNcl_Esb_Insert_Tp_LogBG : JDBCOutboundInterfacePartner" name="JDBCOutboundInterfacePartner_executeNclseaNcl_Esb_Insert_Tp_LogBG_Callout" type="Callout" mfcex:x="1250" mfcex:y="23">
+          <property name="referenceName" value="JDBCOutboundInterfacePartner"/>
+          <property name="operationName" value="executeNclseaNcl_Esb_Insert_Tp_LogBG"/>
+          <inputTerminal type="ns1_1:executeNclseaNcl_Esb_Insert_Tp_LogBGRequestMsg"/>
+        </node>
+        <node displayName="executeNclseaNcl_Esb_Update_Tp_LogBG : JDBCOutboundInterfacePartner" name="JDBCOutboundInterfacePartner_executeNclseaNcl_Esb_Update_Tp_LogBG_Callout" type="Callout" mfcex:x="1096" mfcex:y="221">
+          <property name="referenceName" value="JDBCOutboundInterfacePartner"/>
+          <property name="operationName" value="executeNclseaNcl_Esb_Update_Tp_LogBG"/>
+          <inputTerminal type="ns1_1:executeNclseaNcl_Esb_Update_Tp_LogBGRequestMsg"/>
+        </node>
+        <node name="Insert_or_Update" type="MessageFilter" mfcex:x="479" mfcex:y="343">
+          <table name="filters">
+            <row>
+              <property name="pattern" value="contains(/body/TP_InsertUpdate/OPERATION_TYPE ,'INSERT' )"/>
+              <property name="terminalName" value="match1"/>
+            </row>
+            <row>
+              <property name="pattern" value="contains(/body/TP_InsertUpdate/OPERATION_TYPE ,'UPDATE' )"/>
+              <property name="terminalName" value="match2"/>
+            </row>
+          </table>
+          <inputTerminal/>
+          <outputTerminal name="default"/>
+          <outputTerminal displayName="INSERT" name="match1"/>
+          <outputTerminal displayName="UPDATE" name="match2"/>
+          <failTerminal/>
+        </node>
+        <node name="Request_To_INSERT" type="XSLTransformation" mfcex:x="690" mfcex:y="348">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/Request_To_INSERT_map.xsl"/>
+          <property name="XMXMap" value="xslt/Request_To_INSERT_map.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal/>
+          <outputTerminal type="ns1_1:executeNclseaNcl_Esb_Insert_Tp_LogBGRequestMsg"/>
+          <failTerminal/>
+        </node>
+        <node name="Request_To_UPDATE" type="XSLTransformation" mfcex:x="813" mfcex:y="343">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/Request_To_UPDATE_map.xsl"/>
+          <property name="XMXMap" value="xslt/Request_To_UPDATE_map.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal/>
+          <outputTerminal type="ns1_1:executeNclseaNcl_Esb_Update_Tp_LogBGRequestMsg"/>
+          <failTerminal/>
+        </node>
+        <node name="buildErrorMsg1" type="XSLTransformation" mfcex:x="1099" mfcex:y="6">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation1_req_2.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation1_req_2.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal/>
+          <outputTerminal type="ns1_3:sendSimpleAlertEmailRequestMsg"/>
+          <failTerminal/>
+        </node>
+        <node name="DB_Insert" type="ServiceInvoke" mfcex:x="838" mfcex:y="35">
+          <property name="referenceName" value="JDBCOutboundInterfacePartner"/>
+          <property name="operationName" value="executeNclseaNcl_Esb_Insert_Tp_LogBG"/>
+          <inputTerminal type="ns1_1:executeNclseaNcl_Esb_Insert_Tp_LogBGRequestMsg"/>
+          <outputTerminal type="ns1_1:executeNclseaNcl_Esb_Insert_Tp_LogBGResponseMsg"/>
+          <outputTerminal name="timeout" type="ns1_1:executeNclseaNcl_Esb_Insert_Tp_LogBGRequestMsg"/>
+          <failTerminal>
+            <wire targetNode="XSLTransformation1"/>
+          </failTerminal>
+        </node>
+        <node name="Email" type="ServiceInvoke" mfcex:x="1148" mfcex:y="135">
+          <property name="referenceName" value="EmailServiceImportPartner"/>
+          <property name="operationName" value="sendSimpleAlertEmail"/>
+          <inputTerminal type="ns1_3:sendSimpleAlertEmailRequestMsg"/>
+          <outputTerminal name="timeout" type="ns1_3:sendSimpleAlertEmailRequestMsg"/>
+          <failTerminal/>
+        </node>
+        <node name="DB_Update" type="ServiceInvoke" mfcex:x="838" mfcex:y="156">
+          <property name="referenceName" value="JDBCOutboundInterfacePartner"/>
+          <property name="operationName" value="executeNclseaNcl_Esb_Update_Tp_LogBG"/>
+          <inputTerminal type="ns1_1:executeNclseaNcl_Esb_Update_Tp_LogBGRequestMsg"/>
+          <outputTerminal type="ns1_1:executeNclseaNcl_Esb_Update_Tp_LogBGResponseMsg"/>
+          <outputTerminal name="timeout" type="ns1_1:executeNclseaNcl_Esb_Update_Tp_LogBGRequestMsg"/>
+          <failTerminal>
+            <wire targetNode="buildErrorMsg2"/>
+          </failTerminal>
+        </node>
+        <node name="buildErrorMsg2" type="XSLTransformation" mfcex:x="959" mfcex:y="214">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation2_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation2_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal/>
+          <outputTerminal type="ns1_3:sendSimpleAlertEmailRequestMsg">
+            <wire targetNode="Email"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLTransformation1" type="XSLTransformation" mfcex:x="984" mfcex:y="68">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation1_req_3.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation1_req_3.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal/>
+          <outputTerminal type="ns1_3:sendSimpleAlertEmailRequestMsg">
+            <wire targetNode="Email"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="BO_scrubXml" type="BOMapper" mfcex:x="336" mfcex:y="91">
+          <property name="root" value="/"/>
+          <property name="mappingFile" value="BO_scrubXml.map"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns1:TP_InsertUpdateRequestMsg">
+            <wire targetNode="MessageFilter1"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="XSLTransformation3"/>
+          </failTerminal>
+        </node>
+        <node name="MessageFilter1" type="MessageFilter" mfcex:x="517" mfcex:y="88">
+          <table name="filters">
+            <row>
+              <property name="pattern" value="/context/correlation/OPPERATION_TYPE = 'INSERT'"/>
+              <property name="terminalName" value="match2"/>
+            </row>
+            <row>
+              <property name="pattern" value="/context/correlation/OPPERATION_TYPE = 'UPDATE'"/>
+              <property name="terminalName" value="match3"/>
+            </row>
+          </table>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal name="default"/>
+          <outputTerminal name="match1"/>
+          <outputTerminal displayName="insert" name="match2">
+            <wire targetNode="loadInsert"/>
+          </outputTerminal>
+          <outputTerminal displayName="update" name="match3">
+            <wire targetNode="loadUpdate"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="loadInsert" type="XSLTransformation" mfcex:x="671" mfcex:y="48">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/loadInsert_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/loadInsert_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1:TP_InsertUpdateRequestMsg"/>
+          <outputTerminal type="ns1_1:executeNclseaNcl_Esb_Insert_Tp_LogBGRequestMsg">
+            <wire targetNode="DB_Insert"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="loadUpdate" type="XSLTransformation" mfcex:x="658" mfcex:y="160">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/loadUpdate_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/loadUpdate_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1:TP_InsertUpdateRequestMsg"/>
+          <outputTerminal type="ns1_1:executeNclseaNcl_Esb_Update_Tp_LogBGRequestMsg">
+            <wire targetNode="DB_Update"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="Stop2" type="Stop" mfcex:x="544" mfcex:y="230">
+          <inputTerminal/>
+        </node>
+        <node name="XSLTransformation2" type="XSLTransformation" mfcex:x="188" mfcex:y="97">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation2_req_2.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation2_req_2.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1:TP_InsertUpdateRequestMsg"/>
+          <outputTerminal type="ns1_1:executeNclseaNcl_Esb_Insert_Tp_LogBGRequestMsg">
+            <wire targetNode="BO_scrubXml"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="BO_scrubXml1" type="BOMapper" mfcex:x="338" mfcex:y="277">
+          <property name="root" value="/"/>
+          <property name="mappingFile" value="BO_scrubXml.map"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns1:TP_InsertUpdateRequestMsg"/>
+          <failTerminal/>
+        </node>
+        <node name="XSLTransformation3" type="XSLTransformation" mfcex:x="407" mfcex:y="183">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation3_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation3_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns1_1:executeNclseaNcl_Esb_Insert_Tp_LogBGRequestMsg">
+            <wire targetNode="MessageFilter1"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </requestFlow>
+      <responseFlow mfcex:autoLayout="false">
+        <node displayName="executeNclseaNcl_Esb_Insert_Tp_LogBG : JDBCOutboundInterfacePartner" name="JDBCOutboundInterfacePartner_executeNclseaNcl_Esb_Insert_Tp_LogBG_CalloutResponse" type="CalloutResponse" mfcex:x="10" mfcex:y="104">
+          <property name="referenceName" value="JDBCOutboundInterfacePartner"/>
+          <property name="operationName" value="executeNclseaNcl_Esb_Insert_Tp_LogBG"/>
+          <outputTerminal type="ns1_1:executeNclseaNcl_Esb_Insert_Tp_LogBGResponseMsg">
+            <wire targetNode="Dummy_BO_Out_custom"/>
+          </outputTerminal>
+          <failTerminal type="ns1_1:executeNclseaNcl_Esb_Insert_Tp_LogBGRequestMsg">
+            <wire targetNode="DB_Insert_Error_To_Fail"/>
+          </failTerminal>
+        </node>
+        <node displayName="executeNclseaNcl_Esb_Update_Tp_LogBG : JDBCOutboundInterfacePartner" name="JDBCOutboundInterfacePartner_executeNclseaNcl_Esb_Update_Tp_LogBG_CalloutResponse" type="CalloutResponse" mfcex:x="10" mfcex:y="296">
+          <property name="referenceName" value="JDBCOutboundInterfacePartner"/>
+          <property name="operationName" value="executeNclseaNcl_Esb_Update_Tp_LogBG"/>
+          <outputTerminal type="ns1_1:executeNclseaNcl_Esb_Update_Tp_LogBGResponseMsg">
+            <wire targetNode="DB_UpdateBO_to_Out_Custom"/>
+          </outputTerminal>
+          <failTerminal type="ns1_1:executeNclseaNcl_Esb_Update_Tp_LogBGRequestMsg">
+            <wire targetNode="DB_Update_Error_To_Fail"/>
+          </failTerminal>
+        </node>
+        <node name="DB_Update_Error_To_Fail" type="BOMapper" mfcex:x="205" mfcex:y="308">
+          <property name="root" value="/"/>
+          <property name="mappingFile" value="DB_Error_To_FailTerminal.map"/>
+          <inputTerminal/>
+          <outputTerminal type="ns1:TP_InsertUpdate_DB_ErrorsMsg"/>
+          <failTerminal/>
+        </node>
+        <node name="DB_Insert_Error_To_Fail" type="BOMapper" mfcex:x="205" mfcex:y="116">
+          <property name="root" value="/"/>
+          <property name="mappingFile" value="DB_Insert_Error_To_FailTerminal.map"/>
+          <inputTerminal/>
+          <outputTerminal type="ns1:TP_InsertUpdate_DB_ErrorsMsg"/>
+          <failTerminal/>
+        </node>
+        <node name="Dummy_BO_Out" type="BOMapper" mfcex:x="124" mfcex:y="23">
+          <property name="root" value="/body"/>
+          <property name="mappingFile" value="DummyBO_To_Out.map"/>
+          <inputTerminal/>
+          <outputTerminal type="ns1:TP_InsertUpdateResponseMsg"/>
+          <failTerminal/>
+        </node>
+        <node name="DB_UpdateBO_To_Out" type="BOMapper" mfcex:x="499" mfcex:y="138">
+          <property name="root" value="/body"/>
+          <property name="mappingFile" value="DummyUpdateBO_To_Out.map"/>
+          <inputTerminal/>
+          <outputTerminal type="ns1:TP_InsertUpdateResponseMsg"/>
+          <failTerminal/>
+        </node>
+        <node name="Dummy_BO_Out_custom" type="CustomMediation" mfcex:x="240" mfcex:y="25">
+          <property name="javaCode"><![CDATA[
+/**
+ * GENERATED COMMENT - DO NOT MODIFY
+ * Variables:  for output terminals - out (com.ibm.wsspi.sibx.mediation.OutputTerminal)
+ *             for user properties - <No user properties defined>
+ * Inputs:     inputTerminal (com.ibm.wsspi.sibx.mediation.InputTerminal), smo (com.ibm.websphere.sibx.smobo.ServiceMessageObject)
+ * Exceptions: com.ibm.wsspi.sibx.mediation.MediationConfigurationException, com.ibm.wsspi.sibx.mediation.MediationBusinessException
+ */
+// Creates a new SMO body of the necessary output type and initializes its TP_InsertUpdateResponse element.
+// We create a new SMO with the required body type and steal its body to set into the original SMO.
+// From output terminal, type is: {http://TP_Logger/TP_Interface}TP_InsertUpdateResponseMsg
+QName qname = new QName ("http://TP_Logger/TP_Interface", "TP_InsertUpdateResponseMsg");
+ServiceMessageObject newSMO = ServiceMessageObjectFactory.INSTANCE.createServiceMessageObject (qname);
+DataObject newBody = (DataObject) newSMO.getBody ();
+
+newBody.createDataObject ("TP_InsertUpdateResponse");
+smo.setBody (newBody);
+
+out.fire(smo); // propagate the service message object to the primitive that is wired to the 'out' terminal
+]]></property>
+          <property name="javaClass" value="sca.component.mediation.java.Custom1251811827702"/>
+          <property name="version" value="6.1.0"/>
+          <property name="javaImports" value="javax.xml.namespace.QName;com.ibm.websphere.sibx.smobo.ServiceMessageObject;com.ibm.websphere.sibx.smobo.ServiceMessageObjectFactory;commonj.sdo.DataObject"/>
+          <inputTerminal/>
+          <outputTerminal/>
+          <failTerminal/>
+        </node>
+        <node name="DB_UpdateBO_to_Out_Custom" type="CustomMediation" mfcex:x="219" mfcex:y="202">
+          <property name="javaCode"><![CDATA[
+/** 
+
+ * GENERATED COMMENT - DO NOT MODIFY 
+
+ * Variables:  for output terminals - out (com.ibm.wsspi.sibx.mediation.OutputTerminal) 
+
+ *             for user properties - <No user properties defined> 
+
+ * Inputs:     inputTerminal (com.ibm.wsspi.sibx.mediation.InputTerminal), smo (com.ibm.websphere.sibx.smobo.ServiceMessageObject) 
+
+ * Exceptions: com.ibm.wsspi.sibx.mediation.MediationConfigurationException, com.ibm.wsspi.sibx.mediation.MediationBusinessException 
+
+ */ 
+
+// Creates a new SMO body of the necessary output type and initializes its TP_InsertUpdateResponse element. 
+
+// We create a new SMO with the required body type and steal its body to set into the original SMO. 
+
+// From output terminal, type is: {http://TP_Logger/TP_Interface}TP_InsertUpdateResponseMsg 
+
+QName qname = new QName ("http://TP_Logger/TP_Interface", "TP_InsertUpdateResponseMsg"); 
+
+ServiceMessageObject newSMO = ServiceMessageObjectFactory.INSTANCE.createServiceMessageObject (qname); 
+
+DataObject newBody = (DataObject) newSMO.getBody (); 
+
+
+
+newBody.createDataObject ("TP_InsertUpdateResponse"); 
+
+smo.setBody (newBody); 
+
+  
+
+out.fire(smo); // propagate the service message object to the primitive that is wired to the 'out' terminal 
+
+]]></property>
+          <property name="javaClass" value="sca.component.mediation.java.Custom1251812352099"/>
+          <property name="version" value="6.1.0"/>
+          <property name="javaImports" value="javax.xml.namespace.QName;com.ibm.websphere.sibx.smobo.ServiceMessageObject;com.ibm.websphere.sibx.smobo.ServiceMessageObjectFactory;commonj.sdo.DataObject"/>
+          <inputTerminal/>
+          <outputTerminal/>
+          <failTerminal/>
+        </node>
+      </responseFlow>
+      <errorFlow>
+        <node displayName="TP_InsertUpdate : TP_Interface" name="TP_Interface_TP_InsertUpdate_ErrorInput" type="ErrorInput">
+          <outputTerminal name="catchAll" type="XMLSchema:anyType"/>
+        </node>
+      </errorFlow>
+    </operation>
+  </interface>
+</mediationFlow>

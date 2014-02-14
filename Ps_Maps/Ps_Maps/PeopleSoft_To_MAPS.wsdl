@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/NCLCaseTools/NCLTools" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/NCLCaseTools/NCLTools" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+	<wsdl:types>
+		<s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/NCLCaseTools/NCLTools">
+			<s:element name="PeopleSoft_TO_MAPS">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="XML" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="PeopleSoft_TO_MAPSResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="PeopleSoft_TO_MAPSResult" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+		</s:schema>
+	</wsdl:types>
+	<wsdl:message name="PeopleSoft_TO_MAPSSoapIn">
+		<wsdl:part name="parameters" element="tns:PeopleSoft_TO_MAPS"/>
+	</wsdl:message>
+	<wsdl:message name="PeopleSoft_TO_MAPSSoapOut">
+		<wsdl:part name="parameters" element="tns:PeopleSoft_TO_MAPSResponse"/>
+	</wsdl:message>
+	<wsdl:portType name="NCLToolsSoap">
+		<wsdl:operation name="PeopleSoft_TO_MAPS">
+			<wsdl:input message="tns:PeopleSoft_TO_MAPSSoapIn"/>
+			<wsdl:output message="tns:PeopleSoft_TO_MAPSSoapOut"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="NCLToolsSoap" type="tns:NCLToolsSoap">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="PeopleSoft_TO_MAPS">
+			<soap:operation soapAction="http://tempuri.org/NCLCaseTools/NCLTools/PeopleSoft_TO_MAPS" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="NCLToolsSoap12" type="tns:NCLToolsSoap">
+		<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="PeopleSoft_TO_MAPS">
+			<soap12:operation soapAction="http://tempuri.org/NCLCaseTools/NCLTools/PeopleSoft_TO_MAPS" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="NCLTools">
+		<wsdl:port name="NCLToolsSoap" binding="tns:NCLToolsSoap">
+			<soap:address location="http://mapssrvmia3/NCLTools/NCLTools.asmx"/>
+		</wsdl:port>
+		<wsdl:port name="NCLToolsSoap12" binding="tns:NCLToolsSoap12">
+			<soap12:address location="http://mapssrvmia3/NCLTools/NCLTools.asmx"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

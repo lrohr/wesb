@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://NCL_WESB_Shared_Library/NCL_LATITUDES_CLIENT_JRN_Interface" xmlns:ns1_1="http://NCL_LATITUDES_CLIENT_JRN_Module/JDBCImport" xmlns:ns2="http://LAT_Log_Logger/LAT_Log_Interface" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="NCL_LATITUDES_CLIENT_JRN_Module" targetNamespace="http://NCL_LATITUDES_CLIENT_JRN_Module/NCL_LATITUDES_CLIENT_JRN_Module">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:NCL_LATITUDES_CLIENT_JRN_Interface"/>
+  </interfaces>
+  <references>
+    <reference name="LAT_Log_InterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns2:LAT_Log_Interface"/>
+    </reference>
+    <reference name="JDBCImportPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_1:JDBCImport"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="Perform_NCL_LATITUDES_CLIENT_JRN" target="LAT_Log_InsertUpdate" sourcePortType="ns1:NCL_LATITUDES_CLIENT_JRN_Interface" targetReference="LAT_Log_InterfacePartner"/>
+  <extendedOperationBinding source="Perform_NCL_LATITUDES_CLIENT_JRN" target="executeNclseaNcl_Lat_Get_Jrn" sourcePortType="ns1:NCL_LATITUDES_CLIENT_JRN_Interface" targetReference="JDBCImportPartner"/>
+  <operationFlow medflow="NCL_LATITUDES_CLIENT_JRN_Module.medflow"/>
+</mfc:interfaceMediationFlow>

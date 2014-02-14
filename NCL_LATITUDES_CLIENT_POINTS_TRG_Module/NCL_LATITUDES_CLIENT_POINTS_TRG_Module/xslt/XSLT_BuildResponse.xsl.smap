@@ -1,0 +1,14 @@
+* SMAP
+XSLT_BuildResponse.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLT_BuildResponse.map
+/NCL_LATITUDES_CLIENT_POINTS_TRG_Module/xslt/XSLT_BuildResponse.map
+*L
+3:84,6
+1:56,17
+5:90,3
+4:95,8
+2:103,5
+*E

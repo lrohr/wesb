@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://TP_Logger/xslt/XSLTransformation2_req_2" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://TP_Logger/xslt/XSLTransformation2_req_2">
+    <input correlationContext="{http://TP_Logger}appContext" message="{http://TP_Logger/TP_Interface}TP_InsertUpdateRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://TP_Logger}appContext" message="{http://TP_Logger/JDBCOutboundInterface}executeNclseaNcl_Esb_Insert_Tp_LogBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xslt" location="XSLTransformation2_req_2_custom.xsl"/>
+    </imports>
+    <mappingDeclaration name="XSLTransformation2_req_2">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="body/TP_InsertUpdate/OPERATION_TYPE"/>
+            <output path="context/correlation/OPPERATION_TYPE"/>
+        </move>
+        <move>
+            <input path="body/TP_InsertUpdate/RECORD_ID"/>
+            <output path="context/correlation/RECORD_ID"/>
+        </move>
+        <move>
+            <input path="body/TP_InsertUpdate/SOURCE_CD"/>
+            <output path="context/correlation/SOURCE_CD"/>
+        </move>
+        <move>
+            <input path="body/TP_InsertUpdate/REQUEST_TS"/>
+            <output path="context/correlation/REQUEST_TS"/>
+        </move>
+        <move>
+            <input path="body/TP_InsertUpdate/RESPONSE_TS"/>
+            <output path="context/correlation/RESPONSE_TS"/>
+        </move>
+        <move>
+            <input path="body/TP_InsertUpdate/REQUEST_TYPE_CD"/>
+            <output path="context/correlation/REQUEST_TYPE_CD"/>
+        </move>
+        <move>
+            <input path="body/TP_InsertUpdate/RESPONSE_TYPE_CD"/>
+            <output path="context/correlation/RESPONSE_TYPE_CD"/>
+        </move>
+        <move>
+            <input path="body/TP_InsertUpdate/XML"/>
+            <output path="context/correlation/XML"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

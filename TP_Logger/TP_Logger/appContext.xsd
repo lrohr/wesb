@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://TP_Logger"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0="http://TP_Logger">
+	<xsd:include schemaLocation="Date_Format.xsd"></xsd:include>
+	<xsd:complexType name="appContext">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="OPPERATION_TYPE"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="RECORD_ID"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="SOURCE_CD"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="REQUEST_TS"
+				type="bons0:Date_Format">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="RESPONSE_TS"
+				type="bons0:Date_Format">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="REQUEST_TYPE_CD"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="RESPONSE_TYPE_CD"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="XML" type="xsd:string"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

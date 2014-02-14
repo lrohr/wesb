@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="JDBCImport.wsdl" targetNamespace="http://NCL_LATITUDES_POINTS_LOOKUP_Module/JDBCImport" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_lat_lookup_tier" xmlns:tns="http://NCL_LATITUDES_POINTS_LOOKUP_Module/JDBCImport" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://NCL_LATITUDES_POINTS_LOOKUP_Module/JDBCImport">
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_lat_lookup_tier" schemaLocation="NclseaNcl_Lat_Lookup_Tier.xsd"/>
+      <xsd:element name="executeNclseaNcl_Lat_Lookup_Tier">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Lat_Lookup_TierInput" type="bons1:NclseaNcl_Lat_Lookup_Tier"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Lat_Lookup_TierResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Lat_Lookup_TierOutput" type="bons1:NclseaNcl_Lat_Lookup_Tier"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeNclseaNcl_Lat_Lookup_TierRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Lat_Lookup_Tier" name="executeNclseaNcl_Lat_Lookup_TierParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Lat_Lookup_TierResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Lat_Lookup_TierResponse" name="executeNclseaNcl_Lat_Lookup_TierResult"/>
+  </wsdl:message>
+  <wsdl:portType name="JDBCImport">
+    <wsdl:operation name="executeNclseaNcl_Lat_Lookup_Tier">
+      <wsdl:input message="tns:executeNclseaNcl_Lat_Lookup_TierRequestMsg" name="executeNclseaNcl_Lat_Lookup_TierRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Lat_Lookup_TierResponseMsg" name="executeNclseaNcl_Lat_Lookup_TierResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

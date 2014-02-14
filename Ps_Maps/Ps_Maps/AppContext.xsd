@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://Ps_Maps"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0="http://tempuri.org/NewPerson.xsd">
+	<xsd:import schemaLocation="NEWPERSON.xsd"
+		namespace="http://tempuri.org/NewPerson.xsd">
+	</xsd:import>
+	<xsd:import schemaLocation="NCL_PS_DATA.xsd"></xsd:import>
+	<xsd:import schemaLocation="PS_APPDATA1.xsd"></xsd:import>
+	<xsd:complexType name="AppContext">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" ref="NCL_PS_APPDATA1"></xsd:element>
+			<xsd:element minOccurs="0" name="markerEnd"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" ref="NCL_PS_DATA1"></xsd:element>
+			<xsd:element minOccurs="0" ref="bons0:NewPerson"></xsd:element>
+			<xsd:element minOccurs="0" name="NewPerson_str"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="inputMsg"
+				type="xsd:string">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

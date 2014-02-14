@@ -1,0 +1,10 @@
+* SMAP
+XSLTBuildErrorResp.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLTBuildErrorResp.map
+/NCL_LATITUDES_CLIENT_POINTS_TRG_Module/xslt/XSLTBuildErrorResp.map
+*L
+1:52,17
+*E

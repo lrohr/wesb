@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://TP_Logger/xslt/XSLTransformation1_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://TP_Logger/xslt/XSLTransformation1_req_1">
+    <input correlationContext="" message="{http://TP_Logger/TP_Interface}TP_InsertUpdateRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="" message="{http://TP_Logger/JDBCOutboundInterface}executeNclseaNcl_Esb_Insert_Tp_LogBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLTransformation1_req_1.xml"/>
+    </imports>
+    <mappingDeclaration name="XSLTransformation1_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context"/>
+            <output path="context"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

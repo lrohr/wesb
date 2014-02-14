@@ -1,0 +1,11 @@
+* SMAP
+XSLT_LoadReadDb_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLT_LoadReadDb_req_1.map
+/NCL_LATITUDES_POINTS_LOOKUP_Module/xslt/XSLT_LoadReadDb_req_1.map
+*L
+1:50,17
+2:79,5
+*E

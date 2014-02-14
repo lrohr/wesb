@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="JDBCImport.wsdl" targetNamespace="http://NCL_LATITUDES_CLIENT_JRN_Module/JDBCImport" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_lat_get_jrn" xmlns:bons2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_lat_get_dtl" xmlns:tns="http://NCL_LATITUDES_CLIENT_JRN_Module/JDBCImport" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://NCL_LATITUDES_CLIENT_JRN_Module/JDBCImport">
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_lat_get_dtl" schemaLocation="NclseaNcl_Lat_Get_Dtl.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_lat_get_jrn" schemaLocation="NclseaNcl_Lat_Get_Jrn.xsd"/>
+      <xsd:element name="executeNclseaNcl_Lat_Get_Jrn">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Lat_Get_JrnInput" type="bons1:NclseaNcl_Lat_Get_Jrn"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Lat_Get_JrnResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Lat_Get_JrnOutput" type="bons1:NclseaNcl_Lat_Get_Jrn"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Lat_Get_Dtl">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Lat_Get_DtlInput" type="bons2:NclseaNcl_Lat_Get_Dtl"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeNclseaNcl_Lat_Get_DtlResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeNclseaNcl_Lat_Get_DtlOutput" type="bons2:NclseaNcl_Lat_Get_Dtl"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeNclseaNcl_Lat_Get_JrnRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Lat_Get_Jrn" name="executeNclseaNcl_Lat_Get_JrnParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Lat_Get_JrnResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Lat_Get_JrnResponse" name="executeNclseaNcl_Lat_Get_JrnResult"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Lat_Get_DtlRequestMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Lat_Get_Dtl" name="executeNclseaNcl_Lat_Get_DtlParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeNclseaNcl_Lat_Get_DtlResponseMsg">
+    <wsdl:part element="tns:executeNclseaNcl_Lat_Get_DtlResponse" name="executeNclseaNcl_Lat_Get_DtlResult"/>
+  </wsdl:message>
+  <wsdl:portType name="JDBCImport">
+    <wsdl:operation name="executeNclseaNcl_Lat_Get_Jrn">
+      <wsdl:input message="tns:executeNclseaNcl_Lat_Get_JrnRequestMsg" name="executeNclseaNcl_Lat_Get_JrnRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Lat_Get_JrnResponseMsg" name="executeNclseaNcl_Lat_Get_JrnResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="executeNclseaNcl_Lat_Get_Dtl">
+      <wsdl:input message="tns:executeNclseaNcl_Lat_Get_DtlRequestMsg" name="executeNclseaNcl_Lat_Get_DtlRequest"/>
+      <wsdl:output message="tns:executeNclseaNcl_Lat_Get_DtlResponseMsg" name="executeNclseaNcl_Lat_Get_DtlResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

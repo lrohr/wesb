@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://Ps_Maps/xslt/XSLTransformation1_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://Ps_Maps/xslt/XSLTransformation1_req_1">
+    <input correlationContext="{http://Ps_Maps}AppContext" message="{http://Ps_Maps/FlatFileExport}emitRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://Ps_Maps}AppContext" message="" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <mappingDeclaration name="XSLTransformation1_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo">
+            <cast path="body/type('anyType')" qualifier="{http://www.w3.org/2001/XMLSchema}string"/>
+        </output>
+        <move>
+            <input path="body/emit/NCL_PS_APPDATA1"/>
+            <output path="context/correlation/NCL_PS_APPDATA1"/>
+        </move>
+        <assign value="test1">
+            <output path="spath('body',2)"/>
+        </assign>
+    </mappingDeclaration>
+</mappingRoot>

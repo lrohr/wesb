@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://Ps_Maps/xslt/XSLTransformation1_req_4" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://Ps_Maps/xslt/XSLTransformation1_req_4">
+    <input correlationContext="{http://Ps_Maps}AppContext" message="{http://tempuri.org/NCLCaseTools/NCLTools}PeopleSoft_TO_MAPSSoapIn" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://Ps_Maps}AppContext" message="{http://Ps_Maps/EmailServiceImport}sendSimpleAlertEmailRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <mappingDeclaration name="XSLTransformation1_req_4">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation"/>
+            <output path="context/correlation"/>
+        </move>
+        <assign value="lrohr@ncl.com">
+            <output path="body/sendSimpleAlertEmail/sendSimpleAlertEmailInput/To"/>
+        </assign>
+        <assign value="esbmon@ncl.com">
+            <output path="body/sendSimpleAlertEmail/sendSimpleAlertEmailInput/From"/>
+        </assign>
+        <assign value="MAPS - Timeout">
+            <output path="body/sendSimpleAlertEmail/sendSimpleAlertEmailInput/Subject"/>
+        </assign>
+        <move>
+            <input path="context/correlation/NewPerson_str"/>
+            <output path="body/sendSimpleAlertEmail/sendSimpleAlertEmailInput/mailContent"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

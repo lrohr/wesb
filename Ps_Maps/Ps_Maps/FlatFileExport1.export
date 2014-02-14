@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:EIS="http://www.ibm.com/xmlns/prod/websphere/scdl/eis/6.0.0" xmlns:configuration_6.1.0="http://www.ibm.com/xmlns/prod/websphere/j2ca/configuration/6.1.0" xmlns:ns1="http://Ps_Maps/FlatFileExport1" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="FlatFileExport1" name="FlatFileExport1" target="Ps_Maps">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:FlatFileExport1"/>
+  </interfaces>
+  <esbBinding xsi:type="EIS:EISExportBinding" dataBindingReferenceName="configuration_6.1.0:FlatFileXMLDataBinding">
+    <resourceAdapter name="Ps_MapsApp.IBM WebSphere Adapter for Flat Files" type="com.ibm.j2ca.flatfile.FlatFileResourceAdapter" version="7.5.0.3">
+      <properties>
+        <adapterID>001</adapterID>
+      </properties>
+    </resourceAdapter>
+    <connection type="com.ibm.j2ca.flatfile.FlatFileActivationSpecWithXidWithHA" listenerType="com.ibm.j2ca.flatfile.FlatFileInboundListener" selectorType="com.ibm.j2ca.extension.emd.runtime.FilenameFunctionSelector">
+      <properties>
+        <archiveDirectory>\mnt\psmaps2</archiveDirectory>
+        <eventDirectory>\mnt\psmaps1</eventDirectory>
+        <fileContentEncoding>UTF-8</fileContentEncoding>
+        <sortEventFiles>No sort</sortEventFiles>
+      </properties>
+    </connection>
+    <methodBinding method="emit" nativeMethod="emitFlatFile"/>
+  </esbBinding>
+</scdl:export>

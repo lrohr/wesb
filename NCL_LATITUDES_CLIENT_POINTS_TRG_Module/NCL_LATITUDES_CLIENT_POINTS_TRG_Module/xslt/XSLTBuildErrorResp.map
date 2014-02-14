@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_LATITUDES_CLIENT_POINTS_TRG_Module/xslt/XSLTBuildErrorResp" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_LATITUDES_CLIENT_POINTS_TRG_Module/xslt/XSLTBuildErrorResp">
+    <input correlationContext="{http://NCL_LATITUDES_CLIENT_POINTS_TRG_Module}AppContext" message="{http://NCL_LATITUDES_CLIENT_POINTS_TRG_Module/JDBCImport}executeNclseaNcl_Lat_Insert_TrgRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_LATITUDES_CLIENT_POINTS_TRG_Module}AppContext" message="{http://NCL_WESB_Shared_Library/NCL_LATITUDES_CLIENT_POINTS_TRG_Interface}Perform_NCL_LATITUDES_CLIENT_POINTS_TRGResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLTBuildErrorResp.xml"/>
+    </imports>
+    <mappingDeclaration name="XSLTBuildErrorResp">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+    </mappingDeclaration>
+</mappingRoot>

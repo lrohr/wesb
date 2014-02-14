@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_LATITUDES_CLIENT_JRN_Module/xslt/XSLTransformation1_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_LATITUDES_CLIENT_JRN_Module/xslt/XSLTransformation1_req_1">
+    <input correlationContext="{http://NCL_LATITUDES_CLIENT_JRN_Module}AppContext" message="{http://NCL_LATITUDES_CLIENT_JRN_Module/JDBCImport}executeNclseaNcl_Lat_Get_JrnRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_LATITUDES_CLIENT_JRN_Module}AppContext" message="" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xslt" location="XSLTransformation1_req_1_custom.xsl"/>
+    </imports>
+    <mappingDeclaration name="XSLTransformation1_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_LATITUDES_CLIENT_JRN_REQ"/>
+            <output path="context/correlation/NCL_LATITUDES_CLIENT_JRN_REQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogId"/>
+            <output path="context/correlation/LogId"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_LATITUDES_CLIENT_JRN_REQ/CLIENT_ID"/>
+            <output path="context/correlation/NCL_LATITUDES_CLIENT_JRN_RESP/CLIENT_ID"/>
+        </move>
+        <customFunction lang="xslt" location="XSLTransformation1_req_1_custom.xsl" ref="ToSUCCESS">
+            <output path="context/correlation/NCL_LATITUDES_CLIENT_JRN_RESP/SUCCESS"/>
+        </customFunction>
+        <assign value="0">
+            <output path="context/correlation/NCL_LATITUDES_CLIENT_JRN_RESP/TOTAL_POINTS"/>
+        </assign>
+        <move>
+            <input path="context/failInfo/failureString"/>
+            <output path="context/correlation/NCL_LATITUDES_CLIENT_JRN_RESP/ERROR_MSG"/>
+        </move>
+        <assign value="9002">
+            <output path="context/correlation/NCL_LATITUDES_CLIENT_JRN_RESP/ERROR_CODE"/>
+        </assign>
+    </mappingDeclaration>
+</mappingRoot>

@@ -1,0 +1,11 @@
+* SMAP
+XSLT_build_response_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLT_build_response_req_1.map
+/NCL_LATITUDES_CLIENT_JRN_Module/xslt/XSLT_build_response_req_1.map
+*L
+1:47,17
+2:75,1
+*E

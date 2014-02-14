@@ -1,0 +1,14 @@
+* SMAP
+Request_To_UPDATE_map.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 Request_To_UPDATE_map.map
+/TP_Logger/xslt/Request_To_UPDATE_map.map
+*L
+2:122,12
+4:96,13
+3:83,13
+5:109,13
+1:53,17
+*E

@@ -1,0 +1,15 @@
+* SMAP
+XSLTransformation2_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLTransformation2_req_1.map
+/NCL_LATITUDES_POINTS_LOOKUP_Module/xslt/XSLTransformation2_req_1.map
+*L
+6:98,6
+3:89,3
+4:94,4
+2:83,6
+5:104,3
+1:55,17
+*E

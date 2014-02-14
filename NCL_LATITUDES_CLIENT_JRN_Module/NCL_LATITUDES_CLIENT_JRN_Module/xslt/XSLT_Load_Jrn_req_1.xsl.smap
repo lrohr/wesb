@@ -1,0 +1,13 @@
+* SMAP
+XSLT_Load_Jrn_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLT_Load_Jrn_req_1.map
+/NCL_LATITUDES_CLIENT_JRN_Module/xslt/XSLT_Load_Jrn_req_1.map
+*L
+2:85,5
+1:53,17
+3:81,4
+4:99,5
+*E

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://NCL_LATITUDES_CLIENT_JRN_Module"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:import schemaLocation="NCL_LATITUDES_CLIENT_JRN_RESP.xsd"></xsd:import>
+	<xsd:import schemaLocation="NCL_LATITUDES_CLIENT_JRN_REQ.xsd"></xsd:import>
+	<xsd:complexType name="AppContext">
+		<xsd:sequence>
+			<xsd:element minOccurs="0"
+				ref="NCL_LATITUDES_CLIENT_JRN_REQ">
+			</xsd:element>
+			<xsd:element minOccurs="0"
+				ref="NCL_LATITUDES_CLIENT_JRN_RESP">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="LogId" type="xsd:string"></xsd:element>
+			<xsd:element minOccurs="0" name="ErrCode"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="ErrMsg"
+				type="xsd:string">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

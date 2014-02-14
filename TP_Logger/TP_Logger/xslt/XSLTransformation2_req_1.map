@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://TP_Logger/xslt/XSLTransformation2_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://TP_Logger/xslt/XSLTransformation2_req_1">
+    <input correlationContext="" message="{http://TP_Logger/JDBCOutboundInterface}executeNclseaNcl_Esb_Update_Tp_LogBGRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="" message="{http://TP_Logger/EmailServiceImport}sendSimpleAlertEmailRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLTransformation2_req_1.xml"/>
+        <import kind="xslt" location="XSLTransformation2_req_1_custom.xsl"/>
+    </imports>
+    <mappingDeclaration name="XSLTransformation2_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <assign value="esbteam@ncl.com">
+            <output path="body/sendSimpleAlertEmail/sendSimpleAlertEmailInput/To"/>
+        </assign>
+        <assign value="esbmon@ncl.com">
+            <output path="body/sendSimpleAlertEmail/sendSimpleAlertEmailInput/From"/>
+        </assign>
+        <assign value="WESB Error Updating TP log">
+            <output path="body/sendSimpleAlertEmail/sendSimpleAlertEmailInput/Subject"/>
+        </assign>
+        <customFunction lang="xslt" location="XSLTransformation2_req_1_custom.xsl" ref="Record_idToMailContent">
+            <input path="body/executeNclseaNcl_Esb_Update_Tp_LogBG/executeNclseaNcl_Esb_Update_Tp_LogBGInput/NclseaNcl_Esb_Update_Tp_Log/record_id" var="record_id"/>
+            <input path="body/executeNclseaNcl_Esb_Update_Tp_LogBG/executeNclseaNcl_Esb_Update_Tp_LogBGInput/NclseaNcl_Esb_Update_Tp_Log/response_msg" var="response_msg"/>
+            <input path="context/failInfo/failureString" var="failureString"/>
+            <output path="body/sendSimpleAlertEmail/sendSimpleAlertEmailInput/mailContent"/>
+            <param name="record_id" value="$record_id"/>
+            <param name="failureString" value="$failureString"/>
+            <param name="response_msg" value="$response_msg"/>
+        </customFunction>
+    </mappingDeclaration>
+</mappingRoot>

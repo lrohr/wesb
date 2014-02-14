@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_LATITUDES_POINTS_LOOKUP_Module/xslt/XSLT_LoadReadDb_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_LATITUDES_POINTS_LOOKUP_Module/xslt/XSLT_LoadReadDb_req_1">
+    <input correlationContext="" message="{http://NCL_WESB_Shared_Library/NCL_LATITUDES_POINTS_LOOKUP_Interface}Perform_NCL_LATITUDES_POINTS_LOOKUPRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="" message="{http://NCL_LATITUDES_POINTS_LOOKUP_Module/JDBCImport}executeNclseaNcl_Lat_Lookup_TierRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLT_LoadReadDb_req_1.xml"/>
+    </imports>
+    <mappingDeclaration name="XSLT_LoadReadDb_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="body/Perform_NCL_LATITUDES_POINTS_LOOKUP/NCL_LATITUDES_POINTS_LOOKUP_REQ/EFF_DT"/>
+            <output path="body/executeNclseaNcl_Lat_Lookup_Tier/executeNclseaNcl_Lat_Lookup_TierInput/p_eff_dt"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="JDBCImport" targetNamespace="http://Ps_Maps/JDBCImport" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/getcontract" xmlns:bons2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/getcontractcontainer" xmlns:bons3="http://com/ibm/j2ca/fault/afcfault" xmlns:tns="http://Ps_Maps/JDBCImport" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://com/ibm/j2ca/fault/afcfault" xmlns:tns="http://com/ibm/j2ca/fault/afcfault">
+      <xsd:include schemaLocation="RecordNotFoundFault.xsd"/>
+      <xsd:include schemaLocation="MatchesExceededLimitFault.xsd"/>
+    </xsd:schema>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://Ps_Maps/JDBCImport" xmlns:bons4="http://com/ibm/j2ca/fault/afcfault">
+      <xsd:import namespace="http://com/ibm/j2ca/fault/afcfault"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/getcontract" schemaLocation="getContract.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/getcontractcontainer" schemaLocation="getContractContainer.xsd"/>
+      <xsd:element name="retrieveallgetContract">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveallgetContractInput" type="bons1:getContract"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveallgetContractResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveallgetContractOutput" type="bons2:getContractContainer"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RecordNotFoundFault_element" nillable="true" type="bons4:RecordNotFoundFault"/>
+      <xsd:element name="MatchesExceededLimitFault_element" nillable="true" type="bons4:MatchesExceededLimitFault"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="retrieveallgetContractRequestMsg">
+    <wsdl:part element="tns:retrieveallgetContract" name="retrieveallgetContractParameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallgetContractResponseMsg">
+    <wsdl:part element="tns:retrieveallgetContractResponse" name="retrieveallgetContractResult"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallgetContractRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallgetContractMatchesExceededLimitFaultMsg">
+    <wsdl:part element="tns:MatchesExceededLimitFault_element" name="MatchesExceededLimitFault"/>
+  </wsdl:message>
+  <wsdl:portType name="JDBCImport">
+    <wsdl:operation name="retrieveallgetContract">
+      <wsdl:input message="tns:retrieveallgetContractRequestMsg" name="retrieveallgetContractRequest"/>
+      <wsdl:output message="tns:retrieveallgetContractResponseMsg" name="retrieveallgetContractResponse"/>
+      <wsdl:fault message="tns:retrieveallgetContractRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+      <wsdl:fault message="tns:retrieveallgetContractMatchesExceededLimitFaultMsg" name="MATCHES_EXCEEDED_LIMIT"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

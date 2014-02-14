@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mediationFlow xmlns="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlow" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:mfcex="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlowExtension" xmlns:ns1="http://NCL_WESB_Shared_Library/NCL_LATITUDES_CLIENT_POINTS_TRG_Interface" xmlns:ns2="http://LAT_Log_Logger/LAT_Log_Interface" xmlns:ns3="http://NCL_LATITUDES_CLIENT_POINTS_TRG_Module/JDBCImport" name="NCL_LATITUDES_CLIENT_POINTS_TRG_Module" targetNamespace="http://NCL_LATITUDES_CLIENT_POINTS_TRG_Module/NCL_LATITUDES_CLIENT_POINTS_TRG_Module">
+  <import location="NCL_LATITUDES_CLIENT_POINTS_TRG_Interface.wsdl" namespace="http://NCL_WESB_Shared_Library/NCL_LATITUDES_CLIENT_POINTS_TRG_Interface"/>
+  <import location="LAT_Log_Interface.wsdl" namespace="http://LAT_Log_Logger/LAT_Log_Interface"/>
+  <import location="JDBCImport.wsdl" namespace="http://NCL_LATITUDES_CLIENT_POINTS_TRG_Module/JDBCImport"/>
+  <reference name="LAT_Log_InterfacePartner" portType="ns2:LAT_Log_Interface"/>
+  <reference name="JDBCImportPartner" portType="ns3:JDBCImport"/>
+  <interface portType="ns1:NCL_LATITUDES_CLIENT_POINTS_TRG_Interface">
+    <operation name="Perform_NCL_LATITUDES_CLIENT_POINTS_TRG">
+      <requestFlow mfcex:autoLayout="false">
+        <node displayName="Perform_NCL_LATITUDES_CLIENT_POINTS_TRG : NCL_LATITUDES_CLIENT_POINTS_TRG_Interface" name="NCL_LATITUDES_CLIENT_POINTS_TRG_Interface_Perform_NCL_LATITUDES_CLIENT_POINTS_TRG_Input" type="Input" mfcex:x="10" mfcex:y="20">
+          <property name="correlationContext" value="{http://NCL_LATITUDES_CLIENT_POINTS_TRG_Module}AppContext"/>
+          <outputTerminal type="ns1:Perform_NCL_LATITUDES_CLIENT_POINTS_TRGRequestMsg">
+            <wire targetNode="BOMapper1"/>
+          </outputTerminal>
+        </node>
+        <node displayName="Perform_NCL_LATITUDES_CLIENT_POINTS_TRG : NCL_LATITUDES_CLIENT_POINTS_TRG_Interface" name="NCL_LATITUDES_CLIENT_POINTS_TRG_Interface_Perform_NCL_LATITUDES_CLIENT_POINTS_TRG_InputResponse" type="InputResponse" mfcex:x="1375" mfcex:y="44">
+          <inputTerminal type="ns1:Perform_NCL_LATITUDES_CLIENT_POINTS_TRGResponseMsg"/>
+        </node>
+        <node name="ServiceInvoke2" type="ServiceInvoke" mfcex:x="447" mfcex:y="179">
+          <property name="referenceName" value="LAT_Log_InterfacePartner"/>
+          <property name="operationName" value="LAT_Log_InsertUpdate"/>
+          <inputTerminal type="ns2:LAT_Log_InsertUpdateRequestMsg"/>
+          <outputTerminal type="ns2:LAT_Log_InsertUpdateResponseMsg"/>
+          <outputTerminal name="timeout" type="ns2:LAT_Log_InsertUpdateRequestMsg"/>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="LAT_Log_InsertUpdate_DB_ErrorsMsg" type="ns2:LAT_Log_InsertUpdate_DB_ErrorsMsg"/>
+          <failTerminal/>
+        </node>
+        <node name="ServiceInvoke3" type="ServiceInvoke" mfcex:x="1039" mfcex:y="166">
+          <property name="referenceName" value="LAT_Log_InterfacePartner"/>
+          <property name="operationName" value="LAT_Log_InsertUpdate"/>
+          <inputTerminal type="ns2:LAT_Log_InsertUpdateRequestMsg"/>
+          <outputTerminal type="ns2:LAT_Log_InsertUpdateResponseMsg"/>
+          <outputTerminal name="timeout" type="ns2:LAT_Log_InsertUpdateRequestMsg"/>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="LAT_Log_InsertUpdate_DB_ErrorsMsg" type="ns2:LAT_Log_InsertUpdate_DB_ErrorsMsg"/>
+          <failTerminal/>
+        </node>
+        <node name="ServiceInvoke1" type="ServiceInvoke" mfcex:x="674" mfcex:y="34">
+          <property name="referenceName" value="JDBCImportPartner"/>
+          <property name="operationName" value="executeNclseaNcl_Lat_Insert_Trg"/>
+          <inputTerminal type="ns3:executeNclseaNcl_Lat_Insert_TrgRequestMsg"/>
+          <outputTerminal type="ns3:executeNclseaNcl_Lat_Insert_TrgResponseMsg">
+            <wire targetNode="XSLTransformation2"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns3:executeNclseaNcl_Lat_Insert_TrgRequestMsg"/>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="executeNclseaNcl_Lat_Insert_TrgUniqueConstraintFaultMsg" type="ns3:executeNclseaNcl_Lat_Insert_TrgUniqueConstraintFaultMsg"/>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="executeNclseaNcl_Lat_Insert_TrgIntegrityConstraintFaultMsg" type="ns3:executeNclseaNcl_Lat_Insert_TrgIntegrityConstraintFaultMsg"/>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="executeNclseaNcl_Lat_Insert_TrgRecordNotFoundFaultMsg" type="ns3:executeNclseaNcl_Lat_Insert_TrgRecordNotFoundFaultMsg"/>
+          <failTerminal/>
+        </node>
+        <node name="BOMapper1" type="BOMapper" mfcex:x="367" mfcex:y="27">
+          <property name="root" value="/"/>
+          <property name="mappingFile" value="BO_LoadReqLogger.map"/>
+          <inputTerminal/>
+          <outputTerminal explicitType="false" type="ns2:LAT_Log_InsertUpdateRequestMsg">
+            <wire targetNode="ServiceInvoke2"/>
+            <wire targetNode="XSLTransformation1"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLTransformation1" type="XSLTransformation" mfcex:x="496" mfcex:y="42">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLT_LoadTRG_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLT_LoadTRG_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal/>
+          <outputTerminal explicitType="false" type="ns3:executeNclseaNcl_Lat_Insert_TrgRequestMsg">
+            <wire targetNode="ServiceInvoke1"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLTransformation2" type="XSLTransformation" mfcex:x="833" mfcex:y="38">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLT_BuildResponse.xsl"/>
+          <property name="XMXMap" value="xslt/XSLT_BuildResponse.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal/>
+          <outputTerminal>
+            <wire targetNode="BOMapper2"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="BOMapper2" type="BOMapper" mfcex:x="956" mfcex:y="37">
+          <property name="root" value="/"/>
+          <property name="mappingFile" value="BO_LoadRespLogger.map"/>
+          <inputTerminal/>
+          <outputTerminal explicitType="false" type="ns2:LAT_Log_InsertUpdateRequestMsg">
+            <wire targetNode="ServiceInvoke3"/>
+            <wire targetNode="XSLTransformation4"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLTransformation4" type="XSLTransformation" mfcex:x="1141" mfcex:y="53">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLT_LoadResp.xsl"/>
+          <property name="XMXMap" value="xslt/XSLT_LoadResp.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal/>
+          <outputTerminal explicitType="false" type="ns1:Perform_NCL_LATITUDES_CLIENT_POINTS_TRGResponseMsg">
+            <wire targetNode="NCL_LATITUDES_CLIENT_POINTS_TRG_Interface_Perform_NCL_LATITUDES_CLIENT_POINTS_TRG_InputResponse"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </requestFlow>
+      <errorFlow>
+        <node displayName="Perform_NCL_LATITUDES_CLIENT_POINTS_TRG : NCL_LATITUDES_CLIENT_POINTS_TRG_Interface" name="NCL_LATITUDES_CLIENT_POINTS_TRG_Interface_Perform_NCL_LATITUDES_CLIENT_POINTS_TRG_ErrorInput" type="ErrorInput">
+          <outputTerminal name="catchAll" type="XMLSchema:anyType"/>
+        </node>
+        <node displayName="Perform_NCL_LATITUDES_CLIENT_POINTS_TRG : NCL_LATITUDES_CLIENT_POINTS_TRG_Interface" name="NCL_LATITUDES_CLIENT_POINTS_TRG_Interface_Perform_NCL_LATITUDES_CLIENT_POINTS_TRG_InputResponse" type="InputResponse">
+          <inputTerminal type="ns1:Perform_NCL_LATITUDES_CLIENT_POINTS_TRGResponseMsg"/>
+        </node>
+      </errorFlow>
+    </operation>
+  </interface>
+</mediationFlow>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:BO_buileEmail="http://Ps_Maps" xmlns:ServiceMessageObject="smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FPs_Maps%257DAppContext/message%3D%257Bhttp%253A%252F%252FPs_Maps%252FEmailServiceImport%257DsendSimpleAlertEmailRequestMsg/xpath%3D%252F/namespace%3DBOMap/smo.xsd" xmlns:ServiceMessageObject_1="smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FPs_Maps%257DAppContext/xpath%3D%252F/namespace%3DBOMap/smo.xsd" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" targetNamespace="http://Ps_Maps">
+  <map:name>BO_buileEmail</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="ServiceMessageObject_1:ServiceMessageObject" name="ServiceMessageObject"/>
+  <map:outputBusinessObjectVariable businessObjectRef="ServiceMessageObject:ServiceMessageObject" name="ServiceMessageObject_1"/>
+  <map:propertyMap executionOrder="1">
+    <map:set value="lrohr@ncl.com">
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/sendSimpleAlertEmail/sendSimpleAlertEmailInput/To"/>
+    </map:set>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:set value="lrohr@ncl.com">
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/sendSimpleAlertEmail/sendSimpleAlertEmailInput/From"/>
+    </map:set>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:set value="test">
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/sendSimpleAlertEmail/sendSimpleAlertEmailInput/Subject"/>
+    </map:set>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_PS_APPDATA1"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/NCL_PS_APPDATA1"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="5">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NCL_PS_DATA1"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/NCL_PS_DATA1"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="6">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NewPerson"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/NewPerson"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="7">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="context/correlation/NewPerson_str"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/sendSimpleAlertEmail/sendSimpleAlertEmailInput/mailContent"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

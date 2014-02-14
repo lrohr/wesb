@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://Ps_Maps/xslt/XSLTransformation2_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://Ps_Maps/xslt/XSLTransformation2_req_1">
+    <input correlationContext="{http://Ps_Maps}AppContext" message="" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://Ps_Maps}AppContext" message="" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xslt" location="XSLTransformation2_req_1_ID.xsl"/>
+    </imports>
+    <mappingDeclaration name="XSLTransformation2_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo">
+            <cast path="body/type('anyType')" qualifier="{http://www.w3.org/2001/XMLSchema}string"/>
+        </output>
+        <move>
+            <input path="context/correlation/NCL_PS_APPDATA1"/>
+            <output path="context/correlation/NCL_PS_APPDATA1"/>
+        </move>
+        <customFunction lang="xslt" location="XSLTransformation2_req_1_ID.xsl" ref="MixedToAPPLID">
+            <input path="context/correlation/NCL_PS_APPDATA1/MsgData/Transaction/HRS_APPLICANT/HRS_PERSON_ID/mixed[1]" var="mixed"/>
+            <output path="context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APPLID"/>
+            <param name="mixed" value="$mixed"/>
+        </customFunction>
+        <move>
+            <input path="context/correlation/NCL_PS_APPDATA1/MsgData/Transaction/HRS_APPLICANT/SEX/mixed[1]"/>
+            <output path="context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/SEX"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_PS_APPDATA1/MsgData/Transaction/HRS_APPLICANT/BIRTHDATE/mixed[1]"/>
+            <output path="context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/BIRTHDATE"/>
+        </move>
+        <foreach>
+            <input path="context/correlation/NCL_PS_APPDATA1/MsgData/Transaction/HRS_APPLICANT/HRS_APP_EFFDT[1]" var="HRS_APP_EFFDT"/>
+            <input auxiliary="true" path="context/correlation/NCL_PS_APPDATA1/MsgData/Transaction/HRS_APPLICANT/NCL_AIRPORT" var="NCL_AIRPORT"/>
+            <input auxiliary="true" path="context/correlation/NCL_PS_APPDATA1/MsgData/Transaction/HRS_APPLICANT/NCL_DL_STATE" var="NCL_DL_STATE"/>
+            <input auxiliary="true" path="context/correlation/NCL_PS_APPDATA1/MsgData/Transaction/HRS_APPLICANT/DRIVERS_LIC_NBR" var="DRIVERS_LIC_NBR"/>
+            <input auxiliary="true" path="context/correlation/NCL_PS_APPDATA1/MsgData/Transaction/HRS_APPLICANT/HRS_APP_NAMES[1]" var="HRS_APP_NAMES"/>
+            <input auxiliary="true" path="context/correlation/NCL_PS_APPDATA1/MsgData/Transaction/HRS_APPLICANT/HRS_APP_ADDRESS[1]" var="HRS_APP_ADDRESS"/>
+            <output path="context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APPL_DATA_EFFDT[1]"/>
+            <move>
+                <input path="$HRS_APP_EFFDT/EFFDT/mixed[1]"/>
+                <output path="EFFDT"/>
+            </move>
+            <move>
+                <input path="$HRS_APP_NAMES/LAST_NAME_SRCH/mixed[1]"/>
+                <output path="LAST_NAME_SRCH"/>
+            </move>
+            <move>
+                <input path="$HRS_APP_NAMES/FIRST_NAME_SRCH/mixed[1]"/>
+                <output path="FIRST_NAME_SRCH"/>
+            </move>
+            <move>
+                <input path="$HRS_APP_ADDRESS/COUNTRY/mixed[1]"/>
+                <output path="COUNTRY"/>
+            </move>
+            <move>
+                <input path="$HRS_APP_ADDRESS/ADDRESS1/mixed[1]"/>
+                <output path="ADDRESS1"/>
+            </move>
+            <move>
+                <input path="$HRS_APP_ADDRESS/ADDRESS2/mixed[1]"/>
+                <output path="ADDRESS2"/>
+            </move>
+            <move>
+                <input path="$HRS_APP_ADDRESS/CITY/mixed[1]"/>
+                <output path="CITY"/>
+            </move>
+            <move>
+                <input path="$HRS_APP_ADDRESS/STATE/mixed[1]"/>
+                <output path="STATE"/>
+            </move>
+            <move>
+                <input path="$HRS_APP_ADDRESS/POSTAL/mixed[1]"/>
+                <output path="POSTAL"/>
+            </move>
+            <move>
+                <input path="$HRS_APP_EFFDT/MAR_STATUS/mixed[1]"/>
+                <output path="MAR_STATUS"/>
+            </move>
+            <move>
+                <input path="$NCL_AIRPORT/mixed[1]"/>
+                <output path="NCL_AIRPORT"/>
+            </move>
+            <move>
+                <input path="$DRIVERS_LIC_NBR/mixed[1]"/>
+                <output path="DRIVERS_LIC_NBR"/>
+            </move>
+            <move>
+                <input path="$NCL_DL_STATE/mixed[1]"/>
+                <output path="NCL_DL_STATE"/>
+            </move>
+        </foreach>
+        <foreach>
+            <input path="context/correlation/NCL_PS_APPDATA1/MsgData/Transaction/HRS_APPLICANT/HRS_APP_PHONE"/>
+            <output path="context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APPLICNT_PHONE"/>
+            <move>
+                <input path="HRS_PHONE_TYPE/mixed[1]"/>
+                <output path="PHONE_TYPE"/>
+            </move>
+            <move>
+                <input path="PHONE/mixed[1]"/>
+                <output path="PHONE"/>
+            </move>
+        </foreach>
+        <foreach>
+            <input path="context/correlation/NCL_PS_APPDATA1/MsgData/Transaction/HRS_APPLICANT/HRS_APP_EMAIL"/>
+            <output path="context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APP_EMAIL_ADDRS"/>
+            <move>
+                <input path="HRS_E_ADDR_TYPE/mixed[1]"/>
+                <output path="E_ADDR_TYPE"/>
+            </move>
+            <move>
+                <input path="EMAIL_ADDR/mixed[1]"/>
+                <output path="EMAIL_ADDR"/>
+            </move>
+        </foreach>
+        <foreach>
+            <input path="context/correlation/NCL_PS_APPDATA1/MsgData/Transaction/HRS_APPLICANT/HRS_APP_NID"/>
+            <output path="context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/NCL_APPL_NID"/>
+            <move>
+                <input path="NATIONAL_ID/mixed[1]"/>
+                <output path="NATIONAL_ID"/>
+            </move>
+        </foreach>
+        <foreach>
+            <input path="context/correlation/NCL_PS_APPDATA1/MsgData/Transaction/HRS_APPLICANT/HRS_JOB_OPENING"/>
+            <output path="context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/NCL_JOB_REQ_WRK"/>
+            <move>
+                <input path="BUSINESS_UNIT/mixed[1]"/>
+                <output path="BUSINESS_UNIT"/>
+            </move>
+            <move>
+                <input path="DEPTID/mixed[1]"/>
+                <output path="DEPTID"/>
+            </move>
+            <move>
+                <input path="COMPANY/mixed[1]"/>
+                <output path="COMPANY"/>
+            </move>
+            <move>
+                <input path="HRS_PRM_JOBCODE/mixed[1]"/>
+                <output path="JOBCODE"/>
+            </move>
+            <move>
+                <input path="HRS_PRM_LOCATION/mixed[1]"/>
+                <output path="LOCATION"/>
+            </move>
+        </foreach>
+        <foreach>
+            <input path="context/correlation/NCL_PS_APPDATA1/MsgData/Transaction/HRS_APPLICANT/HRS_APP_CITSHIP" var="HRS_APP_CITSHIP"/>
+            <input auxiliary="true" path="context/correlation/NCL_PS_APPDATA1/MsgData/Transaction/HRS_APPLICANT/HRS_APP_CZ_PSPT" var="HRS_APP_CZ_PSPT"/>
+            <output path="context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APP_CITIZENSHIP"/>
+            <move>
+                <input path="$HRS_APP_CITSHIP/CITIZENSHIP_STATUS/mixed[1]"/>
+                <output path="CITIZENSHIP_STATUS"/>
+            </move>
+            <foreach>
+                <input path="$HRS_APP_CZ_PSPT/."/>
+                <output path="APP_CITIZN_PSPT"/>
+                <move>
+                    <input path="HRS_PERSON_ID/mixed[1]"/>
+                    <output path="APPLID"/>
+                </move>
+                <move>
+                    <input path="COUNTRY/mixed[1]"/>
+                    <output path="COUNTRY"/>
+                </move>
+                <move>
+                    <input path="PASSPORT_NBR/mixed[1]"/>
+                    <output path="PASSPORT_NBR"/>
+                </move>
+                <move>
+                    <input path="DT_ISSUED/mixed[1]"/>
+                    <output path="DT_ISSUED"/>
+                </move>
+                <move>
+                    <input path="EXPIRATN_DT/mixed[1]"/>
+                    <output path="EXPIRATN_DT"/>
+                </move>
+                <move>
+                    <input path="COUNTRY_PASSPORT/mixed[1]"/>
+                    <output path="COUNTRY_PASSPORT"/>
+                </move>
+                <move>
+                    <input path="STATE_PASSPORT/mixed[1]"/>
+                    <output path="STATE_PASSPORT"/>
+                </move>
+                <move>
+                    <input path="CITY_PASSPORT/mixed[1]"/>
+                    <output path="CITY_PASSPORT"/>
+                </move>
+                <move>
+                    <input path="ISSUING_AUTHORITY/mixed[1]"/>
+                    <output path="ISSUING_AUTHORITY"/>
+                </move>
+                <move>
+                    <input path="COMMENTS/mixed[1]"/>
+                    <output path="COMMENTS"/>
+                </move>
+            </foreach>
+        </foreach>
+        <foreach>
+            <input path="context/correlation/NCL_PS_APPDATA1/MsgData/Transaction/HRS_APPLICANT/HRS_APP_VSA_DAT"/>
+            <output path="context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APP_VSA_PMT_DTA"/>
+            <move>
+                <input path="HRS_PERSON_ID/mixed[1]"/>
+                <output path="APPLID"/>
+            </move>
+            <move>
+                <input path="COUNTRY/mixed[1]"/>
+                <output path="COUNTRY"/>
+            </move>
+            <move>
+                <input path="HRS_VISA_PERMIT_TP/mixed[1]"/>
+                <output path="VISA_PERMIT_TYPE"/>
+            </move>
+            <move>
+                <input path="VISA_WRKPMT_NBR/mixed[1]"/>
+                <output path="VISA_WRKPMT_NBR"/>
+            </move>
+            <move>
+                <input path="VISA_WRKPMT_STATUS/mixed[1]"/>
+                <output path="VISA_WRKPMT_STATUS"/>
+            </move>
+            <move>
+                <input path="STATUS_DT/mixed[1]"/>
+                <output path="STATUS_DT"/>
+            </move>
+            <move>
+                <input path="DT_ISSUED/mixed[1]"/>
+                <output path="DT_ISSUED"/>
+            </move>
+            <move>
+                <input path="PLACE_ISSUED/mixed[1]"/>
+                <output path="PLACE_ISSUED"/>
+            </move>
+            <move>
+                <input path="DURATION_TIME/mixed[1]"/>
+                <output path="DURATION_TIME"/>
+            </move>
+            <move>
+                <input path="DURATION_TYPE/mixed[1]"/>
+                <output path="DURATION_TYPE"/>
+            </move>
+            <move>
+                <input path="START_DT/mixed[1]"/>
+                <output path="START_DT"/>
+            </move>
+            <move>
+                <input path="EXPIRATN_DT/mixed[1]"/>
+                <output path="EXPIRATN_DT"/>
+            </move>
+            <move>
+                <input path="ISSUING_AUTHORITY/mixed[1]"/>
+                <output path="ISSUING_AUTHORITY"/>
+            </move>
+        </foreach>
+        <foreach>
+            <input path="context/correlation/NCL_PS_APPDATA1/MsgData/Transaction/HRS_APPLICANT/HRS_APP_LIC_VW" var="HRS_APP_LIC_VW"/>
+            <input auxiliary="true" path="context/correlation/NCL_PS_APPDATA1/MsgData/Transaction/HRS_APPLICANT/HRS_ACCOMP_TBL" var="HRS_ACCOMP_TBL"/>
+            <output path="context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/NCL_LICENSE_HNR"/>
+            <move>
+                <input path="$HRS_APP_LIC_VW/HRS_PERSON_ID/mixed[1]"/>
+                <output path="APPLID"/>
+            </move>
+            <move>
+                <input path="$HRS_APP_LIC_VW/ACCOMPLISHMENT/mixed[1]"/>
+                <output path="ACCOMPLISHMENT"/>
+            </move>
+            <move>
+                <input path="$HRS_ACCOMP_TBL/DESCR/mixed[1]"/>
+                <output path="DESCR"/>
+            </move>
+            <move>
+                <input path="$HRS_ACCOMP_TBL/DESCRSHORT/mixed[1]"/>
+                <output path="DESCRSHORT"/>
+            </move>
+            <move>
+                <input path="$HRS_APP_LIC_VW/GRANTOR/mixed[1]"/>
+                <output path="GRANTOR"/>
+            </move>
+            <move>
+                <input path="$HRS_ACCOMP_TBL/ACCOMP_CATEGORY/mixed[1]"/>
+                <output path="ACCOMP_CATEGORY"/>
+            </move>
+            <move>
+                <input path="$HRS_APP_LIC_VW/LICENSE_NBR/mixed[1]"/>
+                <output path="LICENSE_NBR"/>
+            </move>
+            <move>
+                <input path="$HRS_APP_LIC_VW/EVALUATION_DT/mixed"/>
+                <output path="EVALUATION_DT"/>
+            </move>
+            <move>
+                <input path="$HRS_APP_LIC_VW/EXPIRATN_DT/mixed[1]"/>
+                <output path="EXPIRATN_DT"/>
+            </move>
+            <move>
+                <input path="$HRS_APP_LIC_VW/DT_ISSUED/mixed[1]"/>
+                <output path="DT_ISSUED"/>
+            </move>
+        </foreach>
+        <foreach>
+            <input path="context/correlation/NCL_PS_APPDATA1/MsgData/Transaction/HRS_APPLICANT/HRS_APP_CL_ITEM"/>
+            <output path="context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/NCL_CHECKLIST"/>
+            <move>
+                <input path="CHKLST_ITEM_CD/mixed[1]"/>
+                <output path="CHKLST_ITEM_CD"/>
+            </move>
+            <move>
+                <input path="STATUS_DT/mixed[1]"/>
+                <output path="STATUS_DT"/>
+            </move>
+        </foreach>
+        <foreach>
+            <input path="context/correlation/NCL_PS_APPDATA1/MsgData/Transaction/HRS_APPLICANT/HRS_APP_DIV"/>
+            <output path="context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APPLICANT_DATA"/>
+            <move>
+                <input path="ETHNIC_GROUP/mixed"/>
+                <output path="ETHNIC_GROUP"/>
+            </move>
+        </foreach>
+        <assign value="test2">
+            <output path="spath('body',2)"/>
+        </assign>
+    </mappingDeclaration>
+</mappingRoot>

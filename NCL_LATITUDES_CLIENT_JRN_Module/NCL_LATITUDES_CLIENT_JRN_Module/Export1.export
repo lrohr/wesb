@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Binding="http://NCL_WESB_Shared_Library/NCL_LATITUDES_CLIENT_JRN_Interface/Binding" xmlns:ns1="http://NCL_WESB_Shared_Library/NCL_LATITUDES_CLIENT_JRN_Interface" xmlns:ns2="http://LAT_Log_Logger/LAT_Log_Interface" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:webservice="http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="Export1" name="Export1" target="NCL_LATITUDES_CLIENT_JRN_Module">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:NCL_LATITUDES_CLIENT_JRN_Interface"/>
+  </interfaces>
+  <esbBinding xsi:type="webservice:WebServiceExportBinding" port="Binding:Export1_NCL_LATITUDES_CLIENT_JRN_InterfaceHttpPort" service="Binding:Export1_NCL_LATITUDES_CLIENT_JRN_InterfaceHttpService"/>
+</scdl:export>

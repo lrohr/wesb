@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<io:smo xmlns:io="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:out7="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_esb_update_tp_log" xmlns:io5="http://www.w3.org/2005/08/addressing" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:out6="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0" xmlns:io4="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:io3="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:out5="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_esb_insert_tp_logbg" xmlns:io2="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:out4="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_esb_insert_tp_log" xmlns:out3="wsdl.http://TP_Logger/JDBCOutboundInterface" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:out2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/nclseancl_esb_update_tp_logbg" xmlns:out="http://TP_Logger/JDBCOutboundInterface">
+  <body>
+    <out:executeNclseaNcl_Esb_Insert_Tp_LogBG>
+      <out:executeNclseaNcl_Esb_Insert_Tp_LogBGInput>
+        <NclseaNcl_Esb_Insert_Tp_Log>
+          <record_id>RECORD_ID</record_id>
+          <source>SOURCE_CD</source>
+          <request_ts>REQUEST_TS</request_ts>
+          <request_type>REQUEST_TYPE_CD</request_type>
+          <request_msg>XML</request_msg>
+        </NclseaNcl_Esb_Insert_Tp_Log>
+      </out:executeNclseaNcl_Esb_Insert_Tp_LogBGInput>
+    </out:executeNclseaNcl_Esb_Insert_Tp_LogBG>
+  </body>
+</io:smo>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_LATITUDES_CLIENT_POINTS_TRG_Module/xslt/XSLT_LoadTRG_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_LATITUDES_CLIENT_POINTS_TRG_Module/xslt/XSLT_LoadTRG_req_1">
+    <input correlationContext="{http://NCL_LATITUDES_CLIENT_POINTS_TRG_Module}AppContext" message="{http://LAT_Log_Logger/LAT_Log_Interface}LAT_Log_InsertUpdateRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_LATITUDES_CLIENT_POINTS_TRG_Module}AppContext" message="{http://NCL_LATITUDES_CLIENT_POINTS_TRG_Module/JDBCImport}executeNclseaNcl_Lat_Insert_TrgRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLT_LoadTRG_req_1.xml"/>
+        <import kind="xslt" location="XSLT_LoadTRG_load_Client.xsl"/>
+    </imports>
+    <mappingDeclaration name="XSLT_LoadTRG_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_LATITUDES_CLIENT_POINTS_TRG_REQ/SOURCE"/>
+            <output path="body/executeNclseaNcl_Lat_Insert_Trg/executeNclseaNcl_Lat_Insert_TrgInput/p_source"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_LATITUDES_CLIENT_POINTS_TRG_REQ/ACTION"/>
+            <output path="body/executeNclseaNcl_Lat_Insert_Trg/executeNclseaNcl_Lat_Insert_TrgInput/p_action"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_LATITUDES_CLIENT_POINTS_TRG_REQ/RES_ID"/>
+            <output path="body/executeNclseaNcl_Lat_Insert_Trg/executeNclseaNcl_Lat_Insert_TrgInput/p_res_id"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_LATITUDES_CLIENT_POINTS_TRG_REQ/SECONDARY_CLIENT_ID"/>
+            <output path="body/executeNclseaNcl_Lat_Insert_Trg/executeNclseaNcl_Lat_Insert_TrgInput/p_secondary_client_id"/>
+        </move>
+        <move>
+            <input path="context/correlation/LogId"/>
+            <output path="context/correlation/LogId"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_LATITUDES_CLIENT_POINTS_TRG_REQ"/>
+            <output path="context/correlation/NCL_LATITUDES_CLIENT_POINTS_TRG_REQ"/>
+        </move>
+        <customFunction lang="xslt" location="XSLT_LoadTRG_load_Client.xsl" ref="NCL_LATITUDES_CLIENT_POINTS_TRG_REQToP_client_id">
+            <input path="context/correlation/NCL_LATITUDES_CLIENT_POINTS_TRG_REQ" var="NCL_LATITUDES_CLIENT_POINTS_TRG_REQ"/>
+            <input path="context/correlation/NCL_LATITUDES_CLIENT_POINTS_TRG_REQ/CLEINT_ID" var="CLEINT_ID"/>
+            <input path="context/correlation/NCL_LATITUDES_CLIENT_POINTS_TRG_REQ/CLIENT_ID" var="CLIENT_ID"/>
+            <output path="body/executeNclseaNcl_Lat_Insert_Trg/executeNclseaNcl_Lat_Insert_TrgInput/p_client_id"/>
+            <param name="CLIENT_ID" value="$CLIENT_ID"/>
+            <param name="CLEINT_ID" value="$CLEINT_ID"/>
+            <param name="NCL_LATITUDES_CLIENT_POINTS_TRG_REQ" value="$NCL_LATITUDES_CLIENT_POINTS_TRG_REQ"/>
+        </customFunction>
+    </mappingDeclaration>
+</mappingRoot>

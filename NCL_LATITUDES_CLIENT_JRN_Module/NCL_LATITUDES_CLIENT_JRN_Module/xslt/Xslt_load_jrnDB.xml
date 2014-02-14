@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<body xmlns:bons1="http://LAT_Log_Logger" xmlns:httpsca="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:mq="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:smo="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:tns="http://LAT_Log_Logger/LAT_Log_Interface" xmlns:tns1="http://www.w3.org/2005/08/addressing" xmlns:tns_1="wsdl.http://LAT_Log_Logger/LAT_Log_Interface" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="foo.xsd" xsi:schemaLocation="wsdl.http://LAT_Log_Logger/LAT_Log_Interface /name%3Dwsdl-body/correlationContext%3Dhttp%253A%252F%252FLAT_Log_Logger%252FLAT_Log_Interface/message%3D%257Bhttp%253A%252F%252FLAT_Log_Logger%252FLAT_Log_Interface%257DLAT_Log_InsertUpdateRequestMsg/smo.xsd http://LAT_Log_Logger/LAT_Log_Interface platform:/resource/NCL_WESB_Shared_Library/LAT_Log_Interface.wsdl http://LAT_Log_Logger platform:/resource/NCL_WESB_Shared_Library/LAT_Log_Interface.wsdl http://www.ibm.com/websphere/sibx/smo/v6.0.1 platform:/plugin/com.ibm.ws.sibx.smo/smo.xsd http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0 platform:/plugin/com.ibm.ws.sibx.smo/smo-mq.xsd http://schemas.xmlsoap.org/ws/2004/08/addressing platform:/plugin/com.ibm.ws.sibx.smo/ws-addressing2004.xsd http://www.w3.org/2005/08/addressing platform:/plugin/com.ibm.ws.sibx.smo/ws-addr-10.xsd http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0 platform:/plugin/com.ibm.ws.sibx.smo/smo-http.xsd ">
+  <tns:LAT_Log_InsertUpdate>
+    <OPERATION_TYPE>OPERATION_TYPE</OPERATION_TYPE>
+    <RECORD_ID>RECORD_ID</RECORD_ID>
+    <SOURCE_CD>SOURCE_CD</SOURCE_CD>
+    <REQUEST_TS>REQUEST_TS</REQUEST_TS>
+    <RESPONSE_TS>RESPONSE_TS</RESPONSE_TS>
+    <REQUEST_TYPE_CD>REQUEST_TYPE_CD</REQUEST_TYPE_CD>
+    <XML>XML</XML>
+  </tns:LAT_Log_InsertUpdate>
+</body>

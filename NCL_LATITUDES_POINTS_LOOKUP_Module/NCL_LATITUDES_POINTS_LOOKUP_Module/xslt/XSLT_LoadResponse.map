@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_LATITUDES_POINTS_LOOKUP_Module/xslt/XSLT_LoadResponse" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_LATITUDES_POINTS_LOOKUP_Module/xslt/XSLT_LoadResponse">
+    <input correlationContext="{http://NCL_LATITUDES_POINTS_LOOKUP_Module}AppContext" message="{http://NCL_LATITUDES_POINTS_LOOKUP_Module/JDBCImport}executeNclseaNcl_Lat_Lookup_TierResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_LATITUDES_POINTS_LOOKUP_Module}AppContext" message="{http://NCL_WESB_Shared_Library/NCL_LATITUDES_POINTS_LOOKUP_Interface}Perform_NCL_LATITUDES_POINTS_LOOKUPResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xml" location="XSLT_LoadResponse.xml"/>
+        <import kind="xslt" location="XSLT_LoadResponse_custom.xsl"/>
+    </imports>
+    <mappingDeclaration name="XSLT_LoadResponse">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/LogId"/>
+            <output path="context/correlation/LogId"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_LATITUDES_POINTS_LOOKUP_REQ"/>
+            <output path="context/correlation/NCL_LATITUDES_POINTS_LOOKUP_REQ"/>
+        </move>
+        <foreach>
+            <input path="body/executeNclseaNcl_Lat_Lookup_TierResponse/executeNclseaNcl_Lat_Lookup_TierOutput/p_cursor"/>
+            <output path="context/correlation/NCL_LATITUDES_POINTS_LOOKUP_RESP/TIERS/TIER"/>
+            <move>
+                <input path="tier_level"/>
+                <output path="TIER_LEVEL"/>
+            </move>
+            <move>
+                <input path="min_points_qty"/>
+                <output path="MIN_POINTS"/>
+            </move>
+            <move>
+                <input path="eff_from_dt"/>
+                <output path="EFF_FROM_DT"/>
+            </move>
+            <move>
+                <input path="eff_to_dt"/>
+                <output path="EFF_TO_DT"/>
+            </move>
+        </foreach>
+        <assign value="0">
+            <output path="context/correlation/NCL_LATITUDES_POINTS_LOOKUP_RESP/ERROR_CODE"/>
+        </assign>
+        <customFunction lang="xslt" location="XSLT_LoadResponse_custom.xsl" ref="LogIdToSUCCESS">
+            <input path="context/correlation/LogId" var="LogId"/>
+            <output path="context/correlation/NCL_LATITUDES_POINTS_LOOKUP_RESP/SUCCESS"/>
+            <param name="LogId" value="$LogId"/>
+        </customFunction>
+    </mappingDeclaration>
+</mappingRoot>

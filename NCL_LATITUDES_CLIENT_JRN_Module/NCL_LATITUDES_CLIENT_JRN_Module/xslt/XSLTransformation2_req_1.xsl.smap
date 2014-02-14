@@ -1,0 +1,28 @@
+* SMAP
+XSLTransformation2_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLTransformation2_req_1.map
+/NCL_LATITUDES_CLIENT_JRN_Module/xslt/XSLTransformation2_req_1.map
+*L
+13:247,6
+15:259,6
+5:100,14
+4:94,6
+7:126,11
+8:91,1
+11:235,6
+18:275,4
+16:265,6
+6:114,12
+2:85,3
+12:241,6
+14:253,6
+19:279,3
+17:271,4
+3:139,5
+9:225,4
+10:229,6
+1:57,17
+*E
