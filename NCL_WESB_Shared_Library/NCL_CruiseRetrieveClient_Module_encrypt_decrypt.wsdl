@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="encrypt_decrypt_Encrypt_Decrypt_InterfaceHttp_Service" targetNamespace="http://NCL_WESB_Shared_Library/Encrypt_Decrypt_Interface" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="http://NCL_WESB_Shared_Library/Encrypt_Decrypt_Interface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="Encrypt_Decrypt_Interface.wsdl" namespace="http://NCL_WESB_Shared_Library/Encrypt_Decrypt_Interface"/>
+  <wsdl:binding name="encrypt_decrypt_Encrypt_Decrypt_InterfaceHttpBinding" type="this:Encrypt_Decrypt_Interface">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="processEncryptDecrypt">
+      <soap12:operation soapAction="http://NCL_WESB_Shared_Library/Encrypt_Decrypt_Interface/Encrypt_Decrypt_Interface/processEncryptDecrypt"/>
+      <wsdl:input name="processEncryptDecryptRequest">
+        <soap12:body parts="processEncryptDecryptRequest1" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="processEncryptDecryptResponse">
+        <soap12:body parts="processEncryptDecryptResponse1" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="encrypt_decrypt_Encrypt_Decrypt_InterfaceHttpService">
+    <wsdl:port binding="this:encrypt_decrypt_Encrypt_Decrypt_InterfaceHttpBinding" name="encrypt_decrypt_Encrypt_Decrypt_InterfaceHttpPort">
+      <soap12:address location="http://localhost:9080/WebServiceProject/encrypt_decrypt_Encrypt_Decrypt_InterfaceHttpService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

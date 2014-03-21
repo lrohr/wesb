@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2005 U (http://www.xmlspy.com) by XMLSPY 2005 Professional Ed. Release 3, Installed for 3 users (with SMP from 2005-04-15 to 2006-04-16) (NCL) -->
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+	<element name="address">
+		<complexType>
+			<sequence>
+				<element name="Get_AgencyAddressInfo" minOccurs="0">
+					<complexType>
+						<sequence>
+							<element name="P_ERRORCODE" type="string" minOccurs="0"/>
+							<element name="P_CURSOR" minOccurs="0" maxOccurs="unbounded">
+								<complexType>
+									<sequence>
+										<element name="AGENCY_ID" type="decimal"/>
+										<element name="SEQ_NUMBER" type="decimal"/>
+										<element name="ADDRESS_TYPE" type="string"/>
+										<element name="ADDRESS_LINE1" type="string"/>
+										<element name="ADDRESS_LINE2" type="string"/>
+										<element name="ADDRESS_CITY" type="string"/>
+										<element name="STATE_CODE" type="string"/>
+										<element name="ZIP" type="string"/>
+										<element name="COUNTRY_CODE" type="string"/>
+										<element name="IS_ADDRESS_MAILING" type="string"/>
+										<element name="IS_ADDRESS_SHIPPING" type="string"/>
+										<element name="COMMENTS" type="string"/>
+										<element name="AGENCY_ADDR_ID" type="decimal"/>
+										<element name="ADDRESS_LINE3" type="string"/>
+										<element name="ADDRESS_LINE4" type="string"/>
+										<element name="ADDRESS_ESSENTIAL" type="string"/>
+									</sequence>
+								</complexType>
+							</element>
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

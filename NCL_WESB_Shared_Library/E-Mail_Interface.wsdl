@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="E-Mail_Interface" targetNamespace="http://E-Mail_Generic/E-Mail_Interface" xmlns:tns="http://E-Mail_Generic/E-Mail_Interface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://E-Mail_Generic/E-Mail_Interface">
+      <xsd:element name="Send_Email1">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="To" nillable="true" type="xsd:string"/>
+            <xsd:element name="Subject" nillable="true" type="xsd:string"/>
+            <xsd:element name="Content" nillable="true" type="xsd:string"/>
+            <xsd:element name="Severity" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="Send_Email1RequestMsg">
+    <wsdl:part element="tns:Send_Email1" name="Send_Email1Parameters"/>
+  </wsdl:message>
+    <wsdl:portType name="E-Mail_Interface">
+    <wsdl:operation name="Send_Email1">
+      <wsdl:input message="tns:Send_Email1RequestMsg" name="Send_Email1Request"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

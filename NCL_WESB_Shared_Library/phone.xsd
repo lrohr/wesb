@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2005 U (http://www.xmlspy.com) by XMLSPY 2005 Professional Ed. Release 3, Installed for 3 users (with SMP from 2005-04-15 to 2006-04-16) (NCL) -->
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+	<element name="phone">
+		<complexType>
+			<sequence>
+				<element name="Get_AgencyPhoneInfo" minOccurs="0">
+					<complexType>
+						<sequence>
+							<element name="P_ERRORCODE" type="string"/>
+							<element name="P_CURSOR" minOccurs="0" maxOccurs="unbounded">
+								<complexType>
+									<sequence>
+										<element name="AGENCY_ID" type="decimal"/>
+										<element name="SEQ_NUMBER" type="decimal"/>
+										<element name="PHONE_TYPE" type="string"/>
+										<element name="INTL_CODE" type="decimal"/>
+										<element name="PHONE_NUMBER" type="string"/>
+										<element name="IS_PHONE_PRIMARY" type="string"/>
+										<element name="IS_PHONE_SECONDARY" type="string"/>
+										<element name="IS_PHONE_FAX" type="string"/>
+										<element name="FAX_ATTENTION_LINE" type="string"/>
+										<element name="COMMENTS" type="string"/>
+										<element name="AGENCY_PHONE_ID" type="decimal"/>
+										<element name="PHONE_EXT" type="string"/>
+									</sequence>
+								</complexType>
+							</element>
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://versonix.com/api/schemas" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://versonix.com/api/definitions" targetNamespace="http://versonix.com/api/definitions">
+  <wsdl:types>
+    <xsd:schema xmlns:vx="http://versonix.com/api/schemas" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://versonix.com/api/schemas">
+	<xsd:element name="processAmadeusRequest" type="xsd:anyType"/>
+	<xsd:element name="processAmadeusResponse" type="xsd:anyType"/>
+	<xsd:element name="processXmlApiRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="xmlString" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="processXmlApiResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="xmlString" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="processEncryptDecryptRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Encrypt_Decrypt">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Action" type="xsd:string"/>
+							<xsd:choice>
+								<xsd:element name="EncryptString" type="xsd:string"/>
+								<xsd:element name="DecryptString" type="xsd:string"/>
+							</xsd:choice>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="processEncryptDecryptResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Encrypt_Decrypt">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Action" type="xsd:string"/>
+							<xsd:element name="EncryptString" type="xsd:string"/>
+							<xsd:element name="DecryptString" type="xsd:string"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="processPaymentRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Payment_IN">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="bookingInfo">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="resId" type="xsd:integer"/>
+										<xsd:element name="agencyId" type="xsd:integer"/>
+										<xsd:element name="clientID" type="xsd:integer"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="paymentGroup">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="paymentInfo">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="paymentDetails">
+														<xsd:complexType>
+															<xsd:sequence>
+																<xsd:element name="formOfPaymentCode" type="xsd:string"/>
+																<xsd:element name="paymentType" type="xsd:string"/>
+																<xsd:element name="extendedPaymentIndicator"/>
+																<xsd:element name="amount" type="xsd:integer"/>
+																<xsd:element name="currency" type="xsd:string"/>
+																<xsd:element name="referenceNbr" type="xsd:integer"/>
+																<xsd:element name="extensionDays" type="xsd:integer"/>
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="creditCardInfo">
+														<xsd:complexType>
+															<xsd:sequence>
+																<xsd:element name="creditCardCode" type="xsd:string"/>
+																<xsd:element name="creditCardNbr" type="xsd:integer"/>
+																<xsd:element name="creditCardExpiryDate" type="xsd:string"/>
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+										<xsd:element name="billingAddress">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="addressDetails">
+														<xsd:complexType>
+															<xsd:sequence>
+																<xsd:element name="addressLine1" type="xsd:string"/>
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="cityName" type="xsd:string"/>
+													<xsd:element name="zipCode" type="xsd:string"/>
+													<xsd:element name="CountryIsoCode" type="xsd:string"/>
+													<xsd:element name="locationDetails">
+														<xsd:complexType>
+															<xsd:sequence>
+																<xsd:element name="stateCode" type="xsd:string"/>
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+										<xsd:element name="ccHolderName" type="xsd:string"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="processPaymentResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Payment_OUT">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="resId" type="xsd:integer"/>
+							<xsd:element name="clientID" type="xsd:integer"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="processBookPackagesRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="BookPackages_IN">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="bookingInfo">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="resId" type="xsd:integer"/>
+										<xsd:element name="voyageNumber" type="xsd:integer"/>
+										<xsd:element name="agencyId" type="xsd:integer"/>
+										<xsd:element name="bookingSource" type="xsd:string"/>
+										<xsd:element name="agentOfficeID" type="xsd:integer"/>
+										<xsd:element name="receivedFrom" type="xsd:string"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element maxOccurs="unbounded" name="otherPackages">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="packageType" type="xsd:integer"/>
+										<xsd:element name="packageCode" type="xsd:integer"/>
+										<xsd:element name="otherPackageFeatures" type="xsd:string"/>
+										<xsd:element name="packageAssociation">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="lastName" type="xsd:string"/>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="processBookPackagesResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="BookPackages_OUT">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="BookingInfo">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="resId" type="xsd:integer"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="processAmadeusRequest">
+    <wsdl:part element="sch:processAmadeusRequest" name="processAmadeusRequest"/>
+  </wsdl:message>
+  <wsdl:message name="processBookPackagesRequest">
+    <wsdl:part element="sch:processBookPackagesRequest" name="processBookPackagesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="processEncryptDecryptResponse">
+    <wsdl:part element="sch:processEncryptDecryptResponse" name="processEncryptDecryptResponse"/>
+  </wsdl:message>
+  <wsdl:message name="processBookPackagesResponse">
+    <wsdl:part element="sch:processBookPackagesResponse" name="processBookPackagesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="processPaymentResponse">
+    <wsdl:part element="sch:processPaymentResponse" name="processPaymentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="processXmlApiResponse">
+    <wsdl:part element="sch:processXmlApiResponse" name="processXmlApiResponse"/>
+  </wsdl:message>
+  <wsdl:message name="processEncryptDecryptRequest">
+    <wsdl:part element="sch:processEncryptDecryptRequest" name="processEncryptDecryptRequest"/>
+  </wsdl:message>
+  <wsdl:message name="processAmadeusResponse">
+    <wsdl:part element="sch:processAmadeusResponse" name="processAmadeusResponse"/>
+  </wsdl:message>
+  <wsdl:message name="processXmlApiRequest">
+    <wsdl:part element="sch:processXmlApiRequest" name="processXmlApiRequest"/>
+  </wsdl:message>
+  <wsdl:message name="processPaymentRequest">
+    <wsdl:part element="sch:processPaymentRequest" name="processPaymentRequest"/>
+  </wsdl:message>
+  <wsdl:portType name="SwApi">
+    <wsdl:operation name="processAmadeus">
+      <wsdl:input message="tns:processAmadeusRequest" name="processAmadeusRequest"/>
+      <wsdl:output message="tns:processAmadeusResponse" name="processAmadeusResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="processPayment">
+      <wsdl:input message="tns:processPaymentRequest" name="processPaymentRequest"/>
+      <wsdl:output message="tns:processPaymentResponse" name="processPaymentResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="processEncryptDecrypt">
+      <wsdl:input message="tns:processEncryptDecryptRequest" name="processEncryptDecryptRequest"/>
+      <wsdl:output message="tns:processEncryptDecryptResponse" name="processEncryptDecryptResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="processBookPackages">
+      <wsdl:input message="tns:processBookPackagesRequest" name="processBookPackagesRequest"/>
+      <wsdl:output message="tns:processBookPackagesResponse" name="processBookPackagesResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="processXmlApi">
+      <wsdl:input message="tns:processXmlApiRequest" name="processXmlApiRequest"/>
+      <wsdl:output message="tns:processXmlApiResponse" name="processXmlApiResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SwApiSoap11" type="tns:SwApi">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="processAmadeus">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="processAmadeusRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="processAmadeusResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="processPayment">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="processPaymentRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="processPaymentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="processEncryptDecrypt">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="processEncryptDecryptRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="processEncryptDecryptResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="processBookPackages">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="processBookPackagesRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="processBookPackagesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="processXmlApi">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="processXmlApiRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="processXmlApiResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SwApiService">
+    <wsdl:port binding="tns:SwApiSoap11" name="SwApiSoap11">
+      <soap:address location="http://167.118.103.171:20080/xmlapi-ws/processor/swApiService/service"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

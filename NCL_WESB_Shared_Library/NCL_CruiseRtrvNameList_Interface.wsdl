@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="NCL_CruiseRtrvNameList_Interface" targetNamespace="http://NCL_WESB_Shared_Library/NCL_CruiseRtrvNameList_Interface" xmlns:bons1="http://nclapi/schemas" xmlns:tns="http://NCL_WESB_Shared_Library/NCL_CruiseRtrvNameList_Interface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://NCL_WESB_Shared_Library/NCL_CruiseRtrvNameList_Interface">
+            <xsd:import namespace="http://nclapi/schemas" schemaLocation="NCL_CruiseRtrvNameListRS.xsd"/>
+      <xsd:import namespace="http://nclapi/schemas" schemaLocation="NCL_CruiseRetrieveNameListRQ.xsd"/>
+      <xsd:element name="Perform_NCL_CruiseRtrvNameList">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="bons1:NCL_CruiseRtrvNameListRQ"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Perform_NCL_CruiseRtrvNameListResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="bons1:NCL_CruiseRtrvNameListRS"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="Perform_NCL_CruiseRtrvNameListRequestMsg">
+    <wsdl:part element="tns:Perform_NCL_CruiseRtrvNameList" name="Perform_NCL_CruiseRtrvNameListParameters"/>
+  </wsdl:message>
+    <wsdl:message name="Perform_NCL_CruiseRtrvNameListResponseMsg">
+    <wsdl:part element="tns:Perform_NCL_CruiseRtrvNameListResponse" name="Perform_NCL_CruiseRtrvNameListResult"/>
+  </wsdl:message>
+    <wsdl:portType name="NCL_CruiseRtrvNameList_Interface">
+    <wsdl:operation name="Perform_NCL_CruiseRtrvNameList">
+      <wsdl:input message="tns:Perform_NCL_CruiseRtrvNameListRequestMsg" name="Perform_NCL_CruiseRtrvNameListRequest"/>
+      <wsdl:output message="tns:Perform_NCL_CruiseRtrvNameListResponseMsg" name="Perform_NCL_CruiseRtrvNameListResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

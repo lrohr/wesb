@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="NCL_CruiseRetrieveGroupBookings_InterfaceExport1_NCL_CruiseRetrieveGroupBookings_InterfaceHttp_Service" targetNamespace="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveGroupBookings_Interface/Binding" xmlns:Port_0="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveGroupBookings_Interface" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveGroupBookings_Interface/Binding" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="NCL_CruiseRetrieveGroupBookings_Interface.wsdl" namespace="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveGroupBookings_Interface"/>
+  <wsdl:binding name="NCL_CruiseRetrieveGroupBookings_InterfaceExport1_NCL_CruiseRetrieveGroupBookings_InterfaceHttpBinding" type="Port_0:NCL_CruiseRetrieveGroupBookings_Interface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Perform_NCL_CruiseRetrieveGroupBookings">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="Perform_NCL_CruiseRetrieveGroupBookingsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="Perform_NCL_CruiseRetrieveGroupBookingsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NCL_CruiseRetrieveGroupBookings_InterfaceExport1_NCL_CruiseRetrieveGroupBookings_InterfaceHttpService">
+    <wsdl:port binding="this:NCL_CruiseRetrieveGroupBookings_InterfaceExport1_NCL_CruiseRetrieveGroupBookings_InterfaceHttpBinding" name="NCL_CruiseRetrieveGroupBookings_InterfaceExport1_NCL_CruiseRetrieveGroupBookings_InterfaceHttpPort">
+      <soap:address location="http://localhost:9080/NCL_CruiseRetrieveGroupBookings_ModuleWeb/sca/NCL_CruiseRetrieveGroupBookings_InterfaceExport1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="Export1_NCL_LATITUDES_CLIENT_JRN_InterfaceHttp_Service" targetNamespace="http://NCL_WESB_Shared_Library/NCL_LATITUDES_CLIENT_JRN_Interface/Binding" xmlns:Port_0="http://NCL_WESB_Shared_Library/NCL_LATITUDES_CLIENT_JRN_Interface" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="http://NCL_WESB_Shared_Library/NCL_LATITUDES_CLIENT_JRN_Interface/Binding" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="NCL_LATITUDES_CLIENT_JRN_Interface.wsdl" namespace="http://NCL_WESB_Shared_Library/NCL_LATITUDES_CLIENT_JRN_Interface"/>
+  <wsdl:binding name="Export1_NCL_LATITUDES_CLIENT_JRN_InterfaceHttpBinding" type="Port_0:NCL_LATITUDES_CLIENT_JRN_Interface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Perform_NCL_LATITUDES_CLIENT_JRN">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="Perform_NCL_LATITUDES_CLIENT_JRNRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="Perform_NCL_LATITUDES_CLIENT_JRNResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Export1_NCL_LATITUDES_CLIENT_JRN_InterfaceHttpService">
+    <wsdl:port binding="this:Export1_NCL_LATITUDES_CLIENT_JRN_InterfaceHttpBinding" name="Export1_NCL_LATITUDES_CLIENT_JRN_InterfaceHttpPort">
+      <soap:address location="http://localhost:9080/NCL_LATITUDES_CLIENT_JRN_ModuleWeb/sca/Export1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="NCL_CruiseFitConfirmation_InterfaceExport1_NCL_CruiseFitConfirmation_InterfaceHttp_Service" targetNamespace="http://NCL_WESB_Shared_Library/NCL_CruiseFitConfirmation_Interface" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="http://NCL_WESB_Shared_Library/NCL_CruiseFitConfirmation_Interface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="NCL_CruiseFitConfirmation_Interface.wsdl" namespace="http://NCL_WESB_Shared_Library/NCL_CruiseFitConfirmation_Interface"/>
+  <wsdl:binding name="NCL_CruiseFitConfirmation_InterfaceExport1_NCL_CruiseFitConfirmation_InterfaceHttpBinding" type="this:NCL_CruiseFitConfirmation_Interface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Perform_NCL_CruiseFitConfirmation">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="Perform_NCL_CruiseFitConfirmationRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="Perform_NCL_CruiseFitConfirmationResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NCL_CruiseFitConfirmation_InterfaceExport1_NCL_CruiseFitConfirmation_InterfaceHttpService">
+    <wsdl:port binding="this:NCL_CruiseFitConfirmation_InterfaceExport1_NCL_CruiseFitConfirmation_InterfaceHttpBinding" name="NCL_CruiseFitConfirmation_InterfaceExport1_NCL_CruiseFitConfirmation_InterfaceHttpPort">
+      <soap:address location="http://localhost:9080/NCL_CruieFitConfirmation_ModuleWeb/sca/NCL_CruiseFitConfirmation_InterfaceExport1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

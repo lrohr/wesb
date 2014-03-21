@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="NCL_CruiseBookingPayment_Interface" targetNamespace="http://NCL_WESB_Shared_Library/NCL_CruiseBookingPayment_Interface" xmlns:bons1="http://nclapi/schemas" xmlns:tns="http://NCL_WESB_Shared_Library/NCL_CruiseBookingPayment_Interface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://NCL_WESB_Shared_Library/NCL_CruiseBookingPayment_Interface">
+      <xsd:import namespace="http://nclapi/schemas" schemaLocation="NCL_CruiseBookingPaymentRS.xsd"/>
+      <xsd:import namespace="http://nclapi/schemas" schemaLocation="NCL_CruiseBookingPaymentRQ.xsd"/>
+      <xsd:element name="Perform_NCL_CruiseBookingPayment">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="bons1:NCL_CruiseBookingPaymentRQ"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Perform_NCL_CruiseBookingPaymentResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="bons1:NCL_CruiseBookingPaymentRS"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="Perform_NCL_CruiseBookingPaymentRequestMsg">
+    <wsdl:part element="tns:Perform_NCL_CruiseBookingPayment" name="Perform_NCL_CruiseBookingPaymentParameters"/>
+  </wsdl:message>
+    <wsdl:message name="Perform_NCL_CruiseBookingPaymentResponseMsg">
+    <wsdl:part element="tns:Perform_NCL_CruiseBookingPaymentResponse" name="Perform_NCL_CruiseBookingPaymentResult"/>
+  </wsdl:message>
+    <wsdl:portType name="NCL_CruiseBookingPayment_Interface">
+    <wsdl:operation name="Perform_NCL_CruiseBookingPayment">
+      <wsdl:input message="tns:Perform_NCL_CruiseBookingPaymentRequestMsg" name="Perform_NCL_CruiseBookingPaymentRequest"/>
+      <wsdl:output message="tns:Perform_NCL_CruiseBookingPaymentResponseMsg" name="Perform_NCL_CruiseBookingPaymentResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

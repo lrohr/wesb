@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="NCL_CruiseGroupAccountingWorkup_InterfaceExport1_NCL_CruiseGroupAccountingWorkup_InterfaceHttp_Service" targetNamespace="http://NCL_WESB_Shared_Library/NCL_CruiseGroupAccountingWorkup_Interface/Binding" xmlns:Port_0="http://NCL_WESB_Shared_Library/NCL_CruiseGroupAccountingWorkup_Interface" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="http://NCL_WESB_Shared_Library/NCL_CruiseGroupAccountingWorkup_Interface/Binding" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="NCL_CruiseGroupAccountingWorkup_Interface.wsdl" namespace="http://NCL_WESB_Shared_Library/NCL_CruiseGroupAccountingWorkup_Interface"/>
+  <wsdl:binding name="NCL_CruiseGroupAccountingWorkup_InterfaceExport1_NCL_CruiseGroupAccountingWorkup_InterfaceHttpBinding" type="Port_0:NCL_CruiseGroupAccountingWorkup_Interface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Perform_NCL_CruiseGroupAccountingWorkup">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="Perform_NCL_CruiseGroupAccountingWorkupRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="Perform_NCL_CruiseGroupAccountingWorkupResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NCL_CruiseGroupAccountingWorkup_InterfaceExport1_NCL_CruiseGroupAccountingWorkup_InterfaceHttpService">
+    <wsdl:port binding="this:NCL_CruiseGroupAccountingWorkup_InterfaceExport1_NCL_CruiseGroupAccountingWorkup_InterfaceHttpBinding" name="NCL_CruiseGroupAccountingWorkup_InterfaceExport1_NCL_CruiseGroupAccountingWorkup_InterfaceHttpPort">
+      <soap:address location="http://localhost:9080/NCL_CruiseGroupAccountingWorkup_ModuleWeb/sca/NCL_CruiseGroupAccountingWorkup_InterfaceExport1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

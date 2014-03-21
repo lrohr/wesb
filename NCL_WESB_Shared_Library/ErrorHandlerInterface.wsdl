@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="ErrorHandlerInterface" targetNamespace="http://NCL_WESB_Shared_Library/ErrorHandlerInterface" xmlns:bons1="http://NCL_WESB_Shared_Library" xmlns:tns="http://NCL_WESB_Shared_Library/ErrorHandlerInterface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://NCL_WESB_Shared_Library/ErrorHandlerInterface">
+      <xsd:import namespace="http://NCL_WESB_Shared_Library" schemaLocation="ErrorHandlerBO.xsd"/>
+      <xsd:element name="handleAndGetResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="error" nillable="true" type="bons1:ErrorHandlerBO"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="handleAndGetResponseResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" nillable="true" type="xsd:anyType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="handleAndGetResponseRequestMsg">
+    <wsdl:part element="tns:handleAndGetResponse" name="handleAndGetResponseParameters"/>
+  </wsdl:message>
+    <wsdl:message name="handleAndGetResponseResponseMsg">
+    <wsdl:part element="tns:handleAndGetResponseResponse" name="handleAndGetResponseResult"/>
+  </wsdl:message>
+    <wsdl:portType name="ErrorHandlerInterface">
+    <wsdl:operation name="handleAndGetResponse">
+      <wsdl:input message="tns:handleAndGetResponseRequestMsg" name="handleAndGetResponseRequest"/>
+      <wsdl:output message="tns:handleAndGetResponseResponseMsg" name="handleAndGetResponseResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

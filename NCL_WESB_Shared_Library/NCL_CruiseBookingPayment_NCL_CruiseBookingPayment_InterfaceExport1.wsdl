@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="NCL_CruiseBookingPayment_InterfaceExport1_NCL_CruiseBookingPayment_InterfaceHttp_Service" targetNamespace="http://NCL_WESB_Shared_Library/NCL_CruiseBookingPayment_Interface/Binding" xmlns:Port_0="http://NCL_WESB_Shared_Library/NCL_CruiseBookingPayment_Interface" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="http://NCL_WESB_Shared_Library/NCL_CruiseBookingPayment_Interface/Binding" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="NCL_CruiseBookingPayment_Interface.wsdl" namespace="http://NCL_WESB_Shared_Library/NCL_CruiseBookingPayment_Interface"/>
+  <wsdl:binding name="NCL_CruiseBookingPayment_InterfaceExport1_NCL_CruiseBookingPayment_InterfaceHttpBinding" type="Port_0:NCL_CruiseBookingPayment_Interface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Perform_NCL_CruiseBookingPayment">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="Perform_NCL_CruiseBookingPaymentRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="Perform_NCL_CruiseBookingPaymentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NCL_CruiseBookingPayment_InterfaceExport1_NCL_CruiseBookingPayment_InterfaceHttpService">
+    <wsdl:port binding="this:NCL_CruiseBookingPayment_InterfaceExport1_NCL_CruiseBookingPayment_InterfaceHttpBinding" name="NCL_CruiseBookingPayment_InterfaceExport1_NCL_CruiseBookingPayment_InterfaceHttpPort">
+      <soap:address location="http://localhost:9080/NCL_CruiseBookingPaymentWeb/sca/NCL_CruiseBookingPayment_InterfaceExport1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="NCL_CruiseCreateAgent_Interface" targetNamespace="http://NCL_WESB_Shared_Library/NCL_CruiseCreateAgent_Interface" xmlns:bons1="http://nclapi/schemas" xmlns:tns="http://NCL_WESB_Shared_Library/NCL_CruiseCreateAgent_Interface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://NCL_WESB_Shared_Library/NCL_CruiseCreateAgent_Interface">
+      <xsd:import namespace="http://nclapi/schemas" schemaLocation="NCL_CruiseCreateAgentRS.xsd"/>
+      <xsd:import namespace="http://nclapi/schemas" schemaLocation="NCL_CruiseCreateAgentRQ.xsd"/>
+      <xsd:element name="Perform_NCL_CruiseCreateAgent">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="bons1:NCL_CruiseCreateAgentRQ"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Perform_NCL_CruiseCreateAgentResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="bons1:NCL_CruiseCreateAgentRS"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="Perform_NCL_CruiseCreateAgentRequestMsg">
+    <wsdl:part element="tns:Perform_NCL_CruiseCreateAgent" name="Perform_NCL_CruiseCreateAgentParameters"/>
+  </wsdl:message>
+    <wsdl:message name="Perform_NCL_CruiseCreateAgentResponseMsg">
+    <wsdl:part element="tns:Perform_NCL_CruiseCreateAgentResponse" name="Perform_NCL_CruiseCreateAgentResult"/>
+  </wsdl:message>
+    <wsdl:portType name="NCL_CruiseCreateAgent_Interface">
+    <wsdl:operation name="Perform_NCL_CruiseCreateAgent">
+      <wsdl:input message="tns:Perform_NCL_CruiseCreateAgentRequestMsg" name="Perform_NCL_CruiseCreateAgentRequest"/>
+      <wsdl:output message="tns:Perform_NCL_CruiseCreateAgentResponseMsg" name="Perform_NCL_CruiseCreateAgentResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="NCL_CruiseRetrieveClient_InterfaceExport1_NCL_CruiseRetrieveClient_InterfaceHttp_Service" targetNamespace="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveClient_Interface/Binding" xmlns:Port_0="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveClient_Interface" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveClient_Interface/Binding" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="NCL_CruiseRetrieveClient_Interface.wsdl" namespace="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveClient_Interface"/>
+  <wsdl:binding name="NCL_CruiseRetrieveClient_InterfaceExport1_NCL_CruiseRetrieveClient_InterfaceHttpBinding" type="Port_0:NCL_CruiseRetrieveClient_Interface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Perform_NCL_CruiseRetrieveClient">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="Perform_NCL_CruiseRetrieveClientRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="Perform_NCL_CruiseRetrieveClientResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NCL_CruiseRetrieveClient_InterfaceExport1_NCL_CruiseRetrieveClient_InterfaceHttpService">
+    <wsdl:port binding="this:NCL_CruiseRetrieveClient_InterfaceExport1_NCL_CruiseRetrieveClient_InterfaceHttpBinding" name="NCL_CruiseRetrieveClient_InterfaceExport1_NCL_CruiseRetrieveClient_InterfaceHttpPort">
+      <soap:address location="http://localhost:9080/NCL_CruiseRetrieveClient_ModuleWeb/sca/NCL_CruiseRetrieveClient_InterfaceExport1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

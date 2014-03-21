@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="TP_Interface" targetNamespace="http://TP_Logger/TP_Interface" xmlns:bons1="http://TP_Logger" xmlns:tns="http://TP_Logger/TP_Interface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://TP_Logger/TP_Interface">
+            <xsd:import namespace="http://TP_Logger"/>
+            <xsd:element name="TP_InsertUpdate">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="OPERATION_TYPE" nillable="true" type="xsd:string"/>
+            <xsd:element name="RECORD_ID" nillable="true" type="xsd:string"/>
+            <xsd:element name="SOURCE_CD" nillable="true" type="xsd:string"/>
+            <xsd:element name="REQUEST_TS" nillable="true" type="bons1:Date_Format"/>
+            <xsd:element name="RESPONSE_TS" nillable="true" type="bons1:Date_Format"/>
+            <xsd:element name="REQUEST_TYPE_CD" nillable="true" type="xsd:string"/>
+            <xsd:element name="RESPONSE_TYPE_CD" nillable="true" type="xsd:string"/>
+            <xsd:element name="XML" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="TP_InsertUpdateResponse">
+        <xsd:complexType>
+          <xsd:sequence/>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="string_element" nillable="true" type="xsd:string"/>
+        </xsd:schema>
+        <xsd:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://TP_Logger">
+      <xsd:simpleType name="Date_Format">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+    </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="TP_InsertUpdateRequestMsg">
+    <wsdl:part element="tns:TP_InsertUpdate" name="TP_InsertUpdateParameters"/>
+  </wsdl:message>
+    <wsdl:message name="TP_InsertUpdateResponseMsg">
+    <wsdl:part element="tns:TP_InsertUpdateResponse" name="TP_InsertUpdateResult"/>
+  </wsdl:message>
+    <wsdl:message name="TP_InsertUpdate_DB_ErrorsMsg">
+    <wsdl:part element="tns:string_element" name="DB_Errors"/>
+  </wsdl:message>
+    <wsdl:portType name="TP_Interface">
+        <wsdl:operation name="TP_InsertUpdate">
+      <wsdl:input message="tns:TP_InsertUpdateRequestMsg" name="TP_InsertUpdateRequest"/>
+            <wsdl:output message="tns:TP_InsertUpdateResponseMsg" name="TP_InsertUpdateResponse"/>
+            <wsdl:fault message="tns:TP_InsertUpdate_DB_ErrorsMsg" name="DB_Errors"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="NCL_CruiseRetrieveAgency_Interface" targetNamespace="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveAgency_Interface" xmlns:bons1="http://nclapi/schemas" xmlns:tns="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveAgency_Interface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveAgency_Interface">
+      <xsd:import namespace="http://nclapi/schemas" schemaLocation="NCL_CruiseRetrieveAgencyRS.xsd"/>
+      <xsd:import namespace="http://nclapi/schemas" schemaLocation="NCL_CruiseRetrieveAgencyRQ.xsd"/>
+      <xsd:element name="Perform_NCL_CruiseRetrieveAgency">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="bons1:NCL_CruiseRetrieveAgencyRQ"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Perform_NCL_CruiseRetrieveAgencyResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="bons1:NCL_CruiseRetrieveAgencyRS"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="Perform_NCL_CruiseRetrieveAgencyRequestMsg">
+    <wsdl:part element="tns:Perform_NCL_CruiseRetrieveAgency" name="Perform_NCL_CruiseRetrieveAgencyParameters"/>
+  </wsdl:message>
+    <wsdl:message name="Perform_NCL_CruiseRetrieveAgencyResponseMsg">
+    <wsdl:part element="tns:Perform_NCL_CruiseRetrieveAgencyResponse" name="Perform_NCL_CruiseRetrieveAgencyResult"/>
+  </wsdl:message>
+    <wsdl:portType name="NCL_CruiseRetrieveAgency_Interface">
+    <wsdl:operation name="Perform_NCL_CruiseRetrieveAgency">
+      <wsdl:input message="tns:Perform_NCL_CruiseRetrieveAgencyRequestMsg" name="Perform_NCL_CruiseRetrieveAgencyRequest"/>
+      <wsdl:output message="tns:Perform_NCL_CruiseRetrieveAgencyResponseMsg" name="Perform_NCL_CruiseRetrieveAgencyResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

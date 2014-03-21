@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2005 U (http://www.xmlspy.com) by XMLSPY 2005 Professional Ed. Release 3, Installed for 3 users (with SMP from 2005-04-15 to 2006-04-16) (NCL) -->
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+	<element name="info">
+		<complexType>
+			<sequence>
+				<element name="Get_Agency_Info" minOccurs="0">
+					<complexType>
+						<sequence>
+							<element name="P_ERRORCODE" type="string" minOccurs="0"/>
+							<element name="P_CURSOR" minOccurs="0" maxOccurs="unbounded">
+								<complexType>
+									<sequence>
+										<element name="AGENCY_ID" type="decimal"/>
+										<element name="TAXPAYER_NUMBER" type="string"/>
+										<element name="IATA_NUMBER" type="string"/>
+										<element name="ARC_NUMBER" type="string"/>
+										<element name="CLIA_NUMBER" type="string"/>
+										<element name="AGENCY_NAME" type="string"/>
+										<element name="AGENCY_TYPE" type="string"/>
+										<element name="OFFICE_CODE" type="string"/>
+										<element name="AGENCY_CLASSIFICATION_CODE" type="string"/>
+										<element name="AGENCY_CLASSIFICATION_NAME" type="string"/>
+										<element name="DRS_DELIVERY_PREF_PREKIT" type="string"/>
+										<element name="DRS_DELIVERY_PREF_FINAL" type="string"/>
+									</sequence>
+								</complexType>
+							</element>
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="NCL_CruiseFitConfirmation_Interface" targetNamespace="http://NCL_WESB_Shared_Library/NCL_CruiseFitConfirmation_Interface" xmlns:bons1="http://nclapi/schemas" xmlns:tns="http://NCL_WESB_Shared_Library/NCL_CruiseFitConfirmation_Interface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://NCL_WESB_Shared_Library/NCL_CruiseFitConfirmation_Interface">
+      <xsd:import namespace="http://nclapi/schemas" schemaLocation="NCL_CruiseFitConfirmationRS.xsd"/>
+      <xsd:import namespace="http://nclapi/schemas" schemaLocation="NCL_CruiseFitConfirmationRQ.xsd"/>
+      <xsd:element name="Perform_NCL_CruiseFitConfirmation">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="bons1:NCL_CruiseFitConfirmationRQ"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Perform_NCL_CruiseFitConfirmationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="bons1:NCL_CruiseFitConfirmationRS"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="Perform_NCL_CruiseFitConfirmationRequestMsg">
+    <wsdl:part element="tns:Perform_NCL_CruiseFitConfirmation" name="Perform_NCL_CruiseFitConfirmationParameters"/>
+  </wsdl:message>
+    <wsdl:message name="Perform_NCL_CruiseFitConfirmationResponseMsg">
+    <wsdl:part element="tns:Perform_NCL_CruiseFitConfirmationResponse" name="Perform_NCL_CruiseFitConfirmationResult"/>
+  </wsdl:message>
+    <wsdl:portType name="NCL_CruiseFitConfirmation_Interface">
+    <wsdl:operation name="Perform_NCL_CruiseFitConfirmation">
+      <wsdl:input message="tns:Perform_NCL_CruiseFitConfirmationRequestMsg" name="Perform_NCL_CruiseFitConfirmationRequest"/>
+      <wsdl:output message="tns:Perform_NCL_CruiseFitConfirmationResponseMsg" name="Perform_NCL_CruiseFitConfirmationResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

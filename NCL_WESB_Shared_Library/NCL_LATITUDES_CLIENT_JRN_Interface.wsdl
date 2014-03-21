@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="NCL_LATITUDES_CLIENT_JRN_Interface" targetNamespace="http://NCL_WESB_Shared_Library/NCL_LATITUDES_CLIENT_JRN_Interface" xmlns:tns="http://NCL_WESB_Shared_Library/NCL_LATITUDES_CLIENT_JRN_Interface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://NCL_WESB_Shared_Library/NCL_LATITUDES_CLIENT_JRN_Interface">
+      <xsd:import schemaLocation="NCL_LATITUDES_CLIENT_JRN_RESP.xsd"/>
+      <xsd:import schemaLocation="NCL_LATITUDES_CLIENT_JRN_REQ.xsd"/>
+      <xsd:element name="Perform_NCL_LATITUDES_CLIENT_JRN">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="NCL_LATITUDES_CLIENT_JRN_REQ"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Perform_NCL_LATITUDES_CLIENT_JRNResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="NCL_LATITUDES_CLIENT_JRN_RESP"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="Perform_NCL_LATITUDES_CLIENT_JRNRequestMsg">
+    <wsdl:part element="tns:Perform_NCL_LATITUDES_CLIENT_JRN" name="Perform_NCL_LATITUDES_CLIENT_JRNParameters"/>
+  </wsdl:message>
+    <wsdl:message name="Perform_NCL_LATITUDES_CLIENT_JRNResponseMsg">
+    <wsdl:part element="tns:Perform_NCL_LATITUDES_CLIENT_JRNResponse" name="Perform_NCL_LATITUDES_CLIENT_JRNResult"/>
+  </wsdl:message>
+    <wsdl:portType name="NCL_LATITUDES_CLIENT_JRN_Interface">
+    <wsdl:operation name="Perform_NCL_LATITUDES_CLIENT_JRN">
+      <wsdl:input message="tns:Perform_NCL_LATITUDES_CLIENT_JRNRequestMsg" name="Perform_NCL_LATITUDES_CLIENT_JRNRequest"/>
+      <wsdl:output message="tns:Perform_NCL_LATITUDES_CLIENT_JRNResponseMsg" name="Perform_NCL_LATITUDES_CLIENT_JRNResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

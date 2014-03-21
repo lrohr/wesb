@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="NCL_CruiseLinkReservation_InterfaceExport1_NCL_CruiseLinkReservation_InterfaceHttp_Service" targetNamespace="http://NCL_WESB_Shared_Library/NCL_CruiseLinkReservation_Interface/Binding" xmlns:Port_0="http://NCL_WESB_Shared_Library/NCL_CruiseLinkReservation_Interface" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="http://NCL_WESB_Shared_Library/NCL_CruiseLinkReservation_Interface/Binding" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="NCL_CruiseLinkReservation_Interface.wsdl" namespace="http://NCL_WESB_Shared_Library/NCL_CruiseLinkReservation_Interface"/>
+  <wsdl:binding name="NCL_CruiseLinkReservation_InterfaceExport1_NCL_CruiseLinkReservation_InterfaceHttpBinding" type="Port_0:NCL_CruiseLinkReservation_Interface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Perform_NCL_CruiseLinkReservation">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="Perform_NCL_CruiseLinkReservationRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="Perform_NCL_CruiseLinkReservationResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NCL_CruiseLinkReservation_InterfaceExport1_NCL_CruiseLinkReservation_InterfaceHttpService">
+    <wsdl:port binding="this:NCL_CruiseLinkReservation_InterfaceExport1_NCL_CruiseLinkReservation_InterfaceHttpBinding" name="NCL_CruiseLinkReservation_InterfaceExport1_NCL_CruiseLinkReservation_InterfaceHttpPort">
+      <soap:address location="http://localhost:9080/NCL_CruiseLinkReservation_ModuleWeb/sca/NCL_CruiseLinkReservation_InterfaceExport1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

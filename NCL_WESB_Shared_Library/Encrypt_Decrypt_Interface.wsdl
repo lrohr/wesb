@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="Encrypt_Decrypt_Interface" targetNamespace="http://NCL_WESB_Shared_Library/Encrypt_Decrypt_Interface" xmlns:tns="http://NCL_WESB_Shared_Library/Encrypt_Decrypt_Interface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://NCL_WESB_Shared_Library/Encrypt_Decrypt_Interface">
+      <xsd:element name="processEncryptDecryptRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Encrypt_Decrypt">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="Action" type="xsd:string"/>
+                  <xsd:choice>
+                    <xsd:element name="EncryptString" type="xsd:string"/>
+                    <xsd:element name="DecryptString" type="xsd:string"/>
+                  </xsd:choice>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="processEncryptDecryptResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Encrypt_Decrypt">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="Action" type="xsd:string"/>
+                  <xsd:element name="EncryptString" type="xsd:string"/>
+                  <xsd:element name="DecryptString" type="xsd:string"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="processEncryptDecryptRequest">
+    <wsdl:part element="tns:processEncryptDecryptRequest" name="processEncryptDecryptRequest1"/>
+  </wsdl:message>
+    <wsdl:message name="processEncryptDecryptResponse">
+    <wsdl:part element="tns:processEncryptDecryptResponse" name="processEncryptDecryptResponse1"/>
+  </wsdl:message>
+    <wsdl:portType name="Encrypt_Decrypt_Interface">
+    <wsdl:operation name="processEncryptDecrypt">
+      <wsdl:input message="tns:processEncryptDecryptRequest" name="processEncryptDecryptRequest"/>
+      <wsdl:output message="tns:processEncryptDecryptResponse" name="processEncryptDecryptResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

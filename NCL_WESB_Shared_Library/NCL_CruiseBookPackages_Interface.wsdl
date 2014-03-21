@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="NCL_CruiseBookPackages_Interface" targetNamespace="http://NCL_WESB_Shared_Library/NCL_CruiseBookPackages_Interface" xmlns:bons1="http://nclapi/schemas" xmlns:tns="http://NCL_WESB_Shared_Library/NCL_CruiseBookPackages_Interface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://NCL_WESB_Shared_Library/NCL_CruiseBookPackages_Interface">
+      <xsd:import namespace="http://nclapi/schemas" schemaLocation="NCL_CruiseBookPackagesRS.xsd"/>
+      <xsd:import namespace="http://nclapi/schemas" schemaLocation="NCL_CruiseBookPackagesRQ.xsd"/>
+      <xsd:element name="operation1">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="input1" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="operation1Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="output1" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="string_element" nillable="true" type="xsd:string"/>
+      <xsd:element name="Perform_NCL_CruiseBookPackages">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="bons1:NCL_CruiseBookPackagesRQ"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Perform_NCL_CruiseBookPackagesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="bons1:NCL_CruiseBookPackagesRS"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="operation1RequestMsg">
+    <wsdl:part element="tns:operation1" name="operation1Parameters"/>
+  </wsdl:message>
+    <wsdl:message name="operation1ResponseMsg">
+    <wsdl:part element="tns:operation1Response" name="operation1Result"/>
+  </wsdl:message>
+    <wsdl:message name="operation1_fault1Msg">
+    <wsdl:part element="tns:string_element" name="fault1"/>
+  </wsdl:message>
+    <wsdl:message name="Perform_NCL_CruiseBookPackagesRequestMsg">
+    <wsdl:part element="tns:Perform_NCL_CruiseBookPackages" name="Perform_NCL_CruiseBookPackagesParameters"/>
+  </wsdl:message>
+    <wsdl:message name="Perform_NCL_CruiseBookPackagesResponseMsg">
+    <wsdl:part element="tns:Perform_NCL_CruiseBookPackagesResponse" name="Perform_NCL_CruiseBookPackagesResult"/>
+  </wsdl:message>
+    <wsdl:portType name="NCL_CruiseBookPackages_Interface">
+    <wsdl:operation name="Perform_NCL_CruiseBookPackages">
+      <wsdl:input message="tns:Perform_NCL_CruiseBookPackagesRequestMsg" name="Perform_NCL_CruiseBookPackagesRequest"/>
+      <wsdl:output message="tns:Perform_NCL_CruiseBookPackagesResponseMsg" name="Perform_NCL_CruiseBookPackagesResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

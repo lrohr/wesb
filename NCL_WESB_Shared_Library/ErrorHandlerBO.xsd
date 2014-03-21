@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://NCL_WESB_Shared_Library"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="ErrorHandlerBO">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="input"
+				type="xsd:anyType">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="failureString"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="origin"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="primitive"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="inTerminal"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="outTerminal"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="inputString"
+				type="xsd:string">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

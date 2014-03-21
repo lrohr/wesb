@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="NCL_CruiseCheckBookingStatus_Interface" targetNamespace="http://NCL_WESB_Shared_Library/NCL_CruiseCheckBookingStatus_Interface" xmlns:bons1="http://nclapi/schemas" xmlns:tns="http://NCL_WESB_Shared_Library/NCL_CruiseCheckBookingStatus_Interface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://NCL_WESB_Shared_Library/NCL_CruiseCheckBookingStatus_Interface">
+      <xsd:import namespace="http://nclapi/schemas" schemaLocation="NCL_CruiseCheckBookingStatusRS.xsd"/>
+      <xsd:import namespace="http://nclapi/schemas" schemaLocation="NCL_CruiseCheckBookingStatusRQ.xsd"/>
+      <xsd:element name="Perform_NCL_CruiseCheckBookingStatus">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="bons1:NCL_CruiseCheckBookingStatusRQ"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Perform_NCL_CruiseCheckBookingStatusResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="bons1:NCL_CruiseCheckBookingStatusRS"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="Perform_NCL_CruiseCheckBookingStatusRequestMsg">
+    <wsdl:part element="tns:Perform_NCL_CruiseCheckBookingStatus" name="Perform_NCL_CruiseCheckBookingStatusParameters"/>
+  </wsdl:message>
+    <wsdl:message name="Perform_NCL_CruiseCheckBookingStatusResponseMsg">
+    <wsdl:part element="tns:Perform_NCL_CruiseCheckBookingStatusResponse" name="Perform_NCL_CruiseCheckBookingStatusResult"/>
+  </wsdl:message>
+    <wsdl:portType name="NCL_CruiseCheckBookingStatus_Interface">
+    <wsdl:operation name="Perform_NCL_CruiseCheckBookingStatus">
+      <wsdl:input message="tns:Perform_NCL_CruiseCheckBookingStatusRequestMsg" name="Perform_NCL_CruiseCheckBookingStatusRequest"/>
+      <wsdl:output message="tns:Perform_NCL_CruiseCheckBookingStatusResponseMsg" name="Perform_NCL_CruiseCheckBookingStatusResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="LAT_Log_Interface" targetNamespace="http://LAT_Log_Logger/LAT_Log_Interface" xmlns:bons1="http://LAT_Log_Logger" xmlns:tns="http://LAT_Log_Logger/LAT_Log_Interface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://LAT_Log_Logger/LAT_Log_Interface">
+			<xsd:import namespace="http://LAT_Log_Logger"/>
+			<xsd:element name="LAT_Log_InsertUpdate">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="OPERATION_TYPE" nillable="true" type="xsd:string"/>
+						<xsd:element name="RECORD_ID" nillable="true" type="xsd:string"/>
+						<xsd:element name="SOURCE_CD" nillable="true" type="xsd:string"/>
+						<xsd:element name="REQUEST_TS" nillable="true" type="bons1:Date_Format"/>
+						<xsd:element name="RESPONSE_TS" nillable="true" type="bons1:Date_Format"/>
+						<xsd:element name="REQUEST_TYPE_CD" nillable="true" type="xsd:string"/>
+						<xsd:element name="XML" nillable="true" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LAT_Log_InsertUpdateResponse">
+				<xsd:complexType>
+					<xsd:sequence/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="string_element" nillable="true" type="xsd:string"/>
+		</xsd:schema>
+		<xsd:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://LAT_Log_Logger">
+			<xsd:simpleType name="Date_Format">
+				<xsd:restriction base="xsd:string">
+					<xsd:pattern value="\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="LAT_Log_InsertUpdateRequestMsg">
+		<wsdl:part element="tns:LAT_Log_InsertUpdate" name="LAT_Log_InsertUpdateParameters"/>
+	</wsdl:message>
+	<wsdl:message name="LAT_Log_InsertUpdateResponseMsg">
+		<wsdl:part element="tns:LAT_Log_InsertUpdateResponse" name="LAT_Log_InsertUpdateResult"/>
+	</wsdl:message>
+	<wsdl:message name="LAT_Log_InsertUpdate_DB_ErrorsMsg">
+		<wsdl:part element="tns:string_element" name="DB_Errors"/>
+	</wsdl:message>
+	<wsdl:portType name="LAT_Log_Interface">
+		<wsdl:operation name="LAT_Log_InsertUpdate">
+			<wsdl:input message="tns:LAT_Log_InsertUpdateRequestMsg" name="LAT_Log_InsertUpdateRequest"/>
+			<wsdl:output message="tns:LAT_Log_InsertUpdateResponseMsg" name="LAT_Log_InsertUpdateResponse"/>
+			<wsdl:fault message="tns:LAT_Log_InsertUpdate_DB_ErrorsMsg" name="DB_Errors"/>
+		</wsdl:operation>
+	</wsdl:portType>
+</wsdl:definitions>

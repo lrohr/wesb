@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="SwApiExport1_SwApiHttp_Service" targetNamespace="http://versonix.com/api/definitions/Binding" xmlns:Port_0="http://versonix.com/api/definitions" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="http://versonix.com/api/definitions/Binding" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="swApiWsdl.wsdl" namespace="http://versonix.com/api/definitions"/>
+  <wsdl:binding name="SwApiExport1_SwApiHttpBinding" type="Port_0:SwApi">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="processAmadeus">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="processAmadeusRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="processAmadeusResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="processPayment">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="processPaymentRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="processPaymentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="processEncryptDecrypt">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="processEncryptDecryptRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="processEncryptDecryptResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="processBookPackages">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="processBookPackagesRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="processBookPackagesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="processXmlApi">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="processXmlApiRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="processXmlApiResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SwApiExport1_SwApiHttpService">
+    <wsdl:port binding="this:SwApiExport1_SwApiHttpBinding" name="SwApiExport1_SwApiHttpPort">
+      <soap:address location="http://localhost:9080/NCL_CruiseRetrieveAgent_ModuleWeb/sca/SwApiExport1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

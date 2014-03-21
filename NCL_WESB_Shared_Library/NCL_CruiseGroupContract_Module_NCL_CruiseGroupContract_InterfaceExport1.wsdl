@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="NCL_CruiseGroupContract_InterfaceExport1_NCL_CruiseGroupContract_InterfaceHttp_Service" targetNamespace="http://NCL_WESB_Shared_Library/NCL_CruiseGroupContract_Interface/Binding" xmlns:Port_0="http://NCL_WESB_Shared_Library/NCL_CruiseGroupContract_Interface" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="http://NCL_WESB_Shared_Library/NCL_CruiseGroupContract_Interface/Binding" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="NCL_CruiseGroupContract_Interface.wsdl" namespace="http://NCL_WESB_Shared_Library/NCL_CruiseGroupContract_Interface"/>
+  <wsdl:binding name="NCL_CruiseGroupContract_InterfaceExport1_NCL_CruiseGroupContract_InterfaceHttpBinding" type="Port_0:NCL_CruiseGroupContract_Interface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Perform_NCL_CruiseGroupContract">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="Perform_NCL_CruiseGroupContractRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="Perform_NCL_CruiseGroupContractResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NCL_CruiseGroupContract_InterfaceExport1_NCL_CruiseGroupContract_InterfaceHttpService">
+    <wsdl:port binding="this:NCL_CruiseGroupContract_InterfaceExport1_NCL_CruiseGroupContract_InterfaceHttpBinding" name="NCL_CruiseGroupContract_InterfaceExport1_NCL_CruiseGroupContract_InterfaceHttpPort">
+      <soap:address location="http://localhost:9080/NCL_CruiseGroupContract_ModuleWeb/sca/NCL_CruiseGroupContract_InterfaceExport1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

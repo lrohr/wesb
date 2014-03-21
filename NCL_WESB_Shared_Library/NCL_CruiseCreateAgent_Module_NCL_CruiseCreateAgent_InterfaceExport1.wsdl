@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="NCL_CruiseCreateAgent_InterfaceExport1_NCL_CruiseCreateAgent_InterfaceHttp_Service" targetNamespace="http://NCL_WESB_Shared_Library/NCL_CruiseCreateAgent_Interface/Binding" xmlns:Port_0="http://NCL_WESB_Shared_Library/NCL_CruiseCreateAgent_Interface" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="http://NCL_WESB_Shared_Library/NCL_CruiseCreateAgent_Interface/Binding" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="NCL_CruiseCreateAgent_Interface.wsdl" namespace="http://NCL_WESB_Shared_Library/NCL_CruiseCreateAgent_Interface"/>
+  <wsdl:binding name="NCL_CruiseCreateAgent_InterfaceExport1_NCL_CruiseCreateAgent_InterfaceHttpBinding" type="Port_0:NCL_CruiseCreateAgent_Interface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Perform_NCL_CruiseCreateAgent">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="Perform_NCL_CruiseCreateAgentRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="Perform_NCL_CruiseCreateAgentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NCL_CruiseCreateAgent_InterfaceExport1_NCL_CruiseCreateAgent_InterfaceHttpService">
+    <wsdl:port binding="this:NCL_CruiseCreateAgent_InterfaceExport1_NCL_CruiseCreateAgent_InterfaceHttpBinding" name="NCL_CruiseCreateAgent_InterfaceExport1_NCL_CruiseCreateAgent_InterfaceHttpPort">
+      <soap:address location="http://localhost:9080/NCL_CruiseCreateAgent_ModuleWeb/sca/NCL_CruiseCreateAgent_InterfaceExport1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
