@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<psf version="2.0">
+<provider id="org.eclipse.egit.core.GitProvider">
+<project reference="1.0,http://github.nclmiami.ncl.com/applications-team/wesb.git,master,CreditCards_Test/FuseBoxLib"/>
+<project reference="1.0,http://github.nclmiami.ncl.com/applications-team/wesb.git,master,CreditCards_Test/ProdNCLFuseBoxMediation"/>
+</provider>
+</psf>
