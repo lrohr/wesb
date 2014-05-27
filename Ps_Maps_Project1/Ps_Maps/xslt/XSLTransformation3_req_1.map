@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://Ps_Maps/xslt/XSLTransformation3_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://Ps_Maps/xslt/XSLTransformation3_req_1">
+    <input correlationContext="{http://Ps_Maps}AppContext" message="" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://Ps_Maps}AppContext" message="" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <imports>
+        <import kind="xslt" location="XSLTransformation3_Dept.xsl"/>
+        <import kind="xslt" location="XSLTransformation3_Contract.xsl"/>
+    </imports>
+    <policy>
+        <missingSource default="true" default_reqOnly="true"/>
+        <emptySource default="true" default_reqOnly="true"/>
+        <nilSource default="true" default_reqOnly="true"/>
+    </policy>
+    <mappingDeclaration name="XSLTransformation3_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo[1]" var="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo[1]">
+            <cast path="body/type('anyType')" qualifier="{http://www.w3.org/2001/XMLSchema}string"/>
+        </output>
+        <move>
+            <input path="$smo/context/correlation/NCL_PS_APPDATA1"/>
+            <output path="context/correlation/NCL_PS_APPDATA1"/>
+        </move>
+        <move>
+            <input path="$smo/context/correlation/NCL_PS_DATA1"/>
+            <output path="context/correlation/NCL_PS_DATA1"/>
+        </move>
+        <move>
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APPLID"/>
+            <output path="context/correlation/NewPerson/PERSON[1]/PeopleSoftID"/>
+        </move>
+        <move>
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/NCL_APPL_NID/NATIONAL_ID"/>
+            <output path="context/correlation/NewPerson/PERSON[1]/SSN"/>
+        </move>
+        <move>
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APPL_DATA_EFFDT[1]/FIRST_NAME_SRCH"/>
+            <output path="context/correlation/NewPerson/PERSON[1]/FORENAME"/>
+        </move>
+        <move>
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APPL_DATA_EFFDT[1]/LAST_NAME_SRCH"/>
+            <output path="context/correlation/NewPerson/PERSON[1]/SURNAME"/>
+        </move>
+        <move>
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APPL_DATA_EFFDT[1]/COUNTRY" var="COUNTRY"/>
+            <output path="context/correlation/NewPerson/PERSON[1]/COUNTRY_NAME"/>
+            <policy>
+                <defaultValues string="'USA'"/>
+                <missingSource default="true"/>
+                <emptySource default="true"/>
+                <nilSource default="true"/>
+            </policy>
+        </move>
+        <move>
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/BIRTHDATE" var="BIRTHDATE"/>
+            <output path="context/correlation/NewPerson/PERSON/DATE_BIRTH"/>
+            <policy>
+                <missingSource default="true"/>
+                <emptySource default="true"/>
+                <nilSource default="true"/>
+                <defaultValues string="'1901-01-01'"/>
+            </policy>
+        </move>
+        <move>
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/SEX" var="SEX"/>
+            <output path="context/correlation/NewPerson/PERSON/SEX"/>
+            <policy>
+                <defaultValues string="'M'"/>
+                <missingSource default="true"/>
+                <emptySource default="true"/>
+                <nilSource default="true"/>
+            </policy>
+        </move>
+        <move>
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APPL_DATA_EFFDT[1]/MAR_STATUS" var="MAR_STATUS"/>
+            <output path="context/correlation/NewPerson/PERSON[1]/MARITAL_STATUS"/>
+            <policy>
+                <defaultValues string="'UNKNOWN'"/>
+                <missingSource default="true"/>
+                <emptySource default="true"/>
+                <nilSource default="true"/>
+            </policy>
+        </move>
+        <assign value="UNKNOWN">
+            <output path="context/correlation/NewPerson/PERSON/HAIR_REASON_ID"/>
+        </assign>
+        <assign value="UNKNOWN">
+            <output path="context/correlation/NewPerson/PERSON/EYE_REASON_ID"/>
+        </assign>
+        <assign value="UNKNOWN">
+            <output path="context/correlation/NewPerson/PERSON/PERSON_HEIGHT"/>
+        </assign>
+        <assign value="UNKNOWN">
+            <output path="context/correlation/NewPerson/PERSON/PERSON_WEIGHT"/>
+        </assign>
+        <assign value="AMERICA">
+            <output path="context/correlation/NewPerson/PERSON/COMPANY"/>
+        </assign>
+        <move>
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/NCL_JOB_REQ_WRK/JOBCODE"/>
+            <output path="context/correlation/NewPerson/PERSON/JOBCODE"/>
+        </move>
+        <customFunction lang="xslt" location="XSLTransformation3_Dept.xsl" ref="DEPTIDToDEPARTMENT">
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/NCL_JOB_REQ_WRK/DEPTID" var="DEPTID"/>
+            <output path="context/correlation/NewPerson/PERSON/DEPARTMENT"/>
+            <param name="DEPTID" value="$DEPTID"/>
+        </customFunction>
+        <foreach>
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/NCL_CHECKLIST" var="NCL_CHECKLIST"/>
+            <input auxiliary="true" path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/NCL_APPL_NID/NATIONAL_ID" var="NATIONAL_ID"/>
+            <input auxiliary="true" path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APPLID" var="APPLID"/>
+            <output path="context/correlation/NewPerson/PERSON[1]/PERSON_MEDICAL"/>
+            <test lang="XPath">$NCL_CHECKLIST[string-length(./CHKLST_ITEM_CD)&gt;0]</test>
+            <move>
+                <input path="$NCL_CHECKLIST/STATUS_DT"/>
+                <output path="MED_STATUS_DT"/>
+            </move>
+            <move>
+                <input path="$NCL_CHECKLIST/CHKLST_ITEM_CD"/>
+                <output path="MED_CHKLST_ITEM_CD"/>
+            </move>
+            <move>
+                <input path="$NATIONAL_ID/." var="NATIONAL_ID"/>
+                <output path="SSN"/>
+            </move>
+            <move>
+                <input path="$APPLID/." var="APPLID"/>
+                <output path="PeopleSoftID"/>
+            </move>
+        </foreach>
+        <foreach>
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APPLICNT_PHONE" var="APPLICNT_PHONE1"/>
+            <output path="context/correlation/NewPerson/PERSON[1]/PERSON_PHONE"/>
+            <filter lang="XPath">$APPLICNT_PHONE1[./PHONE_TYPE='MAIN']</filter>
+            <move>
+                <input path="$APPLICNT_PHONE1/PHONE" var="PHONE1"/>
+                <output path="TELEPHONE_1"/>
+            </move>
+        </foreach>
+        <assign value="test1">
+            <output path="spath('body',2)"/>
+        </assign>
+        <foreach>
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APPLICNT_PHONE" var="APPLICNT_PHONE3"/>
+            <output path="context/correlation/NewPerson/PERSON/PERSON_PHONE"/>
+            <filter lang="XPath">$APPLICNT_PHONE3[./PHONE_TYPE!='MAIN']</filter>
+            <move>
+                <input path="$APPLICNT_PHONE3/PHONE"/>
+                <output path="TELEPHONE_1"/>
+            </move>
+        </foreach>
+        <foreach>
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APP_EMAIL_ADDRS" var="APP_EMAIL_ADDRS"/>
+            <output path="context/correlation/NewPerson/PERSON/PERSON_EMAIL"/>
+            <filter lang="XPath">$APP_EMAIL_ADDRS[./E_ADDR_TYPE = 'MAIN' and string-length( ./EMAIL_ADDR) &gt; 0]</filter>
+            <move>
+                <input path="$APP_EMAIL_ADDRS/EMAIL_ADDR"/>
+                <output path="E_MAIL_ADDRESS_1"/>
+            </move>
+        </foreach>
+        <move>
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APPLID"/>
+            <output path="context/correlation/NewPerson/PERSON/PERSON_NOFKIN/PeopleSoftID"/>
+        </move>
+        <move>
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/NCL_APPL_NID/NATIONAL_ID"/>
+            <output path="context/correlation/NewPerson/PERSON/PERSON_NOFKIN/SSN"/>
+        </move>
+        <move>
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APPL_DATA_EFFDT/ADDRESS1"/>
+            <output path="context/correlation/NewPerson/PERSON/PERSON_NOFKIN/NOFKIN_ADDR1"/>
+        </move>
+        <move>
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APPL_DATA_EFFDT/ADDRESS2"/>
+            <output path="context/correlation/NewPerson/PERSON/PERSON_NOFKIN/NOFKIN_ADDR2"/>
+        </move>
+        <move>
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APPL_DATA_EFFDT/CITY"/>
+            <output path="context/correlation/NewPerson/PERSON/PERSON_NOFKIN/City"/>
+        </move>
+        <move>
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APPL_DATA_EFFDT/STATE"/>
+            <output path="context/correlation/NewPerson/PERSON/PERSON_NOFKIN/STATES"/>
+        </move>
+        <move>
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APPL_DATA_EFFDT/POSTAL"/>
+            <output path="context/correlation/NewPerson/PERSON/PERSON_NOFKIN/POST_CODE"/>
+        </move>
+        <move>
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APPL_DATA_EFFDT/NCL_AIRPORT"/>
+            <output path="context/correlation/NewPerson/PERSON/PERSON_NOFKIN/AIRPORT"/>
+        </move>
+        <foreach>
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/NCL_LICENSE_HNR" var="NCL_LICENSE_HNR"/>
+            <input auxiliary="true" path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/NCL_APPL_NID/NATIONAL_ID" var="NATIONAL_ID1"/>
+            <input auxiliary="true" path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APPLID" var="APPLID1"/>
+            <output path="context/correlation/NewPerson/PERSON/COMP_PERSON_Languages"/>
+            <test lang="XPath">$NCL_LICENSE_HNR[string-length(./DESCR )&gt; 0 and  ./ACCOMP_CATEGORY = 'LNG']</test>
+            <move>
+                <input path="$APPLID1/." var="APPLID1"/>
+                <output path="PeopleSoftID"/>
+            </move>
+            <move>
+                <input path="$NATIONAL_ID1/." var="NATIONAL_ID1"/>
+                <output path="SSN"/>
+            </move>
+            <move>
+                <input path="$NCL_LICENSE_HNR/DESCR"/>
+                <output path="Name"/>
+            </move>
+            <assign value="1">
+                <output path="DESCRIPTION"/>
+            </assign>
+            <assign value="COURSE EVENT">
+                <output path="Obtain_From"/>
+            </assign>
+            <move>
+                <input path="$NCL_LICENSE_HNR/EVALUATION_DT" var="EVALUATION_DT"/>
+                <output path="valid_from_date"/>
+                <policy>
+                    <defaultValues string="'1900-01-01'"/>
+                    <missingSource default="true"/>
+                    <emptySource default="true"/>
+                    <nilSource default="true"/>
+                </policy>
+            </move>
+            <move>
+                <input path="$NCL_LICENSE_HNR/EXPIRATN_DT" var="EXPIRATN_DT"/>
+                <output path="valid_to_date"/>
+                <policy>
+                    <defaultValues string="'9999-12-31'"/>
+                    <missingSource default="true"/>
+                    <emptySource default="true"/>
+                    <nilSource default="true"/>
+                </policy>
+            </move>
+        </foreach>
+        <foreach>
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/NCL_LICENSE_HNR" var="NCL_LICENSE_HNR1"/>
+            <input auxiliary="true" path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/NCL_APPL_NID/NATIONAL_ID" var="NATIONAL_ID2"/>
+            <input auxiliary="true" path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APPLID" var="APPLID2"/>
+            <output path="context/correlation/NewPerson/PERSON/COMP_PERSON_MemberShips"/>
+            <test lang="XPath">$NCL_LICENSE_HNR[string-length(./DESCR )&gt; 0 and  ./ACCOMP_CATEGORY = 'MEM']</test>
+            <move>
+                <input path="$NATIONAL_ID2/." var="NATIONAL_ID2"/>
+                <output path="SSN"/>
+            </move>
+            <move>
+                <input path="$APPLID2/." var="APPLID2"/>
+                <output path="PeopleSoftID"/>
+            </move>
+            <move>
+                <input path="$NCL_LICENSE_HNR1/DESCR" var="DESCR"/>
+                <output path="Name"/>
+            </move>
+            <move>
+                <input path="$NCL_LICENSE_HNR1/ACCOMPLISHMENT" var="ACCOMPLISHMENT"/>
+                <output path="Certificate_number"/>
+            </move>
+            <move>
+                <input path="$NCL_LICENSE_HNR1/DT_ISSUED" var="DT_ISSUED"/>
+                <output path="valid_from_date"/>
+                <policy>
+                    <defaultValues string="'1900-0-01'"/>
+                    <missingSource default="true"/>
+                    <emptySource default="true"/>
+                    <nilSource default="true"/>
+                </policy>
+            </move>
+            <move>
+                <input path="$NCL_LICENSE_HNR1/EXPIRATN_DT" var="EXPIRATN_DT1"/>
+                <output path="valid_to_date"/>
+                <policy>
+                    <defaultValues string="'9999-12-31'"/>
+                    <missingSource default="true"/>
+                    <emptySource default="true"/>
+                    <nilSource default="true"/>
+                </policy>
+            </move>
+            <assign value="COURSE EVENT">
+                <output path="Obtain_From"/>
+            </assign>
+            <assign value="1">
+                <output path="DESCRIPTION"/>
+            </assign>
+        </foreach>
+        <foreach>
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/NCL_LICENSE_HNR" var="NCL_LICENSE_HNR2"/>
+            <input auxiliary="true" path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/NCL_APPL_NID/NATIONAL_ID" var="NATIONAL_ID3"/>
+            <input auxiliary="true" path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APPLID" var="APPLID3"/>
+            <output path="context/correlation/NewPerson/PERSON/COMP_PERSON_LICENSE"/>
+            <test lang="XPath">$NCL_LICENSE_HNR[string-length(./DESCRSHORT )&gt; 0 and  ./ACCOMP_CATEGORY = 'MEM']</test>
+            <move>
+                <input path="$NATIONAL_ID3/." var="NATIONAL_ID3"/>
+                <output path="SSN"/>
+            </move>
+            <move>
+                <input path="$APPLID3/." var="APPLID3"/>
+                <output path="PeopleSoftID"/>
+            </move>
+            <move>
+                <input path="$NCL_LICENSE_HNR2/DESCRSHORT"/>
+                <output path="Name"/>
+            </move>
+            <move>
+                <input path="$NCL_LICENSE_HNR2/LICENSE_NBR"/>
+                <output path="Certificate_number"/>
+            </move>
+            <move>
+                <input path="$NCL_LICENSE_HNR2/DT_ISSUED" var="DT_ISSUED1"/>
+                <output path="valid_from_date"/>
+                <policy>
+                    <defaultValues string="'1900-01-01'&#13;&#10;"/>
+                    <missingSource default="true"/>
+                    <emptySource default="true"/>
+                    <nilSource default="true"/>
+                </policy>
+            </move>
+            <move>
+                <input path="$NCL_LICENSE_HNR2/EXPIRATN_DT" var="EXPIRATN_DT2"/>
+                <output path="valid_to_date"/>
+                <policy>
+                    <defaultValues string="'9999-12-31'"/>
+                    <missingSource default="true"/>
+                    <emptySource default="true"/>
+                    <nilSource default="true"/>
+                </policy>
+            </move>
+            <assign value="COURSE EVENT">
+                <output path="Obtain_From"/>
+            </assign>
+            <assign value="1">
+                <output path="DESCRIPTION"/>
+            </assign>
+        </foreach>
+        <foreach>
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APP_CITIZENSHIP[1]/APP_CITIZN_PSPT" var="APP_CITIZN_PSPT"/>
+            <input auxiliary="true" path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/NCL_APPL_NID/NATIONAL_ID" var="NATIONAL_ID5"/>
+            <input auxiliary="true" path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APPLID" var="APPLID5"/>
+            <output path="context/correlation/NewPerson/PERSON[1]/PASSPORT"/>
+            <test lang="XPath">$APP_CITIZN_PSPT[string-length(./PASSPORT_NBR ) &gt; 0]</test>
+            <move>
+                <input path="$NATIONAL_ID5/." var="NATIONAL_ID5"/>
+                <output path="SSN"/>
+            </move>
+            <move>
+                <input path="$APPLID5/." var="APPLID5"/>
+                <output path="PeopleSoftID"/>
+            </move>
+            <move>
+                <input path="$APP_CITIZN_PSPT/COUNTRY" var="COUNTRY2"/>
+                <output path="THREE_DIGIT_ABBR"/>
+                <policy>
+                    <defaultValues string="'USA'"/>
+                    <missingSource default="true"/>
+                    <emptySource default="true"/>
+                    <nilSource default="true"/>
+                </policy>
+            </move>
+            <move>
+                <input path="$APP_CITIZN_PSPT/PASSPORT_NBR"/>
+                <output path="PASSPORT_NUMBER"/>
+            </move>
+            <move>
+                <input path="$APP_CITIZN_PSPT/DT_ISSUED" var="DT_ISSUED3"/>
+                <output path="VALID_FROM_DATE"/>
+                <policy>
+                    <defaultValues string="'1900-01-01'"/>
+                    <missingSource default="true"/>
+                    <emptySource default="true"/>
+                    <nilSource default="true"/>
+                </policy>
+            </move>
+            <move>
+                <input path="$APP_CITIZN_PSPT/EXPIRATN_DT" var="EXPIRATN_DT4"/>
+                <output path="PASSPORT_EXPIRY_DATE"/>
+                <policy>
+                    <defaultValues string="'9999-12-31'"/>
+                    <missingSource default="true"/>
+                    <emptySource default="true"/>
+                    <nilSource default="true"/>
+                </policy>
+            </move>
+            <move>
+                <input path="$APP_CITIZN_PSPT/ISSUING_AUTHORITY"/>
+                <output path="ISSUING_OFFICE"/>
+            </move>
+        </foreach>
+        <foreach>
+            <input path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APP_VSA_PMT_DTA" var="APP_VSA_PMT_DTA"/>
+            <input auxiliary="true" path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/APPLID" var="APPLID6"/>
+            <input auxiliary="true" path="$smo/context/correlation/NCL_PS_DATA1/MsgData/Transaction/APPLICANT/NCL_APPL_NID/NATIONAL_ID" var="NATIONAL_ID6"/>
+            <output path="context/correlation/NewPerson/PERSON/VISA"/>
+            <test lang="XPath">$APP_VSA_PMT_DTA[string-length( ./VISA_WRKPMT_NBR)&gt;0]</test>
+            <move>
+                <input path="$APPLID6/." var="APPLID6"/>
+                <output path="PeopleSoftID"/>
+            </move>
+            <move>
+                <input path="$NATIONAL_ID6/." var="NATIONAL_ID6"/>
+                <output path="SSN"/>
+            </move>
+            <move>
+                <input path="$APP_VSA_PMT_DTA/COUNTRY" var="COUNTRY3"/>
+                <output path="THREE_DIGIT_ABBR"/>
+                <policy>
+                    <defaultValues string="'USA'"/>
+                </policy>
+            </move>
+            <move>
+                <input path="$APP_VSA_PMT_DTA/VISA_WRKPMT_NBR" var="VISA_WRKPMT_NBR"/>
+                <output path="VISA_NUMBER"/>
+            </move>
+            <move>
+                <input path="$APP_VSA_PMT_DTA/DT_ISSUED" var="DT_ISSUED4"/>
+                <output path="VALID_FROM_DATE"/>
+                <policy>
+                    <defaultValues string="'1900-01-01'"/>
+                    <missingSource default="true"/>
+                    <emptySource default="true"/>
+                    <nilSource default="true"/>
+                </policy>
+            </move>
+            <move>
+                <input path="$APP_VSA_PMT_DTA/PLACE_ISSUED"/>
+                <output path="VISA_ISSUING_OFFICE"/>
+            </move>
+            <move>
+                <input path="$APP_VSA_PMT_DTA/EXPIRATN_DT" var="EXPIRATN_DT5"/>
+                <output path="VALID_TO_DATE"/>
+                <policy>
+                    <defaultValues string="'9999-12-31'"/>
+                    <missingSource default="true"/>
+                    <emptySource default="true"/>
+                    <nilSource default="true"/>
+                </policy>
+            </move>
+        </foreach>
+        <assign value="BBB222BBB">
+            <output path="context/correlation/markerEnd"/>
+        </assign>
+        <customFunction lang="xslt" location="XSLTransformation3_Contract.xsl" ref="ToCONTRACT">
+            <output path="context/correlation/NewPerson/PERSON/CONTRACT"/>
+        </customFunction>
+    </mappingDeclaration>
+</mappingRoot>

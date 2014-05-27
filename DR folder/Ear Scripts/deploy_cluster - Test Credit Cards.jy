@@ -1,0 +1,121 @@
+import re
+import time
+import sys
+
+# helper methods
+def cls():
+	print "\n"*100
+
+def getAppTargetClusterName():
+	clusterIds = AdminConfig.list('ServerCluster').split("\n")
+	clusterName=""
+	tempClusterName=""
+	for clusterId in clusterIds:
+		tempClusterName=AdminConfig.showAttribute(clusterId,'name')
+		tempClusterName=tempClusterName.strip()
+		if tempClusterName.find('AppTarget') >= 0 :
+			clusterName=tempClusterName
+
+	return clusterName
+
+def findNodeByConfigureID(id):
+	reg_str = re.compile('nodes/.*?/servers')
+	node = reg_str.findall(id)[0]
+	a = node.index('s/')+2
+	b = node.index('/servers')
+	return node[a:b]
+
+def saveAndSync():
+	AdminConfig.save()
+	print "Configuration Saved!!!"
+	sleep(5)
+	nodes = AdminConfig.list('NodeAgent').splitlines()
+	if len(nodes) == 0:
+		return
+	for node in nodes:
+		this_nodeName = findNodeByConfigureID(node)
+		try:
+			this_sync = AdminControl.completeObjectName('type=NodeSync,node='+this_nodeName+',*')
+			AdminControl.invoke(this_sync,'sync')
+			print "Synced sucessfully to "+this_nodeName
+			sleep(5)
+		except:
+			print "Failed to sync node:"+this_nodeName
+			
+def singleAppUninstall(appName):
+	try:
+		AdminApp.uninstall(appName)
+		saveAndSync()
+	except:
+		print "Failed to uninstall application: "+appName
+def readAppNames():
+	cls()
+	modules=[]
+	i=0
+	this_filePath = raw_input("Please enter the file path\n")
+	try:
+		file = open(this_filePath,'r')
+		line = file.readline()
+		while line:
+			#Ignore comment
+			if line.find("#") < 0 :
+				modules.append(line.strip())
+				print "App Name:"+line
+				line=file.readline()
+		file.close()
+	except:
+		print sys.exc_info()
+		print "ERROR FOUND!!!"
+		print "\n\nYou have 20 secs to record Error messages"
+		sleep(20)
+		cls()
+	return modules
+#ModuleNames
+clusterName=getAppTargetClusterName()
+clusterParam="[-cluster "+ clusterName+" ]"
+
+
+#  load everything except credit cards
+#
+
+##   modules = ['E-Mail_Generic','Encrypt_Decrypt','ErrorHandlerMod','Generic_Service','LAT_Log_Logger','NclDeployToolEAR','NCL_1AccToPs','NCL_AmenityRetrieveHelper','NCL_AmenityRetrieveHelper','NCL_CruiseAmenityOrderMgt','NCL_CruiseAmenityOrderMgt','NCL_CruiseApplyCouponsAsDiscount','NCL_CruiseBookingPayment','NCL_CruiseCheckBookingStatus_Module','NCL_CruiseCreateAgency_Module','NCL_CruiseCreateAgent_Module','NCL_CruiseCreateAmenityOrderItems','NCL_CruiseCreateClient_Module','NCL_CruiseFastSellModule','NCL_CruiseGroupAccountingWorkup_Module','NCL_CruiseGroupContract_Module','NCL_CruiseLinkReservation_Module','NCL_CruiseManageAltResId','NCL_CruisePayForAmenities','NCL_CruisePaywithCoupons','NCL_CruiseRegistration','NCL_CruiseRetrieveAgency','NCL_CruiseRetrieveAgency_Module','NCL_CruiseRetrieveAgent_Module','NCL_CruiseRetrieveAvailAmenities','NCL_CruiseRetrieveAvailCouponInfo','NCL_CruiseRetrieveClient_Module','NCL_CruiseRetrieveGroupBookings_Module','NCL_CruiseRtrvNameList_Module','NCL_CruiseTransferAvail','NCL_CruiseTransportAvail','NCL_CruiseUserAuthentication_Module','NCL_LATITUDES_CLIENT_JRN_Module','NCL_LATITUDES_CLIENT_POINTS_TRG_Module','NCL_LATITUDES_POINTS_LOOKUP_Module','NCL_LookupCabinDetailsEAR','Ps_Maps1','TP_Logger','VxAdvisoryErrorLookup']
+
+#  load selected
+#
+
+##  modules = ['NCL_CruiseCategoryDesc', 'NCL_CruiseGroupContract_Module']
+
+#
+#  load credit cards only
+modules = ['ProdNCLFuseBoxMediation','ProdPostPendingCardTxn']
+
+
+
+
+
+for moduleName in modules:
+	appName=moduleName+"App"
+	print "Installing "+appName
+
+#	earName="/tmp/"+moduleName+".ear"
+#     changed by ler    5/15/14
+
+ 	earName="/tmp/wesbear_testCreditCards/"+appName+".ear"
+	try:
+		AdminApplication.stopApplicationOnCluster(appName, clusterName)				
+	except:
+		pass
+	try:
+		AdminApp.uninstall(appName)
+		AdminConfig.save()
+	except:
+		pass
+	try:
+		AdminApp.install(earName, clusterParam)
+		AdminConfig.save()
+	except:
+		print "Unexpected error: ", sys.exc_info()[0], sys.exc_info()[1]
+		pass
+AdminConfig.save()
+	
+

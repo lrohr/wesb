@@ -1,0 +1,9 @@
+truncate table sib000  drop storage;
+truncate table sib001  drop storage;
+truncate table sib002  drop storage;
+truncate table sibclassmap  drop storage;
+truncate table sibkeys  drop storage;
+truncate table siblisting  drop storage;
+truncate table sibowner  drop storage;
+truncate table sibownero drop storage;
+truncate table sibxacts  drop storage;

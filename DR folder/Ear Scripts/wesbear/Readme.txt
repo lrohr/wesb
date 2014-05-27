@@ -1,0 +1,1 @@
+wsadmin.bat -username admin -password admin -lang jython -f c:\lerfolder\deploy_cluster.jy

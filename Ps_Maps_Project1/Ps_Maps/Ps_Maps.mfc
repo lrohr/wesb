@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mediationFlow xmlns="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlow" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:mfcex="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlowExtension" xmlns:ns1="http://Ps_Maps/EmailServiceImport" xmlns:ns1_1="http://tempuri.org/NCLCaseTools/NCLTools" xmlns:ns1_1_1="http://Ps_Maps/FlatFileExport" xmlns:ns3="http://Ps_Maps/JDBCImport" xmlns:ns4="http://Ps_Maps/JDBCImport1" name="Ps_Maps" targetNamespace="http://Ps_Maps/Ps_Maps">
+  <import location="FlatFileExport.wsdl" namespace="http://Ps_Maps/FlatFileExport"/>
+  <import location="EmailServiceImport.wsdl" namespace="http://Ps_Maps/EmailServiceImport"/>
+  <import location="JDBCImport.wsdl" namespace="http://Ps_Maps/JDBCImport"/>
+  <import location="JDBCImport1.wsdl" namespace="http://Ps_Maps/JDBCImport1"/>
+  <import location="PeopleSoft_To_MAPS.wsdl" namespace="http://tempuri.org/NCLCaseTools/NCLTools"/>
+  <reference name="EmailServiceImportPartner" portType="ns1:EmailServiceImport"/>
+  <reference name="JDBCImportPartner" portType="ns3:JDBCImport"/>
+  <reference name="JDBCImport1Partner" portType="ns4:JDBCImport1"/>
+  <reference name="NCLToolsSoapPartner" portType="ns1_1:NCLToolsSoap"/>
+  <interface portType="ns1_1_1:FlatFileExport">
+    <operation name="emit">
+      <requestFlow mfcex:autoLayout="false">
+        <node displayName="emit : FlatFileExport" name="FlatFileExport_emit_Input" type="Input" mfcex:x="18" mfcex:y="74">
+          <property name="correlationContext" value="{http://Ps_Maps}AppContext"/>
+          <outputTerminal type="ns1_1_1:emitRequestMsg">
+            <wire targetNode="XSLT1_msgToContext"/>
+          </outputTerminal>
+        </node>
+        <node name="XSLT1_msgToContext" type="XSLTransformation" mfcex:x="219" mfcex:y="72">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation1_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation1_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1_1_1:emitRequestMsg"/>
+          <outputTerminal type="XMLSchema:anyType">
+            <wire targetNode="XSLTransformation2"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="XSLT__Error_XSLT1"/>
+          </failTerminal>
+        </node>
+        <node name="XSLTransformation2" type="XSLTransformation" mfcex:x="371" mfcex:y="74">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation2_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation2_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="XMLSchema:anyType">
+            <wire targetNode="XSLTransformation3"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="XSLT__Error_Xslt2"/>
+          </failTerminal>
+        </node>
+        <node name="XSLTransformation3" type="XSLTransformation" mfcex:x="509" mfcex:y="73">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation3_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation3_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="XMLSchema:anyType">
+            <wire targetNode="XSLT_loadJobcode"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="XSLT__Error_xslt3"/>
+          </failTerminal>
+        </node>
+        <node name="Emial" type="ServiceInvoke" mfcex:x="1764" mfcex:y="95">
+          <property name="referenceName" value="EmailServiceImportPartner"/>
+          <property name="operationName" value="sendSimpleAlertEmail"/>
+          <inputTerminal type="ns1:sendSimpleAlertEmailRequestMsg"/>
+          <outputTerminal name="timeout" type="ns1:sendSimpleAlertEmailRequestMsg"/>
+          <failTerminal/>
+        </node>
+        <node name="BOMapper2" type="BOMapper" mfcex:x="1651" mfcex:y="92">
+          <property name="root" value="/"/>
+          <property name="mappingFile" value="BO_buileEmail.map"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns1:sendSimpleAlertEmailRequestMsg">
+            <wire targetNode="Emial"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLT__Error_XSLT1" type="XSLTransformation" mfcex:x="315" mfcex:y="307">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTErrorXslt1_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTErrorXslt1_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1_1_1:emitRequestMsg"/>
+          <outputTerminal type="ns1:sendSimpleAlertEmailRequestMsg">
+            <wire targetNode="Emial"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLT__Error_Xslt2" type="XSLTransformation" mfcex:x="494" mfcex:y="312">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTErrorXslt2_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTErrorXslt2_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns1:sendSimpleAlertEmailRequestMsg">
+            <wire targetNode="Emial"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLT__Error_xslt3" type="XSLTransformation" mfcex:x="680" mfcex:y="308">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation4_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation4_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns1:sendSimpleAlertEmailRequestMsg">
+            <wire targetNode="Emial"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="DB_lookup_Contract" type="ServiceInvoke" mfcex:x="789" mfcex:y="16">
+          <property name="referenceName" value="JDBCImportPartner"/>
+          <property name="operationName" value="retrieveallgetContract"/>
+          <inputTerminal type="ns3:retrieveallgetContractRequestMsg"/>
+          <outputTerminal type="ns3:retrieveallgetContractResponseMsg">
+            <wire targetNode="GoodContractNumber"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns3:retrieveallgetContractRequestMsg">
+            <wire targetNode="BOMapper1"/>
+          </outputTerminal>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="retrieveallgetContractRecordNotFoundFaultMsg" type="ns3:retrieveallgetContractRecordNotFoundFaultMsg">
+            <wire targetNode="BOMapper1"/>
+          </outputTerminal>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="retrieveallgetContractMatchesExceededLimitFaultMsg" type="ns3:retrieveallgetContractMatchesExceededLimitFaultMsg">
+            <wire targetNode="BOMapper1"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="BOMapper1"/>
+          </failTerminal>
+        </node>
+        <node name="XSLT_loadJobcode" type="XSLTransformation" mfcex:x="679" mfcex:y="73">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation1_req_2.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation1_req_2.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns3:retrieveallgetContractRequestMsg">
+            <wire targetNode="DB_lookup_Contract"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="GoodContractNumber" type="MessageElementSetter" mfcex:x="902" mfcex:y="15">
+          <table name="messageElements">
+            <row>
+              <property name="target" value="/context/correlation/NewPerson/PERSON/CONTRACT"/>
+              <property name="type" value="copy"/>
+              <property name="value" value="/body/retrieveallgetContractResponse/retrieveallgetContractOutput/getContract/ncl_cntrct_id"/>
+            </row>
+          </table>
+          <inputTerminal/>
+          <outputTerminal>
+            <wire targetNode="BOMapper1"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="BOMapper1" type="BOMapper" mfcex:x="1084" mfcex:y="94">
+          <property name="root" value="/"/>
+          <property name="mappingFile" value="BO_msg_to_string.map"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="XMLSchema:anyType">
+            <wire targetNode="XSLTransformation4"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="DB_loger" type="ServiceInvoke" mfcex:x="1548" mfcex:y="84">
+          <property name="referenceName" value="JDBCImport1Partner"/>
+          <property name="operationName" value="executeinsertLog"/>
+          <inputTerminal type="ns4:executeinsertLogRequestMsg"/>
+          <outputTerminal type="ns4:executeinsertLogResponseMsg">
+            <wire targetNode="BOMapper2"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns4:executeinsertLogRequestMsg"/>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="executeinsertLogUniqueConstraintFaultMsg" type="ns4:executeinsertLogUniqueConstraintFaultMsg"/>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="executeinsertLogIntegrityConstraintFaultMsg" type="ns4:executeinsertLogIntegrityConstraintFaultMsg"/>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="executeinsertLogRecordNotFoundFaultMsg" type="ns4:executeinsertLogRecordNotFoundFaultMsg"/>
+          <failTerminal/>
+        </node>
+        <node name="XSLT_testing_BypassMaps" type="XSLTransformation" mfcex:x="1404" mfcex:y="1">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation1_req_3.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation1_req_3.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns4:executeinsertLogRequestMsg">
+            <wire targetNode="DB_loger"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="MAPS" type="ServiceInvoke" mfcex:x="1338" mfcex:y="99">
+          <property name="referenceName" value="NCLToolsSoapPartner"/>
+          <property name="operationName" value="PeopleSoft_TO_MAPS"/>
+          <property name="asyncTimeout" value="2"/>
+          <inputTerminal type="ns1_1:PeopleSoft_TO_MAPSSoapIn"/>
+          <outputTerminal type="ns1_1:PeopleSoft_TO_MAPSSoapOut">
+            <wire targetNode="XSLTransformation5"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns1_1:PeopleSoft_TO_MAPSSoapIn">
+            <wire targetNode="XSLTransformation1"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="XSLTransformation6"/>
+          </failTerminal>
+        </node>
+        <node name="XSLTransformation4" type="XSLTransformation" mfcex:x="1187" mfcex:y="101">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation4_req_2.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation4_req_2.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns1_1:PeopleSoft_TO_MAPSSoapIn">
+            <wire targetNode="XSLT_testing_BypassMaps"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLTransformation5" type="XSLTransformation" mfcex:x="1443" mfcex:y="111">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation5_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation5_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1_1:PeopleSoft_TO_MAPSSoapOut"/>
+          <outputTerminal type="ns4:executeinsertLogRequestMsg">
+            <wire targetNode="DB_loger"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLTransformation1" type="XSLTransformation" mfcex:x="1430" mfcex:y="233">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation1_req_4.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation1_req_4.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1_1:PeopleSoft_TO_MAPSSoapIn"/>
+          <outputTerminal type="ns1:sendSimpleAlertEmailRequestMsg">
+            <wire targetNode="Emial"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLTransformation6" type="XSLTransformation" mfcex:x="1429" mfcex:y="314">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation6_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation6_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1_1:PeopleSoft_TO_MAPSSoapIn"/>
+          <outputTerminal type="ns1:sendSimpleAlertEmailRequestMsg">
+            <wire targetNode="Emial"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </requestFlow>
+      <errorFlow>
+        <node displayName="emit : FlatFileExport" name="FlatFileExport_emit_ErrorInput" type="ErrorInput">
+          <outputTerminal name="catchAll" type="XMLSchema:anyType"/>
+        </node>
+      </errorFlow>
+    </operation>
+  </interface>
+</mediationFlow>

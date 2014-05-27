@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="JDBCImport1" targetNamespace="http://Ps_Maps/JDBCImport1" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/insertlog" xmlns:bons2="http://com/ibm/j2ca/fault/afcfault" xmlns:tns="http://Ps_Maps/JDBCImport1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://com/ibm/j2ca/fault/afcfault" xmlns:tns="http://com/ibm/j2ca/fault/afcfault">
+      <xsd:include schemaLocation="UniqueConstraintFault.xsd"/>
+      <xsd:include schemaLocation="RecordNotFoundFault.xsd"/>
+      <xsd:include schemaLocation="IntegrityConstraintFault.xsd"/>
+    </xsd:schema>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://Ps_Maps/JDBCImport1" xmlns:bons4="http://com/ibm/j2ca/fault/afcfault">
+      <xsd:import namespace="http://com/ibm/j2ca/fault/afcfault"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/insertlog" schemaLocation="insertLog.xsd"/>
+      <xsd:element name="executeinsertLog">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeinsertLogInput" type="bons1:insertLog"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeinsertLogResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeinsertLogOutput" type="bons1:insertLog"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UniqueConstraintFault_element" nillable="true" type="bons4:UniqueConstraintFault"/>
+      <xsd:element name="IntegrityConstraintFault_element" nillable="true" type="bons4:IntegrityConstraintFault"/>
+      <xsd:element name="RecordNotFoundFault_element" nillable="true" type="bons4:RecordNotFoundFault"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeinsertLogRequestMsg">
+    <wsdl:part element="tns:executeinsertLog" name="executeinsertLogParameters"/>
+  </wsdl:message>
+  <wsdl:message name="executeinsertLogResponseMsg">
+    <wsdl:part element="tns:executeinsertLogResponse" name="executeinsertLogResult"/>
+  </wsdl:message>
+  <wsdl:message name="executeinsertLogUniqueConstraintFaultMsg">
+    <wsdl:part element="tns:UniqueConstraintFault_element" name="UniqueConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="executeinsertLogIntegrityConstraintFaultMsg">
+    <wsdl:part element="tns:IntegrityConstraintFault_element" name="IntegrityConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="executeinsertLogRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:portType name="JDBCImport1">
+    <wsdl:operation name="executeinsertLog">
+      <wsdl:input message="tns:executeinsertLogRequestMsg" name="executeinsertLogRequest"/>
+      <wsdl:output message="tns:executeinsertLogResponseMsg" name="executeinsertLogResponse"/>
+      <wsdl:fault message="tns:executeinsertLogUniqueConstraintFaultMsg" name="UNIQUECONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:executeinsertLogIntegrityConstraintFaultMsg" name="INTEGRITY_CONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:executeinsertLogRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

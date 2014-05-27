@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0" xmlns:ns1="http://Ps_Maps/FlatFileExport" xmlns:ns2="http://Ps_Maps/EmailServiceImport" xmlns:ns3="http://Ps_Maps/JDBCImport" xmlns:ns4="http://Ps_Maps/JDBCImport1" xmlns:ns5="http://tempuri.org/NCLCaseTools/NCLTools" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="Ps_Maps" name="Ps_Maps">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:FlatFileExport">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="true"/>
+    </interface>
+  </interfaces>
+  <references>
+    <reference name="EmailServiceImportPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns2:EmailServiceImport"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="EmailServiceImport"/>
+    </reference>
+    <reference name="JDBCImportPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns3:JDBCImport"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="JDBCImport"/>
+    </reference>
+    <reference name="JDBCImport1Partner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns4:JDBCImport1"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="JDBCImport1"/>
+    </reference>
+    <reference name="NCLToolsSoapPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns5:NCLToolsSoap"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="WSImport1"/>
+    </reference>
+  </references>
+  <implementation xsi:type="mfc:MediationFlowImplementation" mfcFile="Ps_Maps.mfc">
+    <scdl:implementationQualifier xsi:type="scdl:Transaction" value="global"/>
+  </implementation>
+</scdl:component>

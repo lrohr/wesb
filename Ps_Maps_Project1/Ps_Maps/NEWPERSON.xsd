@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2005 rel. 3 U (http://www.altova.com) by XMLSPY 2005 Professional Ed. Release 3, Installed for 3 users (with SMP from 2005-04-15 to 2006-04-16) (NCL) -->
+<xs:schema xmlns="http://tempuri.org/NewPerson.xsd" xmlns:mstns="http://tempuri.org/NewPerson.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" targetNamespace="http://tempuri.org/NewPerson.xsd" elementFormDefault="qualified" attributeFormDefault="qualified" id="NewPerson">
+	<xs:element name="NewPerson" msdata:IsDataSet="true">
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="PERSON">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="PeopleSoftID" type="xs:string" minOccurs="0"/>
+							<xs:element name="SSN" type="xs:string" minOccurs="0"/>
+							<xs:element name="FORENAME" type="xs:string" minOccurs="0"/>
+							<xs:element name="SURNAME" type="xs:string" minOccurs="0"/>
+							<xs:element name="COUNTRY_NAME" type="xs:string" minOccurs="0"/>
+							<xs:element name="DATE_BIRTH" type="xs:string" minOccurs="0"/>
+							<xs:element name="SEX" type="xs:string" minOccurs="0"/>
+							<xs:element name="MARITAL_STATUS" type="xs:string" minOccurs="0"/>
+							<xs:element name="HAIR_REASON_ID" type="xs:string" minOccurs="0"/>
+							<xs:element name="EYE_REASON_ID" type="xs:string" minOccurs="0"/>
+							<xs:element name="PERSON_HEIGHT" type="xs:string" minOccurs="0"/>
+							<xs:element name="PERSON_WEIGHT" type="xs:string" minOccurs="0"/>
+							<xs:element name="COMPANY" type="xs:string" minOccurs="0"/>
+							<xs:element name="JOBCODE" type="xs:string" minOccurs="0"/>
+							<xs:element name="DEPARTMENT" type="xs:string" minOccurs="0"/>
+							<xs:element name="CONTRACT" type="xs:string" minOccurs="0"/>
+							<xs:element name="PERSON_MEDICAL" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="PeopleSoftID" type="xs:string" minOccurs="0"/>
+										<xs:element name="SSN" type="xs:string" minOccurs="0"/>
+										<xs:element name="MED_STATUS_DT" type="xs:string" minOccurs="0"/>
+										<xs:element name="MED_CHKLST_ITEM_CD" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="PERSON_PHONE" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="TELEPHONE_1" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="PERSON_EMAIL" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="E_MAIL_ADDRESS_1" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="PERSON_NOFKIN" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="PeopleSoftID" type="xs:string" minOccurs="0"/>
+										<xs:element name="SSN" type="xs:string" minOccurs="0"/>
+										<xs:element name="NOFKIN_NAME" type="xs:string" minOccurs="0"/>
+										<xs:element name="NOFKIN_ADDR1" type="xs:string" minOccurs="0"/>
+										<xs:element name="NOFKIN_ADDR2" type="xs:string" minOccurs="0"/>
+										<xs:element name="NOFKIN_ADDR3" type="xs:string" minOccurs="0"/>
+										<xs:element name="NOFKIN_ADDR4" type="xs:string" minOccurs="0"/>
+										<xs:element name="City" type="xs:string" minOccurs="0"/>
+										<xs:element name="COUNTY" type="xs:string" minOccurs="0"/>
+										<xs:element name="STATES" type="xs:string" minOccurs="0"/>
+										<xs:element name="COUNTRY" type="xs:string" minOccurs="0"/>
+										<xs:element name="POST_CODE" type="xs:string" minOccurs="0"/>
+										<xs:element name="SITE_NAME" type="xs:string" minOccurs="0"/>
+										<xs:element name="AIRPORT" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="COMP_PERSON_Languages" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="PeopleSoftID" type="xs:string" minOccurs="0"/>
+										<xs:element name="SSN" type="xs:string" minOccurs="0"/>
+										<xs:element name="Name" type="xs:string" minOccurs="0"/>
+										<xs:element name="Certificate_number" type="xs:string" minOccurs="0"/>
+										<xs:element name="valid_from_date" type="xs:string" minOccurs="0"/>
+										<xs:element name="valid_to_date" type="xs:string" minOccurs="0"/>
+										<xs:element name="Obtain_From" type="xs:string" minOccurs="0"/>
+										<xs:element name="DESCRIPTION" type="xs:string" minOccurs="0"/>
+										<xs:element name="TYPE" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="COMP_PERSON_MemberShips" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="PeopleSoftID" type="xs:string" minOccurs="0"/>
+										<xs:element name="SSN" type="xs:string" minOccurs="0"/>
+										<xs:element name="Name" type="xs:string" minOccurs="0"/>
+										<xs:element name="Certificate_number" type="xs:string" minOccurs="0"/>
+										<xs:element name="valid_from_date" type="xs:string" minOccurs="0"/>
+										<xs:element name="valid_to_date" type="xs:string" minOccurs="0"/>
+										<xs:element name="Obtain_From" type="xs:string" minOccurs="0"/>
+										<xs:element name="DESCRIPTION" type="xs:string" minOccurs="0"/>
+										<xs:element name="TYPE" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="COMP_PERSON_LICENSE" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="PeopleSoftID" type="xs:string" minOccurs="0"/>
+										<xs:element name="SSN" type="xs:string" minOccurs="0"/>
+										<xs:element name="Name" type="xs:string" minOccurs="0"/>
+										<xs:element name="Certificate_number" type="xs:string" minOccurs="0"/>
+										<xs:element name="valid_from_date" type="xs:string" minOccurs="0"/>
+										<xs:element name="valid_to_date" type="xs:string" minOccurs="0"/>
+										<xs:element name="Obtain_From" type="xs:string" minOccurs="0"/>
+										<xs:element name="DESCRIPTION" type="xs:string" minOccurs="0"/>
+										<xs:element name="TYPE" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="PASSPORT" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="PeopleSoftID" type="xs:string" minOccurs="0"/>
+										<xs:element name="SSN" type="xs:string" minOccurs="0"/>
+										<xs:element name="THREE_DIGIT_ABBR" type="xs:string" minOccurs="0"/>
+										<xs:element name="PASSPORT_NUMBER" type="xs:string" minOccurs="0"/>
+										<xs:element name="VALID_FROM_DATE" type="xs:string" minOccurs="0"/>
+										<xs:element name="PASSPORT_EXPIRY_DATE" type="xs:string" minOccurs="0"/>
+										<xs:element name="ISSUING_OFFICE" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="VISA" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="PeopleSoftID" type="xs:string" minOccurs="0"/>
+										<xs:element name="SSN" type="xs:string" minOccurs="0"/>
+										<xs:element name="THREE_DIGIT_ABBR" type="xs:string" minOccurs="0"/>
+										<xs:element name="VISA_NUMBER" type="xs:string" minOccurs="0"/>
+										<xs:element name="VALID_FROM_DATE" type="xs:string" minOccurs="0"/>
+										<xs:element name="VISA_ISSUING_OFFICE" type="xs:string" minOccurs="0"/>
+										<xs:element name="VALID_TO_DATE" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
