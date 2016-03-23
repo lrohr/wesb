@@ -26,7 +26,7 @@ public class FuseBoxHttpBinding implements HTTPStreamDataBinding
 {
 
 	/**
-	 * 20140211   added edits aproval code and response text   with Raghu's help
+	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private DataObject creditCardResponse;

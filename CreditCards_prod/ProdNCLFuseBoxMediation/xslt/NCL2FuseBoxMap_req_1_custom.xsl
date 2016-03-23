@@ -34,9 +34,7 @@
 		
 		
 		<xsl:variable name="ncl_Office_w">
-			<!--  xsl:value-of select="substring-after($cardInfo/officeCodeTxt,'NCL ')" /  -->
-			<!--           added AUSTRALIA logic 06/14/13     ler        -->
-			 <xsl:choose>
+			<xsl:choose>
 				<xsl:when test=" $cardInfo/officeCodeTxt = 'AUSTRALIA' ">
 				    <xsl:value-of select="'AUSTRALIA'"/>
 				</xsl:when>
@@ -77,25 +75,28 @@
 			<xsl:attribute name="name"><xsl:value-of select="'Currency_Code'" /></xsl:attribute>
 			<xsl:value-of select="$ncl_Currency_cd" />
 		</Field>
+		
+		
 		<Field>
 			<xsl:attribute name="name"><xsl:value-of select="'Venue_ID'" /></xsl:attribute>
-			<!--
-				Changed Venue_ID from ship to "ResUSD" or "ResXXX" 02/20/2009 ler
-			-->
-			<!--  Change Res to RES    03/19/2009  -->
-
-			<!--
-				re-coded 11/04/2010 ler <xsl:value-of
-				select="concat('RES',$cardInfo/CURRENCY_CD)"/>
-			-->
-			<!--
-     
-		-->
+			
+			
 			<xsl:choose>
 
 				<xsl:when
-					test="  (   $ncl_Office_w = 'MIAMI'      )  or (   $ncl_Office_w = 'INTL'   )   or (   $ncl_Office_w = 'AUSTRALIA'   )    ">
+					test="  (   $ncl_Office_w = 'MIAMI'      )  or  (   $ncl_Office_w = 'AUSTRALIA'   )     ">
 					<xsl:value-of select="concat('RES',$ncl_Currency_cd )" />
+				</xsl:when>
+
+				<xsl:when test="   $ncl_Office_w = 'INTL'        ">
+					<xsl:choose>
+						<xsl:when test=" $ncl_Currency_cd = 'MXN' ">
+							<xsl:value-of select="'RESMXP'" />
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:value-of select="concat('RES',$ncl_Currency_cd )" />
+						</xsl:otherwise>
+					</xsl:choose>
 				</xsl:when>
 
 				<xsl:when test="   $ncl_Office_w = 'LONDON'        ">
@@ -108,16 +109,37 @@
 						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:when>
+				
+				<xsl:when test="   $ncl_Office_w = 'ASIA'        ">
+				   <xsl:choose>
+						<xsl:when test=" $ncl_Currency_cd = 'USD' ">
+							<xsl:value-of select="'RESASIA'" />
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:value-of select="concat('RES',$ncl_Currency_cd )" />
+						</xsl:otherwise>
+					</xsl:choose>
+				</xsl:when>
 
 
 				<xsl:when
-					test=" ($ncl_Office_w != 'LONDON')  and ($ncl_Office_w != 'MIAMI')  and ($ncl_Office_w != 'INTL')  and ($ncl_Office_w != 'AUSTRALIA') ">
+					test=" ($ncl_Office_w != 'LONDON')  and ($ncl_Office_w != 'MIAMI')  and ($ncl_Office_w != 'INTL') 
+					 and ($ncl_Office_w != 'AUSTRALIA') and  ($ncl_Office_w != 'ASIA')">
 					<xsl:choose>
 						<xsl:when test=" $ncl_Currency_cd = 'USD' ">
 							<xsl:value-of select="'RESCEUSD'" />
 						</xsl:when>
 						<xsl:otherwise>
-							<xsl:value-of select="'RESCEEUR'" />
+							
+							<xsl:choose>
+								<xsl:when test=" $ncl_Currency_cd = 'NOK' and   $ncl_Office_w = 'OSLO'  ">
+									<xsl:value-of select="'RESNOK'"/>
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:value-of select="'RESCEEUR'"/>
+								</xsl:otherwise>
+							</xsl:choose>
+							
 						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:when>
@@ -129,6 +151,8 @@
 		 Veneu_id      11/4/2010    ler
 			-->
 		</Field>
+				
+		
 		<Field>
 			<xsl:attribute name="name"><xsl:value-of select="'Message_ID'" /></xsl:attribute>
 			<xsl:value-of select="$cardInfo/uniqueValId" />

@@ -237,7 +237,7 @@ out.fire(__smo);
         <wire targetNode="Stop2"/>
       </failTerminal>
     </node>
-    <node name="Stop2" type="Stop" mfcex:x="583" mfcex:y="10">
+    <node name="Stop2" type="Stop" mfcex:x="521" mfcex:y="44">
       <inputTerminal/>
     </node>
     <node name="EmitEvalonCreditCardFailure" type="EventEmitter" mfcex:x="381" mfcex:y="248">
@@ -612,7 +612,7 @@ out.fire(__smo);
         <wire targetNode="Stop4"/>
       </failTerminal>
     </node>
-    <node name="Stop11" type="Stop" mfcex:x="557" mfcex:y="320">
+    <node name="Stop11" type="Stop" mfcex:x="539" mfcex:y="333">
       <inputTerminal/>
     </node>
     <node name="Stop4" type="Stop" mfcex:x="543" mfcex:y="395">

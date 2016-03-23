@@ -29,7 +29,6 @@
           </credentials>
           <authenticationType>Basic</authenticationType>
         </requestAuthentication>
-        <numberOfRetries>1</numberOfRetries>
       </importInteraction>
     </methodBinding>
   </esbBinding>
