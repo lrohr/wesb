@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseUserAuthenticationAndRetrieve/xslt/XSLT_storeResp_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseUserAuthenticationAndRetrieve/xslt/XSLT_storeResp_req_1">
+    <input correlationContext="{http://NCL_CruiseUserAuthenticationAndRetrieve}AppContext" message="{http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveClient_Interface}Perform_NCL_CruiseRetrieveClientResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseUserAuthenticationAndRetrieve}AppContext" message="" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <mappingDeclaration name="XSLT_storeResp_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRQ"/>
+            <output path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/passwordLength"/>
+            <output path="context/correlation/passwordLength"/>
+        </move>
+        <move>
+            <input path="context/correlation/logId"/>
+            <output path="context/correlation/logId"/>
+        </move>
+        <move>
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/@AltLangID"/>
+            <output path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRS/@AltLangID"/>
+        </move>
+        <move>
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/@EchoToken"/>
+            <output path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRS/@EchoToken"/>
+        </move>
+        <local>
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/ClientInfo"/>
+            <output path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRS/ClientInfo"/>
+            <move>
+                <input path="Email"/>
+                <output path="Email"/>
+            </move>
+            <move>
+                <input path="URL"/>
+                <output path="URL"/>
+            </move>
+            <move>
+                <input path="CompanyName"/>
+                <output path="CompanyName"/>
+            </move>
+            <move>
+                <input path="EmployeeInfo"/>
+                <output path="EmployeeInfo"/>
+            </move>
+            <move>
+                <input path="Address"/>
+                <output path="Address"/>
+            </move>
+            <move>
+                <input path="Telephone"/>
+                <output path="Telephone"/>
+            </move>
+            <move>
+                <input path="PersonName"/>
+                <output path="PersonName"/>
+            </move>
+            <move>
+                <input path="@Age"/>
+                <output path="@Age"/>
+            </move>
+            <move>
+                <input path="@BirthDate"/>
+                <output path="@BirthDate"/>
+            </move>
+            <move>
+                <input path="@ContactType"/>
+                <output path="@ContactType"/>
+            </move>
+            <move>
+                <input path="@DefaultInd"/>
+                <output path="@DefaultInd"/>
+            </move>
+            <move>
+                <input path="@EmergencyFlag"/>
+                <output path="@EmergencyFlag"/>
+            </move>
+            <move>
+                <input path="@Gender"/>
+                <output path="@Gender"/>
+            </move>
+            <move>
+                <input path="@GuestOccupation"/>
+                <output path="@GuestOccupation"/>
+            </move>
+            <move>
+                <input path="@GuestRefNumber"/>
+                <output path="@GuestRefNumber"/>
+            </move>
+            <move>
+                <input path="@LoyalLevel"/>
+                <output path="@LoyalLevel"/>
+            </move>
+            <move>
+                <input path="@LoyaltyMembershipID"/>
+                <output path="@LoyaltyMembershipID"/>
+            </move>
+            <move>
+                <input path="@Nationality"/>
+                <output path="@Nationality"/>
+            </move>
+            <move>
+                <input path="@Relation"/>
+                <output path="@Relation"/>
+            </move>
+            <move>
+                <input path="@RPH"/>
+                <output path="@RPH"/>
+            </move>
+            <move>
+                <input path="@ShareMarketInd"/>
+                <output path="@ShareMarketInd"/>
+            </move>
+            <move>
+                <input path="@ShareSynchInd"/>
+                <output path="@ShareSynchInd"/>
+            </move>
+        </local>
+        <local>
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/LoyaltyInfo"/>
+            <output path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRS/LoyaltyInfo"/>
+            <move automap="true">
+                <input path="@EffectiveDate"/>
+                <output path="@EffectiveDate"/>
+            </move>
+            <move automap="true">
+                <input path="@ExpireDate"/>
+                <output path="@ExpireDate"/>
+            </move>
+            <move automap="true">
+                <input path="@LoyalLevel"/>
+                <output path="@LoyalLevel"/>
+            </move>
+            <move automap="true">
+                <input path="@MembershipID"/>
+                <output path="@MembershipID"/>
+            </move>
+            <move automap="true">
+                <input path="@ProgramID"/>
+                <output path="@ProgramID"/>
+            </move>
+            <move automap="true">
+                <input path="@RPH"/>
+                <output path="@RPH"/>
+            </move>
+            <move automap="true">
+                <input path="@ShareMarketInd"/>
+                <output path="@ShareMarketInd"/>
+            </move>
+            <move automap="true">
+                <input path="@ShareSynchInd"/>
+                <output path="@ShareSynchInd"/>
+            </move>
+            <move automap="true">
+                <input path="@SignupDate"/>
+                <output path="@SignupDate"/>
+            </move>
+            <move automap="true">
+                <input path="@SingleVendorInd"/>
+                <output path="@SingleVendorInd"/>
+            </move>
+            <move automap="true">
+                <input path="@TravelSector"/>
+                <output path="@TravelSector"/>
+            </move>
+            <move automap="true">
+                <input path="@VendorCode"/>
+                <output path="@VendorCode"/>
+            </move>
+        </local>
+        <local>
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/UserLogin"/>
+            <output path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRS/UserLogin"/>
+            <move>
+                <input path="@Password"/>
+                <output path="@Password"/>
+            </move>
+            <move>
+                <input path="@UserLoginName"/>
+                <output path="@UserLoginName"/>
+            </move>
+            <move>
+                <input path="@UserType"/>
+                <output path="@UserType"/>
+            </move>
+        </local>
+        <local>
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/VacationPreference"/>
+            <output path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRS/VacationPreference"/>
+            <move>
+                <input path="DesiredDestination"/>
+                <output path="DesiredDestination"/>
+            </move>
+            <move>
+                <input path="PreviousCruiseLines"/>
+                <output path="PreviousCruiseLines"/>
+            </move>
+            <move>
+                <input path="@FutureCruisePlan"/>
+                <output path="@FutureCruisePlan"/>
+            </move>
+            <move>
+                <input path="@PreferredBookingMode"/>
+                <output path="@PreferredBookingMode"/>
+            </move>
+            <move>
+                <input path="@PreferredCruiseLength"/>
+                <output path="@PreferredCruiseLength"/>
+            </move>
+            <move>
+                <input path="@PreferredCruiseTime"/>
+                <output path="@PreferredCruiseTime"/>
+            </move>
+            <move>
+                <input path="@PreviouslyCruised"/>
+                <output path="@PreviouslyCruised"/>
+            </move>
+            <move>
+                <input path="@PreviouslyCruisedNumber"/>
+                <output path="@PreviouslyCruisedNumber"/>
+            </move>
+        </local>
+        <move>
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/Success"/>
+            <output path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRS/Success"/>
+        </move>
+        <move>
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/Warnings"/>
+            <output path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRS/Warnings"/>
+        </move>
+        <move>
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/@Version"/>
+            <output path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRS/@Version"/>
+        </move>
+        <move>
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/@TransactionStatusCode"/>
+            <output path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRS/@TransactionStatusCode"/>
+        </move>
+        <move>
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/@TransactionIdentifier"/>
+            <output path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRS/@TransactionIdentifier"/>
+        </move>
+        <move>
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/@TimeStamp"/>
+            <output path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRS/@TimeStamp"/>
+        </move>
+        <move>
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/@Target"/>
+            <output path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRS/@Target"/>
+        </move>
+        <move>
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/@SequenceNmbr"/>
+            <output path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRS/@SequenceNmbr"/>
+        </move>
+        <move>
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/@RetransmissionIndicator"/>
+            <output path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRS/@RetransmissionIndicator"/>
+        </move>
+        <move>
+            <input path="body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/@PrimaryLangID"/>
+            <output path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRS/@PrimaryLangID"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

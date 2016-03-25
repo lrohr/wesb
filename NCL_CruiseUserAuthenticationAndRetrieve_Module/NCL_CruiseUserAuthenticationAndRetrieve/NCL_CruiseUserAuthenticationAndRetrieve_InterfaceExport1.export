@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:configuration_6.1.0="http://www.ibm.com/xmlns/prod/websphere/j2ca/configuration/6.1.0" xmlns:http="http://www.ibm.com/xmlns/prod/websphere/scdl/http/6.1.0" xmlns:ns1="http://NCLOTALib/NCL_CruiseUserAuthenticationAndRetrieve_Interface" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="NCL_CruiseUserAuthenticationAndRetrieve_InterfaceExport1" name="NCL_CruiseUserAuthenticationAndRetrieve_InterfaceExport1" target="NCL_CruiseUserAuthenticationAndRetrieve">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:NCL_CruiseUserAuthenticationAndRetrieve_Interface"/>
+  </interfaces>
+  <esbBinding xsi:type="http:HTTPExportBinding" defaultDataBindingReferenceName="configuration_6.1.0:UTF8XMLDataHandler">
+    <exportInteraction contextPath="/NCL_CruiseUserAuthenticationAndRetrieve_InterfaceExport1">
+      <httpMethod>
+        <httpMethod>GET</httpMethod>
+      </httpMethod>
+    </exportInteraction>
+    <functionSelector>com.ibm.wbiserver.functionselector.ConstantFunctionSelector</functionSelector>
+    <methodBinding method="requestUserAuthenticationAndRetrieve">
+      <exportInteraction contextPath="/requestUserAuthenticationAndRetrieve">
+        <httpMethod>
+          <httpMethod>GET</httpMethod>
+        </httpMethod>
+      </exportInteraction>
+      <nativeMethod>requestUserAuthenticationAndRetrieve</nativeMethod>
+    </methodBinding>
+  </esbBinding>
+</scdl:export>

@@ -1,0 +1,12 @@
+* SMAP
+XSLTransformation1_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLTransformation1_req_1.map
+/NCL_CruiseUserAuthenticationAndRetrieve/xslt/XSLTransformation1_req_1.map
+*L
+2:71,3
+3:80,1
+1:47,17
+*E

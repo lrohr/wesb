@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:EIS="http://www.ibm.com/xmlns/prod/websphere/scdl/eis/6.0.0" xmlns:configuration_6.1.0="http://www.ibm.com/xmlns/prod/websphere/j2ca/configuration/6.1.0" xmlns:ns1="http://TP_Logger/TP_Interface" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="PublishToQ" name="PublishToQ">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:TP_Interface"/>
+  </interfaces>
+  <esbBinding xsi:type="EIS:JMSImportBinding">
+    <resourceAdapter type="com.ibm.ws.sib.api.jmsra.impl.JmsJcaResourceAdapterImpl"/>
+    <connection target="jms/TpLoggingCF" type="com.ibm.ws.sib.api.jmsra.impl.JmsJcaManagedConnectionFactoryImpl">
+      <authentication resAuthAlias="SCA_Auth_Alias"/>
+    </connection>
+    <destination implType="com.ibm.ws.sib.api.jms.impl.JmsQueueImpl" target="jms/TpLoggingQueue" type="javax.jms.Queue" usage="send"/>
+    <methodBinding method="TP_InsertUpdate">
+      <inputDataBinding>configuration_6.1.0:UTF8XMLDataHandler</inputDataBinding>
+      <outputDataBinding>configuration_6.1.0:UTF8XMLDataHandler</outputDataBinding>
+    </methodBinding>
+  </esbBinding>
+</scdl:import>

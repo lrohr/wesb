@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsp:Policy xmlns:wsrr="http://www.ibm.com/xmlns/prod/serviceregistry/6/2/wspolicy" xmlns:sibx="http://www.ibm.com/wbi/mediation/200812/TP_Logger.PublishToQueue" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsrr:policyClass="TP_Logger.PublishToQueue_CLASS" wsu:Id="TP_Logger.PublishToQueue_DefaultPolicy" wsrr:policyClassDomain="http://www.ibm.com/wbi/mediation/200812/TP_Logger.PublishToQueue">
+  <sibx:SkipResponseType
+      value="contains(&apos;UATRES CLIRES RNLRES&apos;,/body/TP_InsertUpdate/RESPONSE_TYPE_CD)">
+  </sibx:SkipResponseType>
+  <sibx:SkipRequestType
+      value="contains(&apos;UATREQ CLIREQ RNLREQ&apos;,/body/TP_InsertUpdate/REQUEST_TYPE_CD)">
+  </sibx:SkipRequestType>
+</wsp:Policy>

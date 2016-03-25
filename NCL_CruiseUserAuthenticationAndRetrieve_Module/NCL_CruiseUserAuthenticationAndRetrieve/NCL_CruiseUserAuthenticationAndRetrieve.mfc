@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mediationFlow xmlns="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlow" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:mfcex="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlowExtension" xmlns:ns1="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveClient_Interface" xmlns:ns1_1="http://TP_Logger/TP_Interface" xmlns:ns1_1_1="http://NCLOTALib/NCL_CruiseUserAuthenticationAndRetrieve_Interface" xmlns:ns1_2="http://NCL_WESB_Shared_Library/Encrypt_Decrypt_Interface" xmlns:ns5="http://NCL_CruiseUserAuthenticationAndRetrieve/JDBCImport" name="NCL_CruiseUserAuthenticationAndRetrieve" targetNamespace="http://NCL_CruiseUserAuthenticationAndRetrieve/NCL_CruiseUserAuthenticationAndRetrieve">
+  <import location="NCL_CruiseUserAuthenticationAndRetrieve.wsdl" namespace="http://NCLOTALib/NCL_CruiseUserAuthenticationAndRetrieve_Interface"/>
+  <import location="NCL_CruiseRetrieveClient_Interface.wsdl" namespace="http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveClient_Interface"/>
+  <import location="TP_Interface.wsdl" namespace="http://TP_Logger/TP_Interface"/>
+  <import location="Encrypt_Decrypt_Interface.wsdl" namespace="http://NCL_WESB_Shared_Library/Encrypt_Decrypt_Interface"/>
+  <import location="JDBCImport.wsdl" namespace="http://NCL_CruiseUserAuthenticationAndRetrieve/JDBCImport"/>
+  <reference name="NCL_CruiseRetrieveClient_InterfacePartner" portType="ns1:NCL_CruiseRetrieveClient_Interface"/>
+  <reference name="TP_InterfacePartner" portType="ns1_1:TP_Interface"/>
+  <reference name="Encrypt_Decrypt_InterfacePartner" portType="ns1_2:Encrypt_Decrypt_Interface"/>
+  <reference name="JDBCImportPartner" portType="ns5:JDBCImport"/>
+  <interface portType="ns1_1_1:NCL_CruiseUserAuthenticationAndRetrieve_Interface">
+    <operation name="requestUserAuthenticationAndRetrieve">
+      <requestFlow mfcex:autoLayout="false">
+        <node displayName="requestUserAuthenticationAndRetrieve : NCL_CruiseUserAuthenticationAndRetrieve_Interface" name="NCL_CruiseUserAuthenticationAndRetrieve_Interface_requestUserAuthenticationAndRetrieve_Input" type="Input" mfcex:x="10" mfcex:y="20">
+          <property name="correlationContext" value="{http://NCL_CruiseUserAuthenticationAndRetrieve}AppContext"/>
+          <outputTerminal type="ns1_1_1:requestUserAuthenticationAndRetrieveMsg">
+            <wire targetNode="BOMapper1"/>
+          </outputTerminal>
+        </node>
+        <node displayName="requestUserAuthenticationAndRetrieve : NCL_CruiseUserAuthenticationAndRetrieve_Interface" name="NCL_CruiseUserAuthenticationAndRetrieve_Interface_requestUserAuthenticationAndRetrieve_InputResponse" type="InputResponse" mfcex:x="2191" mfcex:y="40">
+          <inputTerminal type="ns1_1_1:requestUserAuthenticationAndRetrieveResponseMsg"/>
+        </node>
+        <node name="callCliRet" type="ServiceInvoke" mfcex:x="1305" mfcex:y="40">
+          <property name="referenceName" value="NCL_CruiseRetrieveClient_InterfacePartner"/>
+          <property name="operationName" value="Perform_NCL_CruiseRetrieveClient"/>
+          <inputTerminal type="ns1:Perform_NCL_CruiseRetrieveClientRequestMsg"/>
+          <outputTerminal type="ns1:Perform_NCL_CruiseRetrieveClientResponseMsg">
+            <wire targetNode="goodRetrieve"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns1:Perform_NCL_CruiseRetrieveClientRequestMsg">
+            <wire targetNode="logError"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="logError"/>
+          </failTerminal>
+        </node>
+        <node name="logInut" type="ServiceInvoke" mfcex:x="502" mfcex:y="142">
+          <property name="referenceName" value="TP_InterfacePartner"/>
+          <property name="operationName" value="TP_InsertUpdate"/>
+          <inputTerminal type="ns1_1:TP_InsertUpdateRequestMsg"/>
+          <outputTerminal type="ns1_1:TP_InsertUpdateResponseMsg">
+            <wire targetNode="Stop1"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns1_1:TP_InsertUpdateRequestMsg">
+            <wire targetNode="Stop1"/>
+          </outputTerminal>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="TP_InsertUpdate_DB_ErrorsMsg" type="ns1_1:TP_InsertUpdate_DB_ErrorsMsg">
+            <wire targetNode="Stop1"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Stop1"/>
+          </failTerminal>
+        </node>
+        <node name="BOMapper1" type="BOMapper" mfcex:x="388" mfcex:y="43">
+          <property name="root" value="/"/>
+          <property name="mappingFile" value="BO_buildLogger.map"/>
+          <inputTerminal type="ns1_1_1:requestUserAuthenticationAndRetrieveMsg"/>
+          <outputTerminal type="ns1_1:TP_InsertUpdateRequestMsg">
+            <wire targetNode="logInut"/>
+            <wire targetNode="XSLT_loadEncrypt"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="Stop1" type="Stop" mfcex:x="629" mfcex:y="232">
+          <inputTerminal type="XMLSchema:anyType"/>
+        </node>
+        <node name="XSLT_loadCliret" type="XSLTransformation" mfcex:x="1192" mfcex:y="38">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLT_loadCliret.xsl"/>
+          <property name="XMXMap" value="xslt/XSLT_loadCliret.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns1:Perform_NCL_CruiseRetrieveClientRequestMsg">
+            <wire targetNode="callCliRet"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLT_storeResp" type="XSLTransformation" mfcex:x="1532" mfcex:y="40">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLT_storeResp_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLT_storeResp_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1:Perform_NCL_CruiseRetrieveClientResponseMsg"/>
+          <outputTerminal type="XMLSchema:anyType">
+            <wire targetNode="XSLTransformation1"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLTransformation1" type="XSLTransformation" mfcex:x="1904" mfcex:y="38">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation1_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation1_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns1_1_1:requestUserAuthenticationAndRetrieveResponseMsg">
+            <wire targetNode="NCL_CruiseUserAuthenticationAndRetrieve_Interface_requestUserAuthenticationAndRetrieve_InputResponse"/>
+            <wire targetNode="BOMapper2"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="goodRetrieve" type="MessageFilter" mfcex:x="1410" mfcex:y="40">
+          <table name="filters">
+            <row>
+              <property name="pattern" value="/body/Perform_NCL_CruiseRetrieveClientResponse/NCL_CruiseRetrieveClientRS/Warnings/Warning/@Code"/>
+              <property name="terminalName" value="match1"/>
+            </row>
+          </table>
+          <inputTerminal/>
+          <outputTerminal name="default">
+            <wire targetNode="XSLT_storeResp"/>
+          </outputTerminal>
+          <outputTerminal displayName="Error" name="match1">
+            <wire targetNode="XSLT_storeWarningFromCLIRET"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLT_storeWarningFromCLIRET" type="XSLTransformation" mfcex:x="1512" mfcex:y="182">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLT_storeWarning_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLT_storeWarning_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1:Perform_NCL_CruiseRetrieveClientResponseMsg"/>
+          <outputTerminal type="XMLSchema:anyType">
+            <wire targetNode="XSLTransformation1"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="BOMapper2" type="BOMapper" mfcex:x="2019" mfcex:y="132">
+          <property name="root" value="/"/>
+          <property name="mappingFile" value="BO_buildOutput.map"/>
+          <inputTerminal type="ns1_1_1:requestUserAuthenticationAndRetrieveResponseMsg"/>
+          <outputTerminal type="ns1_1:TP_InsertUpdateRequestMsg">
+            <wire targetNode="logOutput"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="logOutput" type="ServiceInvoke" mfcex:x="2095" mfcex:y="204">
+          <property name="referenceName" value="TP_InterfacePartner"/>
+          <property name="operationName" value="TP_InsertUpdate"/>
+          <inputTerminal type="ns1_1:TP_InsertUpdateRequestMsg"/>
+          <outputTerminal type="ns1_1:TP_InsertUpdateResponseMsg">
+            <wire targetNode="Stop2"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns1_1:TP_InsertUpdateRequestMsg">
+            <wire targetNode="Stop2"/>
+          </outputTerminal>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="TP_InsertUpdate_DB_ErrorsMsg" type="ns1_1:TP_InsertUpdate_DB_ErrorsMsg">
+            <wire targetNode="Stop2"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Stop2"/>
+          </failTerminal>
+        </node>
+        <node name="Stop2" type="Stop" mfcex:x="2188" mfcex:y="257">
+          <inputTerminal type="XMLSchema:anyType"/>
+        </node>
+        <node name="encrypt" type="ServiceInvoke" mfcex:x="629" mfcex:y="45">
+          <property name="referenceName" value="Encrypt_Decrypt_InterfacePartner"/>
+          <property name="operationName" value="processEncryptDecrypt"/>
+          <inputTerminal type="ns1_2:processEncryptDecryptRequest"/>
+          <outputTerminal type="ns1_2:processEncryptDecryptResponse">
+            <wire targetNode="XSLT_loadValidate"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns1_2:processEncryptDecryptRequest">
+            <wire targetNode="logError"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="logError"/>
+          </failTerminal>
+        </node>
+        <node name="XSLT_loadEncrypt" type="XSLTransformation" mfcex:x="512" mfcex:y="38">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLT_loadEncrypt_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLT_loadEncrypt_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1_1:TP_InsertUpdateRequestMsg"/>
+          <outputTerminal type="ns1_2:processEncryptDecryptRequest">
+            <wire targetNode="encrypt"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="validateAndUpdate" type="ServiceInvoke" mfcex:x="860" mfcex:y="48">
+          <property name="referenceName" value="JDBCImportPartner"/>
+          <property name="operationName" value="executeNclseaNcl_Wesb_User_Lookup"/>
+          <inputTerminal type="ns5:executeNclseaNcl_Wesb_User_LookupRequestMsg"/>
+          <outputTerminal type="ns5:executeNclseaNcl_Wesb_User_LookupResponseMsg">
+            <wire targetNode="validClientPassword"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns5:executeNclseaNcl_Wesb_User_LookupRequestMsg">
+            <wire targetNode="logError"/>
+          </outputTerminal>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="executeNclseaNcl_Wesb_User_LookupUniqueConstraintFaultMsg" type="ns5:executeNclseaNcl_Wesb_User_LookupUniqueConstraintFaultMsg">
+            <wire targetNode="logError"/>
+          </outputTerminal>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="executeNclseaNcl_Wesb_User_LookupIntegrityConstraintFaultMsg" type="ns5:executeNclseaNcl_Wesb_User_LookupIntegrityConstraintFaultMsg">
+            <wire targetNode="logError"/>
+          </outputTerminal>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="executeNclseaNcl_Wesb_User_LookupRecordNotFoundFaultMsg" type="ns5:executeNclseaNcl_Wesb_User_LookupRecordNotFoundFaultMsg">
+            <wire targetNode="logError"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="logError"/>
+          </failTerminal>
+        </node>
+        <node name="XSLT_loadValidate" type="XSLTransformation" mfcex:x="757" mfcex:y="52">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation2_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation2_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1_2:processEncryptDecryptResponse"/>
+          <outputTerminal type="ns5:executeNclseaNcl_Wesb_User_LookupRequestMsg">
+            <wire targetNode="validateAndUpdate"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="validClientPassword" type="MessageFilter" mfcex:x="963" mfcex:y="52">
+          <table name="filters">
+            <row>
+              <property name="pattern" value="/body/executeNclseaNcl_Wesb_User_LookupResponse/executeNclseaNcl_Wesb_User_LookupOutput/p_errorcode = '0'"/>
+              <property name="terminalName" value="match1"/>
+            </row>
+          </table>
+          <inputTerminal/>
+          <outputTerminal name="default">
+            <wire targetNode="XSLTransformation3"/>
+          </outputTerminal>
+          <outputTerminal displayName="validated" name="match1">
+            <wire targetNode="XSLT_loadCliret"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLTransformation3" type="XSLTransformation" mfcex:x="1078" mfcex:y="164">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLTransformation3_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLTransformation3_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns5:executeNclseaNcl_Wesb_User_LookupResponseMsg"/>
+          <outputTerminal type="XMLSchema:anyType">
+            <wire targetNode="XSLTransformation1"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="logError" type="CustomMediation" mfcex:x="1432" mfcex:y="284">
+          <property name="javaCode"><![CDATA[
+commonj.sdo.DataObject __smo = (commonj.sdo.DataObject)smo;
+java.lang.String __result__3 = "Error in UserAuthenticateAndRetrieve";
+{// print to log
+	System.out.println(__result__3);
+}
+try {
+	{// print BO to log
+		com.ibm.websphere.bo.BOXMLSerializer srv = (com.ibm.websphere.bo.BOXMLSerializer) new com.ibm.websphere.sca.ServiceManager().locateService("com/ibm/websphere/bo/BOXMLSerializer");
+		commonj.sdo.Type type = __smo.getType();
+		srv.writeDataObject(__smo, type.getURI(), type.getName(), java.lang.System.out);
+	}
+}
+catch(java.io.IOException ex){
+}
+out.fire(__smo);
+
+//@generated:com.ibm.wbit.activity.ui
+//<?xml version="1.0" encoding="UTF-8"?>
+//<com.ibm.wbit.activity:CompositeActivity xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.wbit.activity="http:///com/ibm/wbit/activity.ecore" name="ActivityMethod">
+//  <parameters name="inputTerminal">
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.InputTerminal"/>
+//  </parameters>
+//  <parameters name="smo" objectType="true">
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="ServiceMessageObject" namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1"/>
+//  </parameters>
+//  <exceptions>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.MediationBusinessException"/>
+//  </exceptions>
+//  <exceptions>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.MediationConfigurationException"/>
+//  </exceptions>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="out" variable="true">
+//    <dataOutputs target="//@executableElements.7/@parameters.0"/>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.OutputTerminal"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="smo" variable="true" assignable="false" input="true">
+//    <dataOutputs target="//@executableElements.7/@parameters.1"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="ServiceMessageObject" namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" nillable="false"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="&quot;Error in UserAuthenticateAndRetrieve&quot;" assignable="false">
+//    <dataOutputs target="//@executableElements.3/@parameters.0"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:LibraryActivity" name="print to log" description="Print a text representation of the input to System.out" category="utility" template="System.out.println(&lt;%object%>);">
+//    <parameters name="object" dataInputs="//@executableElements.2/@dataOutputs.0" displayName="object">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.lang.Object"/>
+//    </parameters>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="smo" variable="true" assignable="false" input="true">
+//    <dataOutputs target="//@executableElements.5/@parameters.0"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="ServiceMessageObject" namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:LibraryActivity" name="print BO to log" description="Print a text representation of the input BO to System.out" category="utility" template="com.ibm.websphere.bo.BOXMLSerializer srv = (com.ibm.websphere.bo.BOXMLSerializer) new com.ibm.websphere.sca.ServiceManager().locateService(&quot;com/ibm/websphere/bo/BOXMLSerializer&quot;);&#xA;commonj.sdo.Type type = &lt;%businessObject%>.getType();&#xA;srv.writeDataObject(&lt;%businessObject%>, type.getURI(), type.getName(), java.lang.System.out);">
+//    <parameters name="businessObject" dataInputs="//@executableElements.4/@dataOutputs.0" displayName="business object">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="commonj.sdo.DataObject"/>
+//    </parameters>
+//    <exceptions>
+//      <dataOutputs target="//@executableElements.6/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.io.IOException"/>
+//    </exceptions>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:ExceptionHandler" name="Exception Handler">
+//    <parameters name="ex" dataInputs="//@executableElements.5/@exceptions.0/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.io.IOException"/>
+//    </parameters>
+//    <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="ex" variable="true">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.io.IOException"/>
+//    </executableElements>
+//    <executableGroups executableElements="//@executableElements.6/@executableElements.0"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:JavaActivity" name="fire" category="com.ibm.wsspi.sibx.mediation.OutputTerminal" className="com.ibm.wsspi.sibx.mediation.OutputTerminal" memberName="fire">
+//    <parameters name="OutputTerminal" dataInputs="//@executableElements.0/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wsspi.sibx.mediation.OutputTerminal"/>
+//    </parameters>
+//    <parameters name="smo" dataInputs="//@executableElements.1/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="ServiceMessageObject" namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" nillable="false"/>
+//    </parameters>
+//  </executableElements>
+//  <executableGroups executableElements="//@executableElements.2 //@executableElements.3"/>
+//  <executableGroups executableElements="//@executableElements.4 //@executableElements.5 //@executableElements.6"/>
+//  <executableGroups executableElements="//@executableElements.0 //@executableElements.1 //@executableElements.7"/>
+//</com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG
+//!SMAP!*L
+//!SMAP!3:2,1
+//!SMAP!4:3,3
+//!SMAP!6:7,5
+//!SMAP!9:15,1
+//!SMAP!1000000:91,1]]></property>
+          <property name="javaClass" value="sca.component.mediation.java.Custom1449255645544"/>
+          <property name="version" value="6.1.0"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal explicitType="false" type="XMLSchema:anyType">
+            <wire targetNode="XSLT_unexpectedError"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="XSLT_unexpectedError" type="XSLTransformation" mfcex:x="1547" mfcex:y="282">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/XSLT_unexpectedError_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/XSLT_unexpectedError_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="XMLSchema:anyType">
+            <wire targetNode="XSLTransformation1"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </requestFlow>
+      <errorFlow>
+        <node displayName="requestUserAuthenticationAndRetrieve : NCL_CruiseUserAuthenticationAndRetrieve_Interface" name="NCL_CruiseUserAuthenticationAndRetrieve_Interface_requestUserAuthenticationAndRetrieve_ErrorInput" type="ErrorInput">
+          <outputTerminal name="catchAll" type="XMLSchema:anyType"/>
+        </node>
+        <node displayName="requestUserAuthenticationAndRetrieve : NCL_CruiseUserAuthenticationAndRetrieve_Interface" name="NCL_CruiseUserAuthenticationAndRetrieve_Interface_requestUserAuthenticationAndRetrieve_InputResponse" type="InputResponse">
+          <inputTerminal type="ns1_1_1:requestUserAuthenticationAndRetrieveResponseMsg"/>
+        </node>
+      </errorFlow>
+    </operation>
+  </interface>
+</mediationFlow>

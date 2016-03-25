@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="TP_LoggerApp">
+        <wb-resource deploy-path="/" source-path="/EarContent"/>
+        <dependent-module archiveName="TP_Logger.jar" deploy-path="/" handle="module:/resource/TP_Logger/TP_Logger">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="TP_LoggerWeb.war" deploy-path="/" handle="module:/resource/TP_LoggerWeb/TP_LoggerWeb">
+            <dependent-object>WebModule_1169158408425</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="CWYBC_JDBC.rar" deploy-path="/" handle="module:/resource/CWYBC_JDBC/CWYBC_JDBC">
+            <dependent-object>ConnectorModule_1446842094718</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="CWYEM_EMail.rar" deploy-path="/" handle="module:/resource/CWYEM_EMail/CWYEM_EMail">
+            <dependent-object>ConnectorModule_1446842171342</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

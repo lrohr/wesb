@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseUserAuthenticationAndRetrieve/xslt/XSLT_unexpectedError_req_1" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseUserAuthenticationAndRetrieve/xslt/XSLT_unexpectedError_req_1">
+    <input correlationContext="{http://NCL_CruiseUserAuthenticationAndRetrieve}AppContext" message="" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseUserAuthenticationAndRetrieve}AppContext" message="" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <mappingDeclaration name="XSLT_unexpectedError_req_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRQ"/>
+            <output path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/logId"/>
+            <output path="context/correlation/logId"/>
+        </move>
+        <local>
+            <input path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRQ"/>
+            <output path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRS"/>
+            <move automap="true">
+                <input path="@AltLangID"/>
+                <output path="@AltLangID"/>
+            </move>
+            <move automap="true">
+                <input path="@EchoToken"/>
+                <output path="@EchoToken"/>
+            </move>
+            <move automap="true">
+                <input path="@PrimaryLangID"/>
+                <output path="@PrimaryLangID"/>
+            </move>
+            <move automap="true">
+                <input path="@RetransmissionIndicator"/>
+                <output path="@RetransmissionIndicator"/>
+            </move>
+            <move automap="true">
+                <input path="@SequenceNmbr"/>
+                <output path="@SequenceNmbr"/>
+            </move>
+            <move automap="true">
+                <input path="@Target"/>
+                <output path="@Target"/>
+            </move>
+            <move automap="true">
+                <input path="@TimeStamp"/>
+                <output path="@TimeStamp"/>
+            </move>
+            <move automap="true">
+                <input path="@TransactionIdentifier"/>
+                <output path="@TransactionIdentifier"/>
+            </move>
+            <move automap="true">
+                <input path="@TransactionStatusCode"/>
+                <output path="@TransactionStatusCode"/>
+            </move>
+            <move automap="true">
+                <input path="@Version"/>
+                <output path="@Version"/>
+            </move>
+            <create empty="true">
+                <output path="Success"/>
+            </create>
+            <assign value="9999">
+                <output path="Warnings/Warning/@Code"/>
+            </assign>
+            <assign value="Unexpected Error - Seaware is not Available">
+                <output path="Warnings/Warning/@ShortText"/>
+            </assign>
+            <assign value="3">
+                <output path="Warnings/Warning/@Type"/>
+            </assign>
+        </local>
+    </mappingDeclaration>
+</mappingRoot>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sibxscaresources:SCAModule xmlns:sibxscaresources="http://www.ibm.com/websphere/appserver/schemas/6.0/sibxscaresources.xmi" identifier="TP_Logger">
+  <sCAModuleProperty identifier="SkipRequestType" value="contains('UATREQ CLIREQ RNLREQ',/body/TP_InsertUpdate/REQUEST_TYPE_CD)" type="XPATH" group="TP_Logger.PublishToQueue"/>
+  <sCAModuleProperty identifier="SkipResponseType" value="contains('UATRES CLIRES RNLRES',/body/TP_InsertUpdate/RESPONSE_TYPE_CD)" type="XPATH" group="TP_Logger.PublishToQueue"/>
+</sibxscaresources:SCAModule>

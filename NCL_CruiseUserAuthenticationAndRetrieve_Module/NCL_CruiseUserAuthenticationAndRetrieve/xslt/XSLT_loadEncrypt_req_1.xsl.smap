@@ -1,0 +1,14 @@
+* SMAP
+XSLT_loadEncrypt_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLT_loadEncrypt_req_1.map
+/NCL_CruiseUserAuthenticationAndRetrieve/xslt/XSLT_loadEncrypt_req_1.map
+*L
+3:85,4
+5:89,4
+4:93,5
+1:50,17
+2:74,3
+*E

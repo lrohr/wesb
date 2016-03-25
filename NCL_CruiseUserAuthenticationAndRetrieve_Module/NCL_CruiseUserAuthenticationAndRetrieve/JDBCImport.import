@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:EIS="http://www.ibm.com/xmlns/prod/websphere/scdl/eis/6.0.0" xmlns:ns1="http://NCL_CruiseUserAuthenticationAndRetrieve/JDBCImport" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="JDBCImport" name="JDBCImport">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:JDBCImport">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="true"/>
+    </interface>
+  </interfaces>
+  <esbBinding xsi:type="EIS:EISImportBinding" faultSelector="com.ibm.j2ca.extension.emd.runtime.WBIFaultSelectorImpl" dataBindingType="com.ibm.j2ca.jdbc.emd.databinding.JDBCDataBindingGenerator">
+    <resourceAdapter name="NCL_CruiseUserAuthenticationAndRetrieveApp.IBM WebSphere Adapter for JDBC" type="com.ibm.j2ca.jdbc.JDBCResourceAdapter" version="7.5.0.1">
+      <properties>
+        <adapterID>001</adapterID>
+      </properties>
+    </resourceAdapter>
+    <connection type="com.ibm.j2ca.jdbc.JDBCManagedConnectionFactory" interactionType="com.ibm.j2ca.jdbc.JDBCInteractionSpec">
+      <properties>
+        <XADataSourceJNDIName>SEAWARE_JNDI</XADataSourceJNDIName>
+        <adapterID>001</adapterID>
+        <connectionType>XADataSourceJNDI</connectionType>
+        <databaseURL>jdbc:oracle:thin:@167.118.123.41:1521:sead</databaseURL>
+        <databaseVendor>ORACLE</databaseVendor>
+        <jdbcDriverClass>oracle.jdbc.driver.OracleDriver</jdbcDriverClass>
+        <pingQuery>select 1 from dual</pingQuery>
+        <returnDummyBOForSP>false</returnDummyBOForSP>
+      </properties>
+    </connection>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_user_lookup.NclseaNcl_Wesb_User_LookupDataBinding" method="executeNclseaNcl_Wesb_User_Lookup" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.nclseancl_wesb_user_lookup.NclseaNcl_Wesb_User_LookupDataBinding">
+      <faultBinding fault="INTEGRITY_CONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="UNIQUECONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>Execute</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+  </esbBinding>
+</scdl:import>

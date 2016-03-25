@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mediationFlow xmlns="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlow" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://TP_Logger/TP_Interface" name="PublishToQueue" targetNamespace="http://TP_Logger">
+  <import location="TP_Interface.wsdl" namespace="http://TP_Logger/TP_Interface"/>
+  <promotedProperty name="SkipRequestType" group="TP_Logger.PublishToQueue" value="contains('UATREQ CLIREQ RNLREQ',/body/TP_InsertUpdate/REQUEST_TYPE_CD)"/>
+  <promotedProperty name="SkipResponseType" group="TP_Logger.PublishToQueue" value="contains('UATRES CLIRES RNLRES',/body/TP_InsertUpdate/RESPONSE_TYPE_CD)"/>
+  <reference name="TP_InterfacePartner" portType="ns1:TP_Interface"/>
+  <interface portType="ns1:TP_Interface">
+    <operation name="TP_InsertUpdate">
+      <requestFlow>
+        <node displayName="TP_InsertUpdate : TP_Interface" name="TP_Interface_TP_InsertUpdate_Input" type="Input">
+          <outputTerminal type="ns1:TP_InsertUpdateRequestMsg">
+            <wire targetNode="SkipLoggingFilter"/>
+          </outputTerminal>
+        </node>
+        <node name="PublishToQueue" type="ServiceInvoke">
+          <property name="referenceName" value="TP_InterfacePartner"/>
+          <property name="operationName" value="TP_InsertUpdate"/>
+          <inputTerminal type="ns1:TP_InsertUpdateRequestMsg"/>
+          <outputTerminal name="timeout" type="ns1:TP_InsertUpdateRequestMsg">
+            <wire targetNode="Stop1"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="Stop1"/>
+          </failTerminal>
+        </node>
+        <node name="Stop1" type="Stop">
+          <inputTerminal/>
+        </node>
+        <node name="BOMapper1" type="BOMapper">
+          <property name="root" value="/body"/>
+          <property name="mappingFile" value="ScrubXML2.map"/>
+          <inputTerminal type="ns1:TP_InsertUpdateRequestMsg"/>
+          <outputTerminal type="ns1:TP_InsertUpdateRequestMsg">
+            <wire targetNode="PublishToQueue"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="SkipLoggingFilter" type="MessageFilter">
+          <table name="filters">
+            <row>
+              <property name="pattern" promotedPropertyGroup="TP_Logger.PublishToQueue" promotedPropertyName="SkipRequestType" value="contains('',/body/TP_InsertUpdate/REQUEST_TYPE_CD)"/>
+              <property name="terminalName" value="match1"/>
+            </row>
+            <row>
+              <property name="pattern" promotedPropertyGroup="TP_Logger.PublishToQueue" promotedPropertyName="SkipResponseType" value="contains('',/body/TP_InsertUpdate/RESPONSE_TYPE_CD)"/>
+              <property name="terminalName" value="match1"/>
+            </row>
+          </table>
+          <inputTerminal/>
+          <outputTerminal name="default">
+            <wire targetNode="BOMapper1"/>
+          </outputTerminal>
+          <outputTerminal displayName="skipLogging" name="match1">
+            <wire targetNode="Stop2"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="Stop2" type="Stop">
+          <inputTerminal/>
+        </node>
+      </requestFlow>
+      <errorFlow>
+        <node displayName="TP_InsertUpdate : TP_Interface" name="TP_Interface_TP_InsertUpdate_ErrorInput" type="ErrorInput">
+          <outputTerminal name="catchAll" type="XMLSchema:anyType"/>
+        </node>
+      </errorFlow>
+    </operation>
+  </interface>
+</mediationFlow>

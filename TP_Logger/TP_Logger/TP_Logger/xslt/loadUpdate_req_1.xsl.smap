@@ -1,0 +1,14 @@
+* SMAP
+loadUpdate_req_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 loadUpdate_req_1.map
+/TP_Logger/xslt/loadUpdate_req_1.map
+*L
+1:54,17
+4:90,6
+3:84,6
+5:96,6
+2:102,5
+*E

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://NCL_CruiseUserAuthenticationAndRetrieve/xslt/XSLT_loadCliret" version="7.5.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://NCL_CruiseUserAuthenticationAndRetrieve/xslt/XSLT_loadCliret">
+    <input correlationContext="{http://NCL_CruiseUserAuthenticationAndRetrieve}AppContext" message="{http://TP_Logger/TP_Interface}TP_InsertUpdateRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="{http://NCL_CruiseUserAuthenticationAndRetrieve}AppContext" message="{http://NCL_WESB_Shared_Library/NCL_CruiseRetrieveClient_Interface}Perform_NCL_CruiseRetrieveClientRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <mappingDeclaration name="XSLT_loadCliret">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <move>
+            <input path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRQ/@AltLangID"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClient/NCL_CruiseRetrieveClientRQ/@AltLangID"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRQ/@EchoToken"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClient/NCL_CruiseRetrieveClientRQ/@EchoToken"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRQ/@PrimaryLangID"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClient/NCL_CruiseRetrieveClientRQ/@PrimaryLangID"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRQ/@RetransmissionIndicator"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClient/NCL_CruiseRetrieveClientRQ/@RetransmissionIndicator"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRQ/@SequenceNmbr"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClient/NCL_CruiseRetrieveClientRQ/@SequenceNmbr"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRQ/@Target"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClient/NCL_CruiseRetrieveClientRQ/@Target"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRQ/@TimeStamp"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClient/NCL_CruiseRetrieveClientRQ/@TimeStamp"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRQ/@TransactionIdentifier"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClient/NCL_CruiseRetrieveClientRQ/@TransactionIdentifier"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRQ/@TransactionStatusCode"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClient/NCL_CruiseRetrieveClientRQ/@TransactionStatusCode"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRQ/@Version"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClient/NCL_CruiseRetrieveClientRQ/@Version"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRQ/POS"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClient/NCL_CruiseRetrieveClientRQ/POS"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRQ/UserLogin/@UserLoginName"/>
+            <output path="body/Perform_NCL_CruiseRetrieveClient/NCL_CruiseRetrieveClientRQ/UserLogin/@UserLoginName"/>
+        </move>
+        <move>
+            <input path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRQ"/>
+            <output path="context/correlation/NCL_CruiseUserAuthenticationAndRetrieveRQ"/>
+        </move>
+        <move>
+            <input path="context/correlation/logId"/>
+            <output path="context/correlation/logId"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

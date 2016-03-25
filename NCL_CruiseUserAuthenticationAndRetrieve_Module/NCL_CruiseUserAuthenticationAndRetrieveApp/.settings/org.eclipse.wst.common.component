@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="NCL_CruiseUserAuthenticationAndRetrieveApp">
+        <wb-resource deploy-path="/" source-path="/EarContent"/>
+        <dependent-module archiveName="NCL_CruiseUserAuthenticationAndRetrieve.jar" deploy-path="/" handle="module:/resource/NCL_CruiseUserAuthenticationAndRetrieve/NCL_CruiseUserAuthenticationAndRetrieve">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="NCL_CruiseUserAuthenticationAndRetrieveWeb.war" deploy-path="/" handle="module:/resource/NCL_CruiseUserAuthenticationAndRetrieveWeb/NCL_CruiseUserAuthenticationAndRetrieveWeb">
+            <dependent-object>WebModule_1169158408425</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="NCL_Utils.jar" deploy-path="/" handle="module:/resource/NCL_Utils/NCL_Utils">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="NCL_WESB_Shared_Library.jar" deploy-path="/" handle="module:/resource/NCL_WESB_Shared_Library/NCL_WESB_Shared_Library">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="CWYBC_JDBC.rar" deploy-path="/" handle="module:/resource/CWYBC_JDBC/CWYBC_JDBC">
+            <dependent-object>ConnectorModule_1449253104372</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+	targetNamespace="http://NCL_CruiseUserAuthenticationAndRetrieve"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0="http://nclapi/schemas">
+	<xsd:import
+		schemaLocation="NCL_CruiseUserAuthenticationAndRetrieveRS.xsd"
+		namespace="http://nclapi/schemas">
+	</xsd:import>
+	<xsd:import
+		schemaLocation="NCL_CruiseUserAuthenticationAndRetrieveRQ.xsd"
+		namespace="http://nclapi/schemas">
+	</xsd:import>
+	<xsd:complexType name="AppContext">
+		<xsd:sequence>
+			<xsd:element minOccurs="0"
+				ref="bons0:NCL_CruiseUserAuthenticationAndRetrieveRQ">
+			</xsd:element>
+			<xsd:element minOccurs="0"
+				ref="bons0:NCL_CruiseUserAuthenticationAndRetrieveRS">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="passwordLength"
+				type="xsd:int">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="logId" type="xsd:string"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
