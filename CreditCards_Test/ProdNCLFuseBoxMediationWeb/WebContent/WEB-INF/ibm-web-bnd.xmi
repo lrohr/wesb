@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webappbnd:WebAppBinding xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:webappbnd="webappbnd.xmi" xmi:id="WebAppBinding_1169158416159" virtualHostName="default_host">
+  <webapp href="WEB-INF/web.xml#WebApp_ID"/>
+  <resRefBindings xmi:id="ResourceRefBinding_1407245014730" jndiName="ProdNCLFuseBoxMediation/NCLFuseBoxMediationExport1_FAILEDEVENT_REPLAY_CF" loginConfigurationName="DefaultPrincipalMapping">
+    <bindingResourceRef href="WEB-INF/web.xml#ResourceRef_1407245014730"/>
+    <properties xmi:id="Property_1407245014730" name="com.ibm.mapping.authDataAlias" value="SCA_Auth_Alias"/>
+  </resRefBindings>
+  <resRefBindings xmi:id="ResourceRefBinding_1407464348660" jndiName="ProdNCLFuseBoxMediation/NCLFuseBoxMediationExport1_FAILEDEVENT_REPLAY_CF" loginConfigurationName="DefaultPrincipalMapping">
+    <bindingResourceRef href="WEB-INF/web.xml#ResourceRef_1407464348660"/>
+    <properties xmi:id="Property_1407464348660" name="com.ibm.mapping.authDataAlias" value="SCA_Auth_Alias"/>
+  </resRefBindings>
+  <resRefBindings xmi:id="ResourceRefBinding_1445972431008" jndiName="ProdNCLFuseBoxMediation/NCLFuseBoxMediationExport1_FAILEDEVENT_REPLAY_CF" loginConfigurationName="DefaultPrincipalMapping">
+    <bindingResourceRef href="WEB-INF/web.xml#ResourceRef_1445972431008"/>
+    <properties xmi:id="Property_1445972431008" name="com.ibm.mapping.authDataAlias" value="SCA_Auth_Alias"/>
+  </resRefBindings>
+  <resRefBindings xmi:id="ResourceRefBinding_1445972915908" jndiName="ProdNCLFuseBoxMediation/NCLFuseBoxMediationExport1_FAILEDEVENT_REPLAY_CF" loginConfigurationName="DefaultPrincipalMapping">
+    <bindingResourceRef href="WEB-INF/web.xml#ResourceRef_1445972915908"/>
+    <properties xmi:id="Property_1445972915908" name="com.ibm.mapping.authDataAlias" value="SCA_Auth_Alias"/>
+  </resRefBindings>
+  <resRefBindings xmi:id="ResourceRefBinding_1445973677711" jndiName="ProdNCLFuseBoxMediation/NCLFuseBoxMediationExport1_FAILEDEVENT_REPLAY_CF" loginConfigurationName="DefaultPrincipalMapping">
+    <bindingResourceRef href="WEB-INF/web.xml#ResourceRef_1445973677711"/>
+    <properties xmi:id="Property_1445973677711" name="com.ibm.mapping.authDataAlias" value="SCA_Auth_Alias"/>
+  </resRefBindings>
+  <resRefBindings xmi:id="ResourceRefBinding_1446749808838" jndiName="ProdNCLFuseBoxMediation/NCLFuseBoxMediationExport1_FAILEDEVENT_REPLAY_CF" loginConfigurationName="DefaultPrincipalMapping">
+    <bindingResourceRef href="WEB-INF/web.xml#ResourceRef_1446749808838"/>
+    <properties xmi:id="Property_1446749808838" name="com.ibm.mapping.authDataAlias" value="SCA_Auth_Alias"/>
+  </resRefBindings>
+  <resRefBindings xmi:id="ResourceRefBinding_1447133238931" jndiName="ProdNCLFuseBoxMediation/NCLFuseBoxMediationExport1_FAILEDEVENT_REPLAY_CF" loginConfigurationName="DefaultPrincipalMapping">
+    <bindingResourceRef href="WEB-INF/web.xml#ResourceRef_1447133238931"/>
+    <properties xmi:id="Property_1447133238931" name="com.ibm.mapping.authDataAlias" value="SCA_Auth_Alias"/>
+  </resRefBindings>
+  <resRefBindings xmi:id="ResourceRefBinding_1447189885352" jndiName="ProdNCLFuseBoxMediation/NCLFuseBoxMediationExport1_FAILEDEVENT_REPLAY_CF" loginConfigurationName="DefaultPrincipalMapping">
+    <bindingResourceRef href="WEB-INF/web.xml#ResourceRef_1447189885352"/>
+    <properties xmi:id="Property_1447189885352" name="com.ibm.mapping.authDataAlias" value="SCA_Auth_Alias"/>
+  </resRefBindings>
+  <resRefBindings xmi:id="ResourceRefBinding_1455043842961" jndiName="ProdNCLFuseBoxMediation/NCLFuseBoxMediationExport1_FAILEDEVENT_REPLAY_CF" loginConfigurationName="DefaultPrincipalMapping">
+    <bindingResourceRef href="WEB-INF/web.xml#ResourceRef_1455043842961"/>
+    <properties xmi:id="Property_1455043842961" name="com.ibm.mapping.authDataAlias" value="SCA_Auth_Alias"/>
+  </resRefBindings>
+  <resRefBindings xmi:id="ResourceRefBinding_1455043842962" jndiName="ProdNCLFuseBoxMediation/NCLFuseBoxMediationExport1_RECEIVE_D">
+    <bindingResourceRef href="WEB-INF/web.xml#ResourceRef_1455043842962"/>
+  </resRefBindings>
+</webappbnd:WebAppBinding>

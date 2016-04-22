@@ -34,9 +34,7 @@
 		
 		
 		<xsl:variable name="ncl_Office_w">
-			<!--  xsl:value-of select="substring-after($cardInfo/officeCodeTxt,'NCL ')" /  -->
-			<!--           added AUSTRALIA logic 06/14/13     ler        -->
-			 <xsl:choose>
+			<xsl:choose>
 				<xsl:when test=" $cardInfo/officeCodeTxt = 'AUSTRALIA' ">
 				    <xsl:value-of select="'AUSTRALIA'"/>
 				</xsl:when>
@@ -77,7 +75,6 @@
 			<xsl:attribute name="name"><xsl:value-of select="'Currency_Code'" /></xsl:attribute>
 			<xsl:value-of select="$ncl_Currency_cd" />
 		</Field>
-		
 		<Field>
 			<xsl:attribute name="name"><xsl:value-of select="'Venue_ID'" /></xsl:attribute>
 			
@@ -101,31 +98,29 @@
 				</xsl:when>
 				
 				<xsl:when test="   $ncl_Office_w = 'INTL'        ">
-					<xsl:value-of select="'RESUSD'" />
+				     <xsl:choose>
+						<xsl:when test=" $ncl_Currency_cd = 'MXN'    ">
+							<xsl:value-of select="'RESMXN'" />
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:value-of select="'RESUSD'" />
+						</xsl:otherwise>
+					</xsl:choose>
 				  
 				</xsl:when>
 				
 				
 				
 				<xsl:when test="   $ncl_Office_w = 'ASIA'        ">
-					<xsl:value-of select="'RESUSD'" />
-				
-				<!--  
-				      11/10/2015      for testing    all of Asia will     will be RESUSD
-				      11/10/2015      for testing    all of Asia will     will be RESUSD
-				      11/10/2015      for testing    all of Asia will     will be RESUSD
-				      
-				   <xsl:choose>
-						<xsl:when test=" $ncl_Currency_cd = 'USD' ">
-							<xsl:value-of select="'RESASIA'" />
+					  <xsl:choose>
+						<xsl:when test=" $ncl_Currency_cd = 'CNY'  or $ncl_Currency_cd = 'JPY'  ">
+							<xsl:value-of select="concat('RES',$ncl_Currency_cd )" />
 						</xsl:when>
 						<xsl:otherwise>
-							<xsl:value-of select="concat('RES',$ncl_Currency_cd )" />
+							<xsl:value-of select="'RESUSD'" />
 						</xsl:otherwise>
 					</xsl:choose>
-					
-				  -->
-				  
+							  
 				</xsl:when>
 
               
@@ -159,9 +154,6 @@
 		 Veneu_id      11/4/2010    ler
 			-->
 		</Field>
-		
-				
-		
 		<Field>
 			<xsl:attribute name="name"><xsl:value-of select="'Message_ID'" /></xsl:attribute>
 			<xsl:value-of select="$cardInfo/uniqueValId" />
